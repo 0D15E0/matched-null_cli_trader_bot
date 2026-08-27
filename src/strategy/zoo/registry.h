@@ -13,6 +13,7 @@
 #include "controls.h"
 #include "ensemble.h"
 #include "ensemble_rule.h"
+#include "ensemble_tuned.h"
 #include "ensemble_ls.h"
 #include "momo_breakout.h"
 #include "lppls.h"
@@ -309,6 +310,19 @@ inline const std::vector<FamilySpec>& families() {
             [](const std::vector<double>& v) {
                 EnsembleRuleParams p; p.entryMask = ip(v, 0); p.stayMask = ip(v, 1);
                 return std::make_unique<EnsembleRuleStrategy>(p);
+            }});
+
+        f.push_back({"ensemble_tuned", "ensemble_vote with member parameters exposed (sensitivity studies); defaults = live book",
+            {{"enterVotes", 1, 3, 2, true}, {"exitVotes", 0, 2, 0, true},
+             {"faberWindow", 20, 600, 200, true}, {"donEntry", 5, 250, 55, true},
+             {"donExit", 3, 120, 20, true}, {"donAtrMult", 0.0, 8.0, 2.5, false},
+             {"tsLookback", 10, 400, 90, true}, {"tsThreshold", 0.0, 0.25, 0.05, false}},
+            [](const std::vector<double>& v) {
+                EnsembleTunedParams p;
+                p.enterVotes = ip(v, 0); p.exitVotes = ip(v, 1); p.faberWindow = ip(v, 2);
+                p.donEntry = ip(v, 3); p.donExit = ip(v, 4); p.donAtrMult = dp(v, 5);
+                p.tsLookback = ip(v, 6); p.tsThreshold = dp(v, 7);
+                return std::make_unique<EnsembleTunedStrategy>(p);
             }});
 
         // ---- controls ----------------------------------------------------

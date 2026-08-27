@@ -291,7 +291,10 @@ public:
             auto strategy = buildStrategy(ind);
             if (!strategy) return out;
             BacktestConfig bc = cfg_.backtest;
-            bc.volTargetAnnual = ind.volTarget();
+            // With the sizing gene disabled (--no-vol-target) the search keeps the
+            // CLI's --vol-target instead of collapsing to all-in, so a run can
+            // optimise strategy parameters at a FIXED, stated risk level.
+            bc.volTargetAnnual = cfg_.allowVolTarget ? ind.volTarget() : cfg_.backtest.volTargetAnnual;
             // The deflated Sharpe is meaningless without the number of
             // candidates the reported one was selected from, and is actively
             // misleading with a wrong one - so it is only populated on the
