@@ -29,8 +29,18 @@ trend rules vote**, each looking at the trend through a different lens:
 | Moving average (`faber_ma`) | "Is the price above its own average of the last ~33 days?" | Faber 2007, and folk knowledge long before |
 | Breakout (`donchian`) | "Did the price recently punch through its ~9-day high, and has it not broken down since?" | Donchian's rule, 1960s; the Turtle traders |
 
-**The slice is long while at least 2 of the 3 say "uptrend", and in cash once
-at most 1 still does.** Exits are never blocked — any slice can always get out.
+**The slice is long while at least 2 of the 3 say "uptrend", and goes to cash
+only once all three have stopped saying it.** Exits are never blocked — any
+slice can always get out.
+
+(Until 2026-08-26 it went to cash as soon as the count fell to 1. Selling
+later — waiting for the last member to give up — cut the number of trades by
+two-thirds and scored higher on every development year, at the price of riding
+pullbacks deeper before exiting; it did *not* pass our own pre-registered
+adoption test and did worse on the most recent two years, so it was adopted as
+an explicit judgement call, not as a proven improvement. PROFITABILITY_PLAN.md
+addendum 15 has the full comparison; the live forward test that judges it runs
+to 2027-08-26.)
 
 Why a vote instead of the best rule? Because when we tested the rules head to
 head, their ranking reshuffled every time we added a few days of data. Picking

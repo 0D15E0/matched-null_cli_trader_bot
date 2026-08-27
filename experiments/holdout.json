@@ -62,8 +62,22 @@
         {
           "date": "2026-08-25",
           "change": "Sizing changed on the live book from --vol-target 0.20 (30-bar vol window) to --vol-target 0.30 with --vol-window 90, after ~1 day of forward data. Chosen from a dev-only ladder (addendum 13): Sharpe flat across 0.20-0.40, so this is a risk-level choice, not a new hypothesis; the 90-bar window is a measured drawdown reducer. Criteria unchanged. Note the PRIMARY criterion (drawdown <= 0.5x basket) becomes HARDER to pass at the higher target since strategy drawdown scales with it while the basket's does not."
+        },
+        {
+          "date": "2026-08-26",
+          "change": "TERMINATED. Two unregistered changes to the measured configuration: sizing moved to --vol-target 0.30 --vol-window 90 (applied to the live book ~2026-08-26 without an amendment - a protocol lapse, recorded here), and on 2026-08-26 the exit rule changed from exitVotes=1 to exitVotes=0 by operator decision after a 129-variant dev sweep (PROFITABILITY_PLAN.md addendum 15). ~1.5 days of forward data accrued under the original spec; 0 looks taken. VOID, not failed. Successor: live-8sleeve-ensemble-exit0."
         }
-      ]
+      ],
+      "status": "TERMINATED 2026-08-26 (configuration changed; see amendments). VOID."
+    },
+    {
+      "name": "live-8sleeve-ensemble-exit0",
+      "registered_on": "2026-08-26",
+      "start": "2026-08-26",
+      "start_epoch": 1787702400,
+      "hypothesis": "LIVE book (state_live/, real fills) of 8 equal-weight sleeves (BTC/ETH/XRP/LTC/DOGE/TRX/ADA/SOL_USDT, 4h) running ensemble_vote with enterVotes=2, exitVotes=0 (long while >=2 of {tsmom,faber_ma,donchian} want long; flat only once all three have quit), --vol-target 0.30 --vol-window 90, $487/sleeve via --quote-cap. Judged on data from start_epoch onward, no earlier than 2027-08-26 (>=12 months). PRIMARY: portfolio max drawdown <= 0.5x the equal-weight buy-and-hold basket's over the identical window. SECONDARY (directional, underpowered, stated in advance): portfolio excess Sharpe over the basket > 0. VALIDITY GATE: parity signal match ~100% per sleeve.",
+      "note": "Adopted AGAINST the pre-registered adoption rule of addendum 15 (0/129 variants passed; this rule trails the previous live rule on the burnt 2024+ window: 1.10 vs 1.42 Sharpe, 28.8% vs 18.6% DD, descriptive). Operator decision, made with that stated. Dev evidence: Sharpe 1.62 vs 1.24, maxDD 23.5% vs 20.8% (6 pairs, vt 0.30/90 vs 0.20/30), 1/3 the trades. Known cost: deeper per-sleeve drawdowns (XRP 63% vs 31% on dev). Positions open at the switch were carried over unchanged and remain sized at their entry-time parameters.",
+      "looks_taken": 0
     }
   ]
 }

@@ -26,7 +26,8 @@ youruser ALL=(root) NOPASSWD: /usr/bin/systemctl * cli-trader@*, \
 
     host      "$PI"                     (see Conventions above)
     repo      ~/trader/cli_trader       on the Pi
-    strategy  ensemble_vote, 8 sleeves, --vol-target 0.30 --vol-window 90
+    strategy  ensemble_vote enter>=2 / exit<=0 (--sparams enterVotes=2,exitVotes=0),
+              8 sleeves, --vol-target 0.30 --vol-window 90
     config    deploy/pi/bot.env         (one file governs all eight sleeves)
     state     state_live/               logs: logs_pi/
 
@@ -42,7 +43,10 @@ Eight independent sleeves — BTC, ETH, XRP, LTC, DOGE, TRX, ADA, SOL against
 USDT — on 4h candles, each holding an equal share of the book.
 
 `ensemble_vote` is a majority vote of three trend rules at published defaults:
-**long while at least 2 of 3 want to be long, flat once at most 1 does.**
+**long while at least 2 of 3 want to be long; sell only once all three have
+quit** (`enterVotes=2, exitVotes=0`, live since 2026-08-26 — until then the
+book sold when the count fell to 1; PROFITABILITY_PLAN.md addendum 15 has the
+sweep behind the change and its known cost, deeper per-sleeve pullbacks).
 Exits are never blocked.
 
 | member | wants to be long while |
@@ -322,8 +326,10 @@ The 2024+ window was frozen as a single-look holdout and has since been read
 many times (see `experiments/holdout.json`, which records the contamination).
 Numbers above are **descriptive of that period**, not out-of-sample evidence.
 
-The pre-registered test is `forward_tests` → `paper-8sleeve-ensemble` in that
-file: data from 2026-08-25 onward, readable no earlier than **2027-08-25**,
+The pre-registered test is `forward_tests` → `live-8sleeve-ensemble-exit0` in
+that file (its predecessor, `paper-8sleeve-ensemble`, was voided when the exit
+rule changed): data from 2026-08-26 onward, readable no earlier than
+**2027-08-26**,
 with **drawdown <= half the basket's** as the primary criterion and excess
 Sharpe demoted to secondary and flagged underpowered in advance.
 

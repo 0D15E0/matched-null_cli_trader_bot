@@ -12,6 +12,7 @@
 #include "breakout.h"
 #include "controls.h"
 #include "ensemble.h"
+#include "ensemble_rule.h"
 #include "ensemble_ls.h"
 #include "momo_breakout.h"
 #include "lppls.h"
@@ -301,6 +302,13 @@ inline const std::vector<FamilySpec>& families() {
             [](const std::vector<double>& v) {
                 EnsembleLsParams p; p.enterVotes = ip(v, 0);
                 return std::make_unique<EnsembleLongShortStrategy>(p);
+            }});
+
+        f.push_back({"ensemble_rule", "general 3-member vote: entry/stay as 8-bit truth tables over (tsmom,faber,donchian); default = live majority rule",
+            {{"entryMask", 1, 254, 232, true}, {"stayMask", 1, 254, 232, true}},
+            [](const std::vector<double>& v) {
+                EnsembleRuleParams p; p.entryMask = ip(v, 0); p.stayMask = ip(v, 1);
+                return std::make_unique<EnsembleRuleStrategy>(p);
             }});
 
         // ---- controls ----------------------------------------------------

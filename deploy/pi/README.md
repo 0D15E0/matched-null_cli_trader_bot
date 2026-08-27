@@ -40,10 +40,13 @@ sleeve actually stops it instead of fighting the supervisor.
 
 ## Verified on deployment day (2026-08-25)
 
-- **Numerically identical to the Mac.** `backtest --strategy ensemble_vote
-  --vol-target 0.20 --start 2024-01-01` on BTC returns the same total return
-  (62.40%), Sharpe (1.02), drawdown (23.79%) and trade count (61) on both
-  machines. Without this, nothing measured on the Mac would apply here.
+- **Numerically identical to the Mac.** On deployment day, `backtest --strategy
+  ensemble_vote --vol-target 0.20 --start 2024-01-01` on BTC returned the same
+  total return (62.40%), Sharpe (1.02), drawdown (23.79%) and trade count (61)
+  on both machines. Re-verified 2026-08-26 for the configuration now live
+  (`--sparams enterVotes=2,exitVotes=0 --vol-target 0.30 --vol-window 90`,
+  dev window): Sharpe 1.32, drawdown 39.34%, 77 trades on both. Without this,
+  nothing measured on the Mac would apply here.
 - **Survives reboot unattended.** Full reboot: back in ~25 s, 8/8 sleeves
   auto-started, NTP synced within 5 s, and every open position restored with
   its entry price intact.
