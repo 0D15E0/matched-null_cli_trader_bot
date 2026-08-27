@@ -1,0 +1,30 @@
+flowchart LR
+  classDef store fill:#eef6ff,stroke:#5b8def,color:#1a2b4c
+  classDef ext fill:#fff4e5,stroke:#e0a040,color:#4a3000
+  classDef cfg fill:#f3f3f3,stroke:#888,color:#222,stroke-dasharray: 4 3
+
+  subgraph PI["Raspberry Pi · rpi · Debian 13 · aarch64"]
+    direction LR
+    SD["systemd"]
+    subgraph UNITS["cli-trader@SYMBOL.service — template unit, one OS process per symbol"]
+      direction TB
+      B1["cli_trader run --symbol BTC_USDT"]
+      B2["cli_trader run --symbol ETH_USDT"]
+      B3["… ×8 (XRP LTC DOGE TRX ADA SOL)"]
+    end
+    TMR["healthcheck.timer<br/>every 10 min"] --> HC["check_pi.py"]
+    ENV["bot.env<br/>MODE STATE_DIR VOL_TARGET<br/>VOL_WINDOW QUOTE_CAP"]:::cfg
+    DOTENV[".env<br/>API-KEY SECRET-KEY"]:::cfg
+    DATA[("data/*.ctc<br/>append-only candles")]:::store
+    STATE[("state_live/<br/>*.state.json · *.trades.jsonl · *.lock")]:::store
+    LOGS[("logs_pi/*.log")]:::store
+  end
+  POLO["Poloniex REST<br/>public: candles<br/>private: balances · orders"]:::ext
+
+  SD -->|"Restart=on-failure · ExecStartPre guard · 0-20 s stagger"| UNITS
+  SD --> TMR
+  ENV -.->|EnvironmentFile| UNITS
+  DOTENV -.->|"read by the binary<br/>(never by systemd)"| UNITS
+  UNITS <-->|"poll every 120 s"| POLO
+  UNITS --> DATA & STATE & LOGS
+  HC -.->|reads| STATE

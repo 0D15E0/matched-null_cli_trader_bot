@@ -1,0 +1,3135 @@
+{
+  "config": {
+    "candidatesEvaluated": 4598,
+    "distinctGenomes": 4597,
+    "generations": 20,
+    "population": 260,
+    "seed": 20260824,
+    "surviveThreshold": 0.0,
+    "trainFraction": 0.7
+  },
+  "familyChampions": [
+    {
+      "family": "control_random",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -21.021554743038394,
+          "excessSharpe": -0.8026031308867476,
+          "exposurePct": 88.9920424403183,
+          "maxDD": 26.824528325823938,
+          "sharpe": 0.020801447990485056,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -16.18776638753041,
+          "excessSharpe": -0.14889069077610662,
+          "exposurePct": 88.9920424403183,
+          "maxDD": 14.371436458605547,
+          "sharpe": 0.5817711143810043,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -18.716399877147282,
+          "excessSharpe": -0.2941765212270353,
+          "exposurePct": 88.9920424403183,
+          "maxDD": 14.643163011960644,
+          "sharpe": 0.533915043862534,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -11.554416238965958,
+          "excessSharpe": -0.24240258216137145,
+          "exposurePct": 88.9920424403183,
+          "maxDD": 13.072757579992372,
+          "sharpe": 0.27139526411402826,
+          "trades": 10
+        }
+      ],
+      "label": "control_random vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.18094203786625057,
+        71.0,
+        51767.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "trainFitness": 0.09489180261883723,
+      "volTarget": 0.1
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -22.415778284254685,
+          "excessSharpe": -0.9682553860393823,
+          "exposurePct": 52.51989389920424,
+          "maxDD": 18.305877627690997,
+          "sharpe": -0.14485080716214963,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -18.18236972300429,
+          "excessSharpe": -0.28952274114366927,
+          "exposurePct": 57.16180371352785,
+          "maxDD": 15.171983704682305,
+          "sharpe": 0.4411390640134416,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -20.732756515452213,
+          "excessSharpe": -0.4386443928637634,
+          "exposurePct": 59.681697612732094,
+          "maxDD": 8.535618206749458,
+          "sharpe": 0.3894471722258059,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -11.935352132625598,
+          "excessSharpe": -0.2648850453595649,
+          "exposurePct": 39.52254641909814,
+          "maxDD": 11.493203251379636,
+          "sharpe": 0.24891280091583481,
+          "trades": 11
+        }
+      ],
+      "label": "odiseo vt=0.15",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        15.0,
+        38.0,
+        13.510262421763095,
+        3.793340052030479,
+        6.0,
+        18.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "trainFitness": 0.05602362342182177,
+      "volTarget": 0.15
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -22.56090386546714,
+          "excessSharpe": -0.9780462577512363,
+          "exposurePct": 56.63129973474801,
+          "maxDD": 17.14634264434739,
+          "sharpe": -0.1546416788740036,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -28.821716779227437,
+          "excessSharpe": -1.0823720649260393,
+          "exposurePct": 55.83554376657825,
+          "maxDD": 36.52862004681316,
+          "sharpe": -0.3517102597689284,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -23.30635853292098,
+          "excessSharpe": -0.7128404841902827,
+          "exposurePct": 61.53846153846154,
+          "maxDD": 16.881104960100572,
+          "sharpe": 0.11525108089928665,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -9.122700547281747,
+          "excessSharpe": -0.012024182644747805,
+          "exposurePct": 51.59151193633952,
+          "maxDD": 11.521569115667692,
+          "sharpe": 0.5017736636306519,
+          "trades": 14
+        }
+      ],
+      "label": "ehlers_trend vt=0.15",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        31.0,
+        6.0,
+        56.0,
+        0.05069741868140889
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "trainFitness": -0.005049098049452971,
+      "volTarget": 0.15
+    },
+    {
+      "family": "skew_reversal",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -19.677185341638292,
+          "excessSharpe": -0.7096848106302092,
+          "exposurePct": 49.3368700265252,
+          "maxDD": 18.219982711059235,
+          "sharpe": 0.1137197682470236,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -21.478039448137043,
+          "excessSharpe": -0.5576689034067928,
+          "exposurePct": 44.16445623342175,
+          "maxDD": 12.038411842764637,
+          "sharpe": 0.17299290175031817,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -20.659947916213994,
+          "excessSharpe": -0.45383872423947624,
+          "exposurePct": 66.57824933687003,
+          "maxDD": 15.002239002175624,
+          "sharpe": 0.374252840850093,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -13.203486293062781,
+          "excessSharpe": -0.3486765885685953,
+          "exposurePct": 39.257294429708224,
+          "maxDD": 6.8906365473205,
+          "sharpe": 0.16512125770680441,
+          "trades": 8
+        }
+      ],
+      "label": "skew_reversal+hawkes vt=0.10",
+      "paramNames": [
+        "window",
+        "entrySkew",
+        "holdBars",
+        "trendWindow"
+      ],
+      "params": [
+        17.0,
+        -0.11886028421151877,
+        36.0,
+        179.0
+      ],
+      "provenance": "Amaya, Christoffersen, Jacobs & Vasquez (2015), JFE 118(1)",
+      "trainFitness": -0.0070727710128395405,
+      "volTarget": 0.1
+    },
+    {
+      "family": "vol_managed",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.602317331217236,
+          "excessSharpe": -0.7828014425112835,
+          "exposurePct": 45.755968169761275,
+          "maxDD": 16.91757896900765,
+          "sharpe": 0.040603136365949255,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -11.248413438081585,
+          "excessSharpe": -0.0054769088842669955,
+          "exposurePct": 50.92838196286472,
+          "maxDD": 20.090458815639913,
+          "sharpe": 0.7251848962728439,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -18.773043158810456,
+          "excessSharpe": -0.4435418734080095,
+          "exposurePct": 53.183023872679044,
+          "maxDD": 21.177488775320302,
+          "sharpe": 0.3845496916815598,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -25.178781795146755,
+          "excessSharpe": -1.4495718637528436,
+          "exposurePct": 42.83819628647215,
+          "maxDD": 31.154277577241945,
+          "sharpe": -0.9357740174774438,
+          "trades": 20
+        }
+      ],
+      "label": "vol_managed vt=0.20",
+      "paramNames": [
+        "volWindow",
+        "rankWindow",
+        "maxVolRank",
+        "trendWindow"
+      ],
+      "params": [
+        39.0,
+        119.0,
+        0.5604093970681915,
+        340.0
+      ],
+      "provenance": "Moreira & Muir (2017), Journal of Finance 72(4)",
+      "trainFitness": -0.02559803094078017,
+      "volTarget": 0.2
+    },
+    {
+      "family": "tsmom",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.700525099005397,
+          "excessSharpe": -0.8433200605874794,
+          "exposurePct": 61.14058355437666,
+          "maxDD": 12.662886005373592,
+          "sharpe": -0.01991548171024668,
+          "trades": 13
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -23.38607267954844,
+          "excessSharpe": -0.7777361187317583,
+          "exposurePct": 57.16180371352785,
+          "maxDD": 16.380830425770814,
+          "sharpe": -0.04707431357464739,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -26.508563543112054,
+          "excessSharpe": -1.151061009899161,
+          "exposurePct": 65.78249336870026,
+          "maxDD": 15.027322013981625,
+          "sharpe": -0.32296944480959167,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -13.183373003038444,
+          "excessSharpe": -0.36445639433244736,
+          "exposurePct": 50.265251989389924,
+          "maxDD": 9.486789817354481,
+          "sharpe": 0.14934145194295234,
+          "trades": 12
+        }
+      ],
+      "label": "tsmom vt=0.10",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        14.0,
+        89.0,
+        0.8499559373367204,
+        2.406941436103267
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "trainFitness": -0.03688140187725086,
+      "volTarget": 0.1
+    },
+    {
+      "family": "donchian",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -15.24187158502659,
+          "excessSharpe": 0.033918421528950415,
+          "exposurePct": 35.145888594164454,
+          "maxDD": 6.060284863479166,
+          "sharpe": 0.8573230004061831,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -19.57346145966543,
+          "excessSharpe": -0.29543982886770337,
+          "exposurePct": 42.97082228116711,
+          "maxDD": 8.040325714155705,
+          "sharpe": 0.4352219762894075,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -26.733164778507714,
+          "excessSharpe": -1.2365102560575914,
+          "exposurePct": 49.3368700265252,
+          "maxDD": 15.537390916513234,
+          "sharpe": -0.4084186909680221,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -13.626263573728114,
+          "excessSharpe": -0.41635115265954736,
+          "exposurePct": 31.29973474801061,
+          "maxDD": 8.314724795347589,
+          "sharpe": 0.09744669361585233,
+          "trades": 8
+        }
+      ],
+      "label": "donchian vt=0.10",
+      "paramNames": [
+        "entryWindow",
+        "exitWindow",
+        "atrWindow",
+        "atrStopMult"
+      ],
+      "params": [
+        37.0,
+        97.0,
+        26.0,
+        3.1477927783167425
+      ],
+      "provenance": "Donchian's 4-week rule; the Turtle system",
+      "trainFitness": -0.05052008696398591,
+      "volTarget": 0.1
+    },
+    {
+      "family": "faber_ma",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -23.9780287339058,
+          "excessSharpe": -1.2249697302200895,
+          "exposurePct": 29.575596816976127,
+          "maxDD": 20.628809516698983,
+          "sharpe": -0.4015651513428568,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -18.87679552533079,
+          "excessSharpe": -0.35471409496715217,
+          "exposurePct": 37.53315649867374,
+          "maxDD": 14.869627545208866,
+          "sharpe": 0.3759477101899587,
+          "trades": 8
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -25.47176183487844,
+          "excessSharpe": -0.8954910608763001,
+          "exposurePct": 40.05305039787798,
+          "maxDD": 18.081000337332203,
+          "sharpe": -0.06739949578673088,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -16.38981906976837,
+          "excessSharpe": -0.7106823724082026,
+          "exposurePct": 26.392572944297083,
+          "maxDD": 18.44602236587564,
+          "sharpe": -0.1968845261328029,
+          "trades": 13
+        }
+      ],
+      "label": "faber_ma+hawkes vt=0.15",
+      "paramNames": [
+        "window",
+        "bandPct"
+      ],
+      "params": [
+        48.0,
+        0.6441926996527422
+      ],
+      "provenance": "Faber (2007), J. Wealth Management",
+      "trainFitness": -0.0709265457271715,
+      "volTarget": 0.15
+    },
+    {
+      "family": "pure_ichimoku",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.1062640820119,
+          "excessSharpe": -0.335119286126883,
+          "exposurePct": 43.63395225464191,
+          "maxDD": 8.596173807747164,
+          "sharpe": 0.4882852927503497,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -24.252874508821996,
+          "excessSharpe": -0.8986479319904394,
+          "exposurePct": 33.02387267904509,
+          "maxDD": 12.797557425688913,
+          "sharpe": -0.16798612683332848,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -26.787592306210442,
+          "excessSharpe": -1.1681133280558273,
+          "exposurePct": 48.673740053050395,
+          "maxDD": 18.113524515438094,
+          "sharpe": -0.3400217629662581,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -14.031126566839447,
+          "excessSharpe": -0.47735516611576567,
+          "exposurePct": 34.48275862068966,
+          "maxDD": 10.435547615160253,
+          "sharpe": 0.03644268015963401,
+          "trades": 11
+        }
+      ],
+      "label": "pure_ichimoku+hawkes vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Ichimoku cloud breakout, unfiltered",
+      "trainFitness": -0.09363378926706956,
+      "volTarget": 0.1
+    },
+    {
+      "family": "kama_trend",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.704281092589923,
+          "excessSharpe": -0.5845449950646507,
+          "exposurePct": 65.91511936339522,
+          "maxDD": 18.460578957079235,
+          "sharpe": 0.238859583812582,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -13.064955102132103,
+          "excessSharpe": -0.0987525923995356,
+          "exposurePct": 72.6790450928382,
+          "maxDD": 26.916111522030345,
+          "sharpe": 0.6319092127575753,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -25.874910339137404,
+          "excessSharpe": -0.8981344292822304,
+          "exposurePct": 79.44297082228117,
+          "maxDD": 24.723461683844018,
+          "sharpe": -0.07004286419266109,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -16.76037166628724,
+          "excessSharpe": -0.6232489082980149,
+          "exposurePct": 49.07161803713528,
+          "maxDD": 19.373340714842723,
+          "sharpe": -0.10945106202261523,
+          "trades": 18
+        }
+      ],
+      "label": "kama_trend vt=0.20",
+      "paramNames": [
+        "erWindow",
+        "fastPeriod",
+        "slowPeriod",
+        "minEfficiency"
+      ],
+      "params": [
+        23.0,
+        5.0,
+        58.0,
+        0.1654774802665463
+      ],
+      "provenance": "Kaufman (1995), efficiency-ratio adaptive average",
+      "trainFitness": -0.1190537038044132,
+      "volTarget": 0.2
+    },
+    {
+      "family": "patterns",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -18.149111260201288,
+          "excessSharpe": -0.517570272799108,
+          "exposurePct": 53.713527851458885,
+          "maxDD": 13.122935382414113,
+          "sharpe": 0.30583430607812473,
+          "trades": 4
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -28.67960567738018,
+          "excessSharpe": -1.5408570720529862,
+          "exposurePct": 43.236074270557026,
+          "maxDD": 22.805420149484966,
+          "sharpe": -0.8101952668958754,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -24.94075889823865,
+          "excessSharpe": -0.9359520226852505,
+          "exposurePct": 38.59416445623342,
+          "maxDD": 16.43314133980481,
+          "sharpe": -0.10786045759568119,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -9.661146446563063,
+          "excessSharpe": 0.32620392871389425,
+          "exposurePct": 30.106100795755967,
+          "maxDD": 5.3491711315236055,
+          "sharpe": 0.840001774989294,
+          "trades": 20
+        }
+      ],
+      "label": "patterns+hawkes vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Japanese candlestick signal ensemble",
+      "trainFitness": -0.14831140837266876,
+      "volTarget": 0.1
+    },
+    {
+      "family": "cusum_tb",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -21.806070114494702,
+          "excessSharpe": -0.9580785428602853,
+          "exposurePct": 65.91511936339522,
+          "maxDD": 13.763888447802103,
+          "sharpe": -0.13467396398305256,
+          "trades": 23
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -18.057469280680394,
+          "excessSharpe": -0.18084017630521954,
+          "exposurePct": 61.53846153846154,
+          "maxDD": 10.298079085941776,
+          "sharpe": 0.5498216288518913,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -22.586903299874006,
+          "excessSharpe": -0.6264638353555947,
+          "exposurePct": 68.3023872679045,
+          "maxDD": 11.363353725807244,
+          "sharpe": 0.20162772973397458,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -14.419665033389839,
+          "excessSharpe": -0.527190352967802,
+          "exposurePct": 48.80636604774536,
+          "maxDD": 12.604993619036694,
+          "sharpe": -0.013392506692402382,
+          "trades": 16
+        }
+      ],
+      "label": "cusum_tb vt=0.10",
+      "paramNames": [
+        "volWindow",
+        "hSigmas",
+        "ptMult",
+        "slMult",
+        "maxHold"
+      ],
+      "params": [
+        115.0,
+        3.7539363522232696,
+        5.872457752367622,
+        3.0517501203743693,
+        154.0
+      ],
+      "provenance": "Lopez de Prado (2018), AFML ch.2/3: CUSUM events + triple barrier",
+      "trainFitness": -0.1567986690660802,
+      "volTarget": 0.1
+    },
+    {
+      "family": "macd_norm",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.857857681139734,
+          "excessSharpe": -0.8103577326994488,
+          "exposurePct": 57.824933687002655,
+          "maxDD": 18.375153207785228,
+          "sharpe": 0.013046846177783948,
+          "trades": 13
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -20.03085417153394,
+          "excessSharpe": -0.4543748430022039,
+          "exposurePct": 60.07957559681697,
+          "maxDD": 16.82674054249586,
+          "sharpe": 0.276286962154907,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -24.2094976862246,
+          "excessSharpe": -0.8016508305051652,
+          "exposurePct": 63.92572944297082,
+          "maxDD": 19.2640840829392,
+          "sharpe": 0.026440734584404085,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -14.398185947484098,
+          "excessSharpe": -0.49808124979769597,
+          "exposurePct": 50.39787798408488,
+          "maxDD": 12.596513741453547,
+          "sharpe": 0.015716596477703716,
+          "trades": 10
+        }
+      ],
+      "label": "macd_norm vt=0.15",
+      "paramNames": [
+        "shortWindow",
+        "longWindow",
+        "priceStdWindow",
+        "signalStdWindow",
+        "entryZ"
+      ],
+      "params": [
+        10.0,
+        24.0,
+        71.0,
+        58.0,
+        0.44813356875427734
+      ],
+      "provenance": "Baz, Granger, Harvey, Le Roux & Rattray (2015), SSRN 2695101",
+      "trainFitness": -0.2703198357385008,
+      "volTarget": 0.15
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -12.001024806347305,
+          "excessSharpe": -0.13363061663452702,
+          "exposurePct": 42.30769230769231,
+          "maxDD": 16.646401466783487,
+          "sharpe": 0.6897739622427057,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -22.869516866814788,
+          "excessSharpe": -0.6711933130785361,
+          "exposurePct": 36.60477453580902,
+          "maxDD": 25.97656362183897,
+          "sharpe": 0.059468492078574756,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -19.781784856957366,
+          "excessSharpe": -0.4831151992892654,
+          "exposurePct": 42.83819628647215,
+          "maxDD": 20.84763999483531,
+          "sharpe": 0.3449763658003039,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -9.49812967890038,
+          "excessSharpe": -0.11658887344131641,
+          "exposurePct": 32.89124668435013,
+          "maxDD": 14.69519630897268,
+          "sharpe": 0.3972089728340833,
+          "trades": 12
+        }
+      ],
+      "label": "squeeze_breakout vt=0.20",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        32.0,
+        1.374782335779594,
+        308.0,
+        0.5236765707732567,
+        38.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "trainFitness": -0.2727930362915474,
+      "volTarget": 0.2
+    },
+    {
+      "family": "lppls_bubble",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -10.465910935673817,
+          "excessSharpe": -0.021191324883421903,
+          "exposurePct": 64.19098143236074,
+          "maxDD": 10.543653171369636,
+          "sharpe": 0.8022132539938108,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -13.086865062823328,
+          "excessSharpe": 0.17095534671064405,
+          "exposurePct": 44.96021220159151,
+          "maxDD": 10.622715972989836,
+          "sharpe": 0.9016171518677549,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -21.567063615508975,
+          "excessSharpe": -0.5544378366215528,
+          "exposurePct": 67.10875331564986,
+          "maxDD": 16.82430934638839,
+          "sharpe": 0.2736537284680165,
+          "trades": 8
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -14.614203579491846,
+          "excessSharpe": -0.48854353140492895,
+          "exposurePct": 56.63129973474801,
+          "maxDD": 19.790405745194395,
+          "sharpe": 0.025254314870470754,
+          "trades": 23
+        }
+      ],
+      "label": "lppls_bubble+hawkes vt=0.15",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        268.0,
+        40.0,
+        0.24474230703350425,
+        200.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "trainFitness": -0.3208603577436432,
+      "volTarget": 0.15
+    },
+    {
+      "family": "sma_cross",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -14.217463025605937,
+          "excessSharpe": -0.13859139360763828,
+          "exposurePct": 59.283819628647215,
+          "maxDD": 9.78992140210547,
+          "sharpe": 0.6848131852695944,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -18.79632882405955,
+          "excessSharpe": -0.30482970277261934,
+          "exposurePct": 60.47745358090186,
+          "maxDD": 16.27450819312086,
+          "sharpe": 0.42583210238449154,
+          "trades": 25
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -18.24765039513643,
+          "excessSharpe": -0.2641303639699303,
+          "exposurePct": 60.3448275862069,
+          "maxDD": 11.861228190070786,
+          "sharpe": 0.563961201119639,
+          "trades": 24
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -14.985818082289548,
+          "excessSharpe": -0.5739064461326275,
+          "exposurePct": 51.19363395225464,
+          "maxDD": 14.240453259815803,
+          "sharpe": -0.06010859985722788,
+          "trades": 28
+        }
+      ],
+      "label": "sma_cross vt=0.10",
+      "paramNames": [
+        "fast",
+        "slow"
+      ],
+      "params": [
+        60.0,
+        25.0
+      ],
+      "provenance": "repo: fast/slow moving-average crossover",
+      "trainFitness": -0.32641335636555857,
+      "volTarget": 0.1
+    },
+    {
+      "family": "ou_score",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.175155104575303,
+          "excessSharpe": -0.5524778538648929,
+          "exposurePct": 33.687002652519894,
+          "maxDD": 22.086879887741734,
+          "sharpe": 0.27092672501233983,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -15.812418360327051,
+          "excessSharpe": -0.26142999386636245,
+          "exposurePct": 46.286472148541115,
+          "maxDD": 19.950524961256736,
+          "sharpe": 0.4692318112907484,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -20.67575325710265,
+          "excessSharpe": -0.5472135645684544,
+          "exposurePct": 37.13527851458886,
+          "maxDD": 23.63483590713165,
+          "sharpe": 0.2808780005211149,
+          "trades": 23
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -10.425570708375197,
+          "excessSharpe": -0.024603755527774163,
+          "exposurePct": 14.456233421750664,
+          "maxDD": 11.959417278613373,
+          "sharpe": 0.48919409074762554,
+          "trades": 14
+        }
+      ],
+      "label": "ou_score vt=0.20",
+      "paramNames": [
+        "window",
+        "detrendWindow",
+        "entryS",
+        "exitS",
+        "maxHalfLifeFrac"
+      ],
+      "params": [
+        133.0,
+        91.0,
+        1.0854208284794997,
+        1.2990414244043589,
+        0.12231355308316844
+      ],
+      "provenance": "Avellaneda & Lee (2010), Quantitative Finance 10(7)",
+      "trainFitness": -0.3661530955184188,
+      "volTarget": 0.2
+    },
+    {
+      "family": "darvas",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -16.178914734702744,
+          "excessSharpe": 0.13418555846562663,
+          "exposurePct": 2.2546419098143238,
+          "maxDD": 4.403752271520353,
+          "sharpe": 0.9575901373428594,
+          "trades": 4
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -23.29285810071473,
+          "excessSharpe": -0.71648390810731,
+          "exposurePct": 21.618037135278513,
+          "maxDD": 23.669517785678472,
+          "sharpe": 0.014177897049800884,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -29.892921451883126,
+          "excessSharpe": -1.328549661413561,
+          "exposurePct": 15.251989389920425,
+          "maxDD": 22.36574423085762,
+          "sharpe": -0.5004580963239919,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -8.237283676978157,
+          "excessSharpe": 0.007589456114901805,
+          "exposurePct": 2.9177718832891246,
+          "maxDD": 18.11309621394904,
+          "sharpe": 0.5213873023903015,
+          "trades": 2
+        }
+      ],
+      "label": "darvas",
+      "paramNames": [
+        "pivotWindow",
+        "minSwingAtr",
+        "maxBoxWidthFrac",
+        "targetLevel"
+      ],
+      "params": [
+        11.0,
+        1.711170212714997,
+        0.2705458443044817,
+        0.6335857824933449
+      ],
+      "provenance": "Darvas (1960), box breakouts on volume",
+      "trainFitness": -0.4277670421129023,
+      "volTarget": 0.0
+    },
+    {
+      "family": "vr_switch",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -23.878505436988927,
+          "excessSharpe": -1.1232140905789836,
+          "exposurePct": 27.718832891246684,
+          "maxDD": 16.805480501932387,
+          "sharpe": -0.2998095117017508,
+          "trades": 47
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -20.39294468436821,
+          "excessSharpe": -0.44638081334610985,
+          "exposurePct": 24.40318302387268,
+          "maxDD": 10.467299542474555,
+          "sharpe": 0.284280991811001,
+          "trades": 49
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -23.89384539234385,
+          "excessSharpe": -0.7709344180572991,
+          "exposurePct": 26.25994694960212,
+          "maxDD": 14.876173122307188,
+          "sharpe": 0.0571571470322702,
+          "trades": 51
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -7.123625229229224,
+          "excessSharpe": 0.16233671302058195,
+          "exposurePct": 29.177718832891248,
+          "maxDD": 12.835707780591218,
+          "sharpe": 0.6761345592959817,
+          "trades": 55
+        }
+      ],
+      "label": "vr_switch vt=0.15",
+      "paramNames": [
+        "vrWindow",
+        "vrLag",
+        "band",
+        "trendWindow",
+        "mrWindow",
+        "mrEntryZ"
+      ],
+      "params": [
+        477.0,
+        34.0,
+        0.43027769080493716,
+        44.0,
+        5.0,
+        1.400867026765367
+      ],
+      "provenance": "Lo & MacKinlay (1988) variance ratio; Lo (2004) adaptive markets",
+      "trainFitness": -0.5247438729388751,
+      "volTarget": 0.15
+    },
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -19.547058344167255,
+          "excessSharpe": -0.6090535694827548,
+          "exposurePct": 7.6923076923076925,
+          "maxDD": 5.232694256524568,
+          "sharpe": 0.21435100939447788,
+          "trades": 29
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -22.93810496150651,
+          "excessSharpe": -0.8048468753930274,
+          "exposurePct": 9.151193633952255,
+          "maxDD": 4.715679317321834,
+          "sharpe": -0.07418507023591653,
+          "trades": 24
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -20.365528299458838,
+          "excessSharpe": 0.03715876586481248,
+          "exposurePct": 8.620689655172415,
+          "maxDD": 4.390657753087852,
+          "sharpe": 0.8652503309543818,
+          "trades": 31
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -11.731960772227156,
+          "excessSharpe": 0.15864859333284798,
+          "exposurePct": 6.10079575596817,
+          "maxDD": 3.4850136366151174,
+          "sharpe": 0.6724464396082477,
+          "trades": 22
+        }
+      ],
+      "label": "fracdiff vt=0.10",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.7702552345772233,
+        349.0,
+        1.5920189160957101,
+        0.3666885353023115,
+        0.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "trainFitness": -0.5743180436155837,
+      "volTarget": 0.1
+    },
+    {
+      "family": "rsi_reversal",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -18.74421580453094,
+          "excessSharpe": -0.6076758061688724,
+          "exposurePct": 51.59151193633952,
+          "maxDD": 14.7668713861233,
+          "sharpe": 0.21572877270836036,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -17.426411210459314,
+          "excessSharpe": -0.12356384225362671,
+          "exposurePct": 43.76657824933687,
+          "maxDD": 13.292588556174733,
+          "sharpe": 0.6070979629034842,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -15.280934695318884,
+          "excessSharpe": 0.045010350990502546,
+          "exposurePct": 62.3342175066313,
+          "maxDD": 12.35078095242713,
+          "sharpe": 0.8731019160800718,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -13.73766695671259,
+          "excessSharpe": -0.43521904990485943,
+          "exposurePct": 39.787798408488065,
+          "maxDD": 8.922322579125511,
+          "sharpe": 0.07857879637054029,
+          "trades": 7
+        }
+      ],
+      "label": "rsi_reversal vt=0.10",
+      "paramNames": [
+        "rsiWindow",
+        "entryLevel",
+        "exitLevel",
+        "trendWindow",
+        "maxHoldBars"
+      ],
+      "params": [
+        8.0,
+        42.96356747200103,
+        73.01771290812516,
+        125.0,
+        57.0
+      ],
+      "provenance": "Jegadeesh (1990) / Lehmann (1990) short-term reversal; Connors & Alvarez (2008)",
+      "trainFitness": -0.6042606824162116,
+      "volTarget": 0.1
+    },
+    {
+      "family": "fib_ichimoku",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -14.851883807516408,
+          "excessSharpe": 0.30419287994775523,
+          "exposurePct": 20.55702917771883,
+          "maxDD": 4.305044052313178,
+          "sharpe": 1.127597458824988,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -22.00152040119534,
+          "excessSharpe": -0.5444478556054133,
+          "exposurePct": 8.885941644562335,
+          "maxDD": 5.419410097129717,
+          "sharpe": 0.18621394955169757,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -27.008227419894038,
+          "excessSharpe": -1.4457266999760134,
+          "exposurePct": 12.59946949602122,
+          "maxDD": 13.917432324185313,
+          "sharpe": -0.6176351348864442,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -14.081121694470266,
+          "excessSharpe": -0.5131223872412797,
+          "exposurePct": 11.273209549071618,
+          "maxDD": 5.384176301756889,
+          "sharpe": 0.0006754590341200092,
+          "trades": 9
+        }
+      ],
+      "label": "fib_ichimoku vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Fibonacci retracement entries under an Ichimoku trend",
+      "trainFitness": -40.697002351097176,
+      "volTarget": 0.1
+    },
+    {
+      "family": "control_always_long",
+      "gate": "pe",
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.305396960300826,
+          "excessSharpe": -0.8234045788772327,
+          "exposurePct": 0.0,
+          "maxDD": 0.0,
+          "sharpe": 0.0,
+          "trades": 0
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -22.6601092645609,
+          "excessSharpe": -0.7306618051571109,
+          "exposurePct": 0.0,
+          "maxDD": 0.0,
+          "sharpe": 0.0,
+          "trades": 0
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -23.968174448382907,
+          "excessSharpe": -0.8280915650895693,
+          "exposurePct": 0.0,
+          "maxDD": 0.0,
+          "sharpe": 0.0,
+          "trades": 0
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -14.038106718367093,
+          "excessSharpe": -0.5137978462753997,
+          "exposurePct": 0.0,
+          "maxDD": 0.0,
+          "sharpe": 0.0,
+          "trades": 0
+        }
+      ],
+      "label": "control_always_long+pe vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "CONTROL: buy first bar, never sell",
+      "trainFitness": -49.28438479623824,
+      "volTarget": 0.1
+    }
+  ],
+  "finalists": [
+    {
+      "family": "control_random",
+      "gate": "none",
+      "gateGenes": [
+        0.6859104484501539,
+        0.7697149129324012,
+        0.7933037385286563
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -21.021554743038394,
+          "excessSharpe": -0.8026031308867476,
+          "exposurePct": 88.9920424403183,
+          "maxDD": 26.824528325823938,
+          "sharpe": 0.020801447990485056,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -16.18776638753041,
+          "excessSharpe": -0.14889069077610662,
+          "exposurePct": 88.9920424403183,
+          "maxDD": 14.371436458605547,
+          "sharpe": 0.5817711143810043,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -18.716399877147282,
+          "excessSharpe": -0.2941765212270353,
+          "exposurePct": 88.9920424403183,
+          "maxDD": 14.643163011960644,
+          "sharpe": 0.533915043862534,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -11.554416238965958,
+          "excessSharpe": -0.24240258216137145,
+          "exposurePct": 88.9920424403183,
+          "maxDD": 13.072757579992372,
+          "sharpe": 0.27139526411402826,
+          "trades": 10
+        }
+      ],
+      "label": "control_random vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.18094203786625057,
+        71.0,
+        51767.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.3014717803486524,
+          "maxDD": 13.483307993202567,
+          "sharpe": 1.3431351460521415,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.24340943547806615,
+          "maxDD": 22.273568193005282,
+          "sharpe": 0.7666378686686494,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.09489180261883723,
+          "maxDD": 14.748248212541942,
+          "sharpe": 0.8129914692980649,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.20405187678933345,
+          "maxDD": 15.751869032308447,
+          "sharpe": 1.1587434511166295,
+          "trades": 22
+        }
+      ],
+      "trainFitness": 0.09489180261883723,
+      "volTarget": 0.1
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "gateGenes": [
+        0.40548369859609046,
+        0.4717856709385744,
+        0.03311470075057921
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -22.415778284254685,
+          "excessSharpe": -0.9682553860393823,
+          "exposurePct": 52.51989389920424,
+          "maxDD": 18.305877627690997,
+          "sharpe": -0.14485080716214963,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -18.18236972300429,
+          "excessSharpe": -0.28952274114366927,
+          "exposurePct": 57.16180371352785,
+          "maxDD": 15.171983704682305,
+          "sharpe": 0.4411390640134416,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -20.732756515452213,
+          "excessSharpe": -0.4386443928637634,
+          "exposurePct": 59.681697612732094,
+          "maxDD": 8.535618206749458,
+          "sharpe": 0.3894471722258059,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -11.935352132625598,
+          "excessSharpe": -0.2648850453595649,
+          "exposurePct": 39.52254641909814,
+          "maxDD": 11.493203251379636,
+          "sharpe": 0.24891280091583481,
+          "trades": 11
+        }
+      ],
+      "label": "odiseo vt=0.15",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        15.0,
+        38.0,
+        13.510262421763095,
+        3.793340052030479,
+        6.0,
+        18.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.1536594666924327,
+          "maxDD": 12.533569126036198,
+          "sharpe": 1.1953228323959217,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.2032214583800528,
+          "maxDD": 10.75212549720655,
+          "sharpe": 0.726449891570636,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.14312004395376676,
+          "maxDD": 21.10365394067064,
+          "sharpe": 0.8612197106329944,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.05602362342182177,
+          "maxDD": 23.93963237251182,
+          "sharpe": 1.0107151977491178,
+          "trades": 22
+        }
+      ],
+      "trainFitness": 0.05602362342182177,
+      "volTarget": 0.15
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "gateGenes": [
+        0.4794192110241284,
+        0.5437504641730481,
+        0.0
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -21.06239541488759,
+          "excessSharpe": -0.8915240170673607,
+          "exposurePct": 53.05039787798408,
+          "maxDD": 11.244358279943672,
+          "sharpe": -0.068119438190128,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -18.595798378348462,
+          "excessSharpe": -0.18387308576628603,
+          "exposurePct": 57.824933687002655,
+          "maxDD": 9.914958237213266,
+          "sharpe": 0.5467887193908249,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -24.841370648635888,
+          "excessSharpe": -0.9155173390397637,
+          "exposurePct": 61.40583554376658,
+          "maxDD": 11.983979033991876,
+          "sharpe": -0.08742577395019445,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -13.740634899461622,
+          "excessSharpe": -0.4358881175084417,
+          "exposurePct": 43.89920424403183,
+          "maxDD": 9.220746395723706,
+          "sharpe": 0.07790972876695802,
+          "trades": 12
+        }
+      ],
+      "label": "odiseo vt=0.10",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        15.0,
+        38.0,
+        9.042059930997663,
+        3.7915252731447335,
+        6.0,
+        18.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.06342769694099837,
+          "maxDD": 8.199883140918788,
+          "sharpe": 1.1050910626444874,
+          "trades": 25
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.053310329521652156,
+          "maxDD": 10.158264654494724,
+          "sharpe": 0.5765387627122354,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.12228021948861123,
+          "maxDD": 15.363057680348641,
+          "sharpe": 0.8403798861678389,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.04665630419068767,
+          "maxDD": 17.883911211178578,
+          "sharpe": 1.0013478785179837,
+          "trades": 24
+        }
+      ],
+      "trainFitness": 0.04665630419068767,
+      "volTarget": 0.1
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "none",
+      "gateGenes": [
+        0.33508942949570153,
+        0.21536411449233545,
+        0.2369517597333572
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -22.56090386546714,
+          "excessSharpe": -0.9780462577512363,
+          "exposurePct": 56.63129973474801,
+          "maxDD": 17.14634264434739,
+          "sharpe": -0.1546416788740036,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -28.821716779227437,
+          "excessSharpe": -1.0823720649260393,
+          "exposurePct": 55.83554376657825,
+          "maxDD": 36.52862004681316,
+          "sharpe": -0.3517102597689284,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -23.30635853292098,
+          "excessSharpe": -0.7128404841902827,
+          "exposurePct": 61.53846153846154,
+          "maxDD": 16.881104960100572,
+          "sharpe": 0.11525108089928665,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -9.122700547281747,
+          "excessSharpe": -0.012024182644747805,
+          "exposurePct": 51.59151193633952,
+          "maxDD": 11.521569115667692,
+          "sharpe": 0.5017736636306519,
+          "trades": 14
+        }
+      ],
+      "label": "ehlers_trend vt=0.15",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        31.0,
+        6.0,
+        56.0,
+        0.05069741868140889
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.01908521991621659,
+          "maxDD": 15.728368502518798,
+          "sharpe": 1.0607485856197056,
+          "trades": 28
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": -0.005049098049452971,
+          "maxDD": 17.47580825869315,
+          "sharpe": 0.5181793351411302,
+          "trades": 32
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.13728574066081634,
+          "maxDD": 16.799068283390508,
+          "sharpe": 0.855385407340044,
+          "trades": 31
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.14148678768841683,
+          "maxDD": 28.159544420704975,
+          "sharpe": 1.0961783620157128,
+          "trades": 31
+        }
+      ],
+      "trainFitness": -0.005049098049452971,
+      "volTarget": 0.15
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "gateGenes": [
+        0.4060381484563981,
+        0.4843009513364479,
+        0.0036732889789584467
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -25.382951758775242,
+          "excessSharpe": -1.115388095706178,
+          "exposurePct": 54.244031830238725,
+          "maxDD": 23.19849259533377,
+          "sharpe": -0.2919835168289453,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -18.543181382328267,
+          "excessSharpe": -0.38866557439228366,
+          "exposurePct": 57.294429708222815,
+          "maxDD": 20.103663565014955,
+          "sharpe": 0.3419962307648272,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -19.209800468821946,
+          "excessSharpe": -0.3876825303539799,
+          "exposurePct": 59.814323607427056,
+          "maxDD": 11.114124610914336,
+          "sharpe": 0.44040903473558934,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -11.283570901308781,
+          "excessSharpe": -0.23617857233180312,
+          "exposurePct": 43.76657824933687,
+          "maxDD": 15.04836826599776,
+          "sharpe": 0.2776192739435966,
+          "trades": 10
+        }
+      ],
+      "label": "odiseo vt=0.20",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        15.0,
+        36.0,
+        14.05028569627491,
+        3.892813198088942,
+        6.0,
+        18.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.10307362835668066,
+          "maxDD": 17.07953042348566,
+          "sharpe": 1.1447369940601697,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.20957708665755692,
+          "maxDD": 15.700339855035828,
+          "sharpe": 0.7328055198481401,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.05778098956228794,
+          "maxDD": 27.892556084318702,
+          "sharpe": 0.7758806562415156,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.05420222524516427,
+          "maxDD": 31.188175365932164,
+          "sharpe": 1.0088937995724603,
+          "trades": 22
+        }
+      ],
+      "trainFitness": -0.0070673977300831975,
+      "volTarget": 0.2
+    },
+    {
+      "family": "skew_reversal",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.4067051947670559,
+        0.14995289884237703,
+        0.410382264586452
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -19.677185341638292,
+          "excessSharpe": -0.7096848106302092,
+          "exposurePct": 49.3368700265252,
+          "maxDD": 18.219982711059235,
+          "sharpe": 0.1137197682470236,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -21.478039448137043,
+          "excessSharpe": -0.5576689034067928,
+          "exposurePct": 44.16445623342175,
+          "maxDD": 12.038411842764637,
+          "sharpe": 0.17299290175031817,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -20.659947916213994,
+          "excessSharpe": -0.45383872423947624,
+          "exposurePct": 66.57824933687003,
+          "maxDD": 15.002239002175624,
+          "sharpe": 0.374252840850093,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -13.203486293062781,
+          "excessSharpe": -0.3486765885685953,
+          "exposurePct": 39.257294429708224,
+          "maxDD": 6.8906365473205,
+          "sharpe": 0.16512125770680441,
+          "trades": 8
+        }
+      ],
+      "label": "skew_reversal+hawkes vt=0.10",
+      "paramNames": [
+        "window",
+        "entrySkew",
+        "holdBars",
+        "trendWindow"
+      ],
+      "params": [
+        17.0,
+        -0.11886028421151877,
+        36.0,
+        179.0
+      ],
+      "provenance": "Amaya, Christoffersen, Jacobs & Vasquez (2015), JFE 118(1)",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.0070727710128395405,
+          "maxDD": 15.592318448835684,
+          "sharpe": 1.0345905946906495,
+          "trades": 24
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.23744370822451266,
+          "maxDD": 15.737717695185472,
+          "sharpe": 0.7606721414150959,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.01821024935341098,
+          "maxDD": 10.518098765283995,
+          "sharpe": 0.7363099160326386,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.004155703229590468,
+          "maxDD": 11.473969029910915,
+          "sharpe": 0.9588472775568865,
+          "trades": 16
+        }
+      ],
+      "trainFitness": -0.0070727710128395405,
+      "volTarget": 0.1
+    },
+    {
+      "family": "vol_managed",
+      "gate": "none",
+      "gateGenes": [
+        1.0,
+        0.8360488408807247,
+        0.5586402039730656
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.602317331217236,
+          "excessSharpe": -0.7828014425112835,
+          "exposurePct": 45.755968169761275,
+          "maxDD": 16.91757896900765,
+          "sharpe": 0.040603136365949255,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -11.248413438081585,
+          "excessSharpe": -0.0054769088842669955,
+          "exposurePct": 50.92838196286472,
+          "maxDD": 20.090458815639913,
+          "sharpe": 0.7251848962728439,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -18.773043158810456,
+          "excessSharpe": -0.4435418734080095,
+          "exposurePct": 53.183023872679044,
+          "maxDD": 21.177488775320302,
+          "sharpe": 0.3845496916815598,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -25.178781795146755,
+          "excessSharpe": -1.4495718637528436,
+          "exposurePct": 42.83819628647215,
+          "maxDD": 31.154277577241945,
+          "sharpe": -0.9357740174774438,
+          "trades": 20
+        }
+      ],
+      "label": "vol_managed vt=0.20",
+      "paramNames": [
+        "volWindow",
+        "rankWindow",
+        "maxVolRank",
+        "trendWindow"
+      ],
+      "params": [
+        39.0,
+        119.0,
+        0.5604093970681915,
+        340.0
+      ],
+      "provenance": "Moreira & Muir (2017), Journal of Finance 72(4)",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.02559803094078017,
+          "maxDD": 16.90355613348856,
+          "sharpe": 1.0160653347627089,
+          "trades": 24
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.18577483028832353,
+          "maxDD": 21.474818359952778,
+          "sharpe": 0.7090032634789067,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.015007524648104287,
+          "maxDD": 14.27804236724676,
+          "sharpe": 0.7331071913273319,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.07451725901767803,
+          "maxDD": 19.59715215045525,
+          "sharpe": 1.029208833344974,
+          "trades": 21
+        }
+      ],
+      "trainFitness": -0.02559803094078017,
+      "volTarget": 0.2
+    },
+    {
+      "family": "control_random",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.5979667158853526,
+        0.7489940680491353,
+        0.7576369538987782
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -15.831838143192067,
+          "excessSharpe": -0.4496539883080345,
+          "exposurePct": 94.6949602122016,
+          "maxDD": 25.85844378836175,
+          "sharpe": 0.37375059056919824,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -11.37850379222074,
+          "excessSharpe": 0.1890298384578727,
+          "exposurePct": 76.39257294429709,
+          "maxDD": 13.880951261639124,
+          "sharpe": 0.9196916436149836,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -13.697263677120787,
+          "excessSharpe": 0.11919564144472838,
+          "exposurePct": 94.6949602122016,
+          "maxDD": 11.65207606229286,
+          "sharpe": 0.9472872065342977,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -11.910128424271104,
+          "excessSharpe": -0.27261437577240255,
+          "exposurePct": 88.85941644562334,
+          "maxDD": 16.668815314763332,
+          "sharpe": 0.24118347050299715,
+          "trades": 7
+        }
+      ],
+      "label": "control_random+hawkes vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.19015831028444707,
+        106.0,
+        50388.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.025134401830825492,
+          "maxDD": 18.343715465357622,
+          "sharpe": 1.0165289638726636,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": -0.024994801958134583,
+          "maxDD": 27.401464867786483,
+          "sharpe": 0.4982336312324486,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.07562011499929289,
+          "maxDD": 23.023441419549666,
+          "sharpe": 0.7937197816785205,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.005627434547440191,
+          "maxDD": 18.621244522097726,
+          "sharpe": 0.9603190088747362,
+          "trades": 15
+        }
+      ],
+      "trainFitness": -0.034222055576074994,
+      "volTarget": 0.1
+    },
+    {
+      "family": "tsmom",
+      "gate": "none",
+      "gateGenes": [
+        0.6656057905093361,
+        1.0,
+        0.8656181974081804
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.700525099005397,
+          "excessSharpe": -0.8433200605874794,
+          "exposurePct": 61.14058355437666,
+          "maxDD": 12.662886005373592,
+          "sharpe": -0.01991548171024668,
+          "trades": 13
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -23.38607267954844,
+          "excessSharpe": -0.7777361187317583,
+          "exposurePct": 57.16180371352785,
+          "maxDD": 16.380830425770814,
+          "sharpe": -0.04707431357464739,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -26.508563543112054,
+          "excessSharpe": -1.151061009899161,
+          "exposurePct": 65.78249336870026,
+          "maxDD": 15.027322013981625,
+          "sharpe": -0.32296944480959167,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -13.183373003038444,
+          "excessSharpe": -0.36445639433244736,
+          "exposurePct": 50.265251989389924,
+          "maxDD": 9.486789817354481,
+          "sharpe": 0.14934145194295234,
+          "trades": 12
+        }
+      ],
+      "label": "tsmom vt=0.10",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        14.0,
+        89.0,
+        0.8499559373367204,
+        2.406941436103267
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.0714317704655345,
+          "maxDD": 11.04209819776494,
+          "sharpe": 1.1130951361690236,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.1422760446383725,
+          "maxDD": 13.096980723161455,
+          "sharpe": 0.6655044778289557,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": -0.02041633754778105,
+          "maxDD": 17.03545318353858,
+          "sharpe": 0.6976833291314466,
+          "trades": 25
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": -0.03688140187725086,
+          "maxDD": 18.716927455106084,
+          "sharpe": 0.9178101724500451,
+          "trades": 23
+        }
+      ],
+      "trainFitness": -0.03688140187725086,
+      "volTarget": 0.1
+    },
+    {
+      "family": "skew_reversal",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.3027006146972556,
+        0.3938166961823727,
+        0.6065596910074844
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -21.83947289623611,
+          "excessSharpe": -0.9371670977697041,
+          "exposurePct": 34.350132625994696,
+          "maxDD": 15.518227746717233,
+          "sharpe": -0.11376251889247137,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -11.48191810659589,
+          "excessSharpe": 0.24897289862360816,
+          "exposurePct": 31.03448275862069,
+          "maxDD": 11.502466258957037,
+          "sharpe": 0.979634703780719,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -15.024327746535638,
+          "excessSharpe": 0.14659753811720722,
+          "exposurePct": 25.862068965517242,
+          "maxDD": 9.525649735286468,
+          "sharpe": 0.9746891032067765,
+          "trades": 5
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -17.948107059265748,
+          "excessSharpe": -0.976233746857507,
+          "exposurePct": 31.03448275862069,
+          "maxDD": 19.26239391424673,
+          "sharpe": -0.46243590058210726,
+          "trades": 6
+        }
+      ],
+      "label": "skew_reversal+hawkes vt=0.15",
+      "paramNames": [
+        "window",
+        "entrySkew",
+        "holdBars",
+        "trendWindow"
+      ],
+      "params": [
+        74.0,
+        -0.17462869444728324,
+        38.0,
+        32.0
+      ],
+      "provenance": "Amaya, Christoffersen, Jacobs & Vasquez (2015), JFE 118(1)",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.43032670536743445,
+          "maxDD": 9.14010732099451,
+          "sharpe": 1.4719900710709235,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.08436244107804292,
+          "maxDD": 18.469378651235672,
+          "sharpe": 0.6075908742686261,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": -0.03156315435408208,
+          "maxDD": 17.474510710108657,
+          "sharpe": 0.6865365123251456,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": -0.03927969006486043,
+          "maxDD": 16.656712043419958,
+          "sharpe": 0.9154118842624356,
+          "trades": 14
+        }
+      ],
+      "trainFitness": -0.03927969006486043,
+      "volTarget": 0.15
+    },
+    {
+      "family": "donchian",
+      "gate": "none",
+      "gateGenes": [
+        0.5340113237149777,
+        0.6800684898534038,
+        0.4431547171989213
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -15.24187158502659,
+          "excessSharpe": 0.033918421528950415,
+          "exposurePct": 35.145888594164454,
+          "maxDD": 6.060284863479166,
+          "sharpe": 0.8573230004061831,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -19.57346145966543,
+          "excessSharpe": -0.29543982886770337,
+          "exposurePct": 42.97082228116711,
+          "maxDD": 8.040325714155705,
+          "sharpe": 0.4352219762894075,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -26.733164778507714,
+          "excessSharpe": -1.2365102560575914,
+          "exposurePct": 49.3368700265252,
+          "maxDD": 15.537390916513234,
+          "sharpe": -0.4084186909680221,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -13.626263573728114,
+          "excessSharpe": -0.41635115265954736,
+          "exposurePct": 31.29973474801061,
+          "maxDD": 8.314724795347589,
+          "sharpe": 0.09744669361585233,
+          "trades": 8
+        }
+      ],
+      "label": "donchian vt=0.10",
+      "paramNames": [
+        "entryWindow",
+        "exitWindow",
+        "atrWindow",
+        "atrStopMult"
+      ],
+      "params": [
+        37.0,
+        97.0,
+        26.0,
+        3.1477927783167425
+      ],
+      "provenance": "Donchian's 4-week rule; the Turtle system",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.017387444148491582,
+          "maxDD": 11.883307690674608,
+          "sharpe": 1.0242759215549975,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": -0.05052008696398591,
+          "maxDD": 10.967639838468145,
+          "sharpe": 0.4727083462265973,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": 0.14893044677446965,
+          "maxDD": 17.717516527899722,
+          "sharpe": 0.8670301134536973,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": -0.036573368194278366,
+          "maxDD": 13.515354028581317,
+          "sharpe": 0.9181182061330176,
+          "trades": 18
+        }
+      ],
+      "trainFitness": -0.05052008696398591,
+      "volTarget": 0.1
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "none",
+      "gateGenes": [
+        0.0,
+        0.06589455584241255,
+        0.29736243613241253
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -22.765206968148235,
+          "excessSharpe": -0.9185899288313822,
+          "exposurePct": 58.753315649867375,
+          "maxDD": 23.187946201924596,
+          "sharpe": -0.09518534995414951,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.7306618051571109,
+          "env": "META",
+          "excessCagr": -22.30871893097166,
+          "excessSharpe": -0.6256718012274874,
+          "exposurePct": 53.713527851458885,
+          "maxDD": 28.95733801418971,
+          "sharpe": 0.10499000392962347,
+          "trades": 13
+        },
+        {
+          "benchSharpe": 0.8280915650895693,
+          "env": "AMZN",
+          "excessCagr": -20.263515322976655,
+          "excessSharpe": -0.5175553957206238,
+          "exposurePct": 62.06896551724138,
+          "maxDD": 15.981794742905375,
+          "sharpe": 0.31053616936894546,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.5137978462753997,
+          "env": "TSLA",
+          "excessCagr": -8.281001761442196,
+          "excessSharpe": -0.06230210168663175,
+          "exposurePct": 51.724137931034484,
+          "maxDD": 15.107599545449316,
+          "sharpe": 0.45149574458876796,
+          "trades": 11
+        }
+      ],
+      "label": "ehlers_trend vt=0.20",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        16.0,
+        6.0,
+        53.0,
+        0.2606920415372494
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "train": [
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.06386115035126072,
+          "maxDD": 18.768859246281647,
+          "sharpe": 0.9778022153522283,
+          "trades": 26
+        },
+        {
+          "benchSharpe": 0.5232284331905832,
+          "env": "META",
+          "excessSharpe": 0.13308684600944243,
+          "maxDD": 29.0200450021976,
+          "sharpe": 0.6563152792000256,
+          "trades": 23
+        },
+        {
+          "benchSharpe": 0.7180996666792276,
+          "env": "AMZN",
+          "excessSharpe": -0.05853153655436094,
+          "maxDD": 20.93134075720018,
+          "sharpe": 0.6595681301248667,
+          "trades": 27
+        },
+        {
+          "benchSharpe": 0.954691574327296,
+          "env": "TSLA",
+          "excessSharpe": 0.29863111711260026,
+          "maxDD": 39.28543954424115,
+          "sharpe": 1.2533226914398963,
+          "trades": 26
+        }
+      ],
+      "trainFitness": -0.06386115035126072,
+      "volTarget": 0.2
+    }
+  ],
+  "history": [
+    {
+      "bestFitness": -0.17818068827793865,
+      "bestLabel": "pure_ichimoku+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 0,
+      "medianFitness": -45.70630877742947,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.03927969006486043,
+      "bestLabel": "skew_reversal+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 1,
+      "medianFitness": -40.697002351097176,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.03927969006486043,
+      "bestLabel": "skew_reversal+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 2,
+      "medianFitness": -4.042515282733448,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.03927969006486043,
+      "bestLabel": "skew_reversal+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 3,
+      "medianFitness": -1.4305167374914984,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.03927969006486043,
+      "bestLabel": "skew_reversal+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 4,
+      "medianFitness": -1.402293917702405,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.03927969006486043,
+      "bestLabel": "skew_reversal+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 5,
+      "medianFitness": -0.9724668193208151,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.02559803094078017,
+      "bestLabel": "vol_managed vt=0.20",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 6,
+      "medianFitness": -0.8862347554530783,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.05606689765215089,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 7,
+      "medianFitness": -0.8751336398429578,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.05606689765215089,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 8,
+      "medianFitness": -0.8220903061315612,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.05606689765215089,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 9,
+      "medianFitness": -0.6710141351187833,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.05606689765215089,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 10,
+      "medianFitness": -0.6788807331144155,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.05606689765215089,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 11,
+      "medianFitness": -0.7838275273407722,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.05606689765215089,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 2,
+        "odiseo": 1
+      },
+      "generation": 12,
+      "medianFitness": -0.5757874372978898,
+      "survivors": 3
+    },
+    {
+      "bestFitness": 0.05606689765215089,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 2,
+        "odiseo": 5
+      },
+      "generation": 13,
+      "medianFitness": -0.271034896360225,
+      "survivors": 7
+    },
+    {
+      "bestFitness": 0.09489180261883723,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 5,
+        "odiseo": 9
+      },
+      "generation": 14,
+      "medianFitness": -0.25131716211985256,
+      "survivors": 14
+    },
+    {
+      "bestFitness": 0.09489180261883723,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 3,
+        "odiseo": 5
+      },
+      "generation": 15,
+      "medianFitness": -0.27290827454815914,
+      "survivors": 8
+    },
+    {
+      "bestFitness": 0.09489180261883723,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 6,
+        "odiseo": 15
+      },
+      "generation": 16,
+      "medianFitness": -0.22344266235460766,
+      "survivors": 21
+    },
+    {
+      "bestFitness": 0.09489180261883723,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 3,
+        "odiseo": 9
+      },
+      "generation": 17,
+      "medianFitness": -0.2200726724762202,
+      "survivors": 12
+    },
+    {
+      "bestFitness": 0.09489180261883723,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 3,
+        "odiseo": 13
+      },
+      "generation": 18,
+      "medianFitness": -0.2486833904493321,
+      "survivors": 16
+    },
+    {
+      "bestFitness": 0.09489180261883723,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 4,
+        "odiseo": 25
+      },
+      "generation": 19,
+      "medianFitness": -0.23922777146888807,
+      "survivors": 29
+    }
+  ],
+  "transfer": {
+    "bestControlTrainFitness": 0.09489180261883723,
+    "controlHoldoutRank": 7,
+    "holdoutRankedCount": 21,
+    "pAll": 0.06589670516474176,
+    "pTopHalf": 0.21713914304284787,
+    "rankedFamilies": 20,
+    "rhoAll": -0.4180451127819549,
+    "rhoTopHalf": 0.4303030303030303
+  }
+}

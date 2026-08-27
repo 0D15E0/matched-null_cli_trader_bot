@@ -1,0 +1,18 @@
+sequenceDiagram
+  autonumber
+  participant D as Driver<br/>(BacktestEngine or LiveTrader)
+  participant P as PositionContext<br/>(owned by the driver)
+  participant S as Strategy<br/>(pure function)
+  participant M as Market / fill model
+
+  Note over D,S: prepare(series) once — indicators precomputed for the whole series (idempotent)
+  loop every closed bar i
+    D->>P: observe(close[i])  — update highest/lowest close if in position
+    D->>S: onBar(series, i, position)
+    Note right of S: may read bars ≤ i only<br/>must not mutate state<br/>same inputs ⇒ same Signal
+    S-->>D: Signal ∈ {Hold, Buy, Sell}
+    D->>D: store as pending (decided at close of bar i)
+    D->>M: execute pending at OPEN of bar i+1<br/>fee + slippage · size = min(cap, volTarget / σ_annualized)
+    M-->>P: open(fillPrice, time, index) / close()
+    D->>D: mark equity at close and at low (intrabar drawdown)
+  end

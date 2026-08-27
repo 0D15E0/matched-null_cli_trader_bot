@@ -1,0 +1,74 @@
+# __TRADER_USER__ is a placeholder: substitute the account that owns the repo
+# before installing (see deploy/pi/README.md, "The host").
+[Unit]
+Description=cli_trader %i sleeve (ensemble_vote)
+Documentation=file:/home/__TRADER_USER__/trader/cli_trader/docs/RUNBOOK.md
+After=network-online.target time-sync.target
+Wants=network-online.target
+# HMAC request signing fails outright if the clock is wrong, and a Pi has no
+# RTC - it learns the time from NTP after boot. Starting before that is a
+# guaranteed authentication failure on every live request.
+Requires=time-sync.target
+
+[Service]
+Type=simple
+User=__TRADER_USER__
+WorkingDirectory=/home/__TRADER_USER__/trader/cli_trader
+EnvironmentFile=/home/__TRADER_USER__/trader/cli_trader/deploy/pi/bot.env
+# .env holds the Poloniex keys. `-` means "start anyway if absent", which is
+# correct: paper mode needs no keys, and live mode fails fast with a clear
+# message rather than silently trading nothing.
+# NOTE: .env is deliberately NOT an EnvironmentFile. Its keys use dashes
+# (API-KEY, SECRET-KEY), which systemd rejects as invalid names - and it LOGS
+# the rejected assignment, secret included, to the journal on every start
+# (found 2026-08-26). The binary parses ./.env itself from WorkingDirectory.
+ExecStart=/home/__TRADER_USER__/trader/cli_trader/build/cli_trader run \
+    --symbol %i \
+    --period ${PERIOD} \
+    --strategy ${STRATEGY} \
+    --vol-target ${VOL_TARGET} \
+    --vol-window ${VOL_WINDOW} \
+    --mode ${MODE} \
+    --equity ${EQUITY} \
+    --quote-cap ${QUOTE_CAP} \
+    --poll-interval ${POLL_INTERVAL} \
+    --data-dir data \
+    --state-dir ${STATE_DIR} ${ADOPT} \
+    ${EXTRA_FLAGS}
+
+# ADOPT is normally EMPTY. Setting it to --adopt-venue-position tells the bot
+# to claim base currency it never bought, which is exactly what the
+# halted-balance-mismatch guard exists to prevent. Use it as a MOMENTARY
+# switch: set it, restart the affected sleeves, confirm they adopted, then
+# clear it and restart again so the guard is armed for the next surprise.
+# Leaving it set permanently means a genuine problem - a manual sale, a second
+# bot, a compromised key - would be silently absorbed instead of halting.
+
+# Restart semantics deliberately mirror the Mac's launchd config: a crash is
+# restarted, a clean exit is not. `systemctl stop` therefore actually stops a
+# sleeve instead of fighting the supervisor.
+Restart=on-failure
+RestartSec=60
+# Stagger: without this all eight sleeves hit the Poloniex API in the same
+# instant after a reboot. Derived deterministically from the instance name so
+# it needs no shell built-ins ($RANDOM is bash-only and /bin/sh here is dash).
+# GUARD (added 2026-08-25 after an incident): a config push accidentally left
+# MODE=paper while STATE_DIR=state_live, and eight PAPER processes started
+# against the LIVE bookkeeping for 62 seconds. Nothing fired in that window,
+# but a paper fill written into state_live would have corrupted the real
+# book's records and left real positions unattended. This refuses the two
+# dangerous pairings outright: paper must never touch state_live, and live
+# must never write anywhere else. systemd substitutes ${MODE}/${STATE_DIR}
+# from the EnvironmentFile before /bin/sh sees the line.
+ExecStartPre=/bin/sh -c 'if [ "$$MODE" = live ]; then [ "$$STATE_DIR" = state_live ]; else [ "$$STATE_DIR" != state_live ]; fi || { echo "REFUSING TO START: MODE=$$MODE with STATE_DIR=$$STATE_DIR" >&2; exit 1; }'
+ExecStartPre=/bin/sh -c 'sleep $(( $(printf %%s "%i" | cksum | cut -d" " -f1) %% 20 ))'
+
+# A 905MB Pi: cap each sleeve so one runaway cannot take the host down.
+MemoryMax=120M
+Nice=5
+
+StandardOutput=append:/home/__TRADER_USER__/trader/cli_trader/logs_pi/%i.log
+StandardError=append:/home/__TRADER_USER__/trader/cli_trader/logs_pi/%i.log
+
+[Install]
+WantedBy=multi-user.target

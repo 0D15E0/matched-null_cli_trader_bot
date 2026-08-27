@@ -1,0 +1,3294 @@
+{
+  "config": {
+    "candidatesEvaluated": 4528,
+    "distinctGenomes": 4527,
+    "generations": 20,
+    "population": 260,
+    "seed": 20260824,
+    "surviveThreshold": 0.0,
+    "trainFraction": 0.7
+  },
+  "familyChampions": [
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.74719494810257,
+          "excessSharpe": -0.3560132864036729,
+          "exposurePct": 53.98148148148148,
+          "maxDD": 16.205724456885434,
+          "sharpe": 0.6371796926793616,
+          "trades": 70
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 11.415177145434475,
+          "excessSharpe": 0.7264531907875996,
+          "exposurePct": 50.82962962962963,
+          "maxDD": 13.965623420982501,
+          "sharpe": 1.14557545048511,
+          "trades": 59
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 10.458464461977057,
+          "excessSharpe": -0.37239877401026655,
+          "exposurePct": 48.22732704820077,
+          "maxDD": 26.314072288818462,
+          "sharpe": -0.26302586664343713,
+          "trades": 73
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -27.886515879043074,
+          "excessSharpe": -0.15614691568485028,
+          "exposurePct": 48.31966128605451,
+          "maxDD": 27.579814721870843,
+          "sharpe": 0.6557593437682697,
+          "trades": 69
+        }
+      ],
+      "label": "fracdiff vt=0.15",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.05199155465572257,
+        48.0,
+        1.2842137002406746,
+        -1.3728077630311073,
+        1.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "trainFitness": 0.2781420531746417,
+      "volTarget": 0.15
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -35.62697451976295,
+          "excessSharpe": -0.40837244904043823,
+          "exposurePct": 31.65343915343915,
+          "maxDD": 12.122429571105679,
+          "sharpe": 0.5848205300425963,
+          "trades": 49
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 7.103953517776596,
+          "excessSharpe": 0.6317298718484391,
+          "exposurePct": 31.437037037037037,
+          "maxDD": 15.66731108540547,
+          "sharpe": 1.0508521315459494,
+          "trades": 45
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 12.609962617461278,
+          "excessSharpe": -0.30042953604386524,
+          "exposurePct": 24.631523038109147,
+          "maxDD": 25.589468066618664,
+          "sharpe": -0.19105662867703585,
+          "trades": 53
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -28.426457397714145,
+          "excessSharpe": -0.1259823128537816,
+          "exposurePct": 24.053982535062186,
+          "maxDD": 27.426986732831537,
+          "sharpe": 0.6859239465993384,
+          "trades": 47
+        }
+      ],
+      "label": "squeeze_breakout vt=0.15",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        78.0,
+        1.5848308341989847,
+        598.0,
+        0.4856144344035555,
+        36.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "trainFitness": 0.24044219764328567,
+      "volTarget": 0.15
+    },
+    {
+      "family": "lppls_bubble",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -30.266435903467606,
+          "excessSharpe": 0.11581900933206968,
+          "exposurePct": 52.129629629629626,
+          "maxDD": 15.312765654839039,
+          "sharpe": 1.1090119884151042,
+          "trades": 134
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 2.6151568475411455,
+          "excessSharpe": 0.594957704127478,
+          "exposurePct": 44.11851851851852,
+          "maxDD": 12.499263868870749,
+          "sharpe": 1.0140799638249882,
+          "trades": 103
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 11.507120292439588,
+          "excessSharpe": -0.47873365061414636,
+          "exposurePct": 45.75753551985128,
+          "maxDD": 22.067249590316898,
+          "sharpe": -0.36936074324731694,
+          "trades": 166
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -32.486972191098616,
+          "excessSharpe": -0.247273380506715,
+          "exposurePct": 40.328129134691714,
+          "maxDD": 23.61772482842401,
+          "sharpe": 0.564632878946405,
+          "trades": 169
+        }
+      ],
+      "label": "lppls_bubble vt=0.10",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        248.0,
+        30.0,
+        0.8857687941960848,
+        155.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "trainFitness": 0.21361006402205313,
+      "volTarget": 0.1
+    },
+    {
+      "family": "tsmom",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.50193919683586,
+          "excessSharpe": -0.04977973567922822,
+          "exposurePct": 56.13756613756614,
+          "maxDD": 12.315734676228471,
+          "sharpe": 0.9434132434038063,
+          "trades": 54
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 4.472758497253926,
+          "excessSharpe": 0.6731875267552402,
+          "exposurePct": 53.15555555555556,
+          "maxDD": 12.088293501014027,
+          "sharpe": 1.0923097864527505,
+          "trades": 53
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 10.747631473115725,
+          "excessSharpe": -0.57110258751842,
+          "exposurePct": 49.63484265037844,
+          "maxDD": 20.11324501614144,
+          "sharpe": -0.4617296801515906,
+          "trades": 71
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -27.907842833753072,
+          "excessSharpe": 0.04209536633001143,
+          "exposurePct": 45.07806297962424,
+          "maxDD": 17.595912598494817,
+          "sharpe": 0.8540016257831314,
+          "trades": 65
+        }
+      ],
+      "label": "tsmom vt=0.10",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        40.0,
+        100.0,
+        0.507385600502327,
+        2.305118882614367
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "trainFitness": 0.21296131905039106,
+      "volTarget": 0.1
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "pe",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -23.20747067838609,
+          "excessSharpe": 0.11971193082943299,
+          "exposurePct": 54.12698412698413,
+          "maxDD": 14.642547574109832,
+          "sharpe": 1.1129049099124675,
+          "trades": 90
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 10.549844372720683,
+          "excessSharpe": 0.5936949492522404,
+          "exposurePct": 51.65925925925926,
+          "maxDD": 23.028464910782077,
+          "sharpe": 1.0128172089497507,
+          "trades": 86
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 1.5648224198199099,
+          "excessSharpe": -0.903571175743257,
+          "exposurePct": 48.94436329836675,
+          "maxDD": 47.781483892538276,
+          "sharpe": -0.7941982683764275,
+          "trades": 106
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -12.611207764309263,
+          "excessSharpe": 0.15185430905224573,
+          "exposurePct": 43.8078856840434,
+          "maxDD": 26.168374530086382,
+          "sharpe": 0.9637605685053657,
+          "trades": 97
+        }
+      ],
+      "label": "ehlers_trend+pe vt=0.20",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        5.0,
+        20.0,
+        106.0,
+        0.11793709811061891
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "trainFitness": 0.15374415082648976,
+      "volTarget": 0.2
+    },
+    {
+      "family": "macd_norm",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -31.570494536303542,
+          "excessSharpe": -0.1824711962596406,
+          "exposurePct": 44.523809523809526,
+          "maxDD": 21.229856617847016,
+          "sharpe": 0.8107217828233939,
+          "trades": 92
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 9.93280483980463,
+          "excessSharpe": 0.6517246446784598,
+          "exposurePct": 43.65925925925926,
+          "maxDD": 19.851922446430173,
+          "sharpe": 1.07084690437597,
+          "trades": 79
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 7.272388131189398,
+          "excessSharpe": -0.7010602391194365,
+          "exposurePct": 37.06015137431948,
+          "maxDD": 32.86241863330927,
+          "sharpe": -0.591687331752607,
+          "trades": 100
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -26.290308013975295,
+          "excessSharpe": -0.16167181071493375,
+          "exposurePct": 39.07118285260651,
+          "maxDD": 29.81363501575991,
+          "sharpe": 0.6502344487381863,
+          "trades": 87
+        }
+      ],
+      "label": "macd_norm+hawkes vt=0.15",
+      "paramNames": [
+        "shortWindow",
+        "longWindow",
+        "priceStdWindow",
+        "signalStdWindow",
+        "entryZ"
+      ],
+      "params": [
+        6.0,
+        21.0,
+        100.0,
+        105.0,
+        0.420718723478242
+      ],
+      "provenance": "Baz, Granger, Harvey, Le Roux & Rattray (2015), SSRN 2695101",
+      "trainFitness": 0.1223423219966907,
+      "volTarget": 0.15
+    },
+    {
+      "family": "kama_trend",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -36.557509974897485,
+          "excessSharpe": -0.3331700266491584,
+          "exposurePct": 36.81216931216931,
+          "maxDD": 12.357635239026433,
+          "sharpe": 0.6600229524338761,
+          "trades": 68
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 0.055936106179022005,
+          "excessSharpe": 0.4255201209939029,
+          "exposurePct": 31.437037037037037,
+          "maxDD": 9.707826938765454,
+          "sharpe": 0.8446423806914132,
+          "trades": 60
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 8.938624567569196,
+          "excessSharpe": -0.9224607873057145,
+          "exposurePct": 27.43327579338733,
+          "maxDD": 24.50660613936442,
+          "sharpe": -0.813087879938885,
+          "trades": 76
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -33.190899357954116,
+          "excessSharpe": -0.23219379090194725,
+          "exposurePct": 27.070653612066685,
+          "maxDD": 23.479035672084578,
+          "sharpe": 0.5797124685511728,
+          "trades": 75
+        }
+      ],
+      "label": "kama_trend vt=0.10",
+      "paramNames": [
+        "erWindow",
+        "fastPeriod",
+        "slowPeriod",
+        "minEfficiency"
+      ],
+      "params": [
+        39.0,
+        4.0,
+        33.0,
+        0.21153202397492385
+      ],
+      "provenance": "Kaufman (1995), efficiency-ratio adaptive average",
+      "trainFitness": 0.06935441074915183,
+      "volTarget": 0.1
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -36.73815419587814,
+          "excessSharpe": -0.4116849761392751,
+          "exposurePct": 52.77777777777778,
+          "maxDD": 14.053372655153003,
+          "sharpe": 0.5815080029437594,
+          "trades": 58
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -2.2907556860612077,
+          "excessSharpe": 0.08535633010834032,
+          "exposurePct": 49.15555555555556,
+          "maxDD": 18.805583137292086,
+          "sharpe": 0.5044785898058506,
+          "trades": 52
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 15.023356844992897,
+          "excessSharpe": -0.15735438025911078,
+          "exposurePct": 42.51759394502722,
+          "maxDD": 17.067058067448045,
+          "sharpe": -0.04798147289228136,
+          "trades": 56
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -28.990205257799182,
+          "excessSharpe": -0.025312638515067376,
+          "exposurePct": 42.471553320984384,
+          "maxDD": 22.299713839417656,
+          "sharpe": 0.7865936209380526,
+          "trades": 55
+        }
+      ],
+      "label": "odiseo vt=0.10",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        22.0,
+        10.0,
+        13.59862509235931,
+        7.48670842878558,
+        6.0,
+        30.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "trainFitness": 0.05881987123481791,
+      "volTarget": 0.1
+    },
+    {
+      "family": "faber_ma",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -34.44356838426401,
+          "excessSharpe": -0.2711785285610845,
+          "exposurePct": 57.01058201058201,
+          "maxDD": 20.72243834467638,
+          "sharpe": 0.72201445052195,
+          "trades": 30
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -0.25344670215723397,
+          "excessSharpe": 0.25161925908952254,
+          "exposurePct": 46.888888888888886,
+          "maxDD": 16.45567616877663,
+          "sharpe": 0.6707415187870328,
+          "trades": 35
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 11.17483958546378,
+          "excessSharpe": -0.5014152126477163,
+          "exposurePct": 45.98326915416279,
+          "maxDD": 25.436401208001243,
+          "sharpe": -0.3920423052808868,
+          "trades": 43
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -29.389020640964645,
+          "excessSharpe": -0.11032012557484272,
+          "exposurePct": 45.25006615506748,
+          "maxDD": 27.239029170687743,
+          "sharpe": 0.7015861338782773,
+          "trades": 43
+        }
+      ],
+      "label": "faber_ma vt=0.10",
+      "paramNames": [
+        "window",
+        "bandPct"
+      ],
+      "params": [
+        93.0,
+        3.5406258309658987
+      ],
+      "provenance": "Faber (2007), J. Wealth Management",
+      "trainFitness": 0.05090090515515566,
+      "volTarget": 0.1
+    },
+    {
+      "family": "donchian",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -34.45806481941298,
+          "excessSharpe": -0.29440298537675547,
+          "exposurePct": 24.973544973544975,
+          "maxDD": 16.150040568293875,
+          "sharpe": 0.698789993706279,
+          "trades": 42
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 2.87997423607278,
+          "excessSharpe": 0.5680945976059019,
+          "exposurePct": 18.785185185185185,
+          "maxDD": 13.70333763580783,
+          "sharpe": 0.9872168573034121,
+          "trades": 33
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 12.340820848051736,
+          "excessSharpe": -0.3982942817640165,
+          "exposurePct": 17.979020050458107,
+          "maxDD": 21.759068218882906,
+          "sharpe": -0.28892137439718707,
+          "trades": 38
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -20.120834215452565,
+          "excessSharpe": 0.44085483971001793,
+          "exposurePct": 15.42736173590897,
+          "maxDD": 14.607082145701582,
+          "sharpe": 1.252761099163138,
+          "trades": 27
+        }
+      ],
+      "label": "donchian vt=0.15",
+      "paramNames": [
+        "entryWindow",
+        "exitWindow",
+        "atrWindow",
+        "atrStopMult"
+      ],
+      "params": [
+        103.0,
+        109.0,
+        11.0,
+        3.334385461755125
+      ],
+      "provenance": "Donchian's 4-week rule; the Turtle system",
+      "trainFitness": -0.013340509963313818,
+      "volTarget": 0.15
+    },
+    {
+      "family": "pure_ichimoku",
+      "gate": "pe",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.10569324203374,
+          "excessSharpe": -0.2853853295931694,
+          "exposurePct": 40.01322751322751,
+          "maxDD": 18.43459117703409,
+          "sharpe": 0.7078076494898651,
+          "trades": 145
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -2.384474674697712,
+          "excessSharpe": -0.0019306769157238501,
+          "exposurePct": 34.87407407407407,
+          "maxDD": 21.365072829620598,
+          "sharpe": 0.4171915827817864,
+          "trades": 126
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 8.279490727101724,
+          "excessSharpe": -0.7375475774447167,
+          "exposurePct": 34.29823396627274,
+          "maxDD": 28.275689890236038,
+          "sharpe": -0.6281746700778873,
+          "trades": 139
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -17.407004081772826,
+          "excessSharpe": 0.10098426275261851,
+          "exposurePct": 29.915321513627944,
+          "maxDD": 24.862469854734258,
+          "sharpe": 0.9128905222057385,
+          "trades": 127
+        }
+      ],
+      "label": "pure_ichimoku+pe vt=0.15",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Ichimoku cloud breakout, unfiltered",
+      "trainFitness": -0.04642216475318483,
+      "volTarget": 0.15
+    },
+    {
+      "family": "control_random",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.243341361511256,
+          "excessSharpe": -0.24875059773224495,
+          "exposurePct": 95.5952380952381,
+          "maxDD": 20.370203126188056,
+          "sharpe": 0.7444423813507896,
+          "trades": 38
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -2.9885079823939176,
+          "excessSharpe": -0.05168944854518803,
+          "exposurePct": 95.76296296296296,
+          "maxDD": 27.580243420647705,
+          "sharpe": 0.36743281115232224,
+          "trades": 34
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 17.523020822692345,
+          "excessSharpe": 0.05345453694142871,
+          "exposurePct": 95.97662992962422,
+          "maxDD": 21.812204909015943,
+          "sharpe": 0.16282744430825813,
+          "trades": 38
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -15.2394375307513,
+          "excessSharpe": 0.40554535308465856,
+          "exposurePct": 95.62053453294523,
+          "maxDD": 23.06463901620531,
+          "sharpe": 1.2174516125377786,
+          "trades": 38
+        }
+      ],
+      "label": "control_random vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.0993664297544562,
+        190.0,
+        46545.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "trainFitness": -0.04861408667961882,
+      "volTarget": 0.1
+    },
+    {
+      "family": "darvas",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -34.20113134582847,
+          "excessSharpe": -0.3278552898515319,
+          "exposurePct": 15.277777777777779,
+          "maxDD": 12.549390144123421,
+          "sharpe": 0.6653376892315026,
+          "trades": 29
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -4.2336594022181595,
+          "excessSharpe": -0.10414483202492675,
+          "exposurePct": 7.659259259259259,
+          "maxDD": 16.99376363035153,
+          "sharpe": 0.3149774276725835,
+          "trades": 23
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 8.517989549857262,
+          "excessSharpe": -0.6712324757676191,
+          "exposurePct": 8.206081529677334,
+          "maxDD": 29.305865851420027,
+          "sharpe": -0.5618595684007898,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -41.4222215454137,
+          "excessSharpe": -0.865742031798342,
+          "exposurePct": 10.50542471553321,
+          "maxDD": 17.249273357983085,
+          "sharpe": -0.053835772345221945,
+          "trades": 23
+        }
+      ],
+      "label": "darvas vt=0.30",
+      "paramNames": [
+        "pivotWindow",
+        "minSwingAtr",
+        "maxBoxWidthFrac",
+        "targetLevel"
+      ],
+      "params": [
+        25.0,
+        2.318734310433018,
+        0.5063782080269329,
+        1.6438524337384541
+      ],
+      "provenance": "Darvas (1960), box breakouts on volume",
+      "trainFitness": -0.07468535939256038,
+      "volTarget": 0.3
+    },
+    {
+      "family": "cusum_tb",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -39.60810706810854,
+          "excessSharpe": -0.7670859904761803,
+          "exposurePct": 49.21957671957672,
+          "maxDD": 15.926168194652918,
+          "sharpe": 0.2261069886068542,
+          "trades": 129
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -12.566854055934018,
+          "excessSharpe": -0.9012874045017085,
+          "exposurePct": 44.977777777777774,
+          "maxDD": 29.625408685252797,
+          "sharpe": -0.4821651448041982,
+          "trades": 136
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 10.37667206763595,
+          "excessSharpe": -0.6026358955531165,
+          "exposurePct": 41.853671491169834,
+          "maxDD": 26.497717186705454,
+          "sharpe": -0.49326298818628705,
+          "trades": 136
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -45.308137910942634,
+          "excessSharpe": -1.2829575417918244,
+          "exposurePct": 37.152685895739616,
+          "maxDD": 22.507667537917907,
+          "sharpe": -0.47105128233870447,
+          "trades": 146
+        }
+      ],
+      "label": "cusum_tb vt=0.15",
+      "paramNames": [
+        "volWindow",
+        "hSigmas",
+        "ptMult",
+        "slMult",
+        "maxHold"
+      ],
+      "params": [
+        111.0,
+        4.39668263900714,
+        6.639141525819661,
+        2.0251170097493905,
+        194.0
+      ],
+      "provenance": "Lopez de Prado (2018), AFML ch.2/3: CUSUM events + triple barrier",
+      "trainFitness": -0.14498261669509593,
+      "volTarget": 0.15
+    },
+    {
+      "family": "sma_cross",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -41.04753633748899,
+          "excessSharpe": -0.9015649874054205,
+          "exposurePct": 54.43121693121693,
+          "maxDD": 14.334818906251215,
+          "sharpe": 0.09162799167761401,
+          "trades": 82
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -4.3219977060919845,
+          "excessSharpe": -0.12469242130578223,
+          "exposurePct": 50.577777777777776,
+          "maxDD": 15.992585176761617,
+          "sharpe": 0.29442983839172804,
+          "trades": 74
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 10.19699217018336,
+          "excessSharpe": -0.6468675218676159,
+          "exposurePct": 47.643075288806266,
+          "maxDD": 21.877469547392373,
+          "sharpe": -0.5374946145007864,
+          "trades": 89
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -34.80112633564318,
+          "excessSharpe": -0.3915162164575054,
+          "exposurePct": 46.16300608626621,
+          "maxDD": 23.828891369302948,
+          "sharpe": 0.4203900429956146,
+          "trades": 86
+        }
+      ],
+      "label": "sma_cross vt=0.10",
+      "paramNames": [
+        "fast",
+        "slow"
+      ],
+      "params": [
+        55.0,
+        66.0
+      ],
+      "provenance": "repo: fast/slow moving-average crossover",
+      "trainFitness": -0.15018162776288524,
+      "volTarget": 0.1
+    },
+    {
+      "family": "vol_managed",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -36.391725944196644,
+          "excessSharpe": -0.40140676348836823,
+          "exposurePct": 49.96031746031746,
+          "maxDD": 16.048981985830903,
+          "sharpe": 0.5917862155946663,
+          "trades": 150
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 4.07625496927988,
+          "excessSharpe": 0.6275277162867258,
+          "exposurePct": 44.903703703703705,
+          "maxDD": 12.130876275677304,
+          "sharpe": 1.046649975984236,
+          "trades": 130
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 11.894611616540262,
+          "excessSharpe": -0.49144279383605377,
+          "exposurePct": 41.98645598194131,
+          "maxDD": 22.57442683296411,
+          "sharpe": -0.38206988646922435,
+          "trades": 181
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -39.73713333802111,
+          "excessSharpe": -0.7439045177412675,
+          "exposurePct": 38.10531886742525,
+          "maxDD": 19.953946712189992,
+          "sharpe": 0.06800174171185243,
+          "trades": 173
+        }
+      ],
+      "label": "vol_managed vt=0.10",
+      "paramNames": [
+        "volWindow",
+        "rankWindow",
+        "maxVolRank",
+        "trendWindow"
+      ],
+      "params": [
+        93.0,
+        649.0,
+        0.987672949643474,
+        106.0
+      ],
+      "provenance": "Moreira & Muir (2017), Journal of Finance 72(4)",
+      "trainFitness": -0.20164758603104133,
+      "volTarget": 0.1
+    },
+    {
+      "family": "skew_reversal",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -30.270492609412948,
+          "excessSharpe": 0.31332041809187183,
+          "exposurePct": 40.87301587301587,
+          "maxDD": 10.62625968480497,
+          "sharpe": 1.3065133971749063,
+          "trades": 54
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -2.260596834311257,
+          "excessSharpe": 0.15959654369756449,
+          "exposurePct": 37.08148148148148,
+          "maxDD": 15.65906438794091,
+          "sharpe": 0.5787188033950748,
+          "trades": 44
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 17.889090174373166,
+          "excessSharpe": 0.10966054009512272,
+          "exposurePct": 43.19479484796176,
+          "maxDD": 13.030046446070232,
+          "sharpe": 0.21903344746195214,
+          "trades": 57
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -47.80834188112632,
+          "excessSharpe": -2.0137027868149615,
+          "exposurePct": 29.16115374437682,
+          "maxDD": 25.823013623348583,
+          "sharpe": -1.2017965273618414,
+          "trades": 38
+        }
+      ],
+      "label": "skew_reversal vt=0.10",
+      "paramNames": [
+        "window",
+        "entrySkew",
+        "holdBars",
+        "trendWindow"
+      ],
+      "params": [
+        79.0,
+        -0.020395641140235832,
+        57.0,
+        171.0
+      ],
+      "provenance": "Amaya, Christoffersen, Jacobs & Vasquez (2015), JFE 118(1)",
+      "trainFitness": -0.43521844092435524,
+      "volTarget": 0.1
+    },
+    {
+      "family": "rsi_reversal",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -31.428437817810554,
+          "excessSharpe": 0.27756690206062395,
+          "exposurePct": 45.58201058201058,
+          "maxDD": 12.12651901320269,
+          "sharpe": 1.2707598811436585,
+          "trades": 42
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -6.732942018472499,
+          "excessSharpe": -0.36068424758449186,
+          "exposurePct": 37.86666666666667,
+          "maxDD": 15.100574050493986,
+          "sharpe": 0.0584380121130184,
+          "trades": 31
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 14.148374557111818,
+          "excessSharpe": -0.2997640040669322,
+          "exposurePct": 45.730978621696984,
+          "maxDD": 17.044238659965576,
+          "sharpe": -0.1903910967001028,
+          "trades": 41
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -43.57070045565271,
+          "excessSharpe": -1.3010044126646767,
+          "exposurePct": 35.16803387139455,
+          "maxDD": 16.551627260451095,
+          "sharpe": -0.48909815321155664,
+          "trades": 32
+        }
+      ],
+      "label": "rsi_reversal vt=0.10",
+      "paramNames": [
+        "rsiWindow",
+        "entryLevel",
+        "exitLevel",
+        "trendWindow",
+        "maxHoldBars"
+      ],
+      "params": [
+        12.0,
+        43.42533165118026,
+        90.1381788560384,
+        199.0,
+        83.0
+      ],
+      "provenance": "Jegadeesh (1990) / Lehmann (1990) short-term reversal; Connors & Alvarez (2008)",
+      "trainFitness": -0.4440492584985316,
+      "volTarget": 0.1
+    },
+    {
+      "family": "patterns",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -43.117770240190765,
+          "excessSharpe": -1.1574567180204949,
+          "exposurePct": 61.560846560846564,
+          "maxDD": 14.559241477415846,
+          "sharpe": -0.1642637389374604,
+          "trades": 127
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -11.04801931147621,
+          "excessSharpe": -1.0161590371812566,
+          "exposurePct": 51.05185185185185,
+          "maxDD": 22.150802439634827,
+          "sharpe": -0.5970367774837463,
+          "trades": 156
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 13.112903882623238,
+          "excessSharpe": -0.5336378641288062,
+          "exposurePct": 57.814367281901475,
+          "maxDD": 14.354090424113105,
+          "sharpe": -0.42426495676197684,
+          "trades": 61
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -38.20752540808336,
+          "excessSharpe": -0.5549037250200451,
+          "exposurePct": 58.375231542736174,
+          "maxDD": 13.183458318330521,
+          "sharpe": 0.25700253443307486,
+          "trades": 95
+        }
+      ],
+      "label": "patterns+hawkes vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Japanese candlestick signal ensemble",
+      "trainFitness": -0.5127571122383338,
+      "volTarget": 0.1
+    },
+    {
+      "family": "fib_ichimoku",
+      "gate": "pe",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -41.56213826157397,
+          "excessSharpe": -1.019703938593332,
+          "exposurePct": 2.8968253968253967,
+          "maxDD": 4.072518161847085,
+          "sharpe": -0.02651095951029741,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -12.161889575115058,
+          "excessSharpe": -1.9222458303615362,
+          "exposurePct": 4.622222222222222,
+          "maxDD": 15.51409542705469,
+          "sharpe": -1.503123570664026,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 14.797065293647591,
+          "excessSharpe": -0.4991850980379941,
+          "exposurePct": 5.842517593945027,
+          "maxDD": 6.884379218783246,
+          "sharpe": -0.3898121906711647,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -40.21866552765155,
+          "excessSharpe": -1.0076784106490635,
+          "exposurePct": 1.6935697274411219,
+          "maxDD": 4.730878982136663,
+          "sharpe": -0.19577215119594352,
+          "trades": 10
+        }
+      ],
+      "label": "fib_ichimoku+pe vt=0.15",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Fibonacci retracement entries under an Ichimoku trend",
+      "trainFitness": -0.8554290826288651,
+      "volTarget": 0.15
+    },
+    {
+      "family": "vr_switch",
+      "gate": "hurst",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -40.258840419295,
+          "excessSharpe": -0.6025272356667972,
+          "exposurePct": 6.084656084656085,
+          "maxDD": 7.085381486200171,
+          "sharpe": 0.3906657434162373,
+          "trades": 13
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -8.451741057667316,
+          "excessSharpe": -0.7621874399896718,
+          "exposurePct": 11.540740740740741,
+          "maxDD": 9.527317152039032,
+          "sharpe": -0.3430651802921615,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 14.456809076620747,
+          "excessSharpe": -0.49018281969881133,
+          "exposurePct": 8.338866020448812,
+          "maxDD": 10.197043926321065,
+          "sharpe": -0.3808099123319819,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -39.130629747074174,
+          "excessSharpe": -0.6133960189010128,
+          "exposurePct": 10.161418364646732,
+          "maxDD": 7.129111732312297,
+          "sharpe": 0.19851024055210714,
+          "trades": 17
+        }
+      ],
+      "label": "vr_switch+hurst vt=0.10",
+      "paramNames": [
+        "vrWindow",
+        "vrLag",
+        "band",
+        "trendWindow",
+        "mrWindow",
+        "mrEntryZ"
+      ],
+      "params": [
+        92.0,
+        12.0,
+        0.39524761728628294,
+        101.0,
+        64.0,
+        2.9000114885698993
+      ],
+      "provenance": "Lo & MacKinlay (1988) variance ratio; Lo (2004) adaptive markets",
+      "trainFitness": -0.9448133779536072,
+      "volTarget": 0.1
+    },
+    {
+      "family": "ou_score",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -41.765254882423164,
+          "excessSharpe": -1.0548787034204108,
+          "exposurePct": 9.047619047619047,
+          "maxDD": 8.165597397463443,
+          "sharpe": -0.0616857243373763,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -11.747859289759399,
+          "excessSharpe": -1.4248293265356922,
+          "exposurePct": 10.77037037037037,
+          "maxDD": 17.91352428651467,
+          "sharpe": -1.0057070668381818,
+          "trades": 19
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 17.791965068073544,
+          "excessSharpe": 0.34690385431401133,
+          "exposurePct": 8.551321205683177,
+          "maxDD": 5.345032315924014,
+          "sharpe": 0.45627676168084075,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -39.44098615746374,
+          "excessSharpe": -0.6319894210169172,
+          "exposurePct": 6.364117491399841,
+          "maxDD": 4.0909584851605425,
+          "sharpe": 0.17991683843620282,
+          "trades": 16
+        }
+      ],
+      "label": "ou_score+hawkes vt=0.10",
+      "paramNames": [
+        "window",
+        "detrendWindow",
+        "entryS",
+        "exitS",
+        "maxHalfLifeFrac"
+      ],
+      "params": [
+        120.0,
+        77.0,
+        1.6687508591731226,
+        0.30885869437318,
+        0.45565348868694944
+      ],
+      "provenance": "Avellaneda & Lee (2010), Quantitative Finance 10(7)",
+      "trainFitness": -1.220855710646681,
+      "volTarget": 0.1
+    },
+    {
+      "family": "control_always_long",
+      "gate": "pe",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -41.46829649122679,
+          "excessSharpe": -0.9931929790830345,
+          "exposurePct": 0.0,
+          "maxDD": 0.0,
+          "sharpe": 0.0,
+          "trades": 0
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -6.893672648427129,
+          "excessSharpe": -0.41912225969751027,
+          "exposurePct": 0.0,
+          "maxDD": 0.0,
+          "sharpe": 0.0,
+          "trades": 0
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 16.237562336027377,
+          "excessSharpe": -0.10937290736682942,
+          "exposurePct": 0.0,
+          "maxDD": 0.0,
+          "sharpe": 0.0,
+          "trades": 0
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -39.943820167068544,
+          "excessSharpe": -0.81190625945312,
+          "exposurePct": 0.0,
+          "maxDD": 0.0,
+          "sharpe": 0.0,
+          "trades": 0
+        }
+      ],
+      "label": "control_always_long+pe vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "CONTROL: buy first bar, never sell",
+      "trainFitness": -49.37875609479533,
+      "volTarget": 0.1
+    }
+  ],
+  "finalists": [
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "gateGenes": [
+        0.7027014593313429,
+        0.6722797659759885,
+        0.0
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.74719494810257,
+          "excessSharpe": -0.3560132864036729,
+          "exposurePct": 53.98148148148148,
+          "maxDD": 16.205724456885434,
+          "sharpe": 0.6371796926793616,
+          "trades": 70
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 11.415177145434475,
+          "excessSharpe": 0.7264531907875996,
+          "exposurePct": 50.82962962962963,
+          "maxDD": 13.965623420982501,
+          "sharpe": 1.14557545048511,
+          "trades": 59
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 10.458464461977057,
+          "excessSharpe": -0.37239877401026655,
+          "exposurePct": 48.22732704820077,
+          "maxDD": 26.314072288818462,
+          "sharpe": -0.26302586664343713,
+          "trades": 73
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -27.886515879043074,
+          "excessSharpe": -0.15614691568485028,
+          "exposurePct": 48.31966128605451,
+          "maxDD": 27.579814721870843,
+          "sharpe": 0.6557593437682697,
+          "trades": 69
+        }
+      ],
+      "label": "fracdiff vt=0.15",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.05199155465572257,
+        48.0,
+        1.2842137002406746,
+        -1.3728077630311073,
+        1.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.45711235512757975,
+          "maxDD": 29.621009396144256,
+          "sharpe": 1.5713704776025852,
+          "trades": 143
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.3110758353328018,
+          "maxDD": 16.332510823767432,
+          "sharpe": 1.5373307631190214,
+          "trades": 130
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.27908188506438747,
+          "maxDD": 25.766416943374242,
+          "sharpe": 0.9882866601118976,
+          "trades": 150
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.29328262395369065,
+          "maxDD": 26.856021049340917,
+          "sharpe": 1.230677342655153,
+          "trades": 144
+        }
+      ],
+      "trainFitness": 0.2781420531746417,
+      "volTarget": 0.15
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "gateGenes": [
+        0.010549279517765103,
+        0.44338088646383805,
+        0.7582275458290954
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -35.62697451976295,
+          "excessSharpe": -0.40837244904043823,
+          "exposurePct": 31.65343915343915,
+          "maxDD": 12.122429571105679,
+          "sharpe": 0.5848205300425963,
+          "trades": 49
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 7.103953517776596,
+          "excessSharpe": 0.6317298718484391,
+          "exposurePct": 31.437037037037037,
+          "maxDD": 15.66731108540547,
+          "sharpe": 1.0508521315459494,
+          "trades": 45
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 12.609962617461278,
+          "excessSharpe": -0.30042953604386524,
+          "exposurePct": 24.631523038109147,
+          "maxDD": 25.589468066618664,
+          "sharpe": -0.19105662867703585,
+          "trades": 53
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -28.426457397714145,
+          "excessSharpe": -0.1259823128537816,
+          "exposurePct": 24.053982535062186,
+          "maxDD": 27.426986732831537,
+          "sharpe": 0.6859239465993384,
+          "trades": 47
+        }
+      ],
+      "label": "squeeze_breakout vt=0.15",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        78.0,
+        1.5848308341989847,
+        598.0,
+        0.4856144344035555,
+        36.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.40592758639188187,
+          "maxDD": 20.8792650404654,
+          "sharpe": 1.5201857088668873,
+          "trades": 99
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.31217499472017196,
+          "maxDD": 16.33251082376744,
+          "sharpe": 1.5384299225063915,
+          "trades": 88
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.24044219764328567,
+          "maxDD": 24.090278234056914,
+          "sharpe": 0.9496469726907958,
+          "trades": 109
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.29691755375726026,
+          "maxDD": 26.240605192469975,
+          "sharpe": 1.2343122724587225,
+          "trades": 99
+        }
+      ],
+      "trainFitness": 0.24044219764328567,
+      "volTarget": 0.15
+    },
+    {
+      "family": "lppls_bubble",
+      "gate": "none",
+      "gateGenes": [
+        0.707639477453998,
+        0.23198521437141556,
+        0.021524434865701766
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -30.266435903467606,
+          "excessSharpe": 0.11581900933206968,
+          "exposurePct": 52.129629629629626,
+          "maxDD": 15.312765654839039,
+          "sharpe": 1.1090119884151042,
+          "trades": 134
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 2.6151568475411455,
+          "excessSharpe": 0.594957704127478,
+          "exposurePct": 44.11851851851852,
+          "maxDD": 12.499263868870749,
+          "sharpe": 1.0140799638249882,
+          "trades": 103
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 11.507120292439588,
+          "excessSharpe": -0.47873365061414636,
+          "exposurePct": 45.75753551985128,
+          "maxDD": 22.067249590316898,
+          "sharpe": -0.36936074324731694,
+          "trades": 166
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -32.486972191098616,
+          "excessSharpe": -0.247273380506715,
+          "exposurePct": 40.328129134691714,
+          "maxDD": 23.61772482842401,
+          "sharpe": 0.564632878946405,
+          "trades": 169
+        }
+      ],
+      "label": "lppls_bubble vt=0.10",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        248.0,
+        30.0,
+        0.8857687941960848,
+        155.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.25027659280215864,
+          "maxDD": 16.02086513405293,
+          "sharpe": 1.364534715277164,
+          "trades": 301
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.31455997027999927,
+          "maxDD": 18.425347203710484,
+          "sharpe": 1.5408148980662189,
+          "trades": 213
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.21491676308381724,
+          "maxDD": 25.903707316337854,
+          "sharpe": 0.9241215381313274,
+          "trades": 375
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.3516700614827003,
+          "maxDD": 33.68500395662855,
+          "sharpe": 1.2890647801841626,
+          "trades": 344
+        }
+      ],
+      "trainFitness": 0.21361006402205313,
+      "volTarget": 0.1
+    },
+    {
+      "family": "tsmom",
+      "gate": "none",
+      "gateGenes": [
+        0.6083308425193179,
+        0.8747564441354428,
+        0.8956752573802514
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.50193919683586,
+          "excessSharpe": -0.04977973567922822,
+          "exposurePct": 56.13756613756614,
+          "maxDD": 12.315734676228471,
+          "sharpe": 0.9434132434038063,
+          "trades": 54
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 4.472758497253926,
+          "excessSharpe": 0.6731875267552402,
+          "exposurePct": 53.15555555555556,
+          "maxDD": 12.088293501014027,
+          "sharpe": 1.0923097864527505,
+          "trades": 53
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 10.747631473115725,
+          "excessSharpe": -0.57110258751842,
+          "exposurePct": 49.63484265037844,
+          "maxDD": 20.11324501614144,
+          "sharpe": -0.4617296801515906,
+          "trades": 71
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -27.907842833753072,
+          "excessSharpe": 0.04209536633001143,
+          "exposurePct": 45.07806297962424,
+          "maxDD": 17.595912598494817,
+          "sharpe": 0.8540016257831314,
+          "trades": 65
+        }
+      ],
+      "label": "tsmom vt=0.10",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        40.0,
+        100.0,
+        0.507385600502327,
+        2.305118882614367
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.26010077697084855,
+          "maxDD": 18.566349752191474,
+          "sharpe": 1.374358899445854,
+          "trades": 129
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.29349915460993703,
+          "maxDD": 14.280894763988403,
+          "sharpe": 1.5197540823961566,
+          "trades": 126
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.24355092824895108,
+          "maxDD": 26.048136251642457,
+          "sharpe": 0.9527557032964612,
+          "trades": 126
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.21296131905039106,
+          "maxDD": 24.409128348227917,
+          "sharpe": 1.1503560377518534,
+          "trades": 119
+        }
+      ],
+      "trainFitness": 0.21296131905039106,
+      "volTarget": 0.1
+    },
+    {
+      "family": "tsmom",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.607393321253256,
+        0.9557932116243408,
+        0.7457035537914436
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.83143921240417,
+          "excessSharpe": -0.07973250079250405,
+          "exposurePct": 54.232804232804234,
+          "maxDD": 10.63920116834514,
+          "sharpe": 0.9134604782905305,
+          "trades": 59
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 3.5323401135775256,
+          "excessSharpe": 0.5091724485580075,
+          "exposurePct": 50.8,
+          "maxDD": 16.994689910636836,
+          "sharpe": 0.9282947082555177,
+          "trades": 58
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 10.119889558490502,
+          "excessSharpe": -0.6975782765730563,
+          "exposurePct": 47.56340459434338,
+          "maxDD": 23.39417780127599,
+          "sharpe": -0.5882053692062268,
+          "trades": 67
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -23.05794999186068,
+          "excessSharpe": 0.24750627049549168,
+          "exposurePct": 43.45064831966128,
+          "maxDD": 19.101352745578126,
+          "sharpe": 1.0594125299486117,
+          "trades": 63
+        }
+      ],
+      "label": "tsmom+hawkes vt=0.10",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        37.0,
+        80.0,
+        0.5422460002088384,
+        2.2375604939969915
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.1898209821051089,
+          "maxDD": 23.169207394870785,
+          "sharpe": 1.3040791045801143,
+          "trades": 130
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.305407942021388,
+          "maxDD": 14.036615070153724,
+          "sharpe": 1.5316628698076076,
+          "trades": 121
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.21991178453761162,
+          "maxDD": 28.241434927719894,
+          "sharpe": 0.9291165595851217,
+          "trades": 124
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.2005900276448641,
+          "maxDD": 20.621520234683167,
+          "sharpe": 1.1379847463463264,
+          "trades": 124
+        }
+      ],
+      "trainFitness": 0.1898209821051089,
+      "volTarget": 0.1
+    },
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "gateGenes": [
+        0.647807212474304,
+        0.7031626211659705,
+        0.0
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -32.841839304911915,
+          "excessSharpe": -0.07741988031147173,
+          "exposurePct": 53.783068783068785,
+          "maxDD": 9.647332578008113,
+          "sharpe": 0.9157730987715628,
+          "trades": 61
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 6.052647582394831,
+          "excessSharpe": 0.786743311397664,
+          "exposurePct": 51.49629629629629,
+          "maxDD": 11.931460097598857,
+          "sharpe": 1.2058655710951742,
+          "trades": 50
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 14.103245607951097,
+          "excessSharpe": -0.23369017900154568,
+          "exposurePct": 47.749302881423446,
+          "maxDD": 16.06449934483203,
+          "sharpe": -0.12431727163471626,
+          "trades": 61
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -31.133119812084864,
+          "excessSharpe": -0.1651555905384029,
+          "exposurePct": 47.803651759724794,
+          "maxDD": 22.302294454114758,
+          "sharpe": 0.6467506689147171,
+          "trades": 58
+        }
+      ],
+      "label": "fracdiff vt=0.10",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.0639897758686008,
+        59.0,
+        1.293854382806874,
+        -1.3392772240410737,
+        1.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.33299563562254764,
+          "maxDD": 18.6869402672386,
+          "sharpe": 1.447253758097553,
+          "trades": 119
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.25776469696050186,
+          "maxDD": 13.192619432757411,
+          "sharpe": 1.4840196247467214,
+          "trades": 110
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.23348710504773507,
+          "maxDD": 20.711632717646705,
+          "sharpe": 0.9426918800952452,
+          "trades": 131
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.16405067088511027,
+          "maxDD": 22.204867805550116,
+          "sharpe": 1.1014453895865726,
+          "trades": 128
+        }
+      ],
+      "trainFitness": 0.16405067088511027,
+      "volTarget": 0.1
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "pe",
+      "gateGenes": [
+        0.6826825339200877,
+        0.4964901875658514,
+        0.9970574678789189
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -23.20747067838609,
+          "excessSharpe": 0.11971193082943299,
+          "exposurePct": 54.12698412698413,
+          "maxDD": 14.642547574109832,
+          "sharpe": 1.1129049099124675,
+          "trades": 90
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 10.549844372720683,
+          "excessSharpe": 0.5936949492522404,
+          "exposurePct": 51.65925925925926,
+          "maxDD": 23.028464910782077,
+          "sharpe": 1.0128172089497507,
+          "trades": 86
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 1.5648224198199099,
+          "excessSharpe": -0.903571175743257,
+          "exposurePct": 48.94436329836675,
+          "maxDD": 47.781483892538276,
+          "sharpe": -0.7941982683764275,
+          "trades": 106
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -12.611207764309263,
+          "excessSharpe": 0.15185430905224573,
+          "exposurePct": 43.8078856840434,
+          "maxDD": 26.168374530086382,
+          "sharpe": 0.9637605685053657,
+          "trades": 97
+        }
+      ],
+      "label": "ehlers_trend+pe vt=0.20",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        5.0,
+        20.0,
+        106.0,
+        0.11793709811061891
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.46505687239249704,
+          "maxDD": 27.488791212517878,
+          "sharpe": 1.5793149948675025,
+          "trades": 198
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.3847352362664931,
+          "maxDD": 18.943588674862983,
+          "sharpe": 1.6109901640527127,
+          "trades": 180
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.17328550519140662,
+          "maxDD": 20.13185155619706,
+          "sharpe": 0.8824902802389167,
+          "trades": 196
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.22710155443048963,
+          "maxDD": 31.77114297977084,
+          "sharpe": 1.164496273131952,
+          "trades": 193
+        }
+      ],
+      "trainFitness": 0.15374415082648976,
+      "volTarget": 0.2
+    },
+    {
+      "family": "tsmom",
+      "gate": "none",
+      "gateGenes": [
+        0.6072897264768614,
+        0.9370412548655458,
+        0.8637040985446169
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -30.728673242781483,
+          "excessSharpe": -0.11164149639065835,
+          "exposurePct": 54.65608465608466,
+          "maxDD": 15.287537293402448,
+          "sharpe": 0.8815514826923762,
+          "trades": 64
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 9.642883812271476,
+          "excessSharpe": 0.6023469343261852,
+          "exposurePct": 53.46666666666667,
+          "maxDD": 21.166632629373918,
+          "sharpe": 1.0214691940236955,
+          "trades": 63
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 12.214216205503892,
+          "excessSharpe": -0.27468263870379106,
+          "exposurePct": 50.20581596069579,
+          "maxDD": 23.728019974794517,
+          "sharpe": -0.16530973133696167,
+          "trades": 73
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -25.00058997970962,
+          "excessSharpe": -0.02856365935624805,
+          "exposurePct": 46.77163270706536,
+          "maxDD": 28.806435804594123,
+          "sharpe": 0.783342600096872,
+          "trades": 71
+        }
+      ],
+      "label": "tsmom vt=0.15",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        37.0,
+        98.0,
+        0.48796057989234765,
+        2.350133507448156
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.25771981853403747,
+          "maxDD": 27.004120209198764,
+          "sharpe": 1.371977941009043,
+          "trades": 149
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.44811619572642214,
+          "maxDD": 18.59066623357247,
+          "sharpe": 1.6743711235126417,
+          "trades": 139
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.19293553058590684,
+          "maxDD": 29.7469098622399,
+          "sharpe": 0.902140305633417,
+          "trades": 138
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.15125421405626238,
+          "maxDD": 26.85602104934091,
+          "sharpe": 1.0886489327577247,
+          "trades": 134
+        }
+      ],
+      "trainFitness": 0.14574251143930791,
+      "volTarget": 0.15
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "gateGenes": [
+        0.04586484921743353,
+        0.5709301435814915,
+        0.7579306284449503
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.41200126427795,
+          "excessSharpe": -0.3500541008050895,
+          "exposurePct": 30.013227513227513,
+          "maxDD": 17.89156409384306,
+          "sharpe": 0.643138878277945,
+          "trades": 47
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 12.41752648956558,
+          "excessSharpe": 0.7033766746674511,
+          "exposurePct": 31.42222222222222,
+          "maxDD": 19.990732295770588,
+          "sharpe": 1.1224989343649614,
+          "trades": 45
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 12.171699651533284,
+          "excessSharpe": -0.24364672384321065,
+          "exposurePct": 24.405789403797638,
+          "maxDD": 31.208307912692078,
+          "sharpe": -0.13427381647638123,
+          "trades": 52
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -26.753238316123863,
+          "excessSharpe": -0.1470763272453427,
+          "exposurePct": 23.776131251653876,
+          "maxDD": 32.19897983182049,
+          "sharpe": 0.6648299322077773,
+          "trades": 47
+        }
+      ],
+      "label": "squeeze_breakout vt=0.20",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        77.0,
+        1.5917927702672392,
+        627.0,
+        0.490545870759703,
+        32.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.3272168219707179,
+          "maxDD": 25.817519390286808,
+          "sharpe": 1.4414749444457233,
+          "trades": 95
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.33054774185351343,
+          "maxDD": 20.914715387944653,
+          "sharpe": 1.556802669639733,
+          "trades": 90
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.18086517306869387,
+          "maxDD": 30.8046846319557,
+          "sharpe": 0.890069948116204,
+          "trades": 111
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.3169283972487217,
+          "maxDD": 28.863585231321576,
+          "sharpe": 1.254323115950184,
+          "trades": 100
+        }
+      ],
+      "trainFitness": 0.12695419118635362,
+      "volTarget": 0.2
+    },
+    {
+      "family": "macd_norm",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.09503969308387751,
+        0.6072891290716778,
+        0.48556519498981526
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -31.570494536303542,
+          "excessSharpe": -0.1824711962596406,
+          "exposurePct": 44.523809523809526,
+          "maxDD": 21.229856617847016,
+          "sharpe": 0.8107217828233939,
+          "trades": 92
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 9.93280483980463,
+          "excessSharpe": 0.6517246446784598,
+          "exposurePct": 43.65925925925926,
+          "maxDD": 19.851922446430173,
+          "sharpe": 1.07084690437597,
+          "trades": 79
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 7.272388131189398,
+          "excessSharpe": -0.7010602391194365,
+          "exposurePct": 37.06015137431948,
+          "maxDD": 32.86241863330927,
+          "sharpe": -0.591687331752607,
+          "trades": 100
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -26.290308013975295,
+          "excessSharpe": -0.16167181071493375,
+          "exposurePct": 39.07118285260651,
+          "maxDD": 29.81363501575991,
+          "sharpe": 0.6502344487381863,
+          "trades": 87
+        }
+      ],
+      "label": "macd_norm+hawkes vt=0.15",
+      "paramNames": [
+        "shortWindow",
+        "longWindow",
+        "priceStdWindow",
+        "signalStdWindow",
+        "entryZ"
+      ],
+      "params": [
+        6.0,
+        21.0,
+        100.0,
+        105.0,
+        0.420718723478242
+      ],
+      "provenance": "Baz, Granger, Harvey, Le Roux & Rattray (2015), SSRN 2695101",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.6359461322476463,
+          "maxDD": 20.05911788799948,
+          "sharpe": 1.7502042547226517,
+          "trades": 188
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.14391666589782193,
+          "maxDD": 15.288706566402524,
+          "sharpe": 1.3701715936840415,
+          "trades": 171
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.12337540092405896,
+          "maxDD": 24.090278234056907,
+          "sharpe": 0.8325801759715691,
+          "trades": 202
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.1223423219966907,
+          "maxDD": 24.832098246498344,
+          "sharpe": 1.059737040698153,
+          "trades": 179
+        }
+      ],
+      "trainFitness": 0.1223423219966907,
+      "volTarget": 0.15
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.7266682213989326,
+        0.37193993842350953,
+        1.0
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -28.866027108220774,
+          "excessSharpe": -0.1607913122208261,
+          "exposurePct": 54.6031746031746,
+          "maxDD": 18.315801549468453,
+          "sharpe": 0.8324016668622084,
+          "trades": 86
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 7.768447444732018,
+          "excessSharpe": 0.44270360483686966,
+          "exposurePct": 51.2,
+          "maxDD": 20.428715907969984,
+          "sharpe": 0.8618258645343799,
+          "trades": 86
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 4.3532125781377875,
+          "excessSharpe": -0.7040623611321506,
+          "exposurePct": 48.86469260390386,
+          "maxDD": 41.106159571121246,
+          "sharpe": -0.5946894537653212,
+          "trades": 100
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -23.17255605959938,
+          "excessSharpe": -0.016237391854238004,
+          "exposurePct": 43.966657845991,
+          "maxDD": 30.235124056648345,
+          "sharpe": 0.795668867598882,
+          "trades": 92
+        }
+      ],
+      "label": "ehlers_trend+hawkes vt=0.20",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        9.0,
+        19.0,
+        99.0,
+        0.11806349055484326
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.46106047818768636,
+          "maxDD": 35.192060127349706,
+          "sharpe": 1.5753186006626918,
+          "trades": 191
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.2666260773243807,
+          "maxDD": 21.52217101088288,
+          "sharpe": 1.4928810051106003,
+          "trades": 178
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.12137506667289466,
+          "maxDD": 20.85997111568515,
+          "sharpe": 0.8305798417204048,
+          "trades": 189
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.20147036999546508,
+          "maxDD": 31.3896995030765,
+          "sharpe": 1.1388650886969274,
+          "trades": 186
+        }
+      ],
+      "trainFitness": 0.12137506667289466,
+      "volTarget": 0.2
+    },
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "gateGenes": [
+        0.6380975969541988,
+        0.6752865834278934,
+        0.07452337210981774
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -29.8234207642049,
+          "excessSharpe": -0.2704352688724879,
+          "exposurePct": 55.46296296296296,
+          "maxDD": 28.5269017962234,
+          "sharpe": 0.7227577102105466,
+          "trades": 72
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 17.42205614781207,
+          "excessSharpe": 0.741240285563226,
+          "exposurePct": 52.50370370370371,
+          "maxDD": 19.978705681390732,
+          "sharpe": 1.1603625452607362,
+          "trades": 60
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 12.579825100910268,
+          "excessSharpe": -0.15679132007356583,
+          "exposurePct": 50.25892975700438,
+          "maxDD": 34.77842080310561,
+          "sharpe": -0.047418412706736406,
+          "trades": 72
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -25.77472885719012,
+          "excessSharpe": -0.16570871928238173,
+          "exposurePct": 50.11907912146071,
+          "maxDD": 35.83421426520914,
+          "sharpe": 0.6461975401707383,
+          "trades": 65
+        }
+      ],
+      "label": "fracdiff vt=0.20",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.05901202737023541,
+        57.0,
+        0.9026427269377882,
+        -1.2161666984321335,
+        1.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.48477370717532686,
+          "maxDD": 28.846630798429672,
+          "sharpe": 1.5990318296503323,
+          "trades": 144
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.45933214994932725,
+          "maxDD": 20.345692021507414,
+          "sharpe": 1.6855870777355468,
+          "trades": 127
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.1708249004243486,
+          "maxDD": 30.862480827527122,
+          "sharpe": 0.8800296754718587,
+          "trades": 159
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.22868000556129642,
+          "maxDD": 31.638679416756194,
+          "sharpe": 1.1660747242627587,
+          "trades": 156
+        }
+      ],
+      "trainFitness": 0.11583501009935167,
+      "volTarget": 0.2
+    },
+    {
+      "family": "control_random",
+      "gate": "none",
+      "gateGenes": [
+        0.6290882304170358,
+        0.5035178051024266,
+        0.8705009681965902
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -33.243341361511256,
+          "excessSharpe": -0.24875059773224495,
+          "exposurePct": 95.5952380952381,
+          "maxDD": 20.370203126188056,
+          "sharpe": 0.7444423813507896,
+          "trades": 38
+        },
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -2.9885079823939176,
+          "excessSharpe": -0.05168944854518803,
+          "exposurePct": 95.76296296296296,
+          "maxDD": 27.580243420647705,
+          "sharpe": 0.36743281115232224,
+          "trades": 34
+        },
+        {
+          "benchSharpe": 0.10937290736682942,
+          "env": "LTC_USDT",
+          "excessCagr": 17.523020822692345,
+          "excessSharpe": 0.05345453694142871,
+          "exposurePct": 95.97662992962422,
+          "maxDD": 21.812204909015943,
+          "sharpe": 0.16282744430825813,
+          "trades": 38
+        },
+        {
+          "benchSharpe": 0.81190625945312,
+          "env": "XRP_USDT",
+          "excessCagr": -15.2394375307513,
+          "excessSharpe": 0.40554535308465856,
+          "exposurePct": 95.62053453294523,
+          "maxDD": 23.06463901620531,
+          "sharpe": 1.2174516125377786,
+          "trades": 38
+        }
+      ],
+      "label": "control_random vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.0993664297544562,
+        190.0,
+        46545.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.22900902708967363,
+          "maxDD": 23.4912789925674,
+          "sharpe": 1.343267149564679,
+          "trades": 88
+        },
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": -0.03503607655955032,
+          "maxDD": 27.91311797307332,
+          "sharpe": 1.1912188512266693,
+          "trades": 78
+        },
+        {
+          "benchSharpe": 0.7092047750475101,
+          "env": "LTC_USDT",
+          "excessSharpe": 0.08371583730546606,
+          "maxDD": 29.564822666827638,
+          "sharpe": 0.7929206123529762,
+          "trades": 88
+        },
+        {
+          "benchSharpe": 0.9373947187014623,
+          "env": "XRP_USDT",
+          "excessSharpe": 0.01653642296825386,
+          "maxDD": 29.119726873947403,
+          "sharpe": 0.9539311416697162,
+          "trades": 88
+        }
+      ],
+      "trainFitness": -0.04861408667961882,
+      "volTarget": 0.1
+    }
+  ],
+  "history": [
+    {
+      "bestFitness": 0.09190908138069798,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 0,
+      "medianFitness": -7.090544762205411,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23069122769351524,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 1,
+      "medianFitness": -1.754437378873127,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23069122769351524,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 2,
+      "medianFitness": -1.6164911151011176,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23069122769351524,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 3,
+      "medianFitness": -1.1323618828484177,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23069122769351524,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 4,
+      "medianFitness": -1.0561824203216235,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23069122769351524,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 5,
+      "medianFitness": -0.8312903169033564,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23069122769351524,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 6,
+      "medianFitness": -0.9137571640201094,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23069122769351524,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 7,
+      "medianFitness": -0.6599555587235143,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23069122769351524,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 8,
+      "medianFitness": -0.6599555587235143,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23858858785611026,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 9,
+      "medianFitness": -0.5625537618654235,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.23858858785611026,
+      "bestLabel": "squeeze_breakout vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 10,
+      "medianFitness": -0.666867356681162,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.24098292683779676,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 11,
+      "medianFitness": -0.5981653351854261,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.24098292683779676,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "ehlers_trend": 2,
+        "faber_ma": 2,
+        "fracdiff": 5,
+        "kama_trend": 2,
+        "lppls_bubble": 3,
+        "macd_norm": 1,
+        "odiseo": 3,
+        "squeeze_breakout": 8,
+        "tsmom": 6
+      },
+      "generation": 12,
+      "medianFitness": -0.5004137044342083,
+      "survivors": 32
+    },
+    {
+      "bestFitness": 0.24098292683779676,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "ehlers_trend": 5,
+        "faber_ma": 5,
+        "fracdiff": 9,
+        "kama_trend": 3,
+        "lppls_bubble": 9,
+        "macd_norm": 3,
+        "odiseo": 3,
+        "squeeze_breakout": 14,
+        "tsmom": 9
+      },
+      "generation": 13,
+      "medianFitness": -0.18062716437303794,
+      "survivors": 60
+    },
+    {
+      "bestFitness": 0.24098292683779676,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "ehlers_trend": 6,
+        "faber_ma": 5,
+        "fracdiff": 12,
+        "kama_trend": 2,
+        "lppls_bubble": 6,
+        "macd_norm": 5,
+        "odiseo": 10,
+        "squeeze_breakout": 17,
+        "tsmom": 10
+      },
+      "generation": 14,
+      "medianFitness": -0.07597577777673135,
+      "survivors": 73
+    },
+    {
+      "bestFitness": 0.24098292683779676,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "ehlers_trend": 4,
+        "faber_ma": 9,
+        "fracdiff": 12,
+        "kama_trend": 7,
+        "lppls_bubble": 6,
+        "macd_norm": 3,
+        "odiseo": 4,
+        "squeeze_breakout": 16,
+        "tsmom": 13
+      },
+      "generation": 15,
+      "medianFitness": -0.1256383047816363,
+      "survivors": 74
+    },
+    {
+      "bestFitness": 0.24098292683779676,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "ehlers_trend": 11,
+        "faber_ma": 5,
+        "fracdiff": 12,
+        "kama_trend": 5,
+        "lppls_bubble": 10,
+        "macd_norm": 4,
+        "odiseo": 8,
+        "squeeze_breakout": 15,
+        "tsmom": 15
+      },
+      "generation": 16,
+      "medianFitness": -0.09827771389744261,
+      "survivors": 85
+    },
+    {
+      "bestFitness": 0.24098292683779676,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "ehlers_trend": 8,
+        "faber_ma": 9,
+        "fracdiff": 12,
+        "kama_trend": 5,
+        "lppls_bubble": 12,
+        "macd_norm": 5,
+        "odiseo": 6,
+        "squeeze_breakout": 19,
+        "tsmom": 15
+      },
+      "generation": 17,
+      "medianFitness": -0.07139144311940993,
+      "survivors": 91
+    },
+    {
+      "bestFitness": 0.2781420531746417,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "ehlers_trend": 8,
+        "faber_ma": 6,
+        "fracdiff": 14,
+        "kama_trend": 9,
+        "lppls_bubble": 11,
+        "macd_norm": 3,
+        "odiseo": 8,
+        "squeeze_breakout": 21,
+        "tsmom": 11
+      },
+      "generation": 18,
+      "medianFitness": -0.06499086536153982,
+      "survivors": 91
+    },
+    {
+      "bestFitness": 0.2781420531746417,
+      "bestLabel": "fracdiff vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "ehlers_trend": 12,
+        "faber_ma": 6,
+        "fracdiff": 17,
+        "kama_trend": 8,
+        "lppls_bubble": 13,
+        "macd_norm": 6,
+        "odiseo": 9,
+        "squeeze_breakout": 19,
+        "tsmom": 15
+      },
+      "generation": 19,
+      "medianFitness": -0.036820791387598084,
+      "survivors": 105
+    }
+  ],
+  "transfer": {
+    "bestControlTrainFitness": -0.04861408667961882,
+    "controlHoldoutRank": 1,
+    "holdoutRankedCount": 22,
+    "pAll": 0.00039998000099995,
+    "pTopHalf": 0.5798210089495526,
+    "rankedFamilies": 21,
+    "rhoAll": 0.7311688311688311,
+    "rhoTopHalf": 0.2
+  }
+}

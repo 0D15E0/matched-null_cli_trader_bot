@@ -1,0 +1,13 @@
+# __TRADER_USER__ is a placeholder: substitute the account that owns the repo
+# before installing (see deploy/pi/README.md, "The host").
+[Unit]
+Description=Preserve Poloniex funding-rate history (180-day venue window)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=__TRADER_USER__
+WorkingDirectory=/home/__TRADER_USER__/trader/cli_trader
+ExecStart=/usr/bin/python3 /home/__TRADER_USER__/trader/cli_trader/scripts/record_funding.py
+StandardOutput=append:/home/__TRADER_USER__/trader/cli_trader/logs_pi/funding.log
+StandardError=append:/home/__TRADER_USER__/trader/cli_trader/logs_pi/funding.log

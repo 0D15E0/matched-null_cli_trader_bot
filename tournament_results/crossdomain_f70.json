@@ -1,0 +1,3105 @@
+{
+  "config": {
+    "candidatesEvaluated": 4466,
+    "distinctGenomes": 4465,
+    "generations": 20,
+    "population": 260,
+    "seed": 20260824,
+    "surviveThreshold": 0.0,
+    "trainFraction": 0.7
+  },
+  "familyChampions": [
+    {
+      "family": "lppls_bubble",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -15.450822702343661,
+          "excessSharpe": 0.0834223965438563,
+          "exposurePct": 52.06349206349206,
+          "maxDD": 33.78664720902691,
+          "sharpe": 1.0766153756268908,
+          "trades": 102
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -2.315708409727968,
+          "excessSharpe": 0.3693402393910805,
+          "exposurePct": 68.1095406360424,
+          "maxDD": 15.919490674560372,
+          "sharpe": 1.2281757418914245,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -9.53504739594635,
+          "excessSharpe": -0.24436846488800412,
+          "exposurePct": 81.43236074270557,
+          "maxDD": 29.944433498842475,
+          "sharpe": 0.5790361139892286,
+          "trades": 5
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -16.14448337746288,
+          "excessSharpe": -0.5948029067714267,
+          "exposurePct": 53.18021201413428,
+          "maxDD": 19.915208646477073,
+          "sharpe": 0.5085759908861329,
+          "trades": 20
+        }
+      ],
+      "label": "lppls_bubble vt=0.30",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        417.0,
+        9.0,
+        0.33507954592562744,
+        250.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "trainFitness": -0.06683627496994793,
+      "volTarget": 0.3
+    },
+    {
+      "family": "control_random",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -34.635593566467726,
+          "excessSharpe": -0.3596673865637777,
+          "exposurePct": 96.03174603174604,
+          "maxDD": 21.62961318132385,
+          "sharpe": 0.6335255925192568,
+          "trades": 74
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -5.029843294478887,
+          "excessSharpe": -0.030603112437337265,
+          "exposurePct": 96.73144876325088,
+          "maxDD": 18.20720091246336,
+          "sharpe": 0.8282323900630068,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -14.1813013165754,
+          "excessSharpe": -0.22634595175872674,
+          "exposurePct": 96.28647214854111,
+          "maxDD": 13.120720108630376,
+          "sharpe": 0.597058627118506,
+          "trades": 8
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -7.779432179226475,
+          "excessSharpe": -0.010554537567232014,
+          "exposurePct": 96.73144876325088,
+          "maxDD": 16.884818663323266,
+          "sharpe": 1.0928243600903276,
+          "trades": 12
+        }
+      ],
+      "label": "control_random vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.19950322428674155,
+        98.0,
+        72774.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "trainFitness": -0.09979155305142547,
+      "volTarget": 0.1
+    },
+    {
+      "family": "cusum_tb",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -45.79016410118439,
+          "excessSharpe": -1.1661471873447162,
+          "exposurePct": 22.685185185185187,
+          "maxDD": 34.081862114018094,
+          "sharpe": -0.17295420826168162,
+          "trades": 133
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -9.646037589694046,
+          "excessSharpe": -0.2638237418966999,
+          "exposurePct": 40.90106007067138,
+          "maxDD": 14.16720790963448,
+          "sharpe": 0.5950117606036441,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -26.283897941930256,
+          "excessSharpe": -1.1705695326222365,
+          "exposurePct": 38.19628647214854,
+          "maxDD": 22.435784288830877,
+          "sharpe": -0.3471649537450037,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -14.258326328473302,
+          "excessSharpe": -0.42088810177933345,
+          "exposurePct": 36.042402826855124,
+          "maxDD": 12.325389504996418,
+          "sharpe": 0.6824907958782261,
+          "trades": 25
+        }
+      ],
+      "label": "cusum_tb vt=0.40",
+      "paramNames": [
+        "volWindow",
+        "hSigmas",
+        "ptMult",
+        "slMult",
+        "maxHold"
+      ],
+      "params": [
+        56.0,
+        5.679579355477921,
+        7.982911572413734,
+        0.6341872769428714,
+        147.0
+      ],
+      "provenance": "Lopez de Prado (2018), AFML ch.2/3: CUSUM events + triple barrier",
+      "trainFitness": -0.10864968364236768,
+      "volTarget": 0.4
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -31.036151793600155,
+          "excessSharpe": -0.2766422419168809,
+          "exposurePct": 53.3068783068783,
+          "maxDD": 28.844234725197566,
+          "sharpe": 0.7165507371661536,
+          "trades": 108
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.343639937359672,
+          "excessSharpe": -0.43871337329630405,
+          "exposurePct": 70.58303886925795,
+          "maxDD": 20.371933645216725,
+          "sharpe": 0.42012212920403996,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.892639396422663,
+          "excessSharpe": -0.7925779334877938,
+          "exposurePct": 53.97877984084881,
+          "maxDD": 20.555253916495268,
+          "sharpe": 0.030826645389438967,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -11.888788127300785,
+          "excessSharpe": -0.36299645647250556,
+          "exposurePct": 59.628975265017665,
+          "maxDD": 17.49440296869287,
+          "sharpe": 0.740382441185054,
+          "trades": 23
+        }
+      ],
+      "label": "ehlers_trend vt=0.20",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        11.0,
+        6.0,
+        66.0,
+        0.33816979470556674
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "trainFitness": -0.12859905549359474,
+      "volTarget": 0.2
+    },
+    {
+      "family": "tsmom",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -32.51671358229844,
+          "excessSharpe": -0.3976087781788459,
+          "exposurePct": 53.87566137566137,
+          "maxDD": 20.61715648585793,
+          "sharpe": 0.5955842009041886,
+          "trades": 99
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -11.096047296404098,
+          "excessSharpe": -0.49182239980706255,
+          "exposurePct": 73.93992932862191,
+          "maxDD": 16.02533937512377,
+          "sharpe": 0.36701310269328147,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -8.932661443325918,
+          "excessSharpe": -0.07144433900223235,
+          "exposurePct": 59.814323607427056,
+          "maxDD": 20.424470175723926,
+          "sharpe": 0.7519602398750004,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -5.294316700049784,
+          "excessSharpe": -0.10386175544153708,
+          "exposurePct": 65.01766784452296,
+          "maxDD": 19.5913383742065,
+          "sharpe": 0.9995171422160225,
+          "trades": 14
+        }
+      ],
+      "label": "tsmom vt=0.20",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        42.0,
+        106.0,
+        0.22851413447866542,
+        1.6608493333893648
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "trainFitness": -0.13623409749904825,
+      "volTarget": 0.2
+    },
+    {
+      "family": "kama_trend",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -31.018964744686752,
+          "excessSharpe": -0.190144348531879,
+          "exposurePct": 52.94973544973545,
+          "maxDD": 21.45475952435426,
+          "sharpe": 0.8030486305511555,
+          "trades": 152
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -8.692308821748673,
+          "excessSharpe": -0.2182448973407134,
+          "exposurePct": 71.46643109540636,
+          "maxDD": 16.844117888690118,
+          "sharpe": 0.6405906051596306,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.45040916641547,
+          "excessSharpe": -0.53414621376988,
+          "exposurePct": 63.92572944297082,
+          "maxDD": 14.01546808680527,
+          "sharpe": 0.2892583651073527,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -3.557950675963049,
+          "excessSharpe": -0.02202456906730288,
+          "exposurePct": 78.35689045936395,
+          "maxDD": 18.858537750021384,
+          "sharpe": 1.0813543285902567,
+          "trades": 13
+        }
+      ],
+      "label": "kama_trend vt=0.15",
+      "paramNames": [
+        "erWindow",
+        "fastPeriod",
+        "slowPeriod",
+        "minEfficiency"
+      ],
+      "params": [
+        63.0,
+        3.0,
+        95.0,
+        0.0021072730402568393
+      ],
+      "provenance": "Kaufman (1995), efficiency-ratio adaptive average",
+      "trainFitness": -0.14438348303426418,
+      "volTarget": 0.15
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -35.76851660030476,
+          "excessSharpe": -0.2616636440411214,
+          "exposurePct": 49.27248677248677,
+          "maxDD": 7.895936188410352,
+          "sharpe": 0.7315293350419131,
+          "trades": 82
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.996934354259169,
+          "excessSharpe": -0.27382486344312373,
+          "exposurePct": 68.37455830388693,
+          "maxDD": 7.3801308657994875,
+          "sharpe": 0.5850106390572203,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.557856700129438,
+          "excessSharpe": -0.43389833538320693,
+          "exposurePct": 56.49867374005305,
+          "maxDD": 8.74254050062842,
+          "sharpe": 0.3895062434940258,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -12.145069447699662,
+          "excessSharpe": -0.06277054793807313,
+          "exposurePct": 58.21554770318021,
+          "maxDD": 7.628247547251267,
+          "sharpe": 1.0406083497194865,
+          "trades": 15
+        }
+      ],
+      "label": "odiseo vt=0.10",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        14.0,
+        26.0,
+        13.742818018815395,
+        3.825756478671504,
+        4.0,
+        30.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "trainFitness": -0.15641646496034556,
+      "volTarget": 0.1
+    },
+    {
+      "family": "faber_ma",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -36.31529551013768,
+          "excessSharpe": -0.34878177982251535,
+          "exposurePct": 54.973544973544975,
+          "maxDD": 12.534411507855154,
+          "sharpe": 0.6444111992605192,
+          "trades": 70
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -12.673693104753415,
+          "excessSharpe": -0.5626112385961908,
+          "exposurePct": 72.79151943462898,
+          "maxDD": 10.817813426419349,
+          "sharpe": 0.29622426390415324,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -18.920652279877782,
+          "excessSharpe": -0.6133262857278501,
+          "exposurePct": 57.02917771883289,
+          "maxDD": 9.59125759159983,
+          "sharpe": 0.2100782931493826,
+          "trades": 13
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -7.784309620354833,
+          "excessSharpe": 0.0028868836168938206,
+          "exposurePct": 65.2826855123675,
+          "maxDD": 12.573467136236255,
+          "sharpe": 1.1062657812744534,
+          "trades": 10
+        }
+      ],
+      "label": "faber_ma vt=0.10",
+      "paramNames": [
+        "window",
+        "bandPct"
+      ],
+      "params": [
+        59.0,
+        1.4643658396401802
+      ],
+      "provenance": "Faber (2007), J. Wealth Management",
+      "trainFitness": -0.19251094548439607,
+      "volTarget": 0.1
+    },
+    {
+      "family": "donchian",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -37.181736370011635,
+          "excessSharpe": -0.6592435904003795,
+          "exposurePct": 60.52910052910053,
+          "maxDD": 32.22839621839861,
+          "sharpe": 0.333949388682655,
+          "trades": 65
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.278463491851664,
+          "excessSharpe": -0.42550364047985456,
+          "exposurePct": 71.37809187279152,
+          "maxDD": 14.394746380598363,
+          "sharpe": 0.43333186202048946,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -9.580898173453868,
+          "excessSharpe": -0.057021032593304155,
+          "exposurePct": 56.36604774535809,
+          "maxDD": 17.09855339963198,
+          "sharpe": 0.7663835462839286,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -2.4692347710355307,
+          "excessSharpe": 0.04557784655107344,
+          "exposurePct": 68.19787985865725,
+          "maxDD": 18.99035972698085,
+          "sharpe": 1.148956744208633,
+          "trades": 8
+        }
+      ],
+      "label": "donchian vt=0.20",
+      "paramNames": [
+        "entryWindow",
+        "exitWindow",
+        "atrWindow",
+        "atrStopMult"
+      ],
+      "params": [
+        24.0,
+        32.0,
+        6.0,
+        7.8615138285152995
+      ],
+      "provenance": "Donchian's 4-week rule; the Turtle system",
+      "trainFitness": -0.1970384534546502,
+      "volTarget": 0.2
+    },
+    {
+      "family": "vol_managed",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -23.68708071393162,
+          "excessSharpe": 0.12028674482994628,
+          "exposurePct": 46.62698412698413,
+          "maxDD": 20.339949988023115,
+          "sharpe": 1.1134797239129808,
+          "trades": 113
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -7.325546934926286,
+          "excessSharpe": -0.14149797952021892,
+          "exposurePct": 66.51943462897526,
+          "maxDD": 11.98076065071762,
+          "sharpe": 0.7173375229801251,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -15.683912648609999,
+          "excessSharpe": -0.44913552817633184,
+          "exposurePct": 62.06896551724138,
+          "maxDD": 20.35188631400103,
+          "sharpe": 0.3742690507009009,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -7.166807067634483,
+          "excessSharpe": -0.0369428219679131,
+          "exposurePct": 59.89399293286219,
+          "maxDD": 20.319796985480032,
+          "sharpe": 1.0664360756896465,
+          "trades": 27
+        }
+      ],
+      "label": "vol_managed vt=0.20",
+      "paramNames": [
+        "volWindow",
+        "rankWindow",
+        "maxVolRank",
+        "trendWindow"
+      ],
+      "params": [
+        39.0,
+        161.0,
+        0.8402509014174585,
+        254.0
+      ],
+      "provenance": "Moreira & Muir (2017), Journal of Finance 72(4)",
+      "trainFitness": -0.235377834796347,
+      "volTarget": 0.2
+    },
+    {
+      "family": "sma_cross",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -27.57033033875984,
+          "excessSharpe": -0.11633769646017911,
+          "exposurePct": 52.764550264550266,
+          "maxDD": 17.415872652024948,
+          "sharpe": 0.8768552826228554,
+          "trades": 95
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -11.476315788874981,
+          "excessSharpe": -0.5247372438726303,
+          "exposurePct": 70.49469964664311,
+          "maxDD": 15.364852302022896,
+          "sharpe": 0.3340982586277137,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -14.160832023185987,
+          "excessSharpe": -0.3778864731442876,
+          "exposurePct": 57.95755968169761,
+          "maxDD": 21.10913440025907,
+          "sharpe": 0.44551810573294515,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -3.964701373740276,
+          "excessSharpe": -0.0015302901259308666,
+          "exposurePct": 58.92226148409894,
+          "maxDD": 19.499895720837326,
+          "sharpe": 1.1018486075316287,
+          "trades": 10
+        }
+      ],
+      "label": "sma_cross vt=0.20",
+      "paramNames": [
+        "fast",
+        "slow"
+      ],
+      "params": [
+        10.0,
+        59.0
+      ],
+      "provenance": "repo: fast/slow moving-average crossover",
+      "trainFitness": -0.24211591593632487,
+      "volTarget": 0.2
+    },
+    {
+      "family": "skew_reversal",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -38.418199515123135,
+          "excessSharpe": -0.6957733751782097,
+          "exposurePct": 50.3968253968254,
+          "maxDD": 21.62798471905191,
+          "sharpe": 0.2974196039048248,
+          "trades": 127
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.48158381377371,
+          "excessSharpe": -0.44793759514643167,
+          "exposurePct": 68.02120141342756,
+          "maxDD": 20.635989873368814,
+          "sharpe": 0.41089790735391235,
+          "trades": 26
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -15.43302853291133,
+          "excessSharpe": -0.42388844355345207,
+          "exposurePct": 68.96551724137932,
+          "maxDD": 21.75797649876122,
+          "sharpe": 0.39951613532378066,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -6.296307459145822,
+          "excessSharpe": -0.02436917678864714,
+          "exposurePct": 68.90459363957598,
+          "maxDD": 12.090890164844438,
+          "sharpe": 1.0790097208689124,
+          "trades": 26
+        }
+      ],
+      "label": "skew_reversal vt=0.15",
+      "paramNames": [
+        "window",
+        "entrySkew",
+        "holdBars",
+        "trendWindow"
+      ],
+      "params": [
+        12.0,
+        -0.105027830883676,
+        29.0,
+        89.0
+      ],
+      "provenance": "Amaya, Christoffersen, Jacobs & Vasquez (2015), JFE 118(1)",
+      "trainFitness": -0.313764693385822,
+      "volTarget": 0.15
+    },
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -36.143494334404295,
+          "excessSharpe": -0.3758180798536265,
+          "exposurePct": 76.21693121693121,
+          "maxDD": 18.594073014736875,
+          "sharpe": 0.617374899229408,
+          "trades": 128
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.003436310455927,
+          "excessSharpe": -0.2775533556199059,
+          "exposurePct": 84.89399293286219,
+          "maxDD": 14.111208166847025,
+          "sharpe": 0.5812821468804381,
+          "trades": 25
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -15.877954337878197,
+          "excessSharpe": -0.25646444023562087,
+          "exposurePct": 82.49336870026525,
+          "maxDD": 9.244101243912183,
+          "sharpe": 0.5669401386416119,
+          "trades": 13
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -10.124863887577117,
+          "excessSharpe": -0.022087072281866904,
+          "exposurePct": 82.773851590106,
+          "maxDD": 16.600844442012267,
+          "sharpe": 1.0812918253756927,
+          "trades": 20
+        }
+      ],
+      "label": "fracdiff vt=0.10",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.681965367240522,
+        238.0,
+        0.8050731101803723,
+        -1.9346762692956796,
+        1.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "trainFitness": -0.32770264864940557,
+      "volTarget": 0.1
+    },
+    {
+      "family": "macd_norm",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -31.200244971595016,
+          "excessSharpe": -0.20245945231760232,
+          "exposurePct": 53.492063492063494,
+          "maxDD": 18.139256251038603,
+          "sharpe": 0.7907335267654322,
+          "trades": 98
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.196552787921709,
+          "excessSharpe": -0.3489783769107646,
+          "exposurePct": 70.0530035335689,
+          "maxDD": 12.238931871399389,
+          "sharpe": 0.5098571255895794,
+          "trades": 15
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.0911767853394,
+          "excessSharpe": -0.5031166706294856,
+          "exposurePct": 58.09018567639257,
+          "maxDD": 16.70509913622058,
+          "sharpe": 0.3202879082477471,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -4.764226209508227,
+          "excessSharpe": -0.03679985534746266,
+          "exposurePct": 64.92932862190813,
+          "maxDD": 15.950797958676164,
+          "sharpe": 1.066579042310097,
+          "trades": 12
+        }
+      ],
+      "label": "macd_norm vt=0.15",
+      "paramNames": [
+        "shortWindow",
+        "longWindow",
+        "priceStdWindow",
+        "signalStdWindow",
+        "entryZ"
+      ],
+      "params": [
+        12.0,
+        31.0,
+        41.0,
+        171.0,
+        0.15936804104070615
+      ],
+      "provenance": "Baz, Granger, Harvey, Le Roux & Rattray (2015), SSRN 2695101",
+      "trainFitness": -0.34684902375080084,
+      "volTarget": 0.15
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -39.833585539460174,
+          "excessSharpe": -0.8120137439769604,
+          "exposurePct": 34.43121693121693,
+          "maxDD": 42.254491306414316,
+          "sharpe": 0.1811792351060741,
+          "trades": 158
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -7.484792764437542,
+          "excessSharpe": -0.044097077741675816,
+          "exposurePct": 49.381625441696116,
+          "maxDD": 12.536535755159802,
+          "sharpe": 0.8147384247586682,
+          "trades": 23
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -15.136819192587136,
+          "excessSharpe": -0.40917774649915656,
+          "exposurePct": 42.705570291777185,
+          "maxDD": 14.094128029843286,
+          "sharpe": 0.41422683237807617,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -13.42416484896327,
+          "excessSharpe": -0.37046246727640675,
+          "exposurePct": 39.92932862190813,
+          "maxDD": 11.641260066244834,
+          "sharpe": 0.7329164303811528,
+          "trades": 23
+        }
+      ],
+      "label": "squeeze_breakout vt=0.30",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        25.0,
+        1.2659522650856951,
+        104.0,
+        0.29115312213653144,
+        37.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "trainFitness": -0.34744298354070857,
+      "volTarget": 0.3
+    },
+    {
+      "family": "patterns",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -43.020667949965166,
+          "excessSharpe": -1.1481572001682787,
+          "exposurePct": 57.77777777777778,
+          "maxDD": 14.303159012433431,
+          "sharpe": -0.15496422108524416,
+          "trades": 103
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -13.67852109283778,
+          "excessSharpe": -0.7198022285716315,
+          "exposurePct": 46.81978798586572,
+          "maxDD": 14.596194768951728,
+          "sharpe": 0.1390332739287125,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -18.132882430278976,
+          "excessSharpe": -0.5254846047902131,
+          "exposurePct": 57.95755968169761,
+          "maxDD": 13.792352126097315,
+          "sharpe": 0.2979199740870196,
+          "trades": 5
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -13.840719369619634,
+          "excessSharpe": -0.3726367811256045,
+          "exposurePct": 59.540636042402824,
+          "maxDD": 19.210482469860118,
+          "sharpe": 0.7307421165319551,
+          "trades": 33
+        }
+      ],
+      "label": "patterns+hawkes vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Japanese candlestick signal ensemble",
+      "trainFitness": -0.37782410340396805,
+      "volTarget": 0.1
+    },
+    {
+      "family": "pure_ichimoku",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -34.83173233431059,
+          "excessSharpe": -0.48360179567718997,
+          "exposurePct": 34.007936507936506,
+          "maxDD": 23.67776167047901,
+          "sharpe": 0.5095911834058445,
+          "trades": 130
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -11.79923425324223,
+          "excessSharpe": -0.32260533951920445,
+          "exposurePct": 17.84452296819788,
+          "maxDD": 6.457489941417529,
+          "sharpe": 0.5362301629811396,
+          "trades": 8
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -19.037164955519593,
+          "excessSharpe": -0.6612212419743128,
+          "exposurePct": 43.10344827586207,
+          "maxDD": 21.991869135971136,
+          "sharpe": 0.16218333690291994,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -7.932066087775857,
+          "excessSharpe": -0.10563496933842764,
+          "exposurePct": 42.04946996466431,
+          "maxDD": 14.791289979089395,
+          "sharpe": 0.997743928319132,
+          "trades": 17
+        }
+      ],
+      "label": "pure_ichimoku+hawkes vt=0.20",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Ichimoku cloud breakout, unfiltered",
+      "trainFitness": -0.45089251108455397,
+      "volTarget": 0.2
+    },
+    {
+      "family": "rsi_reversal",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -42.83007597604091,
+          "excessSharpe": -1.1507105246653337,
+          "exposurePct": 40.145502645502646,
+          "maxDD": 12.462062195231711,
+          "sharpe": -0.15751754558229927,
+          "trades": 75
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -9.062558322662762,
+          "excessSharpe": -0.2640784655519778,
+          "exposurePct": 40.459363957597176,
+          "maxDD": 16.122239824138145,
+          "sharpe": 0.5947570369483662,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -15.381276760160034,
+          "excessSharpe": -0.26898191172437247,
+          "exposurePct": 62.59946949602122,
+          "maxDD": 10.47570040533014,
+          "sharpe": 0.5544226671528603,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -15.111506990716194,
+          "excessSharpe": -0.20349756377430306,
+          "exposurePct": 52.91519434628975,
+          "maxDD": 11.489870381951592,
+          "sharpe": 0.8998813338832565,
+          "trades": 21
+        }
+      ],
+      "label": "rsi_reversal vt=0.10",
+      "paramNames": [
+        "rsiWindow",
+        "entryLevel",
+        "exitLevel",
+        "trendWindow",
+        "maxHoldBars"
+      ],
+      "params": [
+        6.0,
+        39.401031371081764,
+        75.69814905483545,
+        221.0,
+        91.0
+      ],
+      "provenance": "Jegadeesh (1990) / Lehmann (1990) short-term reversal; Connors & Alvarez (2008)",
+      "trainFitness": -0.7986615132208781,
+      "volTarget": 0.1
+    },
+    {
+      "family": "ou_score",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -42.87705158679539,
+          "excessSharpe": -1.337926310803648,
+          "exposurePct": 6.772486772486772,
+          "maxDD": 7.978172721282011,
+          "sharpe": -0.34473333172061355,
+          "trades": 74
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -12.947728858014607,
+          "excessSharpe": -0.5925310151503268,
+          "exposurePct": 14.045936395759718,
+          "maxDD": 10.584489354811295,
+          "sharpe": 0.2663044873500172,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -16.168663277294336,
+          "excessSharpe": 0.11339520938894299,
+          "exposurePct": 7.824933687002653,
+          "maxDD": 3.709567935963428,
+          "sharpe": 0.9367997882661757,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -20.416522506908617,
+          "excessSharpe": -0.767804288136229,
+          "exposurePct": 7.15547703180212,
+          "maxDD": 3.3212038400889288,
+          "sharpe": 0.33557460952133056,
+          "trades": 13
+        }
+      ],
+      "label": "ou_score vt=0.10",
+      "paramNames": [
+        "window",
+        "detrendWindow",
+        "entryS",
+        "exitS",
+        "maxHalfLifeFrac"
+      ],
+      "params": [
+        202.0,
+        49.0,
+        1.4327432621617628,
+        1.2571519193646434,
+        0.2711043317078186
+      ],
+      "provenance": "Avellaneda & Lee (2010), Quantitative Finance 10(7)",
+      "trainFitness": -1.2978139386898953,
+      "volTarget": 0.1
+    },
+    {
+      "family": "vr_switch",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -43.840393254671,
+          "excessSharpe": -1.251882236788101,
+          "exposurePct": 35.44973544973545,
+          "maxDD": 15.753497877205724,
+          "sharpe": -0.2586892577050666,
+          "trades": 92
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -13.68209622666332,
+          "excessSharpe": -0.7321941957895253,
+          "exposurePct": 12.809187279151944,
+          "maxDD": 14.707426964772951,
+          "sharpe": 0.12664130671081875,
+          "trades": 8
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -18.954296886111678,
+          "excessSharpe": -0.5873462570704273,
+          "exposurePct": 25.19893899204244,
+          "maxDD": 8.868131925459345,
+          "sharpe": 0.23605832180680536,
+          "trades": 7
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -19.27935236061069,
+          "excessSharpe": -0.6455524353447586,
+          "exposurePct": 22.17314487632509,
+          "maxDD": 5.876120837891937,
+          "sharpe": 0.45782646231280105,
+          "trades": 11
+        }
+      ],
+      "label": "vr_switch vt=0.10",
+      "paramNames": [
+        "vrWindow",
+        "vrLag",
+        "band",
+        "trendWindow",
+        "mrWindow",
+        "mrEntryZ"
+      ],
+      "params": [
+        495.0,
+        6.0,
+        0.4330660427629856,
+        123.0,
+        57.0,
+        1.1005693078572623
+      ],
+      "provenance": "Lo & MacKinlay (1988) variance ratio; Lo (2004) adaptive markets",
+      "trainFitness": -1.6506647988734315,
+      "volTarget": 0.1
+    },
+    {
+      "family": "fib_ichimoku",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -45.70966690524783,
+          "excessSharpe": -2.0855907962119264,
+          "exposurePct": 12.94973544973545,
+          "maxDD": 14.567330625186447,
+          "sharpe": -1.0923978171288917,
+          "trades": 81
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -13.637884419363067,
+          "excessSharpe": -0.6854028181709295,
+          "exposurePct": 20.141342756183747,
+          "maxDD": 8.562720854063443,
+          "sharpe": 0.1734326843294145,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -14.851883807516408,
+          "excessSharpe": 0.30419287994775523,
+          "exposurePct": 20.55702917771883,
+          "maxDD": 4.305044052313178,
+          "sharpe": 1.127597458824988,
+          "trades": 9
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -19.85737632560096,
+          "excessSharpe": -0.6670298678927886,
+          "exposurePct": 14.045936395759718,
+          "maxDD": 3.1321404257104715,
+          "sharpe": 0.436349029764771,
+          "trades": 6
+        }
+      ],
+      "label": "fib_ichimoku vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Fibonacci retracement entries under an Ichimoku trend",
+      "trainFitness": -40.46355022247364,
+      "volTarget": 0.1
+    },
+    {
+      "family": "darvas",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -52.49384307567744,
+          "excessSharpe": -2.2170703973211445,
+          "exposurePct": 4.431216931216931,
+          "maxDD": 34.742959762390754,
+          "sharpe": -1.22387741823811,
+          "trades": 95
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -14.98298892865999,
+          "excessSharpe": -1.461030101350172,
+          "exposurePct": 0.8833922261484098,
+          "maxDD": 2.93413968917406,
+          "sharpe": -0.6021945988498281,
+          "trades": 3
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.034765886390392,
+          "excessSharpe": -0.7336996114349458,
+          "exposurePct": 3.050397877984085,
+          "maxDD": 6.5826023205029,
+          "sharpe": 0.08970496744228694,
+          "trades": 3
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -24.103791749656533,
+          "excessSharpe": -1.9783422867264522,
+          "exposurePct": 4.5053003533568905,
+          "maxDD": 14.677422247830691,
+          "sharpe": -0.8749633890688926,
+          "trades": 17
+        }
+      ],
+      "label": "darvas",
+      "paramNames": [
+        "pivotWindow",
+        "minSwingAtr",
+        "maxBoxWidthFrac",
+        "targetLevel"
+      ],
+      "params": [
+        7.0,
+        1.4966511869605141,
+        0.11416510047102536,
+        0.2804440780335562
+      ],
+      "provenance": "Darvas (1960), box breakouts on volume",
+      "trainFitness": -42.847662666855236,
+      "volTarget": 0.0
+    },
+    {
+      "family": "control_always_long",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -1.2139360200973641,
+          "excessSharpe": -0.010185217733200469,
+          "exposurePct": 99.98677248677248,
+          "maxDD": 53.472275198187944,
+          "sharpe": 0.983007761349834,
+          "trades": 1
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": 0.0,
+          "excessSharpe": 2.9976021664879227e-15,
+          "exposurePct": 99.91166077738517,
+          "maxDD": 23.941103085824448,
+          "sharpe": 0.858835502500347,
+          "trades": 1
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": 2.1316282072803006e-14,
+          "excessSharpe": -1.5543122344752192e-15,
+          "exposurePct": 99.86737400530504,
+          "maxDD": 34.672992861205095,
+          "sharpe": 0.8234045788772312,
+          "trades": 1
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": 0.0,
+          "excessSharpe": 2.6645352591003757e-15,
+          "exposurePct": 99.91166077738517,
+          "maxDD": 26.735226498095248,
+          "sharpe": 1.1033788976575623,
+          "trades": 1
+        }
+      ],
+      "label": "control_always_long vt=0.20",
+      "paramNames": [],
+      "params": [],
+      "provenance": "CONTROL: buy first bar, never sell",
+      "trainFitness": -49.523177511123684,
+      "volTarget": 0.2
+    }
+  ],
+  "finalists": [
+    {
+      "family": "lppls_bubble",
+      "gate": "none",
+      "gateGenes": [
+        0.5298057497058002,
+        0.6215453744691495,
+        0.8007563405662047
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -15.450822702343661,
+          "excessSharpe": 0.0834223965438563,
+          "exposurePct": 52.06349206349206,
+          "maxDD": 33.78664720902691,
+          "sharpe": 1.0766153756268908,
+          "trades": 102
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -2.315708409727968,
+          "excessSharpe": 0.3693402393910805,
+          "exposurePct": 68.1095406360424,
+          "maxDD": 15.919490674560372,
+          "sharpe": 1.2281757418914245,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -9.53504739594635,
+          "excessSharpe": -0.24436846488800412,
+          "exposurePct": 81.43236074270557,
+          "maxDD": 29.944433498842475,
+          "sharpe": 0.5790361139892286,
+          "trades": 5
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -16.14448337746288,
+          "excessSharpe": -0.5948029067714267,
+          "exposurePct": 53.18021201413428,
+          "maxDD": 19.915208646477073,
+          "sharpe": 0.5085759908861329,
+          "trades": 20
+        }
+      ],
+      "label": "lppls_bubble vt=0.30",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        417.0,
+        9.0,
+        0.33507954592562744,
+        250.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.49590136441739663,
+          "maxDD": 41.76855426683893,
+          "sharpe": 1.610159486892402,
+          "trades": 232
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.053529198364357655,
+          "maxDD": 15.911429112370321,
+          "sharpe": 0.9302218654971328,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.06360344881794067,
+          "maxDD": 26.42144867828724,
+          "sharpe": 0.9780599168855484,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": 0.0019465996204847194,
+          "maxDD": 27.187346433143567,
+          "sharpe": 0.046150279680092866,
+          "trades": 35
+        }
+      ],
+      "trainFitness": -0.06683627496994793,
+      "volTarget": 0.3
+    },
+    {
+      "family": "control_random",
+      "gate": "none",
+      "gateGenes": [
+        0.0591574444758306,
+        0.7820968182991793,
+        0.1885924114063482
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -34.635593566467726,
+          "excessSharpe": -0.3596673865637777,
+          "exposurePct": 96.03174603174604,
+          "maxDD": 21.62961318132385,
+          "sharpe": 0.6335255925192568,
+          "trades": 74
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -5.029843294478887,
+          "excessSharpe": -0.030603112437337265,
+          "exposurePct": 96.73144876325088,
+          "maxDD": 18.20720091246336,
+          "sharpe": 0.8282323900630068,
+          "trades": 12
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -14.1813013165754,
+          "excessSharpe": -0.22634595175872674,
+          "exposurePct": 96.28647214854111,
+          "maxDD": 13.120720108630376,
+          "sharpe": 0.597058627118506,
+          "trades": 8
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -7.779432179226475,
+          "excessSharpe": -0.010554537567232014,
+          "exposurePct": 96.73144876325088,
+          "maxDD": 16.884818663323266,
+          "sharpe": 1.0928243600903276,
+          "trades": 12
+        }
+      ],
+      "label": "control_random vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.19950322428674155,
+        98.0,
+        72774.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.22170399804445085,
+          "maxDD": 23.057390393616704,
+          "sharpe": 1.3359621205194563,
+          "trades": 168
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.08956080224902074,
+          "maxDD": 17.455653661548908,
+          "sharpe": 0.8941902616124697,
+          "trades": 25
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.07532407172254185,
+          "maxDD": 13.847764655148428,
+          "sharpe": 0.9663392939809472,
+          "trades": 17
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": 0.0380900207520897,
+          "maxDD": 34.28310204765611,
+          "sharpe": 0.08229370081169785,
+          "trades": 25
+        }
+      ],
+      "trainFitness": -0.09979155305142547,
+      "volTarget": 0.1
+    },
+    {
+      "family": "cusum_tb",
+      "gate": "none",
+      "gateGenes": [
+        0.904409743213863,
+        0.586967160942952,
+        1.0
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -45.79016410118439,
+          "excessSharpe": -1.1661471873447162,
+          "exposurePct": 22.685185185185187,
+          "maxDD": 34.081862114018094,
+          "sharpe": -0.17295420826168162,
+          "trades": 133
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -9.646037589694046,
+          "excessSharpe": -0.2638237418966999,
+          "exposurePct": 40.90106007067138,
+          "maxDD": 14.16720790963448,
+          "sharpe": 0.5950117606036441,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -26.283897941930256,
+          "excessSharpe": -1.1705695326222365,
+          "exposurePct": 38.19628647214854,
+          "maxDD": 22.435784288830877,
+          "sharpe": -0.3471649537450037,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -14.258326328473302,
+          "excessSharpe": -0.42088810177933345,
+          "exposurePct": 36.042402826855124,
+          "maxDD": 12.325389504996418,
+          "sharpe": 0.6824907958782261,
+          "trades": 25
+        }
+      ],
+      "label": "cusum_tb vt=0.40",
+      "paramNames": [
+        "volWindow",
+        "hSigmas",
+        "ptMult",
+        "slMult",
+        "maxHold"
+      ],
+      "params": [
+        56.0,
+        5.679579355477921,
+        7.982911572413734,
+        0.6341872769428714,
+        147.0
+      ],
+      "provenance": "Lopez de Prado (2018), AFML ch.2/3: CUSUM events + triple barrier",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.1276860028985387,
+          "maxDD": 29.94802273266739,
+          "sharpe": 1.2419441253735441,
+          "trades": 293
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": 0.047913743500679895,
+          "maxDD": 10.363758046296395,
+          "sharpe": 1.0316648073621704,
+          "trades": 47
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.15983108000443758,
+          "maxDD": 20.57372006012258,
+          "sharpe": 1.2014944457079266,
+          "trades": 33
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": -0.10864968364236768,
+          "maxDD": 23.992125293060017,
+          "sharpe": -0.06444600358275954,
+          "trades": 46
+        }
+      ],
+      "trainFitness": -0.10864968364236768,
+      "volTarget": 0.4
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "none",
+      "gateGenes": [
+        0.10444584945516855,
+        0.05937914754118009,
+        0.25192784018214903
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -31.036151793600155,
+          "excessSharpe": -0.2766422419168809,
+          "exposurePct": 53.3068783068783,
+          "maxDD": 28.844234725197566,
+          "sharpe": 0.7165507371661536,
+          "trades": 108
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.343639937359672,
+          "excessSharpe": -0.43871337329630405,
+          "exposurePct": 70.58303886925795,
+          "maxDD": 20.371933645216725,
+          "sharpe": 0.42012212920403996,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -20.892639396422663,
+          "excessSharpe": -0.7925779334877938,
+          "exposurePct": 53.97877984084881,
+          "maxDD": 20.555253916495268,
+          "sharpe": 0.030826645389438967,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -11.888788127300785,
+          "excessSharpe": -0.36299645647250556,
+          "exposurePct": 59.628975265017665,
+          "maxDD": 17.49440296869287,
+          "sharpe": 0.740382441185054,
+          "trades": 23
+        }
+      ],
+      "label": "ehlers_trend vt=0.20",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        11.0,
+        6.0,
+        66.0,
+        0.33816979470556674
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.28411531611725294,
+          "maxDD": 33.67777836787489,
+          "sharpe": 1.3983734385922584,
+          "trades": 226
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.12859905549359474,
+          "maxDD": 22.982723653707467,
+          "sharpe": 0.8551520083678957,
+          "trades": 36
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.07640673329745518,
+          "maxDD": 15.685561642419682,
+          "sharpe": 1.1180700990009442,
+          "trades": 24
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": -0.0061877103483723925,
+          "maxDD": 25.570196869120064,
+          "sharpe": 0.038015969711235754,
+          "trades": 39
+        }
+      ],
+      "trainFitness": -0.12859905549359474,
+      "volTarget": 0.2
+    },
+    {
+      "family": "tsmom",
+      "gate": "none",
+      "gateGenes": [
+        0.40369800042360254,
+        0.8170619394466557,
+        0.418290723136656
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -32.51671358229844,
+          "excessSharpe": -0.3976087781788459,
+          "exposurePct": 53.87566137566137,
+          "maxDD": 20.61715648585793,
+          "sharpe": 0.5955842009041886,
+          "trades": 99
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -11.096047296404098,
+          "excessSharpe": -0.49182239980706255,
+          "exposurePct": 73.93992932862191,
+          "maxDD": 16.02533937512377,
+          "sharpe": 0.36701310269328147,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -8.932661443325918,
+          "excessSharpe": -0.07144433900223235,
+          "exposurePct": 59.814323607427056,
+          "maxDD": 20.424470175723926,
+          "sharpe": 0.7519602398750004,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -5.294316700049784,
+          "excessSharpe": -0.10386175544153708,
+          "exposurePct": 65.01766784452296,
+          "maxDD": 19.5913383742065,
+          "sharpe": 0.9995171422160225,
+          "trades": 14
+        }
+      ],
+      "label": "tsmom vt=0.20",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        42.0,
+        106.0,
+        0.22851413447866542,
+        1.6608493333893648
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.22985268444714113,
+          "maxDD": 33.93798552514601,
+          "sharpe": 1.3441108069221466,
+          "trades": 219
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.022811880878515156,
+          "maxDD": 11.82046472768093,
+          "sharpe": 0.9609391829829753,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.13623409749904825,
+          "maxDD": 21.31816555115046,
+          "sharpe": 0.9054292682044408,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": 0.09515311182249667,
+          "maxDD": 21.260989061156433,
+          "sharpe": 0.1393567918821048,
+          "trades": 29
+        }
+      ],
+      "trainFitness": -0.13623409749904825,
+      "volTarget": 0.2
+    },
+    {
+      "family": "kama_trend",
+      "gate": "none",
+      "gateGenes": [
+        0.9739810395587493,
+        0.4144597570986557,
+        0.5212995448562129
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -31.018964744686752,
+          "excessSharpe": -0.190144348531879,
+          "exposurePct": 52.94973544973545,
+          "maxDD": 21.45475952435426,
+          "sharpe": 0.8030486305511555,
+          "trades": 152
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -8.692308821748673,
+          "excessSharpe": -0.2182448973407134,
+          "exposurePct": 71.46643109540636,
+          "maxDD": 16.844117888690118,
+          "sharpe": 0.6405906051596306,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.45040916641547,
+          "excessSharpe": -0.53414621376988,
+          "exposurePct": 63.92572944297082,
+          "maxDD": 14.01546808680527,
+          "sharpe": 0.2892583651073527,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -3.557950675963049,
+          "excessSharpe": -0.02202456906730288,
+          "exposurePct": 78.35689045936395,
+          "maxDD": 18.858537750021384,
+          "sharpe": 1.0813543285902567,
+          "trades": 13
+        }
+      ],
+      "label": "kama_trend vt=0.15",
+      "paramNames": [
+        "erWindow",
+        "fastPeriod",
+        "slowPeriod",
+        "minEfficiency"
+      ],
+      "params": [
+        63.0,
+        3.0,
+        95.0,
+        0.0021072730402568393
+      ],
+      "provenance": "Kaufman (1995), efficiency-ratio adaptive average",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.20150777077473925,
+          "maxDD": 28.32698221444629,
+          "sharpe": 1.3157658932497447,
+          "trades": 373
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.017541579757002546,
+          "maxDD": 16.492807826644345,
+          "sharpe": 0.9662094841044879,
+          "trades": 35
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.14438348303426418,
+          "maxDD": 23.156294019730293,
+          "sharpe": 0.8972798826692249,
+          "trades": 42
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": -0.13322946529999793,
+          "maxDD": 21.2206752442009,
+          "sharpe": -0.08902578524038979,
+          "trades": 47
+        }
+      ],
+      "trainFitness": -0.14438348303426418,
+      "volTarget": 0.15
+    },
+    {
+      "family": "kama_trend",
+      "gate": "none",
+      "gateGenes": [
+        0.9178121330564465,
+        0.41007153312311473,
+        0.47312908175715057
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -28.88116198601687,
+          "excessSharpe": -0.22032239136883314,
+          "exposurePct": 52.60582010582011,
+          "maxDD": 28.034864935009544,
+          "sharpe": 0.7728705877142014,
+          "trades": 145
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -8.846278695741216,
+          "excessSharpe": -0.2723637243559246,
+          "exposurePct": 70.84805653710248,
+          "maxDD": 19.974096248347138,
+          "sharpe": 0.5864717781444194,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.099366945685325,
+          "excessSharpe": -0.5455010199661795,
+          "exposurePct": 63.793103448275865,
+          "maxDD": 18.996200443328714,
+          "sharpe": 0.27790355891105323,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -4.1032777598460015,
+          "excessSharpe": -0.056736866721993406,
+          "exposurePct": 78.18021201413427,
+          "maxDD": 18.74896072392059,
+          "sharpe": 1.0466420309355662,
+          "trades": 11
+        }
+      ],
+      "label": "kama_trend vt=0.20",
+      "paramNames": [
+        "erWindow",
+        "fastPeriod",
+        "slowPeriod",
+        "minEfficiency"
+      ],
+      "params": [
+        64.0,
+        3.0,
+        91.0,
+        0.015480775301337827
+      ],
+      "provenance": "Kaufman (1995), efficiency-ratio adaptive average",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.24617447866390285,
+          "maxDD": 33.14617916289555,
+          "sharpe": 1.3604326011389083,
+          "trades": 361
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.021160131786762015,
+          "maxDD": 15.95052720968136,
+          "sharpe": 0.9625909320747285,
+          "trades": 34
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.11768692369595268,
+          "maxDD": 26.54745956181417,
+          "sharpe": 0.9239764420075364,
+          "trades": 39
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": -0.1485191440458295,
+          "maxDD": 23.5124028194195,
+          "sharpe": -0.10431546398622135,
+          "trades": 47
+        }
+      ],
+      "trainFitness": -0.1485191440458295,
+      "volTarget": 0.2
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "gateGenes": [
+        0.21523391068021164,
+        0.4186541463501097,
+        0.03879909242374583
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -35.76851660030476,
+          "excessSharpe": -0.2616636440411214,
+          "exposurePct": 49.27248677248677,
+          "maxDD": 7.895936188410352,
+          "sharpe": 0.7315293350419131,
+          "trades": 82
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.996934354259169,
+          "excessSharpe": -0.27382486344312373,
+          "exposurePct": 68.37455830388693,
+          "maxDD": 7.3801308657994875,
+          "sharpe": 0.5850106390572203,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -17.557856700129438,
+          "excessSharpe": -0.43389833538320693,
+          "exposurePct": 56.49867374005305,
+          "maxDD": 8.74254050062842,
+          "sharpe": 0.3895062434940258,
+          "trades": 10
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -12.145069447699662,
+          "excessSharpe": -0.06277054793807313,
+          "exposurePct": 58.21554770318021,
+          "maxDD": 7.628247547251267,
+          "sharpe": 1.0406083497194865,
+          "trades": 15
+        }
+      ],
+      "label": "odiseo vt=0.10",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        14.0,
+        26.0,
+        13.742818018815395,
+        3.825756478671504,
+        4.0,
+        30.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.436510601650421,
+          "maxDD": 21.50128737115822,
+          "sharpe": 1.5507687241254264,
+          "trades": 158
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.1416583510344812,
+          "maxDD": 8.06233466389974,
+          "sharpe": 0.8420927128270093,
+          "trades": 27
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.07655512336520376,
+          "maxDD": 11.735426613197383,
+          "sharpe": 1.1182184890686928,
+          "trades": 18
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": -0.15641646496034556,
+          "maxDD": 21.103484698114325,
+          "sharpe": -0.11221278490073743,
+          "trades": 31
+        }
+      ],
+      "trainFitness": -0.15641646496034556,
+      "volTarget": 0.1
+    },
+    {
+      "family": "cusum_tb",
+      "gate": "none",
+      "gateGenes": [
+        0.8325113417505736,
+        0.2187149540697092,
+        1.0
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -43.261421880012044,
+          "excessSharpe": -1.1925020761111917,
+          "exposurePct": 22.77777777777778,
+          "maxDD": 18.375267710831693,
+          "sharpe": -0.1993090970281572,
+          "trades": 134
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -9.713745793548778,
+          "excessSharpe": -0.1391251031735138,
+          "exposurePct": 41.78445229681979,
+          "maxDD": 9.498113544602957,
+          "sharpe": 0.7197103993268302,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -24.591396634757967,
+          "excessSharpe": -1.2230960211604711,
+          "exposurePct": 38.19628647214854,
+          "maxDD": 15.747119970842899,
+          "sharpe": -0.39969144228323833,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -11.210053902279581,
+          "excessSharpe": -0.020503012872663096,
+          "exposurePct": 35.7773851590106,
+          "maxDD": 9.39126457384054,
+          "sharpe": 1.0828758847848965,
+          "trades": 25
+        }
+      ],
+      "label": "cusum_tb vt=0.15",
+      "paramNames": [
+        "volWindow",
+        "hSigmas",
+        "ptMult",
+        "slMult",
+        "maxHold"
+      ],
+      "params": [
+        55.0,
+        5.625619737582178,
+        7.952508431018125,
+        0.6555790738185625,
+        106.0
+      ],
+      "provenance": "Lopez de Prado (2018), AFML ch.2/3: CUSUM events + triple barrier",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.19682570135062716,
+          "maxDD": 12.533989691704047,
+          "sharpe": 1.3110838238256326,
+          "trades": 297
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.18127252865021526,
+          "maxDD": 8.520716808402199,
+          "sharpe": 0.8024785352112752,
+          "trades": 49
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": 0.26166115659943,
+          "maxDD": 8.992196821117048,
+          "sharpe": 1.303324522302919,
+          "trades": 35
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": 0.07653289350401084,
+          "maxDD": 19.967643857482482,
+          "sharpe": 0.12073657356361898,
+          "trades": 46
+        }
+      ],
+      "trainFitness": -0.18127252865021526,
+      "volTarget": 0.15
+    },
+    {
+      "family": "faber_ma",
+      "gate": "none",
+      "gateGenes": [
+        0.548940467903624,
+        0.7302300117236974,
+        0.22695798644167625
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -36.31529551013768,
+          "excessSharpe": -0.34878177982251535,
+          "exposurePct": 54.973544973544975,
+          "maxDD": 12.534411507855154,
+          "sharpe": 0.6444111992605192,
+          "trades": 70
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -12.673693104753415,
+          "excessSharpe": -0.5626112385961908,
+          "exposurePct": 72.79151943462898,
+          "maxDD": 10.817813426419349,
+          "sharpe": 0.29622426390415324,
+          "trades": 14
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -18.920652279877782,
+          "excessSharpe": -0.6133262857278501,
+          "exposurePct": 57.02917771883289,
+          "maxDD": 9.59125759159983,
+          "sharpe": 0.2100782931493826,
+          "trades": 13
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -7.784309620354833,
+          "excessSharpe": 0.0028868836168938206,
+          "exposurePct": 65.2826855123675,
+          "maxDD": 12.573467136236255,
+          "sharpe": 1.1062657812744534,
+          "trades": 10
+        }
+      ],
+      "label": "faber_ma vt=0.10",
+      "paramNames": [
+        "window",
+        "bandPct"
+      ],
+      "params": [
+        59.0,
+        1.4643658396401802
+      ],
+      "provenance": "Faber (2007), J. Wealth Management",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.3099960670890982,
+          "maxDD": 19.460063516133516,
+          "sharpe": 1.4242541895641037,
+          "trades": 191
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.19251094548439607,
+          "maxDD": 14.502705611656832,
+          "sharpe": 0.7912401183770944,
+          "trades": 24
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.07410154038981875,
+          "maxDD": 10.552134151456851,
+          "sharpe": 0.9675618253136703,
+          "trades": 20
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": -0.11367055453299331,
+          "maxDD": 20.068051056406304,
+          "sharpe": -0.06946687447338516,
+          "trades": 26
+        }
+      ],
+      "trainFitness": -0.19251094548439607,
+      "volTarget": 0.1
+    },
+    {
+      "family": "donchian",
+      "gate": "none",
+      "gateGenes": [
+        0.5894009252343542,
+        0.2870521644051368,
+        0.0
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -37.181736370011635,
+          "excessSharpe": -0.6592435904003795,
+          "exposurePct": 60.52910052910053,
+          "maxDD": 32.22839621839861,
+          "sharpe": 0.333949388682655,
+          "trades": 65
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -10.278463491851664,
+          "excessSharpe": -0.42550364047985456,
+          "exposurePct": 71.37809187279152,
+          "maxDD": 14.394746380598363,
+          "sharpe": 0.43333186202048946,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -9.580898173453868,
+          "excessSharpe": -0.057021032593304155,
+          "exposurePct": 56.36604774535809,
+          "maxDD": 17.09855339963198,
+          "sharpe": 0.7663835462839286,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -2.4692347710355307,
+          "excessSharpe": 0.04557784655107344,
+          "exposurePct": 68.19787985865725,
+          "maxDD": 18.99035972698085,
+          "sharpe": 1.148956744208633,
+          "trades": 8
+        }
+      ],
+      "label": "donchian vt=0.20",
+      "paramNames": [
+        "entryWindow",
+        "exitWindow",
+        "atrWindow",
+        "atrStopMult"
+      ],
+      "params": [
+        24.0,
+        32.0,
+        6.0,
+        7.8615138285152995
+      ],
+      "provenance": "Donchian's 4-week rule; the Turtle system",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.2419415754180212,
+          "maxDD": 32.97480701419154,
+          "sharpe": 1.3561996978930266,
+          "trades": 133
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.1970384534546502,
+          "maxDD": 11.11845809413373,
+          "sharpe": 0.7867126104068403,
+          "trades": 21
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.1530659786393478,
+          "maxDD": 24.727713079786124,
+          "sharpe": 0.8885973870641413,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": -0.12692212178798656,
+          "maxDD": 24.790643962332542,
+          "sharpe": -0.08271844172837842,
+          "trades": 23
+        }
+      ],
+      "trainFitness": -0.1970384534546502,
+      "volTarget": 0.2
+    },
+    {
+      "family": "donchian",
+      "gate": "none",
+      "gateGenes": [
+        0.5208303444355635,
+        0.23160948552863678,
+        0.0
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.9931929790830345,
+          "env": "BTC_USDT",
+          "excessCagr": -37.60043358385676,
+          "excessSharpe": -0.5176728509718835,
+          "exposurePct": 61.402116402116405,
+          "maxDD": 16.279915504568194,
+          "sharpe": 0.47552012811115096,
+          "trades": 66
+        },
+        {
+          "benchSharpe": 0.858835502500344,
+          "env": "SPY",
+          "excessCagr": -11.700688525590675,
+          "excessSharpe": -0.4309309133802659,
+          "exposurePct": 71.64310954063605,
+          "maxDD": 10.40543669151255,
+          "sharpe": 0.4279045891200781,
+          "trades": 11
+        },
+        {
+          "benchSharpe": 0.8234045788772327,
+          "env": "AAPL",
+          "excessCagr": -14.679900407371992,
+          "excessSharpe": -0.08461035611918954,
+          "exposurePct": 56.36604774535809,
+          "maxDD": 9.206054665566258,
+          "sharpe": 0.7387942227580432,
+          "trades": 6
+        },
+        {
+          "benchSharpe": 1.1033788976575596,
+          "env": "GLD",
+          "excessCagr": -9.070311452502676,
+          "excessSharpe": -0.03145002533699337,
+          "exposurePct": 69.43462897526501,
+          "maxDD": 11.775058884110683,
+          "sharpe": 1.0719288723205662,
+          "trades": 9
+        }
+      ],
+      "label": "donchian vt=0.10",
+      "paramNames": [
+        "entryWindow",
+        "exitWindow",
+        "atrWindow",
+        "atrStopMult"
+      ],
+      "params": [
+        23.0,
+        31.0,
+        7.0,
+        7.719202372933612
+      ],
+      "provenance": "Donchian's 4-week rule; the Turtle system",
+      "train": [
+        {
+          "benchSharpe": 1.1142581224750054,
+          "env": "BTC_USDT",
+          "excessSharpe": 0.28926502978316027,
+          "maxDD": 18.03820159245971,
+          "sharpe": 1.4035231522581657,
+          "trades": 135
+        },
+        {
+          "benchSharpe": 0.9837510638614905,
+          "env": "SPY",
+          "excessSharpe": -0.19986524733122257,
+          "maxDD": 10.543829648590899,
+          "sharpe": 0.7838858165302679,
+          "trades": 22
+        },
+        {
+          "benchSharpe": 1.041663365703489,
+          "env": "AAPL",
+          "excessSharpe": -0.14281698237140417,
+          "maxDD": 13.25242319159222,
+          "sharpe": 0.8988463833320849,
+          "trades": 16
+        },
+        {
+          "benchSharpe": 0.04420368005960815,
+          "env": "GLD",
+          "excessSharpe": -0.20624915853353412,
+          "maxDD": 24.518572083117544,
+          "sharpe": -0.16204547847392597,
+          "trades": 26
+        }
+      ],
+      "trainFitness": -0.20624915853353412,
+      "volTarget": 0.1
+    }
+  ],
+  "history": [
+    {
+      "bestFitness": -0.3957447616829788,
+      "bestLabel": "lppls_bubble vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 0,
+      "medianFitness": -46.42192398119122,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.15641646496034556,
+      "bestLabel": "odiseo vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 1,
+      "medianFitness": -41.8940176891026,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.15641646496034556,
+      "bestLabel": "odiseo vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 2,
+      "medianFitness": -40.46355022247364,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.15641646496034556,
+      "bestLabel": "odiseo vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 3,
+      "medianFitness": -2.8030221611729003,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.15575603172559377,
+      "bestLabel": "kama_trend vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 4,
+      "medianFitness": -2.8674905678970273,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.14272077772670178,
+      "bestLabel": "cusum_tb vt=0.40",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 5,
+      "medianFitness": -1.3495155755384576,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.14272077772670178,
+      "bestLabel": "cusum_tb vt=0.40",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 6,
+      "medianFitness": -1.9751786055263187,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.13623409749904825,
+      "bestLabel": "tsmom vt=0.20",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 7,
+      "medianFitness": -1.4927639149995868,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.13623409749904825,
+      "bestLabel": "tsmom vt=0.20",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 8,
+      "medianFitness": -0.9106382137853511,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.10864968364236768,
+      "bestLabel": "cusum_tb vt=0.40",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 9,
+      "medianFitness": -0.7577443124106122,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.10864968364236768,
+      "bestLabel": "cusum_tb vt=0.40",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 10,
+      "medianFitness": -0.7794928859437217,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.10864968364236768,
+      "bestLabel": "cusum_tb vt=0.40",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 11,
+      "medianFitness": -0.6540505808212079,
+      "survivors": 92
+    },
+    {
+      "bestFitness": -0.09979155305142547,
+      "bestLabel": "control_random vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {},
+      "generation": 12,
+      "medianFitness": -0.5926726354462317,
+      "survivors": 0
+    },
+    {
+      "bestFitness": -0.30503392613018676,
+      "bestLabel": "ehlers_trend vt=0.20",
+      "evaluated": 260,
+      "familyCensus": {},
+      "generation": 13,
+      "medianFitness": -47.615887555618414,
+      "survivors": 0
+    },
+    {
+      "bestFitness": -0.24211591593632487,
+      "bestLabel": "sma_cross vt=0.20",
+      "evaluated": 260,
+      "familyCensus": {},
+      "generation": 14,
+      "medianFitness": -46.662242577865776,
+      "survivors": 0
+    },
+    {
+      "bestFitness": -0.2928669412027602,
+      "bestLabel": "kama_trend vt=0.20",
+      "evaluated": 260,
+      "familyCensus": {},
+      "generation": 15,
+      "medianFitness": -47.13906506674209,
+      "survivors": 0
+    },
+    {
+      "bestFitness": -0.06683627496994793,
+      "bestLabel": "lppls_bubble vt=0.30",
+      "evaluated": 260,
+      "familyCensus": {},
+      "generation": 16,
+      "medianFitness": -48.09271004449473,
+      "survivors": 0
+    },
+    {
+      "bestFitness": -0.38014790109086766,
+      "bestLabel": "kama_trend vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {},
+      "generation": 17,
+      "medianFitness": -47.615887555618414,
+      "survivors": 0
+    },
+    {
+      "bestFitness": -0.24524592461601125,
+      "bestLabel": "sma_cross vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {},
+      "generation": 18,
+      "medianFitness": -48.09271004449473,
+      "survivors": 0
+    },
+    {
+      "bestFitness": -0.23242156985945145,
+      "bestLabel": "kama_trend vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {},
+      "generation": 19,
+      "medianFitness": -48.09271004449473,
+      "survivors": 0
+    }
+  ],
+  "transfer": {
+    "bestControlTrainFitness": -0.09979155305142547,
+    "controlHoldoutRank": 1,
+    "holdoutRankedCount": 20,
+    "pAll": 0.07754612269386531,
+    "pTopHalf": 0.2887355632218389,
+    "rankedFamilies": 19,
+    "rhoAll": 0.41403508771929826,
+    "rhoTopHalf": -0.4
+  }
+}

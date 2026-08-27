@@ -1,0 +1,24 @@
+# __TRADER_USER__ is a placeholder: substitute the account that owns the repo
+# before installing (see deploy/pi/README.md, "The host").
+[Unit]
+Description=cli_trader read-only Telegram query bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=__TRADER_USER__
+WorkingDirectory=/home/__TRADER_USER__/trader/cli_trader
+ExecStart=/usr/bin/python3 /home/__TRADER_USER__/trader/cli_trader/scripts/telegram_bot.py
+Restart=always
+RestartSec=20
+Nice=10
+# Read-only by design: this unit answers queries and can place no orders.
+# It is NOT given the ability to stop or start the trading sleeves.
+NoNewPrivileges=true
+PrivateTmp=true
+StandardOutput=append:/home/__TRADER_USER__/trader/cli_trader/logs_pi/telegram.log
+StandardError=append:/home/__TRADER_USER__/trader/cli_trader/logs_pi/telegram.log
+
+[Install]
+WantedBy=multi-user.target

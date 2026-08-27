@@ -1,0 +1,1968 @@
+{
+  "config": {
+    "candidatesEvaluated": 4294,
+    "distinctGenomes": 4294,
+    "generations": 20,
+    "population": 260,
+    "seed": 20260824,
+    "surviveThreshold": 0.0,
+    "trainFraction": 0.7
+  },
+  "familyChampions": [
+    {
+      "family": "lppls_bubble",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 5.509761762103983,
+          "excessSharpe": 0.5701944525261913,
+          "exposurePct": 39.14074074074074,
+          "maxDD": 14.690586512670759,
+          "sharpe": 0.9893167122237015,
+          "trades": 61
+        }
+      ],
+      "label": "lppls_bubble+hawkes vt=0.15",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        184.0,
+        31.0,
+        0.4723648052346749,
+        267.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "trainFitness": 1.0130346852972376,
+      "volTarget": 0.15
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -0.09267677991746659,
+          "excessSharpe": -0.020053859176294486,
+          "exposurePct": 25.274074074074075,
+          "maxDD": 30.896701116830467,
+          "sharpe": 0.3990684005212158,
+          "trades": 127
+        }
+      ],
+      "label": "odiseo vt=0.40",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        10.0,
+        5.0,
+        19.923405232165834,
+        1.3840691565238918,
+        8.0,
+        58.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "trainFitness": 0.8679003247683845,
+      "volTarget": 0.4
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 4.225076617411361,
+          "excessSharpe": 0.49567569896447905,
+          "exposurePct": 31.94074074074074,
+          "maxDD": 15.58969398508153,
+          "sharpe": 0.9147979586619893,
+          "trades": 114
+        }
+      ],
+      "label": "squeeze_breakout vt=0.15",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        28.0,
+        1.5756616515757769,
+        103.0,
+        0.438242654206586,
+        21.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "trainFitness": 0.818269031015934,
+      "volTarget": 0.15
+    },
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 2.6846873419583694,
+          "excessSharpe": 0.30425592817249725,
+          "exposurePct": 52.28148148148148,
+          "maxDD": 17.709623773167245,
+          "sharpe": 0.7233781878700075,
+          "trades": 177
+        }
+      ],
+      "label": "fracdiff vt=0.15",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.2112823608370231,
+        27.0,
+        0.7983998162581175,
+        -0.9022319304015963,
+        1.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "trainFitness": 0.7375987748518718,
+      "volTarget": 0.15
+    },
+    {
+      "family": "donchian",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 15.250605427683082,
+          "excessSharpe": 0.7732181326339581,
+          "exposurePct": 44.0,
+          "maxDD": 19.870937504017324,
+          "sharpe": 1.1923403923314684,
+          "trades": 34
+        }
+      ],
+      "label": "donchian+hawkes vt=0.20",
+      "paramNames": [
+        "entryWindow",
+        "exitWindow",
+        "atrWindow",
+        "atrStopMult"
+      ],
+      "params": [
+        10.0,
+        116.0,
+        9.0,
+        5.479964281664379
+      ],
+      "provenance": "Donchian's 4-week rule; the Turtle system",
+      "trainFitness": 0.6646915212466469,
+      "volTarget": 0.2
+    },
+    {
+      "family": "macd_norm",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 12.566723780293175,
+          "excessSharpe": 0.5571413905114724,
+          "exposurePct": 47.22962962962963,
+          "maxDD": 25.738024695278046,
+          "sharpe": 0.9762636502089826,
+          "trades": 35
+        }
+      ],
+      "label": "macd_norm vt=0.20",
+      "paramNames": [
+        "shortWindow",
+        "longWindow",
+        "priceStdWindow",
+        "signalStdWindow",
+        "entryZ"
+      ],
+      "params": [
+        11.0,
+        26.0,
+        86.0,
+        243.0,
+        1.2384842004670737
+      ],
+      "provenance": "Baz, Granger, Harvey, Le Roux & Rattray (2015), SSRN 2695101",
+      "trainFitness": 0.6494824273994804,
+      "volTarget": 0.2
+    },
+    {
+      "family": "darvas",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -7.7692635784491815,
+          "excessSharpe": -0.4902400850139434,
+          "exposurePct": 5.525925925925926,
+          "maxDD": 17.720087715429777,
+          "sharpe": -0.07111782531643313,
+          "trades": 10
+        }
+      ],
+      "label": "darvas vt=0.30",
+      "paramNames": [
+        "pivotWindow",
+        "minSwingAtr",
+        "maxBoxWidthFrac",
+        "targetLevel"
+      ],
+      "params": [
+        24.0,
+        5.8447379218492355,
+        0.5600474761463623,
+        1.3034028083131992
+      ],
+      "provenance": "Darvas (1960), box breakouts on volume",
+      "trainFitness": 0.6018548580211407,
+      "volTarget": 0.3
+    },
+    {
+      "family": "tsmom",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 7.931964250911049,
+          "excessSharpe": 0.42053787036852597,
+          "exposurePct": 52.34074074074074,
+          "maxDD": 22.979657811694384,
+          "sharpe": 0.8396601300660362,
+          "trades": 128
+        }
+      ],
+      "label": "tsmom vt=0.20",
+      "paramNames": [
+        "lookbackWindow",
+        "volWindow",
+        "entryThresholdSigmas",
+        "maxAnnualVolatility"
+      ],
+      "params": [
+        21.0,
+        88.0,
+        0.31117819309415967,
+        2.8199639571307413
+      ],
+      "provenance": "Moskowitz, Ooi & Pedersen (2012); Lim, Zohren & Roberts (2019)",
+      "trainFitness": 0.5589666017922972,
+      "volTarget": 0.2
+    },
+    {
+      "family": "ehlers_trend",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 8.527219012760346,
+          "excessSharpe": 0.42863269912063673,
+          "exposurePct": 48.85925925925926,
+          "maxDD": 33.903132805063336,
+          "sharpe": 0.847754958818147,
+          "trades": 36
+        }
+      ],
+      "label": "ehlers_trend vt=0.20",
+      "paramNames": [
+        "cutoffPeriod",
+        "slopeLag",
+        "volWindow",
+        "entrySigmas"
+      ],
+      "params": [
+        26.0,
+        15.0,
+        70.0,
+        0.26102124145771627
+      ],
+      "provenance": "Ehlers (2004), two-pole SuperSmoother",
+      "trainFitness": 0.5497597078497627,
+      "volTarget": 0.2
+    },
+    {
+      "family": "skew_reversal",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -5.887731206574243,
+          "excessSharpe": -0.16845517836075108,
+          "exposurePct": 7.4222222222222225,
+          "maxDD": 10.93282434446388,
+          "sharpe": 0.2506670813367592,
+          "trades": 16
+        }
+      ],
+      "label": "skew_reversal vt=0.10",
+      "paramNames": [
+        "window",
+        "entrySkew",
+        "holdBars",
+        "trendWindow"
+      ],
+      "params": [
+        60.0,
+        -0.8282988896907048,
+        31.0,
+        186.0
+      ],
+      "provenance": "Amaya, Christoffersen, Jacobs & Vasquez (2015), JFE 118(1)",
+      "trainFitness": 0.5431544645289004,
+      "volTarget": 0.1
+    },
+    {
+      "family": "vol_managed",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 15.725923307206015,
+          "excessSharpe": 0.7287035603189088,
+          "exposurePct": 39.318518518518516,
+          "maxDD": 25.081698146839106,
+          "sharpe": 1.147825820016419,
+          "trades": 61
+        }
+      ],
+      "label": "vol_managed+hawkes vt=0.20",
+      "paramNames": [
+        "volWindow",
+        "rankWindow",
+        "maxVolRank",
+        "trendWindow"
+      ],
+      "params": [
+        115.0,
+        599.0,
+        0.861337099337839,
+        292.0
+      ],
+      "provenance": "Moreira & Muir (2017), Journal of Finance 72(4)",
+      "trainFitness": 0.5214874399476223,
+      "volTarget": 0.2
+    },
+    {
+      "family": "cusum_tb",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -9.714366933859287,
+          "excessSharpe": -0.6563749990786288,
+          "exposurePct": 45.57037037037037,
+          "maxDD": 24.991221221414342,
+          "sharpe": -0.23725273938111857,
+          "trades": 88
+        }
+      ],
+      "label": "cusum_tb+hawkes vt=0.15",
+      "paramNames": [
+        "volWindow",
+        "hSigmas",
+        "ptMult",
+        "slMult",
+        "maxHold"
+      ],
+      "params": [
+        196.0,
+        4.918740945098936,
+        4.7576331324972605,
+        4.329593962352577,
+        113.0
+      ],
+      "provenance": "Lopez de Prado (2018), AFML ch.2/3: CUSUM events + triple barrier",
+      "trainFitness": 0.5151912630690259,
+      "volTarget": 0.15
+    },
+    {
+      "family": "pure_ichimoku",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -2.384474674697712,
+          "excessSharpe": -0.0019306769157238501,
+          "exposurePct": 34.87407407407407,
+          "maxDD": 21.365072829620598,
+          "sharpe": 0.4171915827817864,
+          "trades": 126
+        }
+      ],
+      "label": "pure_ichimoku vt=0.15",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Ichimoku cloud breakout, unfiltered",
+      "trainFitness": 0.5132113359865196,
+      "volTarget": 0.15
+    },
+    {
+      "family": "faber_ma",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 11.618053340643742,
+          "excessSharpe": 0.5161651874388408,
+          "exposurePct": 45.65925925925926,
+          "maxDD": 27.132854813387436,
+          "sharpe": 0.935287447136351,
+          "trades": 42
+        }
+      ],
+      "label": "faber_ma vt=0.20",
+      "paramNames": [
+        "window",
+        "bandPct"
+      ],
+      "params": [
+        98.0,
+        2.4014227353111943
+      ],
+      "provenance": "Faber (2007), J. Wealth Management",
+      "trainFitness": 0.4847439530846839,
+      "volTarget": 0.2
+    },
+    {
+      "family": "kama_trend",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -1.1937118827074933,
+          "excessSharpe": 0.2647653810570513,
+          "exposurePct": 42.42962962962963,
+          "maxDD": 13.360962316161881,
+          "sharpe": 0.6838876407545615,
+          "trades": 186
+        }
+      ],
+      "label": "kama_trend vt=0.10",
+      "paramNames": [
+        "erWindow",
+        "fastPeriod",
+        "slowPeriod",
+        "minEfficiency"
+      ],
+      "params": [
+        40.0,
+        2.0,
+        79.0,
+        0.07562340418783345
+      ],
+      "provenance": "Kaufman (1995), efficiency-ratio adaptive average",
+      "trainFitness": 0.44765568121947186,
+      "volTarget": 0.1
+    },
+    {
+      "family": "control_random",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -4.16330636468718,
+          "excessSharpe": -0.12420798827722701,
+          "exposurePct": 96.13333333333334,
+          "maxDD": 16.993058188774466,
+          "sharpe": 0.29491427142028326,
+          "trades": 38
+        }
+      ],
+      "label": "control_random vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.11282330474703965,
+        172.0,
+        38189.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "trainFitness": 0.44511247743208515,
+      "volTarget": 0.1
+    },
+    {
+      "family": "sma_cross",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 15.437417899704988,
+          "excessSharpe": 0.6663189497249723,
+          "exposurePct": 45.22962962962963,
+          "maxDD": 25.867647213699836,
+          "sharpe": 1.0854412094224826,
+          "trades": 32
+        }
+      ],
+      "label": "sma_cross vt=0.20",
+      "paramNames": [
+        "fast",
+        "slow"
+      ],
+      "params": [
+        12.0,
+        174.0
+      ],
+      "provenance": "repo: fast/slow moving-average crossover",
+      "trainFitness": 0.3894262603699603,
+      "volTarget": 0.2
+    },
+    {
+      "family": "ou_score",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -7.808462074506939,
+          "excessSharpe": -0.7584020942809333,
+          "exposurePct": 2.1925925925925926,
+          "maxDD": 4.436180117072216,
+          "sharpe": -0.3392798345834231,
+          "trades": 20
+        }
+      ],
+      "label": "ou_score vt=0.10",
+      "paramNames": [
+        "window",
+        "detrendWindow",
+        "entryS",
+        "exitS",
+        "maxHalfLifeFrac"
+      ],
+      "params": [
+        199.0,
+        12.0,
+        2.793156734556671,
+        0.8303687860434842,
+        0.802640191323141
+      ],
+      "provenance": "Avellaneda & Lee (2010), Quantitative Finance 10(7)",
+      "trainFitness": -0.2806435702502771,
+      "volTarget": 0.1
+    },
+    {
+      "family": "vr_switch",
+      "gate": "hurst",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -5.620279790186822,
+          "excessSharpe": 0.02132497214438328,
+          "exposurePct": 2.903703703703704,
+          "maxDD": 3.9870818536382044,
+          "sharpe": 0.44044723184189355,
+          "trades": 8
+        }
+      ],
+      "label": "vr_switch+hurst vt=0.15",
+      "paramNames": [
+        "vrWindow",
+        "vrLag",
+        "band",
+        "trendWindow",
+        "mrWindow",
+        "mrEntryZ"
+      ],
+      "params": [
+        216.0,
+        19.0,
+        0.4446468608616262,
+        195.0,
+        40.0,
+        1.787487557927401
+      ],
+      "provenance": "Lo & MacKinlay (1988) variance ratio; Lo (2004) adaptive markets",
+      "trainFitness": -0.3894913906404138,
+      "volTarget": 0.15
+    },
+    {
+      "family": "patterns",
+      "gate": "pe",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -9.575004423314438,
+          "excessSharpe": -0.8057732934344389,
+          "exposurePct": 37.51111111111111,
+          "maxDD": 20.95626418763036,
+          "sharpe": -0.38665103373692866,
+          "trades": 111
+        }
+      ],
+      "label": "patterns+pe vt=0.10",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Japanese candlestick signal ensemble",
+      "trainFitness": -0.45005280316859464,
+      "volTarget": 0.1
+    },
+    {
+      "family": "fib_ichimoku",
+      "gate": "hawkes",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -14.234962806694329,
+          "excessSharpe": -1.0729251604126353,
+          "exposurePct": 6.962962962962963,
+          "maxDD": 26.006586866766472,
+          "sharpe": -0.6538029007151251,
+          "trades": 34
+        }
+      ],
+      "label": "fib_ichimoku+hawkes vt=0.40",
+      "paramNames": [],
+      "params": [],
+      "provenance": "repo: Fibonacci retracement entries under an Ichimoku trend",
+      "trainFitness": -0.4571751111549597,
+      "volTarget": 0.4
+    },
+    {
+      "family": "rsi_reversal",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -5.7096361789953365,
+          "excessSharpe": 0.17586674871141883,
+          "exposurePct": 3.1555555555555554,
+          "maxDD": 1.8912759902962621,
+          "sharpe": 0.5949890084089291,
+          "trades": 5
+        }
+      ],
+      "label": "rsi_reversal vt=0.10",
+      "paramNames": [
+        "rsiWindow",
+        "entryLevel",
+        "exitLevel",
+        "trendWindow",
+        "maxHoldBars"
+      ],
+      "params": [
+        26.0,
+        34.36503688920944,
+        53.225356959674016,
+        354.0,
+        99.0
+      ],
+      "provenance": "Jegadeesh (1990) / Lehmann (1990) short-term reversal; Connors & Alvarez (2008)",
+      "trainFitness": -0.7975036457685772,
+      "volTarget": 0.1
+    },
+    {
+      "family": "control_always_long",
+      "gate": "none",
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 0.0,
+          "excessSharpe": 2.6645352591003757e-15,
+          "exposurePct": 99.98518518518519,
+          "maxDD": 68.70853292231504,
+          "sharpe": 0.41912225969751293,
+          "trades": 1
+        }
+      ],
+      "label": "control_always_long",
+      "paramNames": [],
+      "params": [],
+      "provenance": "CONTROL: buy first bar, never sell",
+      "trainFitness": -49.30419735839472,
+      "volTarget": 0.0
+    }
+  ],
+  "finalists": [
+    {
+      "family": "lppls_bubble",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.26184734189474496,
+        0.3566590289601921,
+        0.4047873641179713
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 5.509761762103983,
+          "excessSharpe": 0.5701944525261913,
+          "exposurePct": 39.14074074074074,
+          "maxDD": 14.690586512670759,
+          "sharpe": 0.9893167122237015,
+          "trades": 61
+        }
+      ],
+      "label": "lppls_bubble+hawkes vt=0.15",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        184.0,
+        31.0,
+        0.4723648052346749,
+        267.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 1.0130346852972376,
+          "maxDD": 17.79589108480256,
+          "sharpe": 2.239289613083457,
+          "trades": 133
+        }
+      ],
+      "trainFitness": 1.0130346852972376,
+      "volTarget": 0.15
+    },
+    {
+      "family": "lppls_bubble",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.28556721545894476,
+        0.39014447314744133,
+        0.4277966132067206
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -0.6639279734230064,
+          "excessSharpe": 0.32856660426791995,
+          "exposurePct": 39.36296296296296,
+          "maxDD": 10.700395623815481,
+          "sharpe": 0.7476888639654302,
+          "trades": 62
+        }
+      ],
+      "label": "lppls_bubble+hawkes vt=0.10",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        190.0,
+        36.0,
+        0.5113624010827112,
+        234.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.8824362494002298,
+          "maxDD": 10.113111570469172,
+          "sharpe": 2.1086911771864494,
+          "trades": 140
+        }
+      ],
+      "trainFitness": 0.8824362494002298,
+      "volTarget": 0.1
+    },
+    {
+      "family": "odiseo",
+      "gate": "none",
+      "gateGenes": [
+        1.0,
+        1.0,
+        0.3132762861677683
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -0.09267677991746659,
+          "excessSharpe": -0.020053859176294486,
+          "exposurePct": 25.274074074074075,
+          "maxDD": 30.896701116830467,
+          "sharpe": 0.3990684005212158,
+          "trades": 127
+        }
+      ],
+      "label": "odiseo vt=0.40",
+      "paramNames": [
+        "dmiWindow",
+        "atrWindow",
+        "adxThreshold",
+        "atrStopMultiple",
+        "tenkanWindow",
+        "kijunWindow"
+      ],
+      "params": [
+        10.0,
+        5.0,
+        19.923405232165834,
+        1.3840691565238918,
+        8.0,
+        58.0
+      ],
+      "provenance": "repo: Ichimoku + DMI/ADX + ATR trailing stop",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.8679003247683845,
+          "maxDD": 19.807767215867777,
+          "sharpe": 2.094155252554604,
+          "trades": 288
+        }
+      ],
+      "trainFitness": 0.8679003247683845,
+      "volTarget": 0.4
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "gateGenes": [
+        0.6751370487609658,
+        0.7230983428662459,
+        0.5648726075436168
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 4.225076617411361,
+          "excessSharpe": 0.49567569896447905,
+          "exposurePct": 31.94074074074074,
+          "maxDD": 15.58969398508153,
+          "sharpe": 0.9147979586619893,
+          "trades": 114
+        }
+      ],
+      "label": "squeeze_breakout vt=0.15",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        28.0,
+        1.5756616515757769,
+        103.0,
+        0.438242654206586,
+        21.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.818269031015934,
+          "maxDD": 13.447086267165359,
+          "sharpe": 2.0445239588021535,
+          "trades": 219
+        }
+      ],
+      "trainFitness": 0.818269031015934,
+      "volTarget": 0.15
+    },
+    {
+      "family": "lppls_bubble",
+      "gate": "none",
+      "gateGenes": [
+        0.3304583026364057,
+        0.36153981032602117,
+        0.4017835172974289
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 9.051350311796357,
+          "excessSharpe": 0.5508011237704031,
+          "exposurePct": 43.851851851851855,
+          "maxDD": 17.01053954911799,
+          "sharpe": 0.9699233834679134,
+          "trades": 83
+        }
+      ],
+      "label": "lppls_bubble vt=0.20",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        200.0,
+        23.0,
+        0.4642247705171042,
+        263.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.8120669957799247,
+          "maxDD": 23.98062209654683,
+          "sharpe": 2.0383219235661443,
+          "trades": 184
+        }
+      ],
+      "trainFitness": 0.8120669957799247,
+      "volTarget": 0.2
+    },
+    {
+      "family": "lppls_bubble",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.22258005686491955,
+        0.4305889585153343,
+        0.4104133456612001
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 10.169844336674272,
+          "excessSharpe": 0.6494649200169663,
+          "exposurePct": 38.25185185185185,
+          "maxDD": 15.096814334318639,
+          "sharpe": 1.0685871797144766,
+          "trades": 58
+        }
+      ],
+      "label": "lppls_bubble+hawkes vt=0.20",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        195.0,
+        23.0,
+        0.41102170544346306,
+        256.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.7933748035508794,
+          "maxDD": 21.282561850975533,
+          "sharpe": 2.019629731337099,
+          "trades": 124
+        }
+      ],
+      "trainFitness": 0.7933748035508794,
+      "volTarget": 0.2
+    },
+    {
+      "family": "lppls_bubble",
+      "gate": "none",
+      "gateGenes": [
+        0.21034209570705026,
+        0.35303090721492186,
+        0.5630941988019544
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 2.437273473109892,
+          "excessSharpe": 0.5727135110913598,
+          "exposurePct": 42.08888888888889,
+          "maxDD": 10.722636876644387,
+          "sharpe": 0.9918357707888701,
+          "trades": 88
+        }
+      ],
+      "label": "lppls_bubble vt=0.10",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        198.0,
+        35.0,
+        0.6150028875031273,
+        211.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.7776343366564225,
+          "maxDD": 14.036615070153724,
+          "sharpe": 2.003889264442642,
+          "trades": 174
+        }
+      ],
+      "trainFitness": 0.7776343366564225,
+      "volTarget": 0.1
+    },
+    {
+      "family": "lppls_bubble",
+      "gate": "hawkes",
+      "gateGenes": [
+        0.22234455461722255,
+        0.4063128796613316,
+        0.5617470754491887
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 13.279337835074267,
+          "excessSharpe": 0.438249262785939,
+          "exposurePct": 40.84444444444444,
+          "maxDD": 31.716975882252463,
+          "sharpe": 0.8573715224834493,
+          "trades": 74
+        }
+      ],
+      "label": "lppls_bubble+hawkes vt=0.30",
+      "paramNames": [
+        "window",
+        "refitEvery",
+        "confThreshold",
+        "trendWindow"
+      ],
+      "params": [
+        186.0,
+        32.0,
+        0.44097704265991955,
+        224.0
+      ],
+      "provenance": "Johansen, Ledoit & Sornette (2000); Filimonov & Sornette (2013)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.7773381694589212,
+          "maxDD": 28.997548231983878,
+          "sharpe": 2.003593097245141,
+          "trades": 146
+        }
+      ],
+      "trainFitness": 0.7517695424716613,
+      "volTarget": 0.3
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "gateGenes": [
+        0.7453109090991064,
+        0.7329599149444512,
+        0.6418119311770478
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -2.9273519385437874,
+          "excessSharpe": 0.12590968429221505,
+          "exposurePct": 30.933333333333334,
+          "maxDD": 11.316689586916365,
+          "sharpe": 0.5450319439897253,
+          "trades": 132
+        }
+      ],
+      "label": "squeeze_breakout vt=0.10",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        22.0,
+        1.8876655695067477,
+        138.0,
+        0.48878714619936403,
+        24.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.7376866978560892,
+          "maxDD": 9.220057986072076,
+          "sharpe": 1.9639416256423088,
+          "trades": 245
+        }
+      ],
+      "trainFitness": 0.7376866978560892,
+      "volTarget": 0.1
+    },
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "gateGenes": [
+        0.8708589169069821,
+        0.08099922093076345,
+        0.4805215752638237
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 2.6846873419583694,
+          "excessSharpe": 0.30425592817249725,
+          "exposurePct": 52.28148148148148,
+          "maxDD": 17.709623773167245,
+          "sharpe": 0.7233781878700075,
+          "trades": 177
+        }
+      ],
+      "label": "fracdiff vt=0.15",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.2112823608370231,
+        27.0,
+        0.7983998162581175,
+        -0.9022319304015963,
+        1.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.7375987748518718,
+          "maxDD": 16.763910156616905,
+          "sharpe": 1.9638537026380913,
+          "trades": 354
+        }
+      ],
+      "trainFitness": 0.7375987748518718,
+      "volTarget": 0.15
+    },
+    {
+      "family": "squeeze_breakout",
+      "gate": "none",
+      "gateGenes": [
+        0.7259126972415186,
+        0.772280455460839,
+        0.6217725098168965
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 0.07349558987956861,
+          "excessSharpe": 0.0009615307667630302,
+          "exposurePct": 29.644444444444446,
+          "maxDD": 33.24833961316006,
+          "sharpe": 0.4200837904642733,
+          "trades": 113
+        }
+      ],
+      "label": "squeeze_breakout vt=0.30",
+      "paramNames": [
+        "window",
+        "numSigma",
+        "rankWindow",
+        "squeezePct",
+        "armBars"
+      ],
+      "params": [
+        26.0,
+        1.9803251879486394,
+        152.0,
+        0.4921662064742601,
+        23.0
+      ],
+      "provenance": "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.7319655089683086,
+          "maxDD": 22.25533054444774,
+          "sharpe": 1.9582204367545282,
+          "trades": 202
+        }
+      ],
+      "trainFitness": 0.7319655089683086,
+      "volTarget": 0.3
+    },
+    {
+      "family": "fracdiff",
+      "gate": "none",
+      "gateGenes": [
+        0.9540329146889134,
+        0.019413758944873995,
+        0.49264389024961874
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": 6.877292666847955,
+          "excessSharpe": 0.3705888177149842,
+          "exposurePct": 50.87407407407407,
+          "maxDD": 20.950641221563256,
+          "sharpe": 0.7897110774124945,
+          "trades": 199
+        }
+      ],
+      "label": "fracdiff vt=0.20",
+      "paramNames": [
+        "d",
+        "zWindow",
+        "entryZ",
+        "exitZ",
+        "momentum"
+      ],
+      "params": [
+        0.19587653049154627,
+        23.0,
+        0.8541865154963626,
+        -0.8523482709714063,
+        1.0
+      ],
+      "provenance": "Lopez de Prado (2018), Advances in Financial ML, ch.5",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.7168797217930629,
+          "maxDD": 25.011780023764985,
+          "sharpe": 1.9431346495792825,
+          "trades": 394
+        }
+      ],
+      "trainFitness": 0.716879499762727,
+      "volTarget": 0.2
+    },
+    {
+      "family": "control_random",
+      "gate": "none",
+      "gateGenes": [
+        1.0,
+        0.557735705703347,
+        0.5718201335145465
+      ],
+      "holdout": [
+        {
+          "benchSharpe": 0.41912225969751027,
+          "env": "ETH_USDT",
+          "excessCagr": -4.16330636468718,
+          "excessSharpe": -0.12420798827722701,
+          "exposurePct": 96.13333333333334,
+          "maxDD": 16.993058188774466,
+          "sharpe": 0.29491427142028326,
+          "trades": 38
+        }
+      ],
+      "label": "control_random vt=0.10",
+      "paramNames": [
+        "entryProb",
+        "holdBars",
+        "seed"
+      ],
+      "params": [
+        0.11282330474703965,
+        172.0,
+        38189.0
+      ],
+      "provenance": "CONTROL: coin-flip entries, fixed hold",
+      "train": [
+        {
+          "benchSharpe": 1.2262549277862196,
+          "env": "ETH_USDT",
+          "excessSharpe": 0.44511247743208515,
+          "maxDD": 23.79289314463189,
+          "sharpe": 1.6713674052183047,
+          "trades": 87
+        }
+      ],
+      "trainFitness": 0.44511247743208515,
+      "volTarget": 0.1
+    }
+  ],
+  "history": [
+    {
+      "bestFitness": 0.5132113359865196,
+      "bestLabel": "pure_ichimoku vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 0,
+      "medianFitness": -2.2027221687949274,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.5712930426123072,
+      "bestLabel": "squeeze_breakout",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 1,
+      "medianFitness": -0.6599555587235143,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.6472281967735092,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 2,
+      "medianFitness": -0.5503083046738502,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.6823057765846696,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 3,
+      "medianFitness": -0.21813697190133022,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.6823057765846696,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 4,
+      "medianFitness": -0.1802058179962278,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.8343485705339952,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 5,
+      "medianFitness": 0.032582812359398305,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.8343485705339952,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 6,
+      "medianFitness": -0.01269618793045959,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.8343485705339952,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 7,
+      "medianFitness": 0.09652876778752141,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.8343485705339952,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 8,
+      "medianFitness": 0.12081084303435219,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.8614152592087347,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 9,
+      "medianFitness": 0.08800769623377723,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 0.8824362494002298,
+      "bestLabel": "lppls_bubble+hawkes vt=0.10",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 10,
+      "medianFitness": 0.08825705074929577,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 1.0091034376780537,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_always_long": 4,
+        "control_random": 4,
+        "cusum_tb": 4,
+        "darvas": 4,
+        "donchian": 4,
+        "ehlers_trend": 4,
+        "faber_ma": 4,
+        "fib_ichimoku": 4,
+        "fracdiff": 4,
+        "kama_trend": 4,
+        "lppls_bubble": 4,
+        "macd_norm": 4,
+        "odiseo": 4,
+        "ou_score": 4,
+        "patterns": 4,
+        "pure_ichimoku": 4,
+        "rsi_reversal": 4,
+        "skew_reversal": 4,
+        "sma_cross": 4,
+        "squeeze_breakout": 4,
+        "tsmom": 4,
+        "vol_managed": 4,
+        "vr_switch": 4
+      },
+      "generation": 11,
+      "medianFitness": 0.14765924125359375,
+      "survivors": 92
+    },
+    {
+      "bestFitness": 1.0091034376780537,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 4,
+        "cusum_tb": 3,
+        "darvas": 11,
+        "donchian": 12,
+        "ehlers_trend": 5,
+        "faber_ma": 10,
+        "fracdiff": 10,
+        "kama_trend": 7,
+        "lppls_bubble": 11,
+        "macd_norm": 8,
+        "odiseo": 9,
+        "pure_ichimoku": 10,
+        "skew_reversal": 7,
+        "sma_cross": 8,
+        "squeeze_breakout": 11,
+        "tsmom": 9,
+        "vol_managed": 9
+      },
+      "generation": 12,
+      "medianFitness": 0.16841901352318134,
+      "survivors": 144
+    },
+    {
+      "bestFitness": 1.0091034376780537,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 5,
+        "cusum_tb": 3,
+        "darvas": 14,
+        "donchian": 14,
+        "ehlers_trend": 8,
+        "faber_ma": 13,
+        "fracdiff": 12,
+        "kama_trend": 11,
+        "lppls_bubble": 12,
+        "macd_norm": 12,
+        "odiseo": 12,
+        "pure_ichimoku": 15,
+        "skew_reversal": 5,
+        "sma_cross": 13,
+        "squeeze_breakout": 12,
+        "tsmom": 11,
+        "vol_managed": 11
+      },
+      "generation": 13,
+      "medianFitness": 0.3128392929955998,
+      "survivors": 183
+    },
+    {
+      "bestFitness": 1.0091034376780537,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 7,
+        "cusum_tb": 7,
+        "darvas": 15,
+        "donchian": 13,
+        "ehlers_trend": 10,
+        "faber_ma": 11,
+        "fracdiff": 12,
+        "kama_trend": 11,
+        "lppls_bubble": 14,
+        "macd_norm": 12,
+        "odiseo": 13,
+        "pure_ichimoku": 10,
+        "skew_reversal": 7,
+        "sma_cross": 5,
+        "squeeze_breakout": 14,
+        "tsmom": 12,
+        "vol_managed": 12
+      },
+      "generation": 14,
+      "medianFitness": 0.31745820287606485,
+      "survivors": 185
+    },
+    {
+      "bestFitness": 1.0091034376780537,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 2,
+        "cusum_tb": 9,
+        "darvas": 14,
+        "donchian": 14,
+        "ehlers_trend": 11,
+        "faber_ma": 13,
+        "fracdiff": 13,
+        "kama_trend": 8,
+        "lppls_bubble": 13,
+        "macd_norm": 12,
+        "odiseo": 13,
+        "pure_ichimoku": 15,
+        "skew_reversal": 12,
+        "sma_cross": 8,
+        "squeeze_breakout": 15,
+        "tsmom": 12,
+        "vol_managed": 13
+      },
+      "generation": 15,
+      "medianFitness": 0.36837415001976187,
+      "survivors": 197
+    },
+    {
+      "bestFitness": 1.0091034376780537,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 4,
+        "cusum_tb": 13,
+        "darvas": 14,
+        "donchian": 10,
+        "ehlers_trend": 9,
+        "faber_ma": 13,
+        "fracdiff": 13,
+        "kama_trend": 10,
+        "lppls_bubble": 13,
+        "macd_norm": 12,
+        "odiseo": 12,
+        "pure_ichimoku": 13,
+        "skew_reversal": 7,
+        "sma_cross": 8,
+        "squeeze_breakout": 13,
+        "tsmom": 12,
+        "vol_managed": 11
+      },
+      "generation": 16,
+      "medianFitness": 0.3204575291642202,
+      "survivors": 187
+    },
+    {
+      "bestFitness": 1.0091034376780537,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 3,
+        "cusum_tb": 12,
+        "darvas": 13,
+        "donchian": 12,
+        "ehlers_trend": 11,
+        "faber_ma": 11,
+        "fracdiff": 13,
+        "kama_trend": 14,
+        "lppls_bubble": 13,
+        "macd_norm": 13,
+        "odiseo": 12,
+        "pure_ichimoku": 14,
+        "skew_reversal": 7,
+        "sma_cross": 8,
+        "squeeze_breakout": 13,
+        "tsmom": 13,
+        "vol_managed": 12
+      },
+      "generation": 17,
+      "medianFitness": 0.3461602010624534,
+      "survivors": 194
+    },
+    {
+      "bestFitness": 1.0091034376780537,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 4,
+        "cusum_tb": 14,
+        "darvas": 13,
+        "donchian": 13,
+        "ehlers_trend": 10,
+        "faber_ma": 13,
+        "fracdiff": 13,
+        "kama_trend": 12,
+        "lppls_bubble": 12,
+        "macd_norm": 11,
+        "odiseo": 13,
+        "pure_ichimoku": 11,
+        "skew_reversal": 8,
+        "sma_cross": 9,
+        "squeeze_breakout": 13,
+        "tsmom": 12,
+        "vol_managed": 12
+      },
+      "generation": 18,
+      "medianFitness": 0.35804500530475414,
+      "survivors": 193
+    },
+    {
+      "bestFitness": 1.0130346852972376,
+      "bestLabel": "lppls_bubble+hawkes vt=0.15",
+      "evaluated": 260,
+      "familyCensus": {
+        "control_random": 5,
+        "cusum_tb": 11,
+        "darvas": 12,
+        "donchian": 14,
+        "ehlers_trend": 12,
+        "faber_ma": 11,
+        "fracdiff": 12,
+        "kama_trend": 10,
+        "lppls_bubble": 10,
+        "macd_norm": 13,
+        "odiseo": 13,
+        "pure_ichimoku": 10,
+        "skew_reversal": 11,
+        "sma_cross": 9,
+        "squeeze_breakout": 16,
+        "tsmom": 14,
+        "vol_managed": 13
+      },
+      "generation": 19,
+      "medianFitness": 0.367116647127002,
+      "survivors": 196
+    }
+  ],
+  "transfer": {
+    "bestControlTrainFitness": 0.44511247743208515,
+    "controlHoldoutRank": 16,
+    "holdoutRankedCount": 22,
+    "pAll": 0.049497525123743814,
+    "pTopHalf": 0.2792860356982151,
+    "rankedFamilies": 21,
+    "rhoAll": 0.43896103896103894,
+    "rhoTopHalf": 0.38181818181818183
+  }
+}

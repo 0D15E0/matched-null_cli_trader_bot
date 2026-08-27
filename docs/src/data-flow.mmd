@@ -1,0 +1,39 @@
+flowchart LR
+  classDef store fill:#eef6ff,stroke:#5b8def,color:#1a2b4c
+  classDef ext fill:#fff4e5,stroke:#e0a040,color:#4a3000
+  classDef cmd fill:#f0fff0,stroke:#4a9a4a,color:#123312
+
+  VENUE["Poloniex / Yahoo<br/>public OHLCV"]:::ext
+  FETCH["fetch<br/>drops the forming candle<br/>re-checks overlap bars"]:::cmd
+  CTC[("data/SYMBOL_PERIOD.ctc<br/>append-only binary")]:::store
+  CS["CandleSeries<br/>struct-of-arrays<br/>barsPerYear measured from data"]
+
+  subgraph STRAT["Strategy layer"]
+    REG["zoo registry<br/>name + bounded params → factory"]
+    ST["Strategy<br/>prepare · onBar"]
+    GATE["gates / ensemble<br/>(decorators)"]
+  end
+
+  subgraph ENGINE["Backtest engine"]
+    BT["bar loop<br/>next-open fills · vol sizing"]
+    MET["metrics<br/>Sharpe±SE · deflated Sharpe · DD"]
+  end
+
+  PORT["portfolio<br/>N sleeves on a common time grid"]:::cmd
+  TOUR["tournament<br/>evolve · select · holdout"]:::cmd
+  LIVE["run (LiveTrader)<br/>same observe→onBar sequence<br/>real or paper fills"]:::cmd
+  STATE[("state_live/*.json<br/>*.trades.jsonl")]:::store
+  PARITY["parity<br/>backtest fills vs logged fills"]:::cmd
+
+  VENUE --> FETCH --> CTC --> CS
+  CS --> ST
+  REG --> ST --> GATE
+  GATE --> BT --> MET
+  BT --> PORT
+  BT --> TOUR
+  GATE --> LIVE
+  CS --> LIVE
+  LIVE --> STATE
+  STATE --> PARITY
+  CTC --> PARITY
+  LIVE <-->|orders · balances| VENUE

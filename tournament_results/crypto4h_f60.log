@@ -1,0 +1,147 @@
+Environments:
+  BTC_USDT               train  15119 bars (6.90y)   holdout  10080 bars (4.60y)
+  ETH_USDT               train  13499 bars (6.16y)   holdout   9000 bars (4.11y)
+  LTC_USDT               train  15061 bars (6.87y)   holdout  10042 bars (4.58y)
+  XRP_USDT               train  15115 bars (6.90y)   holdout  10077 bars (4.60y)
+Excluded on cost: pencil_extrap (weight 500.00 > --cost-limit 50.00). Run it with --only pencil_extrap to search it anyway.
+
+Tournament: 23 families, population 260, 20 generations
+Survival threshold X = 0.000 on fitness = min over environments of (excess Sharpe vs buy&hold - drawdown penalty)
+Structural genes: regime gate on, volatility target on
+Speciation: on - breeding capacity is split across surviving families, so one early winner
+            cannot take every slot and leave the rest untuned
+
+Phase 1 (tune, generations 0..11): every family keeps its own best 4 and breeds; X is not applied.
+Phase 2 (select, generations 12..19): survival requires fitness >= X = 0.000.
+
+TUNE  0 | evaluated  260 | survivors   92 | families 23 | best   0.134 | median  -7.110 | sigma 0.180 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  1 | evaluated  260 | survivors   92 | families 23 | best   0.231 | median  -1.738 | sigma 0.158 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  2 | evaluated  260 | survivors   92 | families 23 | best   0.231 | median  -1.536 | sigma 0.139 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  3 | evaluated  260 | survivors   92 | families 23 | best   0.231 | median  -1.144 | sigma 0.123 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  4 | evaluated  260 | survivors   92 | families 23 | best   0.231 | median  -1.014 | sigma 0.108 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  5 | evaluated  260 | survivors   92 | families 23 | best   0.231 | median  -0.908 | sigma 0.095 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  6 | evaluated  260 | survivors   92 | families 23 | best   0.231 | median  -0.941 | sigma 0.084 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  7 | evaluated  260 | survivors   92 | families 23 | best   0.231 | median  -0.805 | sigma 0.074 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  8 | evaluated  260 | survivors   92 | families 23 | best   0.231 | median  -0.675 | sigma 0.065 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE  9 | evaluated  260 | survivors   92 | families 23 | best   0.256 | median  -0.648 | sigma 0.057 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE 10 | evaluated  260 | survivors   92 | families 23 | best   0.256 | median  -0.699 | sigma 0.050 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+TUNE 11 | evaluated  260 | survivors   92 | families 23 | best   0.256 | median  -0.649 | sigma 0.044 | squeeze_breakout vt=0.15
+        survivors: control_always_longx4  control_randomx4  cusum_tbx4  darvasx4  donchianx4  ehlers_trendx4  faber_max4  fib_ichimokux4  fracdiffx4  kama_trendx4  
+SEL  12 | evaluated  260 | survivors   28 | families  8 | best   0.256 | median  -0.558 | sigma 0.039 | squeeze_breakout vt=0.15
+        survivors: squeeze_breakoutx8  fracdiffx6  tsmomx5  odiseox3  faber_max2  lppls_bubblex2  donchianx1  kama_trendx1  
+SEL  13 | evaluated  260 | survivors   64 | families  8 | best   0.278 | median  -0.139 | sigma 0.034 | fracdiff vt=0.15
+        survivors: squeeze_breakoutx20  fracdiffx16  tsmomx7  faber_max6  lppls_bubblex6  odiseox6  kama_trendx2  donchianx1  
+SEL  14 | evaluated  260 | survivors   71 | families  9 | best   0.278 | median  -0.148 | sigma 0.030 | fracdiff vt=0.15
+        survivors: squeeze_breakoutx19  fracdiffx15  lppls_bubblex9  odiseox9  faber_max6  kama_trendx6  tsmomx5  donchianx1  macd_normx1  
+SEL  15 | evaluated  260 | survivors   88 | families  9 | best   0.278 | median  -0.065 | sigma 0.026 | fracdiff vt=0.15
+        survivors: squeeze_breakoutx20  fracdiffx16  macd_normx11  lppls_bubblex10  faber_max9  tsmomx9  odiseox8  kama_trendx4  donchianx1  
+SEL  16 | evaluated  260 | survivors   85 | families  9 | best   0.278 | median  -0.084 | sigma 0.023 | fracdiff vt=0.15
+        survivors: squeeze_breakoutx20  fracdiffx12  lppls_bubblex11  macd_normx11  odiseox11  tsmomx9  kama_trendx6  faber_max4  donchianx1  
+SEL  17 | evaluated  260 | survivors   92 | families  9 | best   0.278 | median  -0.084 | sigma 0.020 | fracdiff vt=0.15
+        survivors: squeeze_breakoutx18  fracdiffx13  macd_normx13  lppls_bubblex12  odiseox10  tsmomx9  faber_max8  kama_trendx7  donchianx2  
+SEL  18 | evaluated  260 | survivors   97 | families  9 | best   0.278 | median  -0.060 | sigma 0.018 | fracdiff vt=0.15
+        survivors: squeeze_breakoutx22  fracdiffx18  lppls_bubblex12  tsmomx11  odiseox10  macd_normx9  faber_max8  kama_trendx5  donchianx2  
+SEL  19 | evaluated  260 | survivors  103 | families  9 | best   0.278 | median  -0.059 | sigma 0.016 | fracdiff vt=0.15
+        survivors: squeeze_breakoutx22  fracdiffx18  odiseox14  macd_normx13  lppls_bubblex12  faber_max9  tsmomx9  kama_trendx4  donchianx2  
+
+===== Every family, after tuning =====
+best genome of the family             train  hold(min) hold(mean)  hold DD   trades  worst env   
+-------------------------------------------------------------------------------------------------
+fracdiff vt=0.15                      0.278     -0.375      0.041    33.5%      360  LTC_USDT    
+squeeze_breakout vt=0.15              0.266     -0.256      0.122    25.4%      261  LTC_USDT    
+tsmom vt=0.20                         0.263     -0.463      0.099    47.1%      399  LTC_USDT    
+lppls_bubble vt=0.10                  0.202     -0.315      0.048    23.7%      740  XRP_USDT    
+odiseo vt=0.15                        0.167     -0.340     -0.005    31.3%      313  LTC_USDT    
+macd_norm+hawkes vt=0.15              0.103     -0.369      0.051    33.9%      261  LTC_USDT    
+faber_ma vt=0.10                      0.062     -0.186     -0.014    27.0%      191  LTC_USDT    
+kama_trend+hawkes vt=0.10             0.033     -0.810     -0.113    25.2%      379  LTC_USDT    
+donchian vt=0.30                      0.006     -0.933     -0.235    49.9%      149  LTC_USDT    
+control_random vt=0.10  <- CONTRO    -0.011     -0.187     -0.031    20.4%      210  XRP_USDT    
+pure_ichimoku vt=0.15                -0.020     -0.685     -0.110    35.1%      706  LTC_USDT    
+vol_managed vt=0.15                  -0.070     -1.207     -0.313    42.4%      842  XRP_USDT    
+ehlers_trend vt=0.20                 -0.097     -0.315     -0.016    49.3%      324  LTC_USDT    
+cusum_tb vt=0.15                     -0.101     -0.709     -0.251    25.4%      443  XRP_USDT    
+darvas vt=0.20                       -0.107     -0.671     -0.294    23.4%      119  XRP_USDT    
+sma_cross vt=0.10                    -0.209     -0.419     -0.175    18.9%      403  ETH_USDT    
+skew_reversal+hawkes vt=0.15         -0.317     -0.922     -0.619    32.1%      150  ETH_USDT    
+patterns+hawkes vt=0.10              -0.448     -0.969     -0.520    21.7%      426  ETH_USDT    
+rsi_reversal vt=0.10                 -0.747     -0.790     -0.267    13.7%      350  BTC_USDT    
+fib_ichimoku+hurst vt=0.20           -0.960     -1.173     -0.536    14.9%       96  ETH_USDT    
+vr_switch+hurst vt=0.10              -1.287     -0.855     -0.310    10.0%       56  XRP_USDT    
+ou_score+hawkes vt=0.30              -1.360     -1.069     -0.684    23.4%       72  ETH_USDT    
+control_always_long+pe vt=0.15  <   -49.275     -0.312     -0.250    42.4%        4  LTC_USDT    
+
+===== Finalists: train (searched) vs holdout (never seen) =====
+strategy                              train  hold(min) hold(mean)  hold DD   trades   expos%
+--------------------------------------------------------------------------------------------
+fracdiff vt=0.15                      0.278     -0.375      0.041    33.5%      360    49.3%
+squeeze_breakout vt=0.15              0.266     -0.256      0.122    25.4%      261    27.5%
+tsmom vt=0.20                         0.263     -0.463      0.099    47.1%      399    50.9%
+fracdiff vt=0.10                      0.248     -0.301      0.087    23.3%      353    49.6%
+lppls_bubble vt=0.10                  0.202     -0.315      0.048    23.7%      740    45.4%
+fracdiff vt=0.20                      0.199     -0.140      0.131    40.9%      283    48.0%
+squeeze_breakout+hawkes vt=0.15       0.173     -0.149      0.185    27.4%      225    25.3%
+odiseo vt=0.15                        0.167     -0.340     -0.005    31.3%      313    42.3%
+squeeze_breakout vt=0.20              0.109     -0.309      0.117    33.9%      274    27.8%
+macd_norm+hawkes vt=0.15              0.103     -0.369      0.051    33.9%      261    46.3%
+macd_norm+pe vt=0.15                  0.101     -0.414      0.030    36.0%      263    46.3%
+tsmom vt=0.30                         0.101     -0.546     -0.125    59.6%      582    50.5%
+control_random vt=0.10 <- CONTROL    -0.011     -0.187     -0.031    20.4%      210    91.1%
+
+Candidates evaluated: 4465 (4465 distinct genomes)
+
+===== The empirical null =====
+Control genomes bred and selected alongside everything else: 232
+Best train fitness reached by a CONTROL:  -0.011   (control_random vt=0.10)
+  that control's holdout min excess Sharpe: -0.187
+
+  No control reached the survival threshold, so X = 0.000 is not passable by luck
+  at this population and generation count.
+
+Real families whose train fitness beat the best control: 12/13
+Non-control finalists with POSITIVE holdout excess Sharpe in EVERY environment: 0
+Best non-control finalist by holdout: fracdiff vt=0.20  (holdout min excess Sharpe -0.140)
+  after correcting for 4465 candidates:
+    Sharpe expected from luck alone (worst env): 1.806
+    deflated Sharpe, worst environment:          0.000   <- NOT significant
+
+===== Did selection transfer? =====
+Rank correlation between what the search maximized (train fitness) and what
+the holdout delivered, across the 21 tuned family champions.
+
+  all families:        rho = 0.678, permutation p = 0.001   <- transfers
+  better half only:    rho = 0.479, permutation p = 0.167   <- no evidence of transfer
+
+  Read the second line, not the first. A search that only knows which ideas
+  are hopeless will score well on the first line while being useless for the
+  decision anybody actually makes, which is choosing among the good ones.
+
+  On the holdout, the coin-flip control ranked 2 of 22 family champions.
+  Nothing in this pool generalized meaningfully better than random
+  entries. Whatever the top of the train column says, that is the
+  result.
+
+===== Control survival, selection phase only =====
+(during the tuning phase every family keeps its best few by construction,
+ so control survival there says nothing.)
+  No control candidate ever cleared the survival threshold. That is the
+  result you want: the threshold is not passable by luck here.
+
+Saved full results to 'tournament_results/crypto4h_f60.json'
+
+Read this the way the rest of the repo asks you to: the train column was
+maximized over and means nothing on its own. Only the holdout columns are
+evidence, they were produced by 4465 distinct candidates competing for them,
+and the finalists were still chosen by train fitness - so even the holdout figures
+carry the selection of 13 survivors out of that pool.

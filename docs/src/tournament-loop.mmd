@@ -1,0 +1,21 @@
+flowchart TB
+  classDef ph fill:#eef6ff,stroke:#5b8def,color:#1a2b4c
+  classDef warn fill:#fff4e5,stroke:#e0a040,color:#4a3000
+
+  SPLIT["split every environment<br/>train (first 70%) │ holdout (last 30%, +warm-up prefix)<br/>holdout opened exactly once, at the end"]:::warn
+  SEED["seed population<br/>every family at published defaults<br/>+ random draws per family<br/>+ control_random & control_always_long"]
+  EVAL["evaluate on TRAIN only<br/>ThreadPool · cache keyed by genome<br/>fitness = min over envs of<br/>(excess Sharpe − drawdown penalty)"]:::ph
+  TUNE{"phase?"}
+  KEEPT["TUNE phase<br/>each family keeps its own top-k<br/>(X not applied — every idea gets adapted)"]
+  KEEPS["SELECT phase<br/>keep fitness ≥ X<br/>controls compete like everyone else"]
+  BREED["breed next generation<br/>elites (per family) · mutants (reflected bounds)<br/>crossover (within family only) · immigrants<br/>structural genes: gate ∈ {none,hurst,pe,hawkes,vr} · vol-target ladder"]
+  MORE{"more<br/>generations?"}
+  FINAL["finalists = best distinct structures<br/>+ family champions<br/>+ the best CONTROL (always shown)"]
+  HOLD["evaluate finalists on HOLDOUT<br/>deflated Sharpe · empirical null (best control)<br/>Spearman(train, holdout) all vs better-half"]:::warn
+
+  SPLIT --> SEED --> EVAL --> TUNE
+  TUNE -->|"gen < tuneGenerations"| KEEPT --> BREED
+  TUNE -->|"else"| KEEPS --> BREED
+  BREED --> MORE
+  MORE -->|yes| EVAL
+  MORE -->|no| FINAL --> HOLD

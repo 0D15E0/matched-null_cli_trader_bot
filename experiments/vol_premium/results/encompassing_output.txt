@@ -1,0 +1,46 @@
+==========================================================================
+ENCOMPASSING REGRESSION: does our forecast beat DVOL?
+==========================================================================
+sample      2021-03-24 .. 2026-07-21   (1946 daily observations)
+means       implied 0.6062   forecast 0.5474   realized 0.5138
+variance risk premium (implied - realized) = +0.0924  (+9.24 vol points)
+correlations   implied~realized +0.696   forecast~realized +0.653   implied~forecast +0.794
+
+--- 1. baselines, each forecaster alone -------------------------------
+  implied only    (n=1946, HAC lags=40, R2=0.485)
+    const          +0.1024   HAC se  0.0433   t =   +2.36  **
+    implied        +0.6787   HAC se  0.0800   t =   +8.48  ***
+  forecast only   (n=1946, HAC lags=40, R2=0.427)
+    const          +0.1370   HAC se  0.0605   t =   +2.26  **
+    forecast       +0.6883   HAC se  0.1157   t =   +5.95  ***
+
+--- 2. THE TEST: both together ---------------------------------------
+  encompassing    (n=1946, HAC lags=40, R2=0.512)
+    const          +0.0732   HAC se  0.0536   t =   +1.37
+    implied        +0.4685   HAC se  0.1027   t =   +4.56  ***
+    forecast       +0.2861   HAC se  0.1650   t =   +1.73  *
+
+--- 3. same in LOGS (closer to homoskedastic) ------------------------
+  log encompass   (n=1946, HAC lags=40, R2=0.500)
+    const          -0.2531   HAC se  0.0648   t =   -3.90  ***
+    log implied    +0.6991   HAC se  0.1035   t =   +6.75  ***
+    log forecast   +0.1384   HAC se  0.1142   t =   +1.21
+
+--- 4. HAC lag sensitivity on c --------------------------------------
+    lags= 20   c = +0.2861   se 0.1382   t = +2.07
+    lags= 30   c = +0.2861   se 0.1551   t = +1.84
+    lags= 40   c = +0.2861   se 0.1650   t = +1.73
+    lags= 60   c = +0.2861   se 0.1733   t = +1.65
+    lags= 90   c = +0.2861   se 0.1768   t = +1.62
+
+--- 5. split-sample stability of c ----------------------------------
+    first half   (2021-03-24 ..) c = +0.5319   t = +2.22
+    second half  (2023-11-22 ..) c = -0.0515   t = -0.35
+
+==========================================================================
+VERDICT
+==========================================================================
+c = +0.2861 with HAC t = +1.73 -- NOT significant at 5%.
+Implied volatility already contains what our forecast knows.
+NO EDGE on this test. Path B does not open. Do not build the
+options stack on this signal.

@@ -1,0 +1,17 @@
+stateDiagram-v2
+  direction TB
+  [*] --> idle
+  idle --> pending : markPending() writes id+side+since<br/>and SAVES STATE **before** the order is sent<br/>id = ct-SYMBOL-side-aN-barTimestamp
+  pending --> resolved : venue reports fill / partial / definite zero-fill<br/>clearPending(), books updated
+  pending --> pending : outcome UNKNOWN (read-back failed)<br/>marker deliberately KEPT — next cycle investigates,<br/>never resends blindly
+  pending --> awaiting : next cycle finds the id among openOrders()<br/>lastAction = awaiting-order:id
+  awaiting --> resolved : id no longer open → clearPending()<br/>+ reconcile(ownFillLikely=true) so a base increase<br/>is attributed to OUR fill, not foreign inventory
+  resolved --> idle
+  note right of pending
+    Crash anywhere here is safe:
+    the id is on disk before the order exists,
+    so a restart recognises its own order
+    instead of duplicating it.
+    orderAttempt++ only when the venue SAW the id
+    (so a truly unknown outcome reuses the same id).
+  end note

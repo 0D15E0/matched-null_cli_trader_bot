@@ -1,0 +1,24 @@
+flowchart TB
+  classDef gate fill:#fff4e5,stroke:#e0a040,color:#4a3000
+  classDef act fill:#eef6ff,stroke:#5b8def,color:#1a2b4c
+  classDef halt fill:#ffe9e9,stroke:#d05050,color:#5a1010
+
+  START(["cycle() — every 120 s"]) --> FETCH["fetch new CLOSED candles<br/>append to data/*.ctc"]
+  FETCH --> EMPTY{"series empty?"}
+  EMPTY -->|yes| NODATA["lastAction = no-data"]:::gate
+  EMPTY -->|no| PEND{"pendingClientOrderId<br/>still resting at venue?"}
+  PEND -->|yes| AWAIT["lastAction = awaiting-order:id<br/>place nothing this cycle"]:::gate
+  PEND -->|"gone from open orders"| CLEARP["clearPending()<br/>reconcile(ownFillLikely=true)"]
+  PEND -->|no| REPLAY
+  CLEARP --> REPLAY["replay every bar after<br/>lastProcessedTimestamp:<br/>observe(close) → onBar(series,i,pos)"]:::act
+  REPLAY --> BACKLOG{"reached newest<br/>closed bar?"}
+  BACKLOG -->|no| MORE["lastAction = replaying-backlog<br/>return false → skip the poll sleep"]:::gate
+  BACKLOG -->|yes| RECON{"venue base agrees<br/>with our books?"}
+  RECON -->|no| HALT["lastAction = halted-balance-mismatch<br/>keep polling · place NO orders<br/>self-clears when they agree"]:::halt
+  RECON -->|yes| CMP{"wantLong vs haveLong"}
+  CMP -->|"equal"| HOLD["lastAction = hold"]
+  CMP -->|"want & !have"| BUY["placeBuy — at most ONE order per cycle<br/>skip: no vol estimate · dust budget"]:::act
+  CMP -->|"!want & have"| SELL["placeSell<br/>skip: holdings are dust"]:::act
+  HOLD --> SAVE; BUY --> SAVE; SELL --> SAVE
+  NODATA --> SAVE; AWAIT --> SAVE; MORE --> SAVE; HALT --> SAVE
+  SAVE["save state — atomic tmp + fsync + .bak + rename"] --> END(["sleep, in 1 s slices,<br/>checking the stop flag"])
