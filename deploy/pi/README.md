@@ -34,6 +34,13 @@ they can never disagree about mode or size:
 
     deploy/pi/bot.env        MODE, STATE_DIR, EQUITY, QUOTE_CAP, VOL_TARGET, ...
 
+Alongside them, `cli-trader-telegram.service` runs the phone-side bot. It does
+two jobs: it answers the read-only queries (`/report`, `/status`, `/health`,
+`/balances`, `/log`), and between polls it pushes a message for every fill the
+book makes, by tailing `state_live/<SYM>.trades.jsonl`. That is deliberately
+outside the trading processes — a sleeve must never block on Telegram — and it
+is why the health check now also asserts this unit is alive. See RUNBOOK §3.
+
 Restart semantics deliberately mirror the Mac's launchd config: `Restart=on-failure`
 restarts a **crash**, but a clean `systemctl stop` stays stopped, so stopping a
 sleeve actually stops it instead of fighting the supervisor.

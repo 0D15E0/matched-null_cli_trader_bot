@@ -47,6 +47,19 @@ def main():
         if st != "active":
             problems.append(f"{sym}: unit {st}")
 
+    # 1b. The Telegram unit. It is not a sleeve, so nothing above notices when
+    #     it dies - but it is what pushes the fill alerts (scripts/trade_alerts.py),
+    #     so losing it means the book trades in silence and looks fine from the
+    #     phone. Checked only where it is actually installed, so a host that
+    #     runs the sleeves without the bot is not permanently "unhealthy".
+    tg = "cli-trader-telegram.service"
+    r = subprocess.run(["systemctl", "is-enabled", tg], capture_output=True, text=True)
+    if r.stdout.strip() in ("enabled", "static", "enabled-runtime"):
+        r = subprocess.run(["systemctl", "is-active", tg], capture_output=True, text=True)
+        st = r.stdout.strip() or "unknown"
+        if st != "active":
+            problems.append(f"telegram bot: unit {st} (no fill alerts)")
+
     # 2. Clock. A Pi has no RTC and HMAC request signing fails outright if the
     #    clock has drifted - it is a silent killer of live trading.
     r = subprocess.run(["timedatectl", "show", "-p", "NTPSynchronized", "--value"],

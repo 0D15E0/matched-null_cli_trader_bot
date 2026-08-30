@@ -124,7 +124,39 @@ ssh "$PI" 'cd trader/cli_trader && tail -30 logs_pi/healthcheck.log'
 
 The check runs every 10 minutes and watches unit state, per-sleeve staleness,
 halts, errors, **NTP sync**, and free disk. It only writes when something is
-wrong.
+wrong. It also checks `cli-trader-telegram.service`, because that unit is what
+pushes the alerts below — a book that trades in silence looks healthy from the
+phone, and this is the only thing that would notice.
+
+### Telegram: what arrives without being asked
+
+Two pushes, from two different watchers, over the same bot:
+
+| when | sender | what |
+|---|---|---|
+| the book **breaks** or recovers | `scripts/notify.py`, from the 10-minute health check | one message on the transition, a reminder every 6 h while broken |
+| the book **buys or sells** | `scripts/trade_alerts.py`, from the bot's poll loop | one message per fill: size, price, cost, and on an exit the round trip's P&L |
+
+The fill alerter tails `state_live/<SYM>.trades.jsonl` — the venue-confirmed
+record the sleeves already append to — rather than being wired into the trading
+loop, so it cannot delay, block or crash a sleeve. Worst-case delay between a
+fill and the message is one long-poll timeout, ~30 s.
+
+```sh
+# is it configured, and how far has it read?
+ssh "$PI" 'cd trader/cli_trader && python3 scripts/trade_alerts.py --status'
+
+# prove the whole path without waiting for a trade: re-sends the newest
+# real fill, marked "test"
+ssh "$PI" 'cd trader/cli_trader && python3 scripts/trade_alerts.py --test'
+
+# what the alerter has been doing
+ssh "$PI" 'cd trader/cli_trader && tail -20 logs_pi/telegram.log'
+```
+
+It announces nothing on its first run: an unknown sleeve is adopted at its
+trade log's current length, so installing it (or losing `logs_pi/`) never
+replays history into the chat. `--reset` re-adopts deliberately.
 
 ### The number that actually matters
 
@@ -350,7 +382,11 @@ stricter than registered, not looser.
 3. **Shutdown does not wait for an in-flight order.** The idempotent client
    order id is what stops that becoming a duplicate; the window still exists.
 4. **No log rotation** (§4 has the manual command).
-5. **No alerting off-box.** The health check writes locally; nothing pages you.
+5. **Alerting is one bot, one chat, one token.** Health transitions and fills
+   both push to Telegram (§3), but there is no second channel: if the Pi loses
+   its network, or the token is revoked, nothing pages you about the fact that
+   nothing is paging you. The health check knowing the telegram unit is dead
+   only helps while the unit can still send.
 6. **SD cards die.** The previous one failed after six months idle. Keep the
    deployment reproducible rather than precious — it is a tarball and four
    unit files.

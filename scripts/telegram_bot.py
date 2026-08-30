@@ -1,5 +1,18 @@
 #!/usr/bin/env python3
-"""Read-only Telegram query bot for the trading book.
+"""Read-only Telegram query bot — and fill alerter — for the trading book.
+
+Two jobs, one process, one Telegram token:
+
+  * ANSWERS the read-only commands below when you ask.
+  * ANNOUNCES, unprompted, every buy and sell the book makes. Between long
+    polls it hands off to `trade_alerts.scan()`, which tails the sleeves'
+    trade logs and pushes one message per fill. The alerter lives here rather
+    than in its own unit because this process already runs continuously, is
+    already restarted forever by systemd, and already owns the Telegram token
+    — and because the poll loop's 30 s timeout is also the worst-case delay
+    between a fill and the message about it. It is deliberately NOT wired
+    into the C++ trading loop; see the header of scripts/trade_alerts.py for
+    why that would be dangerous.
 
     /report    positions + health + cash, formatted for a phone
     /status    the sleeve table
@@ -27,7 +40,10 @@ replaying old commands.
 """
 import json, os, re, subprocess, sys, time, urllib.parse, urllib.request
 
-REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+HERE = os.path.dirname(os.path.abspath(__file__))
+REPO = os.path.dirname(HERE)
+if HERE not in sys.path:
+    sys.path.insert(0, HERE)
 SYMBOLS = ["BTC_USDT", "ETH_USDT", "XRP_USDT", "LTC_USDT",
            "DOGE_USDT", "TRX_USDT", "ADA_USDT", "SOL_USDT"]
 MAX_MSG = 3800          # Telegram hard limit is 4096; leave room for fences
@@ -75,6 +91,21 @@ def run(argv, timeout=60):
         return "(timed out)", 124
     except Exception as e:
         return f"({type(e).__name__})", 1
+
+
+def push_fills():
+    """Announce any buy or sell that happened since the last poll.
+
+    Imported lazily and wrapped completely, for the same reason check_pi.py
+    wraps its notifier: a missing or broken alerter must degrade to a log line,
+    never stop the bot answering /report. `scan()` already swallows its own
+    errors; this catches the import itself and anything it cannot.
+    """
+    try:
+        import trade_alerts
+        trade_alerts.scan()
+    except Exception as e:
+        print(f"[bot] fill alerts unavailable: {type(e).__name__}")
 
 
 def mode():
@@ -162,6 +193,7 @@ HELP = ("*Commands* (read-only)\n"
         "/health — run the health check\n"
         "/balances — account holdings\n"
         "/log BTC — recent journal for one sleeve\n\n"
+        "Fills are pushed automatically: one message per buy and sell.\n"
         "_Nothing here can trade, stop a sleeve or move money._")
 
 
@@ -186,9 +218,20 @@ def handle(text):
 
 
 def main():
+    # systemd captures stdout into a file, not a tty, so Python block-buffers
+    # it and logs_pi/telegram.log sits at 0 bytes for days while the unit runs
+    # perfectly (observed 2026-08-30, four days after install). That log is the
+    # only window onto the fill alerter, so make it line-buffered here rather
+    # than depending on a PYTHONUNBUFFERED= in the unit file.
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(line_buffering=True)
+        except Exception:
+            pass
+
     if not TOKEN or not CHAT_ID:
         print("TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID missing from .env"); return 1
-    print(f"[bot] polling; answering chat {CHAT_ID} only")
+    print(f"[bot] polling; answering chat {CHAT_ID} only; pushing fills")
     offset = None
     try:                                    # skip backlog on restart
         r = api("getUpdates", {"offset": -1}, timeout=20).get("result", [])
@@ -197,6 +240,7 @@ def main():
     except Exception:
         pass
     while True:
+        push_fills()
         try:
             p = {"timeout": POLL_TIMEOUT}
             if offset is not None:

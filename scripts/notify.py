@@ -48,8 +48,13 @@ def configured():
     return bool(t and c)
 
 
-def send(text, dry_run=False):
-    """Send one message. Returns True on success. Never raises."""
+def send(text, dry_run=False, markdown=True):
+    """Send one message. Returns True on success. Never raises.
+
+    `markdown=False` exists for the retry in trade_alerts.py: Telegram rejects
+    an entire message whose Markdown does not parse, and delivering an
+    unformatted alert beats delivering none.
+    """
     token, chat = _creds()
     if not token or not chat:
         print("[notify] TELEGRAM_BOT_TOKEN / TELEGRAM_CHAT_ID not in .env - skipping")
@@ -57,12 +62,14 @@ def send(text, dry_run=False):
     if dry_run:
         print("[notify] DRY RUN, would send:\n" + text)
         return True
-    data = urllib.parse.urlencode({
+    params = {
         "chat_id": chat,
         "text": text,
-        "parse_mode": "Markdown",
         "disable_web_page_preview": "true",
-    }).encode()
+    }
+    if markdown:
+        params["parse_mode"] = "Markdown"
+    data = urllib.parse.urlencode(params).encode()
     try:
         req = urllib.request.Request(API.format(token=token), data=data)
         with urllib.request.urlopen(req, timeout=15) as r:

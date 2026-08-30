@@ -319,8 +319,21 @@ instantiated eight times. Its notable directives:
 
 A `cli-trader-healthcheck.timer` runs `scripts/check_pi.py` every 10 minutes
 (`OnBootSec=5min`, `Persistent=true`). It checks unit state, per-sleeve
-staleness, halts, errors, **NTP synchronisation** and free disk, and is silent
-unless something is wrong.
+staleness, halts, errors, **NTP synchronisation**, free disk and the Telegram
+unit, and is silent unless something is wrong.
+
+`cli-trader-telegram.service` is the phone side, and the only process here that
+talks to Telegram. It answers the read-only commands, and between long polls it
+runs `scripts/trade_alerts.py`, which tails `state_live/<SYM>.trades.jsonl` and
+pushes one message per fill. **The alerter reads the trade logs; it is not
+wired into `LiveTrader`.** Putting an HTTPS call to a third party between a
+fill and its state save would make a Telegram outage able to stall — or kill —
+a process that has just bought coins and not yet recorded owning them, which is
+precisely the condition the `halted-balance-mismatch` guard exists to catch.
+Tailing the log carries the same information and cannot touch the book. Its
+cursor lives in `logs_pi/.trade_alert_state.json`; an unknown sleeve is adopted
+at the log's current length, so a fresh install announces the next fill rather
+than replaying history.
 
 ---
 
