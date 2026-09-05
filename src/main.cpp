@@ -26,6 +26,7 @@
 #include "evolution/strategy_evolver.h"
 #include "evolution/tournament.h"
 #include "strategy/zoo/registry.h"
+#include "strategy/zoo/spec_strategy.h"
 
 #include <algorithm>
 #include <cmath>
@@ -61,6 +62,7 @@ void printUsage() {
         "                       [--data-dir data] [--equity 1000] [--fee 0.0015]\n"
         "                       [--slippage 0.0005] [--fill-timing next-open|same-close]\n"
         "                       [--vol-target 0.20] [--vol-window 30] [--max-position 1.0]\n"
+        "                       [--spec-file FILE when --strategy generated_spec]\n"
         "                       [--retarget-band 0.25] [--retarget-down-only]\n"
         "                       [--vol-model trailing|har|pencil-har|fractional]\n"
         "                       [--long-short] [--short-cost 0.10] [--long-cost 0.1095]\n"
@@ -538,6 +540,8 @@ std::vector<double> zooParamsFor(const zoo::FamilySpec& fam, const std::string& 
 
 void rejectMixedStrategyConfiguration(const std::string& name,
                                       const std::map<std::string, std::string>& flags) {
+    if (name == "generated_spec" && flags.count("sparams"))
+        throw std::runtime_error("generated_spec uses --spec-file, not --sparams");
     if (!flags.count("sparams")) return;
 
     std::vector<std::string> conflicts;
@@ -641,6 +645,10 @@ std::unique_ptr<Strategy> makeStrategy(const std::string& name, const std::strin
         strategy = std::make_unique<DarvasStrategy>(darvasParams);
     } else if (name == "pencil_extrap") {
         strategy = std::make_unique<PencilExtrapolationStrategy>();
+    } else if (name == "generated_spec") {
+        if (!flags.count("spec-file") || flags.at("spec-file").empty())
+            throw std::runtime_error("generated_spec requires --spec-file pointing at a JSON rule");
+        strategy = std::make_unique<SpecStrategy>(flags.at("spec-file"));
     } else if (name == "emergent") {
         // An empty value here means the user wrote "--genome-file" with the
         // next token being another flag. Falling back to the default file

@@ -11,6 +11,7 @@
 #include "afml.h"
 #include "breakout.h"
 #include "controls.h"
+#include "calendar_rule.h"
 #include "conviction_breakout.h"
 #include "ensemble.h"
 #include "ensemble_rule.h"
@@ -200,6 +201,14 @@ inline const std::vector<FamilySpec>& families() {
                 p.momentumWindow = ip(v, 4); p.momentumThreshold = dp(v, 5);
                 p.atrWindow = ip(v, 6); p.breakoutAtr = dp(v, 7); p.stopAtr = dp(v, 8);
                 return std::make_unique<ConvictionBreakoutStrategy>(p);
+            }});
+
+        f.push_back({"calendar_rule", "UTC day-of-week long/flat calendar hypothesis control",
+            {{"buyWeekday", 0, 6, 3, true}, {"sellWeekday", 0, 6, 1, true}},
+            [](const std::vector<double>& v) {
+                CalendarRuleParams p;
+                p.buyWeekday = ip(v, 0); p.sellWeekday = ip(v, 1);
+                return std::make_unique<CalendarRuleStrategy>(p);
             }});
 
         f.push_back({"squeeze_breakout", "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",
