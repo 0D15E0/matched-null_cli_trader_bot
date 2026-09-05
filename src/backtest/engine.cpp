@@ -349,6 +349,14 @@ BacktestReport BacktestEngine::run(const CandleSeries& series, Strategy& strateg
 
     Signal pending = Signal::Hold;
 
+    // Queued intra-trade resize: decided at a bar's close, filled at the next
+    // open, exactly like every other order. Cancelled by any entry/exit.
+    bool resizePending = false;
+    double resizeTarget = 0.0;
+    bool resizeIsSellDown = false; // direction fixed at decision time; a gap
+                                   // past the target must not flip a queued
+                                   // sell into a buy (or vice versa)
+
     std::vector<double> closeCurve, lowCurve;
     closeCurve.reserve(series.size());
     lowCurve.reserve(series.size());
@@ -400,6 +408,7 @@ BacktestReport BacktestEngine::run(const CandleSeries& series, Strategy& strateg
         // describe a position the engine never took.
         fractionSum += (equity > 0.0 ? budget / equity : 0.0);
         ++fractionCount;
+        resizePending = false;
         position.open(fillPrice, series.timestamp[barIndex], barIndex);
     };
 
@@ -426,7 +435,55 @@ BacktestReport BacktestEngine::run(const CandleSeries& series, Strategy& strateg
         units = 0.0;
         entryOutlay = 0.0;
         entryFee = 0.0;
+        resizePending = false;
         position.close();
+    };
+
+    // Resize an open position to `resizeTarget` of current equity at this
+    // bar's open. Slices pay the full fee and slippage; the entry outlay is
+    // scaled with the remaining units so the eventual TradeRecord still
+    // describes what was paid for what is still open. Headline stats come
+    // from the equity curve, which is exact either way.
+    auto executeResize = [&](size_t barIndex, double rawPrice) {
+        resizePending = false;
+        if (units <= 0.0 || rawPrice <= 0.0) return;
+        (void)barIndex;
+        double equity = cash + units * rawPrice;
+        if (equity <= 0.0) return;
+        double targetValue = resizeTarget * equity;
+        double currentValue = units * rawPrice;
+        // If the open gapped through the target, the drift the order was meant
+        // to correct no longer exists in the decided direction: do nothing.
+        if (resizeIsSellDown != (currentValue > targetValue)) return;
+        if (currentValue > targetValue) {
+            double sellUnits = std::min(units, (currentValue - targetValue) / rawPrice);
+            if (sellUnits <= 0.0) return;
+            double fillPrice = rawPrice * (1.0 - config_.slippagePct);
+            double proceeds = sellUnits * fillPrice;
+            double fee = proceeds * config_.feePct;
+            cash += proceeds - fee;
+            double keep = (units - sellUnits) / units;
+            entryOutlay *= keep;
+            entryFee *= keep;
+            units -= sellUnits;
+            report.totalFees += fee;
+            report.resizeFees += fee;
+            ++report.numResizes;
+        } else {
+            double budget = std::min(cash, targetValue - currentValue);
+            double gross = budget / (1.0 + config_.feePct);
+            double fillPrice = rawPrice * (1.0 + config_.slippagePct);
+            if (gross <= 0.0 || fillPrice <= 0.0) return;
+            double bought = gross / fillPrice;
+            double fee = gross * config_.feePct;
+            cash -= (gross + fee);
+            units += bought;
+            entryOutlay += gross + fee;
+            entryFee += fee;
+            report.totalFees += fee;
+            report.resizeFees += fee;
+            ++report.numResizes;
+        }
     };
 
     for (size_t i = evalStart; i < series.size(); ++i) {
@@ -439,6 +496,9 @@ BacktestReport BacktestEngine::run(const CandleSeries& series, Strategy& strateg
             if (pending == Signal::Buy) executeBuy(i, series.open[i], i - 1);
             else if (pending == Signal::Sell) executeSell(i, series.open[i], false);
             pending = Signal::Hold;
+        }
+        if (resizePending && config_.fillTiming == FillTiming::NextOpen && i > evalStart) {
+            executeResize(i, series.open[i]);
         }
 
         // 2. Let the open position see this bar before the strategy reasons
@@ -458,6 +518,27 @@ BacktestReport BacktestEngine::run(const CandleSeries& series, Strategy& strateg
         } else if ((signal == Signal::Buy && units == 0.0) ||
                    (signal == Signal::Sell && units > 0.0)) {
             pending = signal;
+            resizePending = false; // an exit or entry always outranks a resize
+        } else if (config_.retargetBand >= 0.0 && config_.volTargetAnnual > 0.0 &&
+                   config_.fillTiming == FillTiming::NextOpen &&
+                   units > 0.0 && pending == Signal::Hold) {
+            // Position is held and the strategy said Hold: check drift against
+            // the CURRENT bar's vol estimate - the same information set the
+            // strategy itself just used. sizeFraction() returns 0 when vol is
+            // unmeasurable; never resize on an unmeasurable bar.
+            double f = sizeFraction(i);
+            if (f > 0.0) {
+                double equityNow = cash + units * series.close[i];
+                double held = equityNow > 0.0 ? units * series.close[i] / equityNow : 0.0;
+                bool over = held > f * (1.0 + config_.retargetBand);
+                bool under = !config_.retargetDownOnly &&
+                             held < f / (1.0 + config_.retargetBand) && cash > 0.0;
+                if (over || under) {
+                    resizePending = true;
+                    resizeTarget = f;
+                    resizeIsSellDown = over;
+                }
+            }
         }
 
         // 5. Mark to market: at the close for the equity curve, and at the
@@ -554,6 +635,8 @@ void BacktestReport::print() const {
     std::cout << "Win rate:        " << pct(winRatePct) << "  (net of both fees)\n";
     std::cout << "Time in market:  " << pct(exposurePct) << "\n";
     std::cout << "Fees paid:       " << totalFees << "\n";
+    if (numResizes > 0)
+        std::cout << "Resizes:         " << numResizes << " (fees " << resizeFees << ")\n";
     if (avgPositionFraction > 0.0 && avgPositionFraction < 0.999)
         std::cout << "Avg position:    " << pct(avgPositionFraction * 100.0)
                   << " of equity (volatility-targeted)\n";

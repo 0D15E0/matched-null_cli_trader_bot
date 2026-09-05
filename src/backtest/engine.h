@@ -46,9 +46,9 @@ struct BacktestConfig {
     // that, at the entry bar's realized volatility, the account runs at
     // roughly `volTargetAnnual` annualized volatility - the standard way
     // trend-following is made investable, and the reason its drawdowns are
-    // survivable in practice. Sizing is applied at entry and held for the
-    // life of the trade (no intra-trade rebalancing, which would add
-    // turnover the fee model would then have to carry).
+    // survivable in practice. By default sizing is applied at entry and held
+    // for the life of the trade; retargetBand below opts into intra-trade
+    // re-targeting, whose extra turnover the fee model then carries in full.
     // When vol targeting is on and the volatility estimate is not yet warm,
     // the entry is SKIPPED rather than sized. Falling back to the position cap
     // (as this first did) means the least-informed bars get the LARGEST
@@ -57,6 +57,25 @@ struct BacktestConfig {
     // compounding into the whole out-of-sample equity curve.
     double volTargetAnnual = 0.0;
     int    volWindow = 30;
+
+    // Intra-trade re-targeting (addendum 22 experiment). Negative disables it
+    // and the engine is bit-identical to the shipped behaviour. When >= 0 and
+    // vol targeting is on, an open position whose HELD fraction has drifted
+    // from the CURRENT target fraction by more than this relative band is
+    // resized back to target at the next bar's open, paying the same fee and
+    // slippage as any other fill. This keeps the vol-target promise for the
+    // whole life of the trade instead of only at its first bar - the entry
+    // snapshot goes stale precisely when regimes change, which is when risk
+    // control earns its keep. NextOpen fills only; a queued entry/exit always
+    // wins over a queued resize. retargetDownOnly restricts it to selling
+    // down oversized positions (vol rose) and never buying back.
+    // Long/flat loop only: silently ignored under allowShort (--long-short).
+    // When resizes occur, per-trade records describe the RESIDUAL position
+    // (sold slices' P&L is in the equity curve but no TradeRecord), so trade
+    // stats are partial; headline metrics all come from the curve and are
+    // exact. Backtest experiment - the live loop has no resize path.
+    double retargetBand = -1.0;
+    bool   retargetDownOnly = false;
     double maxPositionFraction = 1.0; // hard cap; the engine does not borrow
 
     // How the volatility used for sizing is estimated. Trailing reproduces the
@@ -150,6 +169,10 @@ struct BacktestReport {
     size_t numTrades = 0;
     double exposurePct = 0;   // share of bars holding a position
     double totalFees = 0;
+    // Intra-trade resizes (0 unless retargetBand >= 0), reported separately so
+    // the turnover cost of re-targeting is visible instead of blended away.
+    size_t numResizes = 0;
+    double resizeFees = 0;
     double avgPositionFraction = 0;
 
     double barsPerYear = 0;

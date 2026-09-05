@@ -14,6 +14,9 @@
 #include "ensemble.h"
 #include "ensemble_rule.h"
 #include "ensemble_tuned.h"
+#include "ensemble_asym.h"
+#include "dip_reversion.h"
+#include "ichimoku_full.h"
 #include "ensemble_ls.h"
 #include "momo_breakout.h"
 #include "lppls.h"
@@ -323,6 +326,37 @@ inline const std::vector<FamilySpec>& families() {
                 p.donEntry = ip(v, 3); p.donExit = ip(v, 4); p.donAtrMult = dp(v, 5);
                 p.tsLookback = ip(v, 6); p.tsThreshold = dp(v, 7);
                 return std::make_unique<EnsembleTunedStrategy>(p);
+            }});
+
+        f.push_back({"ensemble_asym", "asymmetric exit: winners keep the loose vote threshold, losers get a tighter one",
+            {{"enterVotes", 1, 3, 2, true}, {"exitWinner", 0, 2, 0, true},
+             {"exitLoser", 0, 2, 1, true}, {"lossThreshold", -0.20, 0.20, 0.0, false}},
+            [](const std::vector<double>& v) {
+                EnsembleAsymParams p;
+                p.enterVotes = ip(v, 0); p.exitWinner = ip(v, 1);
+                p.exitLoser = ip(v, 2); p.lossThreshold = dp(v, 3);
+                return std::make_unique<EnsembleAsymStrategy>(p);
+            }});
+
+        f.push_back({"dip_reversion", "buy a sharp multi-sigma drop, exit on a time stop (short-horizon mean reversion, not trend)",
+            {{"lookback", 1, 48, 4, true}, {"volWindow", 20, 400, 96, true},
+             {"entrySigmas", 1.0, 6.0, 4.0, false}, {"holdBars", 1, 96, 8, true}},
+            [](const std::vector<double>& v) {
+                DipReversionParams p;
+                p.lookback = ip(v, 0); p.volWindow = ip(v, 1);
+                p.entrySigmas = dp(v, 2); p.holdBars = ip(v, 3);
+                return std::make_unique<DipReversionStrategy>(p);
+            }});
+
+        f.push_back({"ichimoku_full", "complete classic Ichimoku: cloud + TK cross + Chikou confirmation, published 9/26/52/26",
+            {{"tenkan", 2, 60, 9, true}, {"kijun", 5, 200, 26, true},
+             {"spanB", 10, 400, 52, true}, {"displacement", 1, 100, 26, true},
+             {"requireChikou", 0, 1, 1, true}},
+            [](const std::vector<double>& v) {
+                IchimokuFullParams p;
+                p.tenkan = ip(v, 0); p.kijun = ip(v, 1); p.spanB = ip(v, 2);
+                p.displacement = ip(v, 3); p.requireChikou = ip(v, 4);
+                return std::make_unique<IchimokuFullStrategy>(p);
             }});
 
         // ---- controls ----------------------------------------------------

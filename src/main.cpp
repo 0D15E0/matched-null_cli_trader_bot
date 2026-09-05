@@ -60,6 +60,7 @@ void printUsage() {
         "                       [--data-dir data] [--equity 1000] [--fee 0.0015]\n"
         "                       [--slippage 0.0005] [--fill-timing next-open|same-close]\n"
         "                       [--vol-target 0.20] [--vol-window 30] [--max-position 1.0]\n"
+        "                       [--retarget-band 0.25] [--retarget-down-only]\n"
         "                       [--vol-model trailing|har|pencil-har|fractional]\n"
         "                       [--long-short] [--short-cost 0.10] [--long-cost 0.1095]\n"
         "                       [--vol-horizon 141] [--vol-d 0.38]\n"
@@ -269,6 +270,8 @@ BacktestConfig buildBacktestConfig(const std::map<std::string, std::string>& fla
     config.volTargetAnnual = flagDouble(flags, "vol-target", config.volTargetAnnual);
     config.volWindow = flagInt(flags, "vol-window", config.volWindow);
     config.maxPositionFraction = flagDouble(flags, "max-position", config.maxPositionFraction);
+    config.retargetBand = flagDouble(flags, "retarget-band", config.retargetBand);
+    if (flags.count("retarget-down-only")) config.retargetDownOnly = true;
     auto it = flags.find("fill-timing");
     if (it != flags.end()) {
         // A typo used to select the default silently, so the report described a
@@ -1224,6 +1227,26 @@ int cmdBacktest(const std::map<std::string, std::string>& flags) {
     BacktestEngine engine(config);
     BacktestReport report = engine.run(series, *strategy);
     report.print();
+
+    // --dump-equity FILE: timestamp,equity per scored bar. Exists so several
+    // runs can be combined OUTSIDE the binary (e.g. a two-tranche overlay,
+    // where one coin is modelled as two virtual sleeves with different vote
+    // thresholds) without teaching cmdPortfolio to run a different strategy
+    // per sleeve. The curve is the engine's own closeCurve, so anything built
+    // on it inherits the real fee, slippage and fill-timing model rather than
+    // a reimplementation.
+    if (flags.count("dump-equity")) {
+        const std::string path = flags.at("dump-equity");
+        std::ofstream out(path);
+        if (!out) { std::cerr << "cannot write " << path << "\n"; return 1; }
+        const size_t evalStart = series.size() - report.equityCurve.size();
+        out << "timestamp,equity\n";
+        for (size_t i = 0; i < report.equityCurve.size(); ++i)
+            out << series.timestamp[evalStart + i] << "," << std::setprecision(12)
+                << report.equityCurve[i] << "\n";
+        if (!out) { std::cerr << "write failed: " << path << "\n"; return 1; }
+        std::cerr << "wrote " << report.equityCurve.size() << " equity points to " << path << "\n";
+    }
     return 0;
 }
 
