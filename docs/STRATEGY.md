@@ -35,14 +35,9 @@ trend rules vote**, each looking at the trend through a different lens:
 only once all three have stopped saying it.** Exits are never blocked — any
 slice can always get out.
 
-(Until 2026-08-26 it went to cash as soon as the count fell to 1. Selling
-later — waiting for the last member to give up — cut the number of trades by
-two-thirds and scored higher on every development year, at the price of riding
-pullbacks deeper before exiting; it did *not* pass our own pre-registered
-adoption test and did worse on the most recent two years, so it was adopted as
-an explicit judgement call, not as a proven improvement. PROFITABILITY_PLAN.md
-addendum 15 has the full comparison; the live forward test that judges it runs
-to 2027-08-26.)
+(The exit threshold is an explicit configuration choice. Changes require a
+new hypothesis, development evaluation, and human review; development results
+do not by themselves authorize deployment.)
 
 Why a vote instead of the best rule? Because when we tested the rules head to
 head, their ranking reshuffled every time we added a few days of data. Picking
@@ -56,7 +51,8 @@ slice runs at roughly 30% annualized volatility:
 
 > position = 30% ÷ (how volatile the coin has been over the last ~15 days)
 
-(It ran at 20% until 2026-08-25. Raising it was a deliberate risk-level choice: measured across 20–40%, return and worst-loss scale together while risk-adjusted return stays flat, so the target is a preference, not a tuning. The 15-day window replaced a 5-day one because the shorter estimate was noisy and sized entries badly after quiet spells.)
+(The target and volatility window are risk settings, not signal claims. Any
+change requires a new development evaluation with matching costs and sizing.)
 
 A calm coin gets a bigger position; a wild one gets a smaller one. This single
 rule is, by our measurements, **the most valuable line of code in the repo** —
@@ -144,13 +140,14 @@ That is the system working.
 - **The performance table above is descriptive, not proof.** That period was
   read many times during research (the contamination is logged in
   `experiments/holdout.json`). The honest test is pre-registered and forward:
-  the live book itself, judged after **2027-08-25**, primary criterion
-  *worst loss ≤ half the basket's*. Until then, short-term P&L means nothing —
+  the live book itself, judged only after its pre-registered read date, with
+  primary criterion *worst loss ≤ half the basket's*. Until then, short-term
+  P&L means nothing —
   the error bars are wider than a year of results.
 
 ## Where it runs
 
-On a Raspberry Pi (see [deploy/pi/README.md](../deploy/pi/README.md)), live since
-2026-08-25, supervised by systemd, health-checked every 10 minutes. It was
-moved off a laptop after macOS put the whole book to sleep for 50 minutes —
-the machine matters less than the fact that it never sleeps.
+Deployment and operations are documented in
+[deploy/pi/README.md](../deploy/pi/README.md) and [RUNBOOK.md](RUNBOOK.md).
+The deployment host, live status, and account details are intentionally kept
+out of the public strategy description.

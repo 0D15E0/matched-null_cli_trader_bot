@@ -1,7 +1,7 @@
-# Runbook: operating the live trading book
+# Runbook: operating the trading book
 
-The book runs on a Raspberry Pi. Every command below is copy-pasteable and
-runs over SSH from any machine on the LAN.
+The book is designed for a dedicated always-on Linux host. Every command below
+is copy-pasteable and runs over SSH from an operator workstation.
 
 **Conventions.** Commands address the Pi as `"$PI"`. Export it once per shell:
 
@@ -19,19 +19,14 @@ youruser ALL=(root) NOPASSWD: /usr/bin/systemctl * cli-trader@*, \
                               /usr/bin/systemctl * cli-trader-*
 ```
 
-> **Status: LIVE on the Pi since 2026-08-25, ~21:04 CEST.** Real money, real
-> orders, against the Poloniex account in `.env`. The Mac's launchd book was
-> stopped and **uninstalled** the same day — its plists are deleted, so it
-> cannot restart on reboot. There is exactly one book.
-
     host      "$PI"                     (see Conventions above)
-    repo      ~/trader/cli_trader       on the Pi
+   repo      ~/trader/cli_trader       on the target host
     strategy  ensemble_vote enter>=2 / exit<=0 (--sparams enterVotes=2,exitVotes=0),
               8 sleeves, --vol-target 0.30 --vol-window 90
     config    deploy/pi/bot.env         (one file governs all eight sleeves)
     state     state_live/               logs: logs_pi/
 
-Deployment details, hardware, and how it was validated:
+Deployment details, host requirements, and validation procedures:
 [deploy/pi/README.md](../deploy/pi/README.md). How the software itself is
 structured: [ARCHITECTURE.md](ARCHITECTURE.md).
 
@@ -44,9 +39,7 @@ USDT — on 4h candles, each holding an equal share of the book.
 
 `ensemble_vote` is a majority vote of three trend rules at published defaults:
 **long while at least 2 of 3 want to be long; sell only once all three have
-quit** (`enterVotes=2, exitVotes=0`, live since 2026-08-26 — until then the
-book sold when the count fell to 1; PROFITABILITY_PLAN.md addendum 15 has the
-sweep behind the change and its known cost, deeper per-sleeve pullbacks).
+quit** (`enterVotes=2, exitVotes=0`).
 Exits are never blocked.
 
 | member | wants to be long while |
@@ -57,7 +50,7 @@ Exits are never blocked.
 
 | | |
 |---|---|
-| Sizing | `30% / (annualized volatility at entry, 90-bar window)`, capped at 100%, fixed for the life of the trade. Was 20%/30-bar until 2026-08-25, when the 90-bar window measured as a drawdown reducer over the noisier 30-bar default |
+| Sizing | `VOL_TARGET / (annualized volatility at entry, VOL_WINDOW)`, capped at 100%, fixed for the life of the trade. Validate sizing changes on development data before deployment. |
 | Execution | decide at bar close, fill at the next bar's open |
 | Real costs | 0.125% taker fee (account's actual tier) + spread |
 | Cadence | ~2 signals per sleeve per month |
@@ -93,7 +86,7 @@ ADA    flat  hold             0.00        -   0.2156   +0.00  +0.0%  +0.00  0-0 
 - **signal** — time since the strategy last changed its mind
 - **flags** — empty is good. `HALTED`, `ERR`, `STALE` are the three worth acting on
 
-Add `--trades` for each sleeve's last real fill.
+Add `--trades` for each sleeve's last fill.
 
 Most days this is eight rows of `hold` and pennies of movement. That is the
 strategy working, not a fault.
@@ -106,7 +99,7 @@ strategy working, not a fault.
 # health check: silent when fine, exit 1 + details when not
 ssh "$PI" 'cd trader/cli_trader && python3 scripts/check_pi.py'
 
-# real account holdings, straight from Poloniex (read-only)
+# venue holdings (read-only)
 ssh "$PI" 'cd trader/cli_trader && ./build/cli_trader balances'
 
 # all eight units at a glance
@@ -224,7 +217,7 @@ ssh "$PI" 'cd trader/cli_trader && for s in BTC ETH XRP LTC DOGE TRX ADA SOL; do
 
 ### Log rotation (not yet automated)
 
-~720 lines/day/sleeve, unbounded, on a 6.6 GB card:
+~720 lines/day/sleeve, unbounded, on constrained storage:
 
 ```sh
 ssh "$PI" 'cd trader/cli_trader && for f in logs_pi/*.log; do tail -5000 "$f" > "$f.tmp" && mv "$f.tmp" "$f"; done; df -h / | tail -1'
@@ -257,15 +250,10 @@ ssh "$PI" 'free -m | head -2; df -h / | tail -1; uptime; timedatectl | grep -E "
 ssh "$PI" 'ps -eo args= | grep "[c]li_trader run" | grep -o "\-\-mode [a-z]*" | sort | uniq -c'
 ```
 
-Expect `8 --mode live`. **Incident 2026-08-25:** a scripted edit to `bot.env`
-matched a *comment* containing `MODE=paper` instead of the real assignment,
-the file was pushed, and all eight sleeves restarted in paper mode against
-`state_live/` for 62 seconds — real positions unattended, and one paper fill
-away from corrupting the live records. No bar closed in the window, so nothing
-happened. Two consequences: the unit now has an `ExecStartPre` guard that
-refuses to start paper against `state_live` (or live against anything else),
-and edits to `bot.env` must anchor on the line start (`sed -E 's/^MODE=.*/…/'`),
-never on the bare token.
+Expect one consistent mode across all sleeves. The unit has an `ExecStartPre`
+guard that refuses incompatible mode/state combinations. When editing a local
+runtime environment file, anchor replacements on the assignment line (for
+example `^MODE=`), never on a comment or an unqualified token.
 
 ### `halted-balance-mismatch`
 
@@ -285,34 +273,26 @@ Only if you deliberately want the bot to take over whatever the account holds,
 add `--adopt-venue-position` to the unit. **Never** do this to silence a halt
 you have not explained.
 
-### The API secret was in the systemd journal (fixed 2026-08-26)
+### Keep credentials out of logs
 
-The unit used to list `.env` as an `EnvironmentFile`. systemd rejects names
-with dashes (`API-KEY`, `SECRET-KEY`) — and writes the rejected line, secret
-included, to the journal on every sleeve start. The line was removed (the
-binary parses `.env` itself) and the journal was rotated and vacuumed. Check
-it stays clean:
+Credentials must be loaded out-of-band and must never be passed as command-line
+arguments, committed to Git, or written to service logs. After a deployment
+change, inspect the journal for accidental credential-shaped output:
 
 ```sh
-ssh "$PI" 'sudo journalctl --no-pager 2>/dev/null | grep -c SECRET-KEY'   # expect 0
+ssh "$PI" 'sudo journalctl --no-pager 2>/dev/null | grep -Ei "API[-_]KEY|SECRET[-_]KEY|TOKEN" | head'
 ```
-
-The secret sat in a root-readable file on a home-LAN Pi for ~15 hours. Low
-exposure, but **rotating the Poloniex API key is the conservative call** — it
-is your decision; the new key goes into `.env` and the sleeves restart.
 
 ### Authentication failures
 
 Two causes, and they look identical in `last_error`:
 
-1. **Clock drift.** A Pi has no RTC and HMAC signing fails outright on a wrong
-   clock. `systemd-time-wait-sync` is enabled so units wait for real sync, but
-   check: `timedatectl | grep synchronized`.
-2. **The API key is IP-restricted** to this network's public address. The Mac
-   and Pi share it (same NAT), so moving hosts changed nothing — but if the ISP
-   assigns a new public IP, **both** break at once, and the symptom points at
-   auth rather than at networking. Check with
-   `ssh "$PI" 'curl -s https://api.ipify.org'`.
+1. **Clock drift.** HMAC signing fails outright on a wrong host clock.
+   `systemd-time-wait-sync` is enabled so units wait for synchronization; check
+   with `timedatectl | grep synchronized`.
+2. **Credential network restrictions.** If the venue restricts credentials by
+   source network, verify that the target host is allowed by the provider's
+   policy. Do not print or place credentials in commands or logs.
 
 ### If SSH from a Mac terminal fails with "No route to host"
 
@@ -326,7 +306,7 @@ works fine.
 
 ## 6. What to expect
 
-Measured on the 2024-01 → 2026-08 window (descriptive — see §7):
+Measured on a historical descriptive window (see §7):
 
 | | portfolio | buy & hold basket |
 |---|---|---|
@@ -354,39 +334,25 @@ Signs something is genuinely wrong:
 
 ## 7. Provenance, and how to read the numbers
 
-The 2024+ window was frozen as a single-look holdout and has since been read
-many times (see `experiments/holdout.json`, which records the contamination).
-Numbers above are **descriptive of that period**, not out-of-sample evidence.
-
-The pre-registered test is `forward_tests` → `live-8sleeve-ensemble-exit0` in
-that file (its predecessor, `paper-8sleeve-ensemble`, was voided when the exit
-rule changed): data from 2026-08-26 onward, readable no earlier than
-**2027-08-26**,
-with **drawdown <= half the basket's** as the primary criterion and excess
-Sharpe demoted to secondary and flagged underpowered in advance.
-
-**The live book is that test's measurement vehicle.** Real fills make it
-stricter than registered, not looser.
+The 2024+ period is contaminated development/selection history, not clean
+out-of-sample evidence. Any future forward test must be frozen and registered
+before it starts, with a human-controlled read date and criteria.
 
 ---
 
 ## 8. Still open
 
-1. **The order path has never been independently verified.** `balances` and
-   `/feeinfo` authenticate correctly against the real account, and orders have
-   been placed and filled — but there is no test covering cancel or partial-fill
-   handling.
+1. **The order path has not been independently verified end to end.** The
+   authentication and order integration paths still need dedicated tests for
+   cancel and partial-fill handling before production use.
 2. **No automated tests.** `enable_testing()` with no `add_test` following it.
    What exists is `causality_check` (24 families, zero look-ahead violations),
    which is one property well covered, not a suite.
 3. **Shutdown does not wait for an in-flight order.** The idempotent client
    order id is what stops that becoming a duplicate; the window still exists.
 4. **No log rotation** (§4 has the manual command).
-5. **Alerting is one bot, one chat, one token.** Health transitions and fills
-   both push to Telegram (§3), but there is no second channel: if the Pi loses
-   its network, or the token is revoked, nothing pages you about the fact that
-   nothing is paging you. The health check knowing the telegram unit is dead
-   only helps while the unit can still send.
-6. **SD cards die.** The previous one failed after six months idle. Keep the
-   deployment reproducible rather than precious — it is a tarball and four
-   unit files.
+5. **Alerting has a single notification channel.** Health transitions and
+   fills push to Telegram (§3), but a second independent channel is still
+   recommended for network, service, or credential failures.
+6. **Host storage can fail.** Keep the deployment reproducible, back up state,
+   and monitor disk health and capacity.

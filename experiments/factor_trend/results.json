@@ -6,7 +6,7 @@
     "dose_response": [
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -78,7 +78,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -150,7 +150,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -222,7 +222,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -294,7 +294,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -366,7 +366,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -436,7 +436,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -513,7 +513,7 @@
         "folds": [
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -588,7 +588,7 @@
           },
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -663,7 +663,7 @@
           },
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -745,7 +745,7 @@
         "folds": [
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -820,7 +820,7 @@
           },
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -895,7 +895,7 @@
           },
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -977,7 +977,7 @@
         "folds": [
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1050,7 +1050,7 @@
           },
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1123,7 +1123,7 @@
           },
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1203,7 +1203,7 @@
         "folds": [
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1278,7 +1278,7 @@
           },
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1353,7 +1353,7 @@
           },
           {
             "command": [
-              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "./build/cli_trader",
               "portfolio",
               "--envs",
               "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1434,7 +1434,7 @@
     "confirmation": [
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1507,7 +1507,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1580,7 +1580,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1653,7 +1653,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1726,7 +1726,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -1837,7 +1837,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -1948,7 +1948,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -2059,7 +2059,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -2172,7 +2172,7 @@
     "eight_coin": [
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -2282,7 +2282,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -2392,7 +2392,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -2502,7 +2502,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -2612,7 +2612,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
@@ -2722,7 +2722,7 @@
       },
       {
         "command": [
-          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "./build/cli_trader",
           "portfolio",
           "--envs",
           "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",

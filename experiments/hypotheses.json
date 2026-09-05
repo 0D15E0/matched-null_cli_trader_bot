@@ -57,7 +57,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -84,7 +84,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -111,7 +111,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -179,7 +179,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -206,7 +206,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -233,7 +233,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -301,7 +301,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -328,7 +328,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -355,7 +355,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -423,7 +423,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -450,7 +450,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -477,7 +477,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -545,7 +545,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -578,7 +578,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -611,7 +611,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -685,7 +685,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -718,7 +718,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -751,7 +751,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -825,7 +825,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -858,7 +858,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -891,7 +891,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -969,7 +969,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1008,7 +1008,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1047,7 +1047,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1132,7 +1132,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1165,7 +1165,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1198,7 +1198,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1276,7 +1276,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1309,7 +1309,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1342,7 +1342,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1421,7 +1421,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1454,7 +1454,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1487,7 +1487,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1561,7 +1561,7 @@
               "fold_start": "2018-01-01",
               "fold_end": "2019-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1594,7 +1594,7 @@
               "fold_start": "2020-01-01",
               "fold_end": "2021-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
@@ -1627,7 +1627,7 @@
               "fold_start": "2022-01-01",
               "fold_end": "2023-12-31",
               "command": [
-                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "./build/cli_trader",
                 "portfolio",
                 "--envs",
                 "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",

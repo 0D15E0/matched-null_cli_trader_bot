@@ -1,14 +1,13 @@
-# The Raspberry Pi deployment
+# Dedicated Linux deployment
 
-The book's permanent home. A laptop was always the wrong host: it sleeps
-(see RUNBOOK.md §7 — the 50-minute freeze on 2026-08-25), it has a lid, and it
-has a battery. This Pi has none of those.
+The book is intended to run on a dedicated always-on Linux host. A laptop is
+not a suitable production host because it can sleep, suspend, or lose network
+connectivity.
 
 ## The host
 
-    Raspberry Pi 3, Debian 13 (trixie), aarch64, kernel 6.18.34
-    4 cores, 905 MB RAM (+904 MB zram swap), 6.6 GB SD
-    Repo at ~/trader/cli_trader
+    Linux host, supported Debian-family release, aarch64 or compatible target
+    Repo at ~/trader/cli_trader (adjust to the local deployment path)
 
 The unit files ship with a `__TRADER_USER__` placeholder for the account that
 owns the repo and runs the sleeves. Substitute it at install time:
@@ -23,8 +22,9 @@ sudo systemctl daemon-reload
 This assumes the repo lives at `/home/<user>/trader/cli_trader`; adjust the
 paths in the units if yours differs.
 
-Runtime footprint measured with all 8 sleeves running: **206 MB of 905 MB**,
-load average under 0.5. Building is the only heavy moment (~4 min at `-j2`).
+Measure runtime memory and build time on the target host before enabling all
+sleeves. Building is the heavy operation; do not compile during production
+operation.
 
 ## What runs
 
@@ -41,26 +41,18 @@ book makes, by tailing `state_live/<SYM>.trades.jsonl`. That is deliberately
 outside the trading processes — a sleeve must never block on Telegram — and it
 is why the health check now also asserts this unit is alive. See RUNBOOK §3.
 
-Restart semantics deliberately mirror the Mac's launchd config: `Restart=on-failure`
-restarts a **crash**, but a clean `systemctl stop` stays stopped, so stopping a
-sleeve actually stops it instead of fighting the supervisor.
+Restart semantics use `Restart=on-failure`: a crash restarts, but a clean
+`systemctl stop` stays stopped.
 
-## Verified on deployment day (2026-08-25)
+## Deployment validation checklist
 
-- **Numerically identical to the Mac.** On deployment day, `backtest --strategy
-  ensemble_vote --vol-target 0.20 --start 2024-01-01` on BTC returned the same
-  total return (62.40%), Sharpe (1.02), drawdown (23.79%) and trade count (61)
-  on both machines. Re-verified 2026-08-26 for the configuration now live
-  (`--sparams enterVotes=2,exitVotes=0 --vol-target 0.30 --vol-window 90`,
-  dev window): Sharpe 1.32, drawdown 39.34%, 77 trades on both. Without this,
-  nothing measured on the Mac would apply here.
-- **Survives reboot unattended.** Full reboot: back in ~25 s, 8/8 sleeves
-  auto-started, NTP synced within 5 s, and every open position restored with
-  its entry price intact.
-- **Clock ordering hardened.** `systemd-time-wait-sync` is enabled so
-  `time-sync.target` is only reached once the clock is *actually* synchronised.
-  A Pi has no RTC, and HMAC request signing fails outright on a wrong clock —
-  starting a live sleeve before sync is a guaranteed authentication failure.
+- **Replay parity.** Run the same bounded backtest on the development machine
+  and target host, then compare trades, metrics, binary revision, and data
+  checksums. Do not use contaminated forward data as validation.
+- **Restart recovery.** Reboot or restart the paper deployment and confirm all
+  sleeves recover state, synchronize time, and restore entry information.
+- **Clock ordering.** Ensure `time-sync.target` is reached only after the host
+  clock is synchronized; signed exchange requests require correct time.
 
 ## Operating it
 
@@ -83,13 +75,13 @@ disk. It writes to `logs_pi/healthcheck.log` only when something is wrong.
 
 ## Going live — the migration, in order
 
-The Pi currently runs **`MODE=paper`** (`state_paper/`), which touches no keys
-and no real balances.
+New deployments should start in **`MODE=paper`** (`state_paper/`), which touches
+no keys and no real balances.
 
-> **Never run two live books against one Poloniex account.** Each would see
+> **Never run two live books against one exchange account.** Each would see
 > base currency the other bought, and both would halt on
-> `halted-balance-mismatch` — or worse, double-trade. The Mac's launchd book is
-> still the live one.
+> `halted-balance-mismatch` — or worse, double-trade. Confirm that any other
+> deployment using the account is stopped before switching this host to live.
 
 1. **Let the paper book run** until `parity` shows a signal match near 100% on
    several sleeves. At ~2 signals per sleeve per month, that is weeks, not days.
@@ -97,22 +89,16 @@ and no real balances.
    ./build/cli_trader parity --symbol BTC_USDT --period 14400 \
        --strategy ensemble_vote --state-dir state_paper --data-dir data
    ```
-2. **Copy the credentials** to the Pi — `.env` with `API-KEY` / `SECRET-KEY`,
-   `chmod 600`. It is deliberately NOT transferred by the deployment tarball.
-
-   The account key is IP-restricted, but **no change is needed**: the Mac and
-   the Pi sit behind the same router and NAT out through the same public
-   address (verified 2026-08-25 — both report the same egress IP), so Poloniex
-   sees one address either way. The real exposure is different: the ISP
-   assigning a new public IP would break BOTH hosts at once, and it would
-   surface as authentication failures in `last_error` rather than as anything
-   obviously network-shaped.
-3. **Stop the Mac book first**, and confirm it is stopped:
+2. **Install credentials out of band** on the target host — `.env` with the
+  required API variables, mode `0600`. Credentials are deliberately NOT
+  transferred by the deployment tarball.
+3. **Confirm any other book using the account is stopped** before switching
+  this host to live.
    ```sh
-   # on the Mac
-   ./scripts/uninstall_launchd.sh && pgrep -f 'cli_trader run' | wc -l   # expect 0
+  pgrep -f 'cli_trader run' || true
    ```
-4. **Switch the Pi to live** — edit `deploy/pi/bot.env`: `MODE=live`,
+4. **Switch the target host to live** — edit the local-only
+  `deploy/pi/bot.env` created from `bot.env.example`: `MODE=live`,
    `STATE_DIR=state_live`, then
    ```sh
    sudo systemctl restart 'cli-trader@*'
@@ -123,12 +109,11 @@ and no real balances.
 
 ## Known gaps
 
-- **No log rotation** on `logs_pi/` yet. ~720 lines/day/sleeve on a 6.6 GB card
-  is slow-burning, but it is unbounded.
-- **SD cards die.** This one is new; the previous card failed after six months
-  idle and is what started this whole exercise. `check_pi.py` watches free
-  space but cannot see wear. Keep the deployment reproducible rather than
-  precious — everything here is a tarball and four unit files.
+- **No log rotation** on `logs_pi/` yet. Log growth is slow-burning, but it is
+  unbounded on constrained storage.
+- **Host storage can fail.** `check_pi.py` watches free space but cannot see
+  wear. Keep the deployment reproducible and maintain backups of operational
+  state.
 - **The login password** is whatever was set at imaging. Change it from the
   default, and disable SSH password auth entirely once key auth works. Never
   embed it in a command or a runbook — for unattended `systemctl` calls use the
