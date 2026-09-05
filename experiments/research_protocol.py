@@ -39,7 +39,7 @@ REGISTERED_STRATEGIES = {
     "donchian", "squeeze_breakout", "rsi_reversal", "ou_score", "skew_reversal",
     "fracdiff", "cusum_tb", "vol_managed", "vr_switch", "lppls_bubble", "ensemble_vote",
     "momo_breakout", "ensemble_ls", "ensemble_rule", "ensemble_tuned", "ensemble_asym",
-    "dip_reversion", "ichimoku_full", "control_random", "control_always_long",
+    "dip_reversion", "ichimoku_full", "factor_trend", "control_random", "control_always_long",
 }
 
 

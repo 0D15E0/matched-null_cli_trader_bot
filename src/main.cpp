@@ -3309,6 +3309,12 @@ int main(int argc, char* argv[]) {
     std::string command = argv[1];
     auto flags = parseFlags(argc, argv, 2);
 
+    // Strategies that read a SECOND instrument (strategy/zoo/market_context.h)
+    // find it through the same --data-dir every command already takes. Set
+    // once here so backtest, portfolio, tournament, run and parity all resolve
+    // the reference from the same place the traded series came from.
+    zoo::MarketContext::instance().setDataDir(flags.count("data-dir") ? flags.at("data-dir") : "data");
+
     try {
         if (command == "fetch") return cmdFetch(flags);
         if (command == "validate") return cmdValidate(flags);

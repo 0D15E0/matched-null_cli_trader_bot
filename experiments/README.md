@@ -89,6 +89,17 @@ It tests calendar-day-normalized volatility memories and rebalance intervals at
 exact command. It is an exploratory sweep; changing a winning row requires a
 new hypothesis ID and a new evaluation under the research protocol.
 
+## Factor trend: a second instrument as input
+
+`factor_trend/` holds the first cross-series study: does Bitcoin's trend carry
+information about an altcoin's next bar beyond the altcoin's own trend, and
+can a long/flat rule convert it? Pre-registered measurement
+(`measure_factor_conditioning.py`), the registered candidate
+`factor-trend-w050-vt020`, and the engine-level tables (`dev_sweep.py`,
+`results.json`) are all development-data only. Verdict in
+[factor_trend/README.md](factor_trend/README.md): the information is real, the
+conversion fails on sleeve correlation, not adopted.
+
 # The (instrument, timeframe) order gate
 
 Does the logarithmic-spiral order estimator identify **where** trend following

@@ -1,0 +1,2835 @@
+{
+  "generated_at": "2026-09-05T10:17:33.131574+00:00",
+  "development_end": "2023-12-31",
+  "holdout_accessed": false,
+  "sections": {
+    "dose_response": [
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0.0"
+        ],
+        "sharpe": 0.98,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.48,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 23.8,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 18.95,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.514,
+        "mean_sleeve_sharpe": 0.78,
+        "trades": 234,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.19,
+            "bh_sharpe": 0.62,
+            "excess": 0.57,
+            "max_dd_pct": 38.8,
+            "trades": 60
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.9,
+            "bh_sharpe": 0.66,
+            "excess": 0.24,
+            "max_dd_pct": 35.4,
+            "trades": 59
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.56,
+            "bh_sharpe": 0.36,
+            "excess": 0.2,
+            "max_dd_pct": 35.3,
+            "trades": 60
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.48,
+            "bh_sharpe": 0.3,
+            "excess": 0.18,
+            "max_dd_pct": 30.2,
+            "trades": 55
+          }
+        ],
+        "label": "factor_trend w=0"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0.25"
+        ],
+        "sharpe": 0.86,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.35,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 25.72,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 16.48,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.55,
+        "mean_sleeve_sharpe": 0.7,
+        "trades": 224,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.06,
+            "bh_sharpe": 0.62,
+            "excess": 0.44,
+            "max_dd_pct": 44.2,
+            "trades": 59
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.94,
+            "bh_sharpe": 0.66,
+            "excess": 0.28,
+            "max_dd_pct": 34.3,
+            "trades": 53
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.41,
+            "bh_sharpe": 0.36,
+            "excess": 0.05,
+            "max_dd_pct": 38.7,
+            "trades": 60
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.38,
+            "bh_sharpe": 0.3,
+            "excess": 0.08,
+            "max_dd_pct": 33.1,
+            "trades": 52
+          }
+        ],
+        "label": "factor_trend w=0.25"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0.5"
+        ],
+        "sharpe": 0.81,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.3,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 24.26,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 15.6,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.573,
+        "mean_sleeve_sharpe": 0.67,
+        "trades": 225,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 0.97,
+            "bh_sharpe": 0.62,
+            "excess": 0.34,
+            "max_dd_pct": 44.7,
+            "trades": 59
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 1.03,
+            "bh_sharpe": 0.66,
+            "excess": 0.37,
+            "max_dd_pct": 41.7,
+            "trades": 52
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.33,
+            "bh_sharpe": 0.36,
+            "excess": -0.03,
+            "max_dd_pct": 34.4,
+            "trades": 58
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.34,
+            "bh_sharpe": 0.3,
+            "excess": 0.04,
+            "max_dd_pct": 28.7,
+            "trades": 56
+          }
+        ],
+        "label": "factor_trend w=0.5"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0.75"
+        ],
+        "sharpe": 0.8,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.29,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 30.17,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 15.28,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.617,
+        "mean_sleeve_sharpe": 0.68,
+        "trades": 234,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.02,
+            "bh_sharpe": 0.62,
+            "excess": 0.39,
+            "max_dd_pct": 43.8,
+            "trades": 60
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.85,
+            "bh_sharpe": 0.66,
+            "excess": 0.19,
+            "max_dd_pct": 41.4,
+            "trades": 57
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.37,
+            "bh_sharpe": 0.36,
+            "excess": 0.01,
+            "max_dd_pct": 36.4,
+            "trades": 59
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.48,
+            "bh_sharpe": 0.3,
+            "excess": 0.18,
+            "max_dd_pct": 35.3,
+            "trades": 58
+          }
+        ],
+        "label": "factor_trend w=0.75"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=1.0"
+        ],
+        "sharpe": 0.9,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.39,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 32.37,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 17.48,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.646,
+        "mean_sleeve_sharpe": 0.77,
+        "trades": 240,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.12,
+            "bh_sharpe": 0.62,
+            "excess": 0.5,
+            "max_dd_pct": 39.1,
+            "trades": 60
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 1.02,
+            "bh_sharpe": 0.66,
+            "excess": 0.36,
+            "max_dd_pct": 36.3,
+            "trades": 60
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.44,
+            "bh_sharpe": 0.36,
+            "excess": 0.07,
+            "max_dd_pct": 35.7,
+            "trades": 60
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.52,
+            "bh_sharpe": 0.3,
+            "excess": 0.22,
+            "max_dd_pct": 42.8,
+            "trades": 60
+          }
+        ],
+        "label": "factor_trend w=1"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "tsmom",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30"
+        ],
+        "sharpe": 1.16,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.66,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 22.41,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 20.72,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.43,
+        "mean_sleeve_sharpe": 0.87,
+        "trades": 170,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.3,
+            "bh_sharpe": 0.62,
+            "excess": 0.68,
+            "max_dd_pct": 39.7,
+            "trades": 46
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.74,
+            "bh_sharpe": 0.66,
+            "excess": 0.08,
+            "max_dd_pct": 34.8,
+            "trades": 46
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.77,
+            "bh_sharpe": 0.36,
+            "excess": 0.41,
+            "max_dd_pct": 38.5,
+            "trades": 41
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.65,
+            "bh_sharpe": 0.3,
+            "excess": 0.35,
+            "max_dd_pct": 27.6,
+            "trades": 37
+          }
+        ],
+        "label": "tsmom, live defaults (5% abs, vol gate)"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "ensemble_vote",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "enterVotes=2,exitVotes=0"
+        ],
+        "sharpe": 1.1,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.59,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 18.97,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 21.6,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.494,
+        "mean_sleeve_sharpe": 0.86,
+        "trades": 209,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.16,
+            "bh_sharpe": 0.62,
+            "excess": 0.53,
+            "max_dd_pct": 34.3,
+            "trades": 52
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 1.24,
+            "bh_sharpe": 0.66,
+            "excess": 0.58,
+            "max_dd_pct": 22.2,
+            "trades": 49
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.61,
+            "bh_sharpe": 0.36,
+            "excess": 0.25,
+            "max_dd_pct": 30.0,
+            "trades": 49
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.45,
+            "bh_sharpe": 0.3,
+            "excess": 0.15,
+            "max_dd_pct": 31.3,
+            "trades": 59
+          }
+        ],
+        "label": "ensemble_vote 2/0 (live rule)"
+      }
+    ],
+    "folds": [
+      {
+        "label": "factor_trend w=0.5 (registered)",
+        "folds": [
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2018-01-01",
+              "--end",
+              "2019-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "factor_trend",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "factorWeight=0.5"
+            ],
+            "sharpe": -0.05,
+            "basket_sharpe": -0.36,
+            "excess_sharpe": 0.31,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 24.26,
+            "basket_max_dd_pct": 88.94,
+            "cagr_pct": -2.84,
+            "basket_cagr_pct": -49.79,
+            "sleeve_corr": 0.639,
+            "mean_sleeve_sharpe": -0.08,
+            "trades": 76,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 0.81,
+                "bh_sharpe": -0.02,
+                "excess": 0.83,
+                "max_dd_pct": 33.0,
+                "trades": 21
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": -0.39,
+                "bh_sharpe": -0.39,
+                "excess": 0.01,
+                "max_dd_pct": 41.7,
+                "trades": 19
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": -0.41,
+                "bh_sharpe": -0.42,
+                "excess": 0.01,
+                "max_dd_pct": 28.9,
+                "trades": 19
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": -0.32,
+                "bh_sharpe": -0.27,
+                "excess": -0.05,
+                "max_dd_pct": 24.2,
+                "trades": 17
+              }
+            ],
+            "fold": [
+              "2018-01-01",
+              "2019-12-31"
+            ]
+          },
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2020-01-01",
+              "--end",
+              "2021-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "factor_trend",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "factorWeight=0.5"
+            ],
+            "sharpe": 1.97,
+            "basket_sharpe": 1.77,
+            "excess_sharpe": 0.2,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 16.79,
+            "basket_max_dd_pct": 61.38,
+            "cagr_pct": 57.66,
+            "basket_cagr_pct": 228.19,
+            "sleeve_corr": 0.562,
+            "mean_sleeve_sharpe": 1.6,
+            "trades": 71,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 1.72,
+                "bh_sharpe": 1.6,
+                "excess": 0.12,
+                "max_dd_pct": 25.2,
+                "trades": 19
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": 2.39,
+                "bh_sharpe": 2.21,
+                "excess": 0.19,
+                "max_dd_pct": 23.0,
+                "trades": 15
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": 1.14,
+                "bh_sharpe": 1.21,
+                "excess": -0.07,
+                "max_dd_pct": 34.4,
+                "trades": 18
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": 1.16,
+                "bh_sharpe": 1.13,
+                "excess": 0.02,
+                "max_dd_pct": 23.5,
+                "trades": 19
+              }
+            ],
+            "fold": [
+              "2020-01-01",
+              "2021-12-31"
+            ]
+          },
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2022-01-01",
+              "--end",
+              "2023-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "factor_trend",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "factorWeight=0.5"
+            ],
+            "sharpe": 0.21,
+            "basket_sharpe": -0.02,
+            "excess_sharpe": 0.23,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 17.84,
+            "basket_max_dd_pct": 68.86,
+            "cagr_pct": 2.14,
+            "basket_cagr_pct": -18.1,
+            "sleeve_corr": 0.542,
+            "mean_sleeve_sharpe": 0.17,
+            "trades": 76,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 0.34,
+                "bh_sharpe": 0.16,
+                "excess": 0.18,
+                "max_dd_pct": 30.0,
+                "trades": 19
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": 0.46,
+                "bh_sharpe": -0.03,
+                "excess": 0.49,
+                "max_dd_pct": 24.0,
+                "trades": 18
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": 0.05,
+                "bh_sharpe": 0.16,
+                "excess": -0.12,
+                "max_dd_pct": 22.1,
+                "trades": 20
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": -0.15,
+                "bh_sharpe": -0.09,
+                "excess": -0.06,
+                "max_dd_pct": 19.2,
+                "trades": 19
+              }
+            ],
+            "fold": [
+              "2022-01-01",
+              "2023-12-31"
+            ]
+          }
+        ],
+        "mean_excess": 0.24666666666666667,
+        "worst_excess": 0.2
+      },
+      {
+        "label": "anchor w=0 (tsmom, 0.5 sigma, no gate)",
+        "folds": [
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2018-01-01",
+              "--end",
+              "2019-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "factor_trend",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "factorWeight=0"
+            ],
+            "sharpe": 0.05,
+            "basket_sharpe": -0.36,
+            "excess_sharpe": 0.41,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 23.8,
+            "basket_max_dd_pct": 88.94,
+            "cagr_pct": -0.62,
+            "basket_cagr_pct": -49.79,
+            "sleeve_corr": 0.522,
+            "mean_sleeve_sharpe": -0.03,
+            "trades": 84,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 0.89,
+                "bh_sharpe": -0.02,
+                "excess": 0.91,
+                "max_dd_pct": 32.3,
+                "trades": 21
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": -0.63,
+                "bh_sharpe": -0.39,
+                "excess": -0.23,
+                "max_dd_pct": 35.4,
+                "trades": 23
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": -0.53,
+                "bh_sharpe": -0.42,
+                "excess": -0.11,
+                "max_dd_pct": 24.4,
+                "trades": 22
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": 0.14,
+                "bh_sharpe": -0.27,
+                "excess": 0.41,
+                "max_dd_pct": 30.2,
+                "trades": 18
+              }
+            ],
+            "fold": [
+              "2018-01-01",
+              "2019-12-31"
+            ]
+          },
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2020-01-01",
+              "--end",
+              "2021-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "factor_trend",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "factorWeight=0"
+            ],
+            "sharpe": 2.02,
+            "basket_sharpe": 1.77,
+            "excess_sharpe": 0.24,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 15.9,
+            "basket_max_dd_pct": 61.38,
+            "cagr_pct": 59.92,
+            "basket_cagr_pct": 228.19,
+            "sleeve_corr": 0.538,
+            "mean_sleeve_sharpe": 1.63,
+            "trades": 75,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 1.98,
+                "bh_sharpe": 1.6,
+                "excess": 0.38,
+                "max_dd_pct": 21.7,
+                "trades": 19
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": 2.13,
+                "bh_sharpe": 2.21,
+                "excess": -0.07,
+                "max_dd_pct": 26.4,
+                "trades": 17
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": 1.25,
+                "bh_sharpe": 1.21,
+                "excess": 0.04,
+                "max_dd_pct": 35.3,
+                "trades": 21
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": 1.16,
+                "bh_sharpe": 1.13,
+                "excess": 0.02,
+                "max_dd_pct": 19.1,
+                "trades": 18
+              }
+            ],
+            "fold": [
+              "2020-01-01",
+              "2021-12-31"
+            ]
+          },
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2022-01-01",
+              "--end",
+              "2023-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "factor_trend",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "factorWeight=0"
+            ],
+            "sharpe": 0.45,
+            "basket_sharpe": -0.02,
+            "excess_sharpe": 0.48,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 13.01,
+            "basket_max_dd_pct": 68.86,
+            "cagr_pct": 5.87,
+            "basket_cagr_pct": -18.1,
+            "sleeve_corr": 0.474,
+            "mean_sleeve_sharpe": 0.35,
+            "trades": 74,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 0.66,
+                "bh_sharpe": 0.16,
+                "excess": 0.5,
+                "max_dd_pct": 25.5,
+                "trades": 20
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": 0.4,
+                "bh_sharpe": -0.03,
+                "excess": 0.43,
+                "max_dd_pct": 24.5,
+                "trades": 19
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": 0.6,
+                "bh_sharpe": 0.16,
+                "excess": 0.43,
+                "max_dd_pct": 17.3,
+                "trades": 16
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": -0.25,
+                "bh_sharpe": -0.09,
+                "excess": -0.16,
+                "max_dd_pct": 23.8,
+                "trades": 19
+              }
+            ],
+            "fold": [
+              "2022-01-01",
+              "2023-12-31"
+            ]
+          }
+        ],
+        "mean_excess": 0.37666666666666665,
+        "worst_excess": 0.24
+      },
+      {
+        "label": "tsmom, live defaults",
+        "folds": [
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2018-01-01",
+              "--end",
+              "2019-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "tsmom",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30"
+            ],
+            "sharpe": 0.34,
+            "basket_sharpe": -0.36,
+            "excess_sharpe": 0.7,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 21.55,
+            "basket_max_dd_pct": 88.94,
+            "cagr_pct": 3.93,
+            "basket_cagr_pct": -49.79,
+            "sleeve_corr": 0.415,
+            "mean_sleeve_sharpe": 0.06,
+            "trades": 61,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 1.12,
+                "bh_sharpe": -0.02,
+                "excess": 1.14,
+                "max_dd_pct": 22.5,
+                "trades": 16
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": -1.15,
+                "bh_sharpe": -0.39,
+                "excess": -0.76,
+                "max_dd_pct": 34.8,
+                "trades": 21
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": -0.53,
+                "bh_sharpe": -0.42,
+                "excess": -0.11,
+                "max_dd_pct": 20.1,
+                "trades": 13
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": 0.79,
+                "bh_sharpe": -0.27,
+                "excess": 1.06,
+                "max_dd_pct": 25.0,
+                "trades": 11
+              }
+            ],
+            "fold": [
+              "2018-01-01",
+              "2019-12-31"
+            ]
+          },
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2020-01-01",
+              "--end",
+              "2021-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "tsmom",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30"
+            ],
+            "sharpe": 2.28,
+            "basket_sharpe": 1.77,
+            "excess_sharpe": 0.5,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 13.42,
+            "basket_max_dd_pct": 61.38,
+            "cagr_pct": 59.89,
+            "basket_cagr_pct": 228.19,
+            "sleeve_corr": 0.436,
+            "mean_sleeve_sharpe": 1.71,
+            "trades": 50,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 1.83,
+                "bh_sharpe": 1.6,
+                "excess": 0.23,
+                "max_dd_pct": 24.9,
+                "trades": 16
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": 2.21,
+                "bh_sharpe": 2.21,
+                "excess": 0.01,
+                "max_dd_pct": 24.0,
+                "trades": 12
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": 1.53,
+                "bh_sharpe": 1.21,
+                "excess": 0.32,
+                "max_dd_pct": 38.5,
+                "trades": 13
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": 1.25,
+                "bh_sharpe": 1.13,
+                "excess": 0.12,
+                "max_dd_pct": 16.9,
+                "trades": 9
+              }
+            ],
+            "fold": [
+              "2020-01-01",
+              "2021-12-31"
+            ]
+          },
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2022-01-01",
+              "--end",
+              "2023-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "tsmom",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30"
+            ],
+            "sharpe": 0.25,
+            "basket_sharpe": -0.02,
+            "excess_sharpe": 0.27,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 17.14,
+            "basket_max_dd_pct": 68.86,
+            "cagr_pct": 2.49,
+            "basket_cagr_pct": -18.1,
+            "sleeve_corr": 0.429,
+            "mean_sleeve_sharpe": 0.15,
+            "trades": 60,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 0.76,
+                "bh_sharpe": 0.16,
+                "excess": 0.6,
+                "max_dd_pct": 28.3,
+                "trades": 15
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": -0.13,
+                "bh_sharpe": -0.03,
+                "excess": -0.1,
+                "max_dd_pct": 19.1,
+                "trades": 13
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": 0.28,
+                "bh_sharpe": 0.16,
+                "excess": 0.12,
+                "max_dd_pct": 17.4,
+                "trades": 15
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": -0.29,
+                "bh_sharpe": -0.09,
+                "excess": -0.2,
+                "max_dd_pct": 19.0,
+                "trades": 17
+              }
+            ],
+            "fold": [
+              "2022-01-01",
+              "2023-12-31"
+            ]
+          }
+        ],
+        "mean_excess": 0.49,
+        "worst_excess": 0.27
+      },
+      {
+        "label": "ensemble_vote 2/0",
+        "folds": [
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2018-01-01",
+              "--end",
+              "2019-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "ensemble_vote",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "enterVotes=2,exitVotes=0"
+            ],
+            "sharpe": 0.14,
+            "basket_sharpe": -0.36,
+            "excess_sharpe": 0.5,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 18.97,
+            "basket_max_dd_pct": 88.94,
+            "cagr_pct": 0.93,
+            "basket_cagr_pct": -49.79,
+            "sleeve_corr": 0.479,
+            "mean_sleeve_sharpe": 0.09,
+            "trades": 70,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 0.67,
+                "bh_sharpe": -0.02,
+                "excess": 0.69,
+                "max_dd_pct": 24.7,
+                "trades": 17
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": -0.23,
+                "bh_sharpe": -0.39,
+                "excess": 0.16,
+                "max_dd_pct": 21.8,
+                "trades": 17
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": -0.15,
+                "bh_sharpe": -0.42,
+                "excess": 0.27,
+                "max_dd_pct": 22.7,
+                "trades": 15
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": 0.09,
+                "bh_sharpe": -0.27,
+                "excess": 0.35,
+                "max_dd_pct": 31.3,
+                "trades": 21
+              }
+            ],
+            "fold": [
+              "2018-01-01",
+              "2019-12-31"
+            ]
+          },
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2020-01-01",
+              "--end",
+              "2021-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "ensemble_vote",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "enterVotes=2,exitVotes=0"
+            ],
+            "sharpe": 2.19,
+            "basket_sharpe": 1.77,
+            "excess_sharpe": 0.42,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 13.41,
+            "basket_max_dd_pct": 61.38,
+            "cagr_pct": 69.67,
+            "basket_cagr_pct": 228.19,
+            "sleeve_corr": 0.511,
+            "mean_sleeve_sharpe": 1.7,
+            "trades": 65,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 1.77,
+                "bh_sharpe": 1.6,
+                "excess": 0.17,
+                "max_dd_pct": 23.6,
+                "trades": 20
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": 2.49,
+                "bh_sharpe": 2.21,
+                "excess": 0.28,
+                "max_dd_pct": 22.2,
+                "trades": 15
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": 1.37,
+                "bh_sharpe": 1.21,
+                "excess": 0.16,
+                "max_dd_pct": 30.0,
+                "trades": 14
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": 1.18,
+                "bh_sharpe": 1.13,
+                "excess": 0.05,
+                "max_dd_pct": 17.6,
+                "trades": 16
+              }
+            ],
+            "fold": [
+              "2020-01-01",
+              "2021-12-31"
+            ]
+          },
+          {
+            "command": [
+              "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+              "portfolio",
+              "--envs",
+              "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+              "--start",
+              "2022-01-01",
+              "--end",
+              "2023-12-31",
+              "--warmup-bars",
+              "80",
+              "--strategy",
+              "ensemble_vote",
+              "--vol-target",
+              "0.2",
+              "--weights",
+              "equal",
+              "--vol-lookback",
+              "120",
+              "--rebalance",
+              "30",
+              "--sparams",
+              "enterVotes=2,exitVotes=0"
+            ],
+            "sharpe": 0.3,
+            "basket_sharpe": -0.02,
+            "excess_sharpe": 0.32,
+            "sharpe_se": 0.71,
+            "max_dd_pct": 14.96,
+            "basket_max_dd_pct": 68.86,
+            "cagr_pct": 3.3,
+            "basket_cagr_pct": -18.1,
+            "sleeve_corr": 0.47,
+            "mean_sleeve_sharpe": 0.23,
+            "trades": 74,
+            "sleeves": [
+              {
+                "symbol": "BTC_USDT",
+                "sharpe": 0.73,
+                "bh_sharpe": 0.16,
+                "excess": 0.57,
+                "max_dd_pct": 24.5,
+                "trades": 16
+              },
+              {
+                "symbol": "ETH_USDT",
+                "sharpe": 0.5,
+                "bh_sharpe": -0.03,
+                "excess": 0.53,
+                "max_dd_pct": 20.6,
+                "trades": 17
+              },
+              {
+                "symbol": "XRP_USDT",
+                "sharpe": 0.0,
+                "bh_sharpe": 0.16,
+                "excess": -0.16,
+                "max_dd_pct": 20.8,
+                "trades": 20
+              },
+              {
+                "symbol": "LTC_USDT",
+                "sharpe": -0.29,
+                "bh_sharpe": -0.09,
+                "excess": -0.2,
+                "max_dd_pct": 21.1,
+                "trades": 21
+              }
+            ],
+            "fold": [
+              "2022-01-01",
+              "2023-12-31"
+            ]
+          }
+        ],
+        "mean_excess": 0.41333333333333333,
+        "worst_excess": 0.32
+      }
+    ],
+    "confirmation": [
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0,confirmZ=-9.0"
+        ],
+        "sharpe": 0.98,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.48,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 23.8,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 18.95,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.514,
+        "mean_sleeve_sharpe": 0.78,
+        "trades": 234,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.19,
+            "bh_sharpe": 0.62,
+            "excess": 0.57,
+            "max_dd_pct": 38.8,
+            "trades": 60
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.9,
+            "bh_sharpe": 0.66,
+            "excess": 0.24,
+            "max_dd_pct": 35.4,
+            "trades": 59
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.56,
+            "bh_sharpe": 0.36,
+            "excess": 0.2,
+            "max_dd_pct": 35.3,
+            "trades": 60
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.48,
+            "bh_sharpe": 0.3,
+            "excess": 0.18,
+            "max_dd_pct": 30.2,
+            "trades": 55
+          }
+        ],
+        "label": "confirmation off (anchor)",
+        "universe": "4-env research universe, vt 0.20"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0,confirmZ=-0.5"
+        ],
+        "sharpe": 0.97,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.46,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 24.77,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 18.56,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.514,
+        "mean_sleeve_sharpe": 0.77,
+        "trades": 234,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.19,
+            "bh_sharpe": 0.62,
+            "excess": 0.57,
+            "max_dd_pct": 38.8,
+            "trades": 60
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.9,
+            "bh_sharpe": 0.66,
+            "excess": 0.24,
+            "max_dd_pct": 35.8,
+            "trades": 59
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.53,
+            "bh_sharpe": 0.36,
+            "excess": 0.17,
+            "max_dd_pct": 35.3,
+            "trades": 60
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.46,
+            "bh_sharpe": 0.3,
+            "excess": 0.16,
+            "max_dd_pct": 30.0,
+            "trades": 55
+          }
+        ],
+        "label": "confirm g=-0.5",
+        "universe": "4-env research universe, vt 0.20"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0,confirmZ=0.0"
+        ],
+        "sharpe": 0.93,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.43,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 23.07,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 17.32,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.517,
+        "mean_sleeve_sharpe": 0.73,
+        "trades": 230,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.19,
+            "bh_sharpe": 0.62,
+            "excess": 0.56,
+            "max_dd_pct": 38.8,
+            "trades": 60
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.9,
+            "bh_sharpe": 0.66,
+            "excess": 0.25,
+            "max_dd_pct": 32.8,
+            "trades": 56
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.52,
+            "bh_sharpe": 0.36,
+            "excess": 0.16,
+            "max_dd_pct": 35.5,
+            "trades": 60
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.32,
+            "bh_sharpe": 0.3,
+            "excess": 0.02,
+            "max_dd_pct": 27.2,
+            "trades": 54
+          }
+        ],
+        "label": "confirm g=0",
+        "universe": "4-env research universe, vt 0.20"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+          "--start",
+          "2018-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.2",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0,confirmZ=0.5"
+        ],
+        "sharpe": 0.87,
+        "basket_sharpe": 0.51,
+        "excess_sharpe": 0.37,
+        "sharpe_se": 0.41,
+        "max_dd_pct": 22.64,
+        "basket_max_dd_pct": 88.94,
+        "cagr_pct": 15.26,
+        "basket_cagr_pct": 9.49,
+        "sleeve_corr": 0.495,
+        "mean_sleeve_sharpe": 0.67,
+        "trades": 223,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 1.05,
+            "bh_sharpe": 0.62,
+            "excess": 0.43,
+            "max_dd_pct": 42.5,
+            "trades": 59
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.92,
+            "bh_sharpe": 0.66,
+            "excess": 0.26,
+            "max_dd_pct": 34.9,
+            "trades": 54
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.41,
+            "bh_sharpe": 0.36,
+            "excess": 0.05,
+            "max_dd_pct": 37.0,
+            "trades": 58
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.3,
+            "bh_sharpe": 0.3,
+            "excess": 0.0,
+            "max_dd_pct": 30.0,
+            "trades": 52
+          }
+        ],
+        "label": "confirm g=0.5",
+        "universe": "4-env research universe, vt 0.20"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0,confirmZ=-9.0",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.87,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.79,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 17.77,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 17.19,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.394,
+        "mean_sleeve_sharpe": 0.68,
+        "trades": 216,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 0.19,
+            "bh_sharpe": 0.51,
+            "excess": -0.32,
+            "max_dd_pct": 44.9,
+            "trades": 32
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.76,
+            "bh_sharpe": 0.86,
+            "excess": -0.1,
+            "max_dd_pct": 35.7,
+            "trades": 29
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.83,
+            "bh_sharpe": 0.82,
+            "excess": 0.01,
+            "max_dd_pct": 39.0,
+            "trades": 27
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.15,
+            "bh_sharpe": 0.26,
+            "excess": -0.11,
+            "max_dd_pct": 29.6,
+            "trades": 30
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.11,
+            "bh_sharpe": 1.34,
+            "excess": -0.22,
+            "max_dd_pct": 41.5,
+            "trades": 26
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.41,
+            "bh_sharpe": 0.96,
+            "excess": -0.54,
+            "max_dd_pct": 43.5,
+            "trades": 32
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 0.87,
+            "bh_sharpe": -0.02,
+            "excess": 0.89,
+            "max_dd_pct": 29.0,
+            "trades": 18
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 1.08,
+            "bh_sharpe": 0.24,
+            "excess": 0.84,
+            "max_dd_pct": 43.5,
+            "trades": 22
+          }
+        ],
+        "label": "confirmation off (anchor)",
+        "universe": "8-coin deployment universe 2021-23, vt 0.30/90, real fee"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0,confirmZ=-0.5",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.9,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.82,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 17.8,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 17.85,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.395,
+        "mean_sleeve_sharpe": 0.68,
+        "trades": 215,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 0.19,
+            "bh_sharpe": 0.51,
+            "excess": -0.32,
+            "max_dd_pct": 44.9,
+            "trades": 32
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.76,
+            "bh_sharpe": 0.86,
+            "excess": -0.11,
+            "max_dd_pct": 36.0,
+            "trades": 29
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.86,
+            "bh_sharpe": 0.82,
+            "excess": 0.03,
+            "max_dd_pct": 39.0,
+            "trades": 27
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.15,
+            "bh_sharpe": 0.26,
+            "excess": -0.11,
+            "max_dd_pct": 29.3,
+            "trades": 30
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.06,
+            "bh_sharpe": 1.34,
+            "excess": -0.27,
+            "max_dd_pct": 40.4,
+            "trades": 26
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.42,
+            "bh_sharpe": 0.96,
+            "excess": -0.54,
+            "max_dd_pct": 43.5,
+            "trades": 32
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 0.87,
+            "bh_sharpe": -0.02,
+            "excess": 0.89,
+            "max_dd_pct": 29.1,
+            "trades": 17
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 1.14,
+            "bh_sharpe": 0.24,
+            "excess": 0.89,
+            "max_dd_pct": 41.2,
+            "trades": 22
+          }
+        ],
+        "label": "confirm g=-0.5",
+        "universe": "8-coin deployment universe 2021-23, vt 0.30/90, real fee"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0,confirmZ=0.0",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.87,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.79,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 18.18,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 17.13,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.404,
+        "mean_sleeve_sharpe": 0.67,
+        "trades": 208,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 0.19,
+            "bh_sharpe": 0.51,
+            "excess": -0.32,
+            "max_dd_pct": 44.9,
+            "trades": 32
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.82,
+            "bh_sharpe": 0.86,
+            "excess": -0.04,
+            "max_dd_pct": 32.0,
+            "trades": 27
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.84,
+            "bh_sharpe": 0.82,
+            "excess": 0.02,
+            "max_dd_pct": 39.1,
+            "trades": 27
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.07,
+            "bh_sharpe": 0.26,
+            "excess": -0.19,
+            "max_dd_pct": 29.1,
+            "trades": 30
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.01,
+            "bh_sharpe": 1.34,
+            "excess": -0.33,
+            "max_dd_pct": 40.4,
+            "trades": 24
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.41,
+            "bh_sharpe": 0.96,
+            "excess": -0.55,
+            "max_dd_pct": 44.1,
+            "trades": 30
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 0.88,
+            "bh_sharpe": -0.02,
+            "excess": 0.9,
+            "max_dd_pct": 30.1,
+            "trades": 16
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 1.12,
+            "bh_sharpe": 0.24,
+            "excess": 0.88,
+            "max_dd_pct": 42.0,
+            "trades": 22
+          }
+        ],
+        "label": "confirm g=0",
+        "universe": "8-coin deployment universe 2021-23, vt 0.30/90, real fee"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0,confirmZ=0.5",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.75,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.68,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 19.29,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 14.03,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.399,
+        "mean_sleeve_sharpe": 0.59,
+        "trades": 203,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": -0.01,
+            "bh_sharpe": 0.51,
+            "excess": -0.52,
+            "max_dd_pct": 48.5,
+            "trades": 31
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.71,
+            "bh_sharpe": 0.86,
+            "excess": -0.15,
+            "max_dd_pct": 34.3,
+            "trades": 27
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.7,
+            "bh_sharpe": 0.82,
+            "excess": -0.12,
+            "max_dd_pct": 38.8,
+            "trades": 27
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": -0.09,
+            "bh_sharpe": 0.26,
+            "excess": -0.35,
+            "max_dd_pct": 30.8,
+            "trades": 29
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.0,
+            "bh_sharpe": 1.34,
+            "excess": -0.33,
+            "max_dd_pct": 40.8,
+            "trades": 23
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.31,
+            "bh_sharpe": 0.96,
+            "excess": -0.65,
+            "max_dd_pct": 47.1,
+            "trades": 30
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 0.75,
+            "bh_sharpe": -0.02,
+            "excess": 0.77,
+            "max_dd_pct": 31.0,
+            "trades": 16
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 1.35,
+            "bh_sharpe": 0.24,
+            "excess": 1.11,
+            "max_dd_pct": 38.0,
+            "trades": 20
+          }
+        ],
+        "label": "confirm g=0.5",
+        "universe": "8-coin deployment universe 2021-23, vt 0.30/90, real fee"
+      }
+    ],
+    "eight_coin": [
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "ensemble_vote",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "enterVotes=2,exitVotes=0",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.96,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.88,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 19.94,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 19.82,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.384,
+        "mean_sleeve_sharpe": 0.79,
+        "trades": 211,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 0.59,
+            "bh_sharpe": 0.51,
+            "excess": 0.08,
+            "max_dd_pct": 36.4,
+            "trades": 28
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.89,
+            "bh_sharpe": 0.86,
+            "excess": 0.03,
+            "max_dd_pct": 28.1,
+            "trades": 25
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.85,
+            "bh_sharpe": 0.82,
+            "excess": 0.03,
+            "max_dd_pct": 40.2,
+            "trades": 27
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": -0.0,
+            "bh_sharpe": 0.26,
+            "excess": -0.26,
+            "max_dd_pct": 32.5,
+            "trades": 31
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.13,
+            "bh_sharpe": 1.34,
+            "excess": -0.21,
+            "max_dd_pct": 44.4,
+            "trades": 30
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.4,
+            "bh_sharpe": 0.96,
+            "excess": -0.56,
+            "max_dd_pct": 46.8,
+            "trades": 28
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 1.14,
+            "bh_sharpe": -0.02,
+            "excess": 1.16,
+            "max_dd_pct": 31.1,
+            "trades": 17
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 1.35,
+            "bh_sharpe": 0.24,
+            "excess": 1.1,
+            "max_dd_pct": 40.9,
+            "trades": 25
+          }
+        ],
+        "label": "LIVE ensemble_vote 2/0"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.87,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.79,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 17.77,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 17.19,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.394,
+        "mean_sleeve_sharpe": 0.68,
+        "trades": 216,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 0.19,
+            "bh_sharpe": 0.51,
+            "excess": -0.32,
+            "max_dd_pct": 44.9,
+            "trades": 32
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.76,
+            "bh_sharpe": 0.86,
+            "excess": -0.1,
+            "max_dd_pct": 35.7,
+            "trades": 29
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.83,
+            "bh_sharpe": 0.82,
+            "excess": 0.01,
+            "max_dd_pct": 39.0,
+            "trades": 27
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.15,
+            "bh_sharpe": 0.26,
+            "excess": -0.11,
+            "max_dd_pct": 29.6,
+            "trades": 30
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.11,
+            "bh_sharpe": 1.34,
+            "excess": -0.22,
+            "max_dd_pct": 41.5,
+            "trades": 26
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.41,
+            "bh_sharpe": 0.96,
+            "excess": -0.54,
+            "max_dd_pct": 43.5,
+            "trades": 32
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 0.87,
+            "bh_sharpe": -0.02,
+            "excess": 0.89,
+            "max_dd_pct": 29.0,
+            "trades": 18
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 1.08,
+            "bh_sharpe": 0.24,
+            "excess": 0.84,
+            "max_dd_pct": 43.5,
+            "trades": 22
+          }
+        ],
+        "label": "anchor w=0 (tsmom, 0.5 sigma, no gate)"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0.25",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.69,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.61,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 22.16,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 13.25,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.42,
+        "mean_sleeve_sharpe": 0.56,
+        "trades": 205,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 0.02,
+            "bh_sharpe": 0.51,
+            "excess": -0.5,
+            "max_dd_pct": 50.0,
+            "trades": 31
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.8,
+            "bh_sharpe": 0.86,
+            "excess": -0.06,
+            "max_dd_pct": 33.3,
+            "trades": 26
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.53,
+            "bh_sharpe": 0.82,
+            "excess": -0.29,
+            "max_dd_pct": 35.9,
+            "trades": 29
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": -0.22,
+            "bh_sharpe": 0.26,
+            "excess": -0.48,
+            "max_dd_pct": 38.2,
+            "trades": 29
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.0,
+            "bh_sharpe": 1.34,
+            "excess": -0.33,
+            "max_dd_pct": 42.0,
+            "trades": 26
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.48,
+            "bh_sharpe": 0.96,
+            "excess": -0.48,
+            "max_dd_pct": 36.6,
+            "trades": 28
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 1.05,
+            "bh_sharpe": -0.02,
+            "excess": 1.08,
+            "max_dd_pct": 32.0,
+            "trades": 15
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 0.81,
+            "bh_sharpe": 0.24,
+            "excess": 0.57,
+            "max_dd_pct": 47.5,
+            "trades": 21
+          }
+        ],
+        "label": "factor_trend w=0.25"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0.5",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.74,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.67,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 21.09,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 15.17,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.443,
+        "mean_sleeve_sharpe": 0.64,
+        "trades": 209,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": -0.05,
+            "bh_sharpe": 0.51,
+            "excess": -0.57,
+            "max_dd_pct": 51.3,
+            "trades": 31
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.89,
+            "bh_sharpe": 0.86,
+            "excess": 0.03,
+            "max_dd_pct": 34.3,
+            "trades": 27
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.69,
+            "bh_sharpe": 0.82,
+            "excess": -0.13,
+            "max_dd_pct": 34.6,
+            "trades": 30
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": -0.05,
+            "bh_sharpe": 0.26,
+            "excess": -0.31,
+            "max_dd_pct": 33.6,
+            "trades": 31
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.01,
+            "bh_sharpe": 1.34,
+            "excess": -0.33,
+            "max_dd_pct": 41.5,
+            "trades": 28
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.53,
+            "bh_sharpe": 0.96,
+            "excess": -0.42,
+            "max_dd_pct": 42.2,
+            "trades": 29
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 1.0,
+            "bh_sharpe": -0.02,
+            "excess": 1.02,
+            "max_dd_pct": 35.2,
+            "trades": 14
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 1.07,
+            "bh_sharpe": 0.24,
+            "excess": 0.83,
+            "max_dd_pct": 50.1,
+            "trades": 19
+          }
+        ],
+        "label": "factor_trend w=0.5"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=0.75",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.56,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.49,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 28.19,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 10.92,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.486,
+        "mean_sleeve_sharpe": 0.57,
+        "trades": 217,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": -0.12,
+            "bh_sharpe": 0.51,
+            "excess": -0.63,
+            "max_dd_pct": 53.1,
+            "trades": 32
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.41,
+            "bh_sharpe": 0.86,
+            "excess": -0.45,
+            "max_dd_pct": 39.8,
+            "trades": 31
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.72,
+            "bh_sharpe": 0.82,
+            "excess": -0.11,
+            "max_dd_pct": 35.3,
+            "trades": 32
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.08,
+            "bh_sharpe": 0.26,
+            "excess": -0.18,
+            "max_dd_pct": 42.0,
+            "trades": 30
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 0.89,
+            "bh_sharpe": 1.34,
+            "excess": -0.44,
+            "max_dd_pct": 57.3,
+            "trades": 29
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.78,
+            "bh_sharpe": 0.96,
+            "excess": -0.17,
+            "max_dd_pct": 34.9,
+            "trades": 28
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 0.85,
+            "bh_sharpe": -0.02,
+            "excess": 0.87,
+            "max_dd_pct": 36.9,
+            "trades": 16
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 0.96,
+            "bh_sharpe": 0.24,
+            "excess": 0.72,
+            "max_dd_pct": 56.0,
+            "trades": 19
+          }
+        ],
+        "label": "factor_trend w=0.75"
+      },
+      {
+        "command": [
+          "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+          "portfolio",
+          "--envs",
+          "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400,DOGE_USDT:14400,TRX_USDT:14400,ADA_USDT:14400,SOL_USDT:14400",
+          "--start",
+          "2021-01-01",
+          "--end",
+          "2023-12-31",
+          "--warmup-bars",
+          "80",
+          "--strategy",
+          "factor_trend",
+          "--vol-target",
+          "0.3",
+          "--weights",
+          "equal",
+          "--vol-lookback",
+          "120",
+          "--rebalance",
+          "30",
+          "--sparams",
+          "factorWeight=1",
+          "--vol-window",
+          "90",
+          "--fee",
+          "0.00125",
+          "--slippage",
+          "0.0005"
+        ],
+        "sharpe": 0.53,
+        "basket_sharpe": 0.08,
+        "excess_sharpe": 0.45,
+        "sharpe_se": 0.71,
+        "max_dd_pct": 29.82,
+        "basket_max_dd_pct": 63.9,
+        "cagr_pct": 10.14,
+        "basket_cagr_pct": -12.14,
+        "sleeve_corr": 0.516,
+        "mean_sleeve_sharpe": 0.64,
+        "trades": 233,
+        "sleeves": [
+          {
+            "symbol": "BTC_USDT",
+            "sharpe": 0.08,
+            "bh_sharpe": 0.51,
+            "excess": -0.43,
+            "max_dd_pct": 45.6,
+            "trades": 32
+          },
+          {
+            "symbol": "ETH_USDT",
+            "sharpe": 0.51,
+            "bh_sharpe": 0.86,
+            "excess": -0.35,
+            "max_dd_pct": 38.1,
+            "trades": 32
+          },
+          {
+            "symbol": "XRP_USDT",
+            "sharpe": 0.56,
+            "bh_sharpe": 0.82,
+            "excess": -0.26,
+            "max_dd_pct": 38.6,
+            "trades": 32
+          },
+          {
+            "symbol": "LTC_USDT",
+            "sharpe": 0.12,
+            "bh_sharpe": 0.26,
+            "excess": -0.14,
+            "max_dd_pct": 45.0,
+            "trades": 32
+          },
+          {
+            "symbol": "DOGE_USDT",
+            "sharpe": 1.05,
+            "bh_sharpe": 1.34,
+            "excess": -0.29,
+            "max_dd_pct": 54.6,
+            "trades": 32
+          },
+          {
+            "symbol": "TRX_USDT",
+            "sharpe": 0.75,
+            "bh_sharpe": 0.96,
+            "excess": -0.2,
+            "max_dd_pct": 34.9,
+            "trades": 32
+          },
+          {
+            "symbol": "ADA_USDT",
+            "sharpe": 0.78,
+            "bh_sharpe": -0.02,
+            "excess": 0.81,
+            "max_dd_pct": 39.2,
+            "trades": 20
+          },
+          {
+            "symbol": "SOL_USDT",
+            "sharpe": 1.22,
+            "bh_sharpe": 0.24,
+            "excess": 0.98,
+            "max_dd_pct": 42.9,
+            "trades": 21
+          }
+        ],
+        "label": "factor_trend w=1"
+      }
+    ]
+  }
+}

@@ -34,6 +34,13 @@ add_executable(portfolio_benchmark_test tests/portfolio_benchmark_test.cpp)
 target_include_directories(portfolio_benchmark_test PRIVATE src)
 add_test(NAME portfolio_benchmark COMMAND portfolio_benchmark_test)
 
+# factor_trend reads a second instrument through strategy/zoo/market_context.h;
+# its test needs the store reader and the indicator translation unit.
+add_executable(factor_trend_test tests/factor_trend_test.cpp
+    src/core/candle_store.cpp src/indicators/indicators.cpp)
+target_include_directories(factor_trend_test PRIVATE src)
+add_test(NAME factor_trend COMMAND factor_trend_test)
+
 find_package(Python3 COMPONENTS Interpreter)
 if(Python3_Interpreter_FOUND)
   add_test(NAME research_protocol

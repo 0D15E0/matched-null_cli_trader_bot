@@ -48,7 +48,7 @@ Two consequences worth internalising:
 |---|---|---|
 | Data | `src/core/`, `src/data/` | the `.ctc` candle store, venue fetchers, HTTP |
 | Indicators | `src/indicators/` | index-aligned, causal, NaN-until-warm |
-| Strategy | `src/strategy/` | the `Strategy` interface, the zoo, gates, registry |
+| Strategy | `src/strategy/` | the `Strategy` interface, the zoo, gates, registry; `zoo/market_context.h` resolves a second instrument from `--data-dir` and aligns it by timestamp for cross-series families (`factor_trend`) |
 | Backtest | `src/backtest/` | the bar loop, fill model, metrics |
 | Search | `src/evolution/` | tournament, fitness, older GP searches |
 | Live | `src/trading/` | `LiveTrader`, state, clients, trade log |

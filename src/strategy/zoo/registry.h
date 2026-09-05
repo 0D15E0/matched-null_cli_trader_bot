@@ -19,6 +19,7 @@
 #include "dip_reversion.h"
 #include "ichimoku_full.h"
 #include "ensemble_ls.h"
+#include "factor_trend.h"
 #include "momo_breakout.h"
 #include "lppls.h"
 #include "meanrev.h"
@@ -373,6 +374,18 @@ inline const std::vector<FamilySpec>& families() {
                 p.tenkan = ip(v, 0); p.kijun = ip(v, 1); p.spanB = ip(v, 2);
                 p.displacement = ip(v, 3); p.requireChikou = ip(v, 4);
                 return std::make_unique<IchimokuFullStrategy>(p);
+            }});
+
+        f.push_back({"factor_trend", "Ehsani & Linnainmaa (2022) factor momentum: the coin's tsmom z-score blended with BTC_USDT's (the crypto market factor), reference read one bar late for live parity. First cross-series family; needs the BTC store in --data-dir",
+            {{"lookback", 10, 400, 90, true}, {"volWindow", 10, 120, 30, true},
+             {"factorWeight", 0.0, 1.0, 0.5, false}, {"thresholdZ", 0.0, 2.0, 0.5, false},
+             {"refLagBars", 0, 6, 1, true}, {"confirmZ", -9.0, 2.0, -9.0, false}},
+            [](const std::vector<double>& v) {
+                FactorTrendParams p;
+                p.lookback = ip(v, 0); p.volWindow = ip(v, 1);
+                p.factorWeight = dp(v, 2); p.thresholdZ = dp(v, 3); p.refLagBars = ip(v, 4);
+                p.confirmZ = dp(v, 5);
+                return std::make_unique<FactorTrendStrategy>(p);
             }});
 
         // ---- controls ----------------------------------------------------

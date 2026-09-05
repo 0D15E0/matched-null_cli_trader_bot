@@ -448,6 +448,28 @@ draws about `--vol-target`.
 the same signal for a bar whether or not the bars after it exist — the
 look-ahead test that precomputing indicators in `prepare()` makes necessary.
 
+## `factor_trend`: the first family that reads a second instrument
+
+Every family above decides about a coin from that coin's own candles.
+`factor_trend` (2026-09-05) blends each coin's tsmom z-score with Bitcoin's,
+the crypto market factor, through new plumbing in `strategy/zoo/market_context.h`:
+a second store resolved from `--data-dir`, aligned by **timestamp** with a
+one-bar lag so a live alt sleeve never needs a BTC bar another process has not
+fetched yet, re-read when the store grows, and a hard error when missing. At
+`factorWeight=0` it reproduces tsmom with a sigma threshold to the cent;
+`causality_check` passes on stores where it reads the reference.
+
+The measurement behind it is real - given a positive own trend, an alt's next
+bar earns Sharpe 1.45 when Bitcoin's trend agrees and 0.69 when it does not
+(2017-2023, 7 alts) - and the pre-registered candidate cleared the research
+protocol's basket-relative kill rules. **It still loses to the live book on
+every fold**, because a signal shared across sleeves raises their correlation
+(0.51 → 0.65 from w=0 to w=1) and the blend's exit holds alts through their
+own trend breaks. Full study, including the thin-2015-16-data trap that made
+the effect look several times larger than it is:
+[experiments/factor_trend/README.md](experiments/factor_trend/README.md) and
+PROFITABILITY_PLAN.md addendum 26.
+
 ## Live trading (`run` / `status` / `parity`)
 
 > Operating instructions — how to start the four-sleeve portfolio, what to
@@ -813,7 +835,9 @@ src/
                parity / evolve / evolve-strategy
 ```
 
-Adding a strategy = implement `Strategy` (`prepare` + `onBar(series, i, position)`)
+Adding a strategy = implement `Strategy` (`prepare` + `onBar(series, i, position)`;
+a strategy that needs a second instrument reads it through `zoo::MarketContext`
+and `zoo::alignByTimestamp` in `strategy/zoo/market_context.h`, never by index)
 and register it in `main.cpp`'s `makeStrategy()`. Adding a data source = match
 the shape of `PoloniexSource`.
 

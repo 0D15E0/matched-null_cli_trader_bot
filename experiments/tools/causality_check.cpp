@@ -127,6 +127,13 @@ int main(int argc, char** argv) {
 
     CandleStore store(argv[1]);
     if (!store.exists()) { std::cerr << "no such store: " << argv[1] << "\n"; return 2; }
+    // Families that read a second instrument resolve it from the directory the
+    // tested store lives in, exactly as `--data-dir` would point them there.
+    {
+        std::string path = argv[1];
+        auto slash = path.find_last_of('/');
+        zoo::MarketContext::instance().setDataDir(slash == std::string::npos ? "." : path.substr(0, slash));
+    }
     CandleSeries full = store.load();
     if (full.size() < 500) { std::cerr << "series too short to test\n"; return 2; }
     size_t cut = static_cast<size_t>(frac * full.size());

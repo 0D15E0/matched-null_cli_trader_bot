@@ -1520,6 +1520,146 @@
         }
       ],
       "decision_at": "2026-09-05T09:18:08+00:00"
+    },
+    {
+      "id": "factor-trend-w050-vt020",
+      "status": "survives_development",
+      "created_at": "2026-09-05T10:10:29+00:00",
+      "hypothesis": "Blending each coin's tsmom z-score 50/50 with Bitcoin's (the crypto market factor, read one bar late) improves portfolio excess Sharpe over own-series tsmom, because an alt's own 15-day return is a noisy reading of the market-wide trend that trend following actually captures (factor momentum, Ehsani & Linnainmaa 2022). Signal-level measurement on 2017-2023 dev data preceded this registration (experiments/factor_trend/). Parameters are tsmom's live defaults (90/30/0.5 sigma); factorWeight=0.5 was fixed by prior as the agnostic equal weight before the 2017+ table was seen.",
+      "primary_metric": "mean_excess_sharpe",
+      "model": {
+        "strategy": "factor_trend",
+        "sparams": "factorWeight=0.5",
+        "vol_target": 0.2,
+        "weights": "equal",
+        "vol_lookback": 120,
+        "rebalance": 30,
+        "hurst_filter": null,
+        "hurst_estimator": "sf",
+        "hurst_window": 100
+      },
+      "kill_rules": {
+        "min_positive_folds": 2,
+        "min_mean_excess_sharpe": 0.1,
+        "min_worst_excess_sharpe": -0.2,
+        "max_worst_drawdown_pct": 40.0
+      },
+      "runs": [
+        {
+          "completed_at": "2026-09-05T10:10:29+00:00",
+          "status": "survives_development",
+          "reasons": [],
+          "summary": {
+            "folds": 3,
+            "mean_excess_sharpe": 0.24666666666666667,
+            "worst_excess_sharpe": 0.2,
+            "positive_folds": 3,
+            "worst_max_drawdown_pct": 24.26
+          },
+          "fold_results": [
+            {
+              "fold_start": "2018-01-01",
+              "fold_end": "2019-12-31",
+              "command": [
+                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "portfolio",
+                "--envs",
+                "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+                "--start",
+                "2018-01-01",
+                "--end",
+                "2019-12-31",
+                "--warmup-bars",
+                "80",
+                "--strategy",
+                "factor_trend",
+                "--vol-target",
+                "0.2",
+                "--weights",
+                "equal",
+                "--vol-lookback",
+                "120",
+                "--rebalance",
+                "30",
+                "--sparams",
+                "factorWeight=0.5"
+              ],
+              "returncode": 0,
+              "portfolio_sharpe": -0.05,
+              "excess_sharpe": 0.31,
+              "sharpe_standard_error": 0.71,
+              "portfolio_max_drawdown_pct": 24.26
+            },
+            {
+              "fold_start": "2020-01-01",
+              "fold_end": "2021-12-31",
+              "command": [
+                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "portfolio",
+                "--envs",
+                "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+                "--start",
+                "2020-01-01",
+                "--end",
+                "2021-12-31",
+                "--warmup-bars",
+                "80",
+                "--strategy",
+                "factor_trend",
+                "--vol-target",
+                "0.2",
+                "--weights",
+                "equal",
+                "--vol-lookback",
+                "120",
+                "--rebalance",
+                "30",
+                "--sparams",
+                "factorWeight=0.5"
+              ],
+              "returncode": 0,
+              "portfolio_sharpe": 1.97,
+              "excess_sharpe": 0.2,
+              "sharpe_standard_error": 0.71,
+              "portfolio_max_drawdown_pct": 16.79
+            },
+            {
+              "fold_start": "2022-01-01",
+              "fold_end": "2023-12-31",
+              "command": [
+                "/Users/ulimerlan/trader/cli_trader/build/cli_trader",
+                "portfolio",
+                "--envs",
+                "BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400,LTC_USDT:14400",
+                "--start",
+                "2022-01-01",
+                "--end",
+                "2023-12-31",
+                "--warmup-bars",
+                "80",
+                "--strategy",
+                "factor_trend",
+                "--vol-target",
+                "0.2",
+                "--weights",
+                "equal",
+                "--vol-lookback",
+                "120",
+                "--rebalance",
+                "30",
+                "--sparams",
+                "factorWeight=0.5"
+              ],
+              "returncode": 0,
+              "portfolio_sharpe": 0.21,
+              "excess_sharpe": 0.23,
+              "sharpe_standard_error": 0.71,
+              "portfolio_max_drawdown_pct": 17.84
+            }
+          ]
+        }
+      ],
+      "decision_at": "2026-09-05T10:10:29+00:00"
     }
   ]
 }
