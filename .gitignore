@@ -12,6 +12,8 @@ __pycache__/
 /state_live/
 /logs_live/
 experiments/**/.wf_cache*.json
+experiments/holdout.json
+tournament_results/matched_null_btc_holdout.txt
 
 # Pi runtime dirs: the systemd units write here, so an accidental
 # `git add -A` on the host would otherwise commit live logs and state.

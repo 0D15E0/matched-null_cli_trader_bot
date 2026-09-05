@@ -29,16 +29,20 @@ USAGE
                                           "Sharpe vs equal-weight basket")
 
 `holdout_range` refuses to answer without a hypothesis string, and appends what
-you asked to holdout.json so the count of looks is a matter of record rather
-than of memory. That log is the honest denominator for any p-value this project
-ever reports again.
+you asked to the private holdout ledger so the count of looks is a matter of
+record rather than of memory. Set `TRADER_HOLDOUT_CONFIG` when the private
+ledger is stored outside the default ignored state path.
 """
 import json
+import os
 from datetime import datetime, timezone
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-CONFIG = HERE / "holdout.json"
+CONFIG = Path(os.environ.get(
+    "TRADER_HOLDOUT_CONFIG",
+    str(HERE.parent / "state" / "private_holdout.json"),
+))
 
 
 def _load():
@@ -71,6 +75,7 @@ def holdout_range(hypothesis: str, note: str = ""):
         "note": note,
         "looked_at": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
     })
+    CONFIG.parent.mkdir(parents=True, exist_ok=True)
     CONFIG.write_text(json.dumps(cfg, indent=2) + "\n")
     return boundary(), None
 

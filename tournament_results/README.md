@@ -26,19 +26,8 @@ All were produced with:
 | `btc_alone_f70` | `BTC_USDT:14400` | 0.70 |
 | `eth_alone_f70` | `ETH_USDT:14400` | 0.70 |
 
-`matched_null_btc_holdout.txt` is the exposure-matched control sweep from
-TOURNAMENT.md section 3: 200 seeds of `control_random` at `entryProb=0.026,
-holdBars=39, --vol-target 0.10` on the BTC holdout window (`--start
-1678377600`), one row per seed as `excessSharpe timeInMarket% numTrades`.
-Regenerate with:
-
-```sh
-for s in $(seq 1 200); do
-  ./build/cli_trader backtest --symbol BTC_USDT --period 14400 \
-      --strategy control_random --sparams "entryProb=0.026,holdBars=39,seed=$s" \
-      --vol-target 0.10 --start 1678377600
-done
-```
+The exposure-matched holdout control sweep is kept in the private local
+research state and is intentionally not included in the public repository.
 
 **These are measurements of a search, not trading recommendations.** Every
 finalist in them failed out-of-sample validation; see TOURNAMENT.md.

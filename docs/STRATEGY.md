@@ -139,7 +139,7 @@ That is the system working.
   diversification and sizing — arithmetic — rather than by any forecast.
 - **The performance table above is descriptive, not proof.** That period was
   read many times during research (the contamination is logged in
-  `experiments/holdout.json`). The honest test is pre-registered and forward:
+  the private holdout ledger). The honest test is pre-registered and forward:
   the live book itself, judged only after its pre-registered read date, with
   primary criterion *worst loss ≤ half the basket's*. Until then, short-term
   P&L means nothing —
