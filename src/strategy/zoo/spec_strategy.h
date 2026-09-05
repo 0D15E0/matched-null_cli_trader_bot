@@ -94,6 +94,11 @@ private:
         }
         if (!value.contains("type") || !value.at("type").is_string())
             throw std::runtime_error("generated leaf requires string type");
+        for (auto it = value.begin(); it != value.end(); ++it) {
+            if (it.key() != "type" && it.key() != "window" &&
+                it.key() != "threshold" && it.key() != "day")
+                throw std::runtime_error("generated leaf has unknown field: " + it.key());
+        }
         const std::string type = value.at("type").get<std::string>();
         auto window = [&]() {
             if (!value.contains("window")) throw std::runtime_error("generated leaf requires window");
@@ -118,15 +123,34 @@ private:
         else throw std::runtime_error("unknown generated leaf type: " + type);
 
         if (node->leaf == LeafKind::Weekday) {
+            if (value.size() != 2 || !value.contains("day"))
+                throw std::runtime_error("weekday leaf requires only day");
             node->weekday = value.at("day").get<int>();
             if (node->weekday < 0 || node->weekday > 6)
                 throw std::runtime_error("generated weekday must use UTC Sunday=0 through Saturday=6");
         } else if (node->leaf == LeafKind::GreenCandle || node->leaf == LeafKind::RedCandle) {
-            // No numeric parameters are needed for candle direction.
+            if (value.size() != 1)
+                throw std::runtime_error("candle leaf accepts only type");
         } else {
             node->window = window();
-            node->threshold = value.value("threshold", 0.0);
+            if (!value.contains("threshold"))
+                throw std::runtime_error("generated leaf requires threshold");
+            node->threshold = value.at("threshold").get<double>();
             if (!std::isfinite(node->threshold)) throw std::runtime_error("generated threshold must be finite");
+            if ((node->leaf == LeafKind::RsiAbove || node->leaf == LeafKind::RsiBelow) &&
+                (node->threshold < 0.0 || node->threshold > 100.0))
+                throw std::runtime_error("RSI threshold must be in [0,100]");
+            if (node->leaf == LeafKind::RelativeVolumeAbove &&
+                (node->threshold < 0.0 || node->threshold > 20.0))
+                throw std::runtime_error("relative-volume threshold must be in [0,20]");
+            if ((node->leaf == LeafKind::ReturnAbove || node->leaf == LeafKind::ReturnBelow) &&
+                (node->threshold < -2.0 || node->threshold > 2.0))
+                throw std::runtime_error("return threshold must be in [-2,2]");
+            if ((node->leaf == LeafKind::CloseAboveSma || node->leaf == LeafKind::CloseBelowSma ||
+                 node->leaf == LeafKind::CloseAboveEma || node->leaf == LeafKind::CloseBelowEma ||
+                 node->leaf == LeafKind::BreakoutAbove || node->leaf == LeafKind::BreakdownBelow) &&
+                (node->threshold < -100.0 || node->threshold > 100.0))
+                throw std::runtime_error("price/channel threshold must be in [-100,100]");
         }
         return node;
     }
