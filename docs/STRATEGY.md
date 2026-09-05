@@ -5,6 +5,8 @@ does, in ordinary language, and — more importantly — why it does *this* and
 not one of the thousands of other things we tried. Operations live in
 [RUNBOOK.md](RUNBOOK.md); the strategy-search evidence lives in
 [TOURNAMENT.md](TOURNAMENT.md).
+The research-only inverse-volatility portfolio variant is explained in
+[ENSEMBLE_INVOL.md](ENSEMBLE_INVOL.md).
 
 ## What it does, in one paragraph
 

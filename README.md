@@ -54,7 +54,9 @@ market beta. And it has not cleared walk-forward validation. What the ensemble
 buys is **variance reduction on the rule-selection decision**, nothing more.
 
 Details and the reasoning in full: [STRATEGY.md](docs/STRATEGY.md) in plain
-English, `src/strategy/zoo/ensemble.h` in code.
+English, `src/strategy/zoo/ensemble.h` in code. The inverse-volatility research
+variant is explained in [ENSEMBLE_INVOL.md](docs/ENSEMBLE_INVOL.md), including
+the fixed multi-timeframe sweep and its current development-only results.
 
 ## What the numbers actually look like
 
@@ -162,6 +164,125 @@ at cost, so the total return is an amount you could have withdrawn.
 for ~20% annualized account volatility instead of going all-in. This is the
 single most valuable knob in the repo: on `tsmom`/BTC it took max drawdown from
 67.8% to 39.7% while *improving* Sharpe.
+
+## Research protocol and benchmark updates
+
+The repository now has two separate layers for research:
+
+1. `dev_portfolio_sweep.py` and `dev_portfolio_walkforward.py` are fixed,
+   development-only comparisons. Their boundary is `2023-12-31`; they do not
+   accept an end date that could accidentally expand the search into the
+   frozen 2024+ period. Walk-forward folds receive an 80-bar causal warm-up
+   prefix, but those bars are not traded or scored.
+2. `research_protocol.py` is the candidate registry and kill layer. Every
+   hypothesis records its claim, strategy family, exact `--sparams`, volatility
+   target, portfolio weighting, filter settings, metric, kill rules, commands,
+   fold results, and terminal decision. A candidate runs once. Seeing a result
+   and changing a parameter requires a new hypothesis ID.
+
+The standard development folds are:
+
+| fold | scored period |
+|---|---|
+| 1 | 2018-01-01 to 2019-12-31 |
+| 2 | 2020-01-01 to 2021-12-31 |
+| 3 | 2022-01-01 to 2023-12-31 |
+
+The default kill rule requires at least two positive folds, mean excess Sharpe
+of at least `0.10`, worst-fold excess Sharpe no lower than `-0.20`, and worst
+close-to-close drawdown no higher than `40%`. `survives_development` means only
+that a candidate cleared this development gate. It is not a deployment verdict.
+
+```sh
+python3 experiments/research_protocol.py new \
+  --id donchian-invvol-vt020 \
+  --hypothesis "Inverse-volatility sleeve weighting improves Donchian portfolio risk-adjusted return." \
+  --strategy donchian --sparams "entryWindow=55,exitWindow=20" \
+  --vol-target 0.20 --weights invvol --vol-lookback 120 --rebalance 30
+
+python3 experiments/research_protocol.py validate donchian-invvol-vt020
+python3 experiments/research_protocol.py run donchian-invvol-vt020
+python3 experiments/research_protocol.py list
+```
+
+### What changed in the portfolio benchmark
+
+Portfolio results now combine sleeves on a common timestamp grid and compare
+them with an exact equal-weight buy-and-hold basket of the same instruments.
+The basket uses the same next-open entry, fee, slippage, close marking, and
+final liquidation conventions as the strategy. Portfolio exposure is capped at
+100%; inverse-volatility weights, when selected, use only trailing returns and
+are refreshed at the configured rebalance interval.
+
+The benchmark accounting has a regression test in
+`tests/portfolio_benchmark_test.cpp`, registered with CTest. The causal warm-up
+path and the research protocol also have automated coverage:
+
+```sh
+cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build -j
+ctest --test-dir build --output-on-failure
+python3 -m unittest tests/research_protocol_test.py
+```
+
+The reported portfolio drawdown is close-to-close. Single-instrument reports
+can be intrabar-aware, so those two drawdown numbers must not be compared as if
+they used the same convention.
+
+### First registered discovery batch
+
+The initial candidates were deliberately varied before looking at their
+results: signal parameters, portfolio construction, a Hurst regime filter,
+adaptive trend, and mean reversion. All ran on the fixed four-asset development
+protocol and were evaluated once.
+
+| hypothesis | status | mean excess Sharpe | positive folds | worst drawdown |
+|---|---|---:|---:|---:|
+| `donchian-invvol-vt020` | survives development | 0.517 | 2/3 | 13.23% |
+| `donchian-wide90-vt020` | survives development | 0.413 | 3/3 | 11.75% |
+| `tsmom-long120-vt020` | survives development | 0.347 | 3/3 | 21.28% |
+| `tsmom-hurst055-vt020` | killed | -0.323 | 0/3 | 11.74% |
+| `kama-trend-vt020` | killed | -0.683 | 0/3 | 44.66% |
+| `rsi-reversal-vt020` | killed | -1.207 | 0/3 | 15.22% |
+| `ou-score-vt020` | killed | -1.830 | 0/3 | 41.97% |
+
+These results are discovery evidence, not proof that the survivors have a
+future edge. The complete immutable records live in
+`experiments/hypotheses.json`.
+
+### Is the deployed 4h ensemble the best tested configuration?
+
+The deployed configuration is `ensemble_vote` with `enterVotes=2,exitVotes=0`,
+eight equal 4h sleeves, `--vol-target 0.30`, and `--vol-window 90`. I checked
+it against its members, the previous `exitVotes=1` hysteresis, and causal
+inverse-volatility sleeve weighting using the identical eight-symbol universe:
+`BTC`, `ETH`, `XRP`, `LTC`, `DOGE`, `TRX`, `ADA`, and `SOL`. The fixed window was
+the common pre-2024 development history from `2021-01-01` through
+`2023-12-31`; because SOL is newer, this produces 4,343 common 4h bars, about
+1.98 years. The 2024+ holdout was not used.
+
+| configuration | Sharpe | excess Sharpe | max drawdown |
+|---|---:|---:|---:|
+| deployed ensemble, equal sleeves, `2/0` | 0.95 | 0.87 | 20.08% |
+| TSMOM only, equal sleeves | **1.02** | **0.94** | **15.52%** |
+| Faber MA only, equal sleeves | 0.57 | 0.49 | 22.45% |
+| Donchian only, equal sleeves | 0.32 | 0.24 | 16.47% |
+| ensemble, equal sleeves, previous `2/1` exit | 0.66 | 0.58 | **19.64%** |
+| ensemble `2/0`, inverse-vol sleeves | **1.11** | **1.03** | 21.37% |
+
+**Conclusion:** the deployed equal-weight ensemble is not the best result on
+this development window. The inverse-volatility ensemble is the strongest
+configuration tested by Sharpe, while TSMOM alone has the lowest drawdown and
+slightly better Sharpe than the deployed configuration. The advantage is not
+statistically established: the portfolio Sharpe standard error on this roughly
+two-year window is `0.71`, and the alternatives were inspected after the live
+configuration was already known.
+
+This is therefore a new research lead, not a live-change recommendation. The
+live book remains unchanged until an exact eight-sleeve candidate is
+pre-registered, tested on chronological development folds, and then judged on
+the untouched forward period. No result in this section authorizes deployment
+or uses the 2024+ holdout.
 
 ## Evolution, and why its old results were meaningless
 

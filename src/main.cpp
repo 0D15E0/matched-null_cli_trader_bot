@@ -13,6 +13,7 @@
 #include "strategy/pattern_strategy.h"
 #include "strategy/hurst_regime_filter.h"
 #include "backtest/engine.h"
+#include "backtest/portfolio_benchmark.h"
 #include "math/spiral.h"
 #include "trading/live_trader.h"
 #include "trading/paper_trading_client.h"
@@ -82,6 +83,7 @@ void printUsage() {
         "                     [--strategy tsmom] [--vol-target 0.20]\n"
         "                     [--weights equal|invvol] [--vol-lookback 120]\n"
         "                     [--rebalance 30] [--start DATE] [--end DATE]\n"
+        "                     [--warmup-bars 80]\n"
         "                  [--fib-pivot 10] [--fib-min-swing-atr 4] [--fib-target -0.272]\n"
         "                  [--fib-stop 1.05] [--fib-ichimoku 0|1|2] [--fib-no-trend-exit]\n"
         "  cli_trader xsmom --envs BTC_USDT:14400,ETH_USDT:14400,XRP_USDT:14400\n"
@@ -689,6 +691,11 @@ std::optional<std::vector<Environment>> loadEnvironments(const std::map<std::str
 
     auto startFlag = flags.count("start") ? parseTimestampFlag(flags.at("start")) : std::nullopt;
     auto endFlag   = flags.count("end")   ? parseTimestampFlag(flags.at("end"))   : std::nullopt;
+    int warmupBars = flagInt(flags, "warmup-bars", 0);
+    if (warmupBars < 0)
+        throw std::runtime_error("--warmup-bars cannot be negative");
+    if (warmupBars > 0 && !startFlag.has_value())
+        throw std::runtime_error("--warmup-bars requires --start so the scored window is explicit");
 
     std::vector<std::pair<std::optional<int64_t>, std::optional<int64_t>>> regimes;
     if (flags.count("regimes")) {
@@ -725,7 +732,16 @@ std::optional<std::vector<Environment>> loadEnvironments(const std::map<std::str
         } else {
             CandleSeries s = full;
             if (startFlag.has_value() || endFlag.has_value()) {
-                s = s.slice(startFlag, endFlag);
+                if (warmupBars > 0 && startFlag.has_value()) {
+                    size_t boundary = 0;
+                    while (boundary < full.size() &&
+                           full.timestamp[boundary] < *startFlag) ++boundary;
+                    size_t warmStart = boundary > static_cast<size_t>(warmupBars)
+                                           ? boundary - static_cast<size_t>(warmupBars) : 0;
+                    s = full.slice(full.timestamp[warmStart], endFlag);
+                } else {
+                    s = s.slice(startFlag, endFlag);
+                }
                 if (s.empty()) {
                     std::cerr << "No candles for " << e.first << " in the requested --start/--end range.\n";
                     return std::nullopt;
@@ -1962,7 +1978,8 @@ int cmdOrderSpectrum(const std::map<std::string, std::string>& flags) {
 // detail that turns a portfolio result into a fiction.
 //
 // THE BENCHMARK is an equal-weight basket of the same instruments, bought at
-// the first common bar and held, charged the same entry fee and slippage. Not
+// the first common bar and held, charged the same entry and liquidation fee
+// and slippage. Not
 // rebalanced: "holding" means holding. A rebalanced basket is a strategy, and
 // comparing against it would be crediting this command for a decision the
 // do-nothing alternative never makes.
@@ -1978,6 +1995,7 @@ struct Sleeve {
     std::string label;
     const CandleSeries* series = nullptr;
     std::vector<double> equity;   // aligned with series index
+    size_t equityOffset = 0;      // first series index represented in equity
     BacktestReport report;
 };
 
@@ -2002,6 +2020,11 @@ int cmdPortfolio(const std::map<std::string, std::string>& flags) {
 
     BacktestConfig config = buildBacktestConfig(flags);
     config.startingEquity = 1.0;   // sizing is scale-free; combine by weight
+    if (flags.count("warmup-bars") && flags.count("start")) {
+        config.evaluateFromTimestamp = *parseTimestampFlag(flags.at("start"));
+        std::cout << "Window: portfolio scores from " << flags.at("start")
+                  << " with " << flags.at("warmup-bars") << " warm-up bars\n";
+    }
 
     // 1. Run every sleeve through the ordinary single-instrument engine.
     std::vector<Sleeve> sleeves;
@@ -2023,8 +2046,13 @@ int cmdPortfolio(const std::map<std::string, std::string>& flags) {
         s.series = &e.series;
         s.report = engine.run(e.series, *strategy);
         s.equity = s.report.equityCurve;
-        if (s.equity.size() != e.series.size()) {
-            std::cerr << "internal: equity curve length mismatch for " << e.label << "\n";
+        while (s.equityOffset < e.series.size() &&
+               config.evaluateFromTimestamp > 0 &&
+               e.series.timestamp[s.equityOffset] < config.evaluateFromTimestamp) {
+            ++s.equityOffset;
+        }
+        if (s.equity.size() + s.equityOffset != e.series.size()) {
+            std::cerr << "internal: scored equity curve length mismatch for " << e.label << "\n";
             return 1;
         }
         sleeves.push_back(std::move(s));
@@ -2040,6 +2068,10 @@ int cmdPortfolio(const std::map<std::string, std::string>& flags) {
             for (int64_t t : s.series->timestamp) seen[t]++;
         for (const auto& kv : seen)
             if (kv.second == sleeves.size()) grid.push_back(kv.first);
+    }
+    if (config.evaluateFromTimestamp > 0) {
+        auto firstScored = std::lower_bound(grid.begin(), grid.end(), config.evaluateFromTimestamp);
+        grid.erase(grid.begin(), firstScored);
     }
     if (grid.size() < 200) {
         std::cerr << "Only " << grid.size() << " timestamps are common to all "
@@ -2064,8 +2096,13 @@ int cmdPortfolio(const std::map<std::string, std::string>& flags) {
     std::vector<std::vector<double>> ret(N, std::vector<double>(T, 0.0));
     for (size_t i = 0; i < N; ++i)
         for (size_t t = 1; t < T; ++t) {
-            double prev = sleeves[i].equity[idx[i][t - 1]];
-            double cur = sleeves[i].equity[idx[i][t]];
+            if (idx[i][t - 1] < sleeves[i].equityOffset || idx[i][t] < sleeves[i].equityOffset) {
+                std::cerr << "internal: portfolio grid includes an unscored warm-up bar for "
+                          << sleeves[i].label << "\n";
+                return 1;
+            }
+            double prev = sleeves[i].equity[idx[i][t - 1] - sleeves[i].equityOffset];
+            double cur = sleeves[i].equity[idx[i][t] - sleeves[i].equityOffset];
             ret[i][t] = (prev > 0.0 && std::isfinite(prev) && std::isfinite(cur))
                             ? cur / prev - 1.0 : 0.0;
         }
@@ -2102,18 +2139,13 @@ int cmdPortfolio(const std::map<std::string, std::string>& flags) {
     }
     for (size_t i = 0; i < N; ++i) avgWeight[i] /= static_cast<double>(T - 1);
 
-    // 5. Equal-weight buy-and-hold basket over the same grid, same entry cost.
-    const double entryCost = 1.0 - (config.feePct + config.slippagePct);
-    std::vector<double> basket(T, 0.0);
-    for (size_t t = 0; t < T; ++t) {
-        double v = 0.0;
-        for (size_t i = 0; i < N; ++i) {
-            double p0 = sleeves[i].series->close[idx[i][0]];
-            double pt = sleeves[i].series->close[idx[i][t]];
-            if (p0 > 0.0) v += (1.0 / static_cast<double>(N)) * (pt / p0);
-        }
-        basket[t] = v * entryCost;
-    }
+    // 5. Equal-weight buy-and-hold basket over the same grid. It uses the
+    // same next-open entry and end-of-window liquidation friction as a sleeve.
+    std::vector<const CandleSeries*> benchmarkSeries;
+    benchmarkSeries.reserve(N);
+    for (const auto& s : sleeves) benchmarkSeries.push_back(s.series);
+    std::vector<double> basket = equalWeightBuyAndHoldCurve(
+        benchmarkSeries, idx, config.feePct, config.slippagePct);
 
     // 6. Measure both with the engine's own statistics code.
     double span = static_cast<double>(grid.back() - grid.front());

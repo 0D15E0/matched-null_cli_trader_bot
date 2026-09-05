@@ -1,3 +1,94 @@
+# Development Portfolio Sweep
+
+`dev_portfolio_sweep.py` compares a fixed candidate set on the development
+window only. Its end date is deliberately compiled into the script as
+`2023-12-31`; there is no command-line option that can expand the search into
+the frozen or forward-test periods.
+
+```sh
+python3 experiments/dev_portfolio_sweep.py \
+  --output /tmp/dev_portfolio_sweep.json
+```
+
+The output records the exact command for every candidate, the risk target,
+the weighting mode, the Sharpe standard error, and the maximum drawdown. The
+ranking is exploratory and must not be treated as validation or deployment
+evidence. A candidate becomes eligible for a new forward test only after its
+exact rule, parameters, primary metric, and kill criterion have been written
+down separately.
+
+`dev_portfolio_walkforward.py` runs the frozen shortlist over three
+chronological development folds with an 80-bar causal warm-up prefix:
+
+```sh
+python3 experiments/dev_portfolio_walkforward.py \
+  --output /tmp/dev_portfolio_walkforward.json
+```
+
+This measures stability, not an untouched out-of-sample result. The shortlist
+was selected using development data, and the 2024+ and live-forward periods
+remain outside this runner.
+
+## Hypothesis Registry
+
+`research_protocol.py` is the discovery and kill layer. A candidate is
+registered with its exact claim, strategy, risk target, primary metric, and
+kill rules. It can then be evaluated once on the fixed development folds:
+
+```sh
+python3 experiments/research_protocol.py new \
+  --id donchian-vt020 \
+  --hypothesis "Donchian trend following improves portfolio risk-adjusted return." \
+  --strategy donchian --vol-target 0.20
+
+python3 experiments/research_protocol.py validate donchian-vt020
+python3 experiments/research_protocol.py run donchian-vt020
+python3 experiments/research_protocol.py list
+```
+
+`run` records every fold command and applies the kill rules automatically. A
+candidate that fails becomes permanently `killed`; a candidate that passes is
+marked `survives_development`, which is not permission to trade. Candidates
+are single-run by design, so tuning after seeing the result requires a new id
+and a new hypothesis. A completed kill returns exit code `1`; protocol or
+execution errors return exit code `2`. The registry never accepts an evaluation
+date and cannot read the frozen holdout through this interface.
+
+The candidate schema also supports explicit variations without mutating an
+earlier result. `--sparams` passes bounded strategy-family parameters to the
+CLI, `--weights invvol` tests causal inverse-volatility portfolio construction
+with explicit `--vol-lookback` and `--rebalance`, and `--hurst-filter` tests a
+regime gate with an explicit estimator and window. Every change to any of
+these fields requires a new hypothesis id:
+
+```sh
+python3 experiments/research_protocol.py new \
+  --id tsmom-invvol-hurst055 \
+  --hypothesis "TSMOM improves when inverse-volatility weighting and a trend regime gate reduce exposure to noisy sleeves." \
+  --strategy tsmom --sparams "lookbackWindow=120" --vol-target 0.20 \
+  --weights invvol --vol-lookback 120 --rebalance 30 \
+  --hurst-filter 0.55 --hurst-estimator sf --hurst-window 200
+```
+
+## Causal inverse-volatility ensemble sweep
+
+See [ENSEMBLE_INVOL.md](../docs/ENSEMBLE_INVOL.md) for the plain-English
+strategy description and the interpretation of the first results.
+
+`ensemble_invvol_timeframe_sweep.py` explores the deployed `ensemble_vote`
+signal with causal inverse-volatility sleeve weights across derived 30m, 1h,
+2h, 4h, and 1d eight-asset stores. The date range, universe, candidate grid,
+and pre-2024 boundary are fixed in the script:
+
+```sh
+python3 experiments/ensemble_invvol_timeframe_sweep.py
+```
+
+It tests calendar-day-normalized volatility memories and rebalance intervals at
+20% and 30% sleeve targets. The output defaults to `/tmp` and records every
+exact command. It is an exploratory sweep; changing a winning row requires a
+new hypothesis ID and a new evaluation under the research protocol.
+
 # The (instrument, timeframe) order gate
 
 Does the logarithmic-spiral order estimator identify **where** trend following

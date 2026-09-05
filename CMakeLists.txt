@@ -29,3 +29,14 @@ target_link_libraries(cli_trader PRIVATE CURL::libcurl Threads::Threads nlohmann
 add_subdirectory(experiments/tools)
 
 enable_testing()
+
+add_executable(portfolio_benchmark_test tests/portfolio_benchmark_test.cpp)
+target_include_directories(portfolio_benchmark_test PRIVATE src)
+add_test(NAME portfolio_benchmark COMMAND portfolio_benchmark_test)
+
+find_package(Python3 COMPONENTS Interpreter)
+if(Python3_Interpreter_FOUND)
+  add_test(NAME research_protocol
+           COMMAND ${Python3_EXECUTABLE} -m unittest tests/research_protocol_test.py)
+  set_tests_properties(research_protocol PROPERTIES WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
+endif()
