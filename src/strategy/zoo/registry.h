@@ -11,6 +11,7 @@
 #include "afml.h"
 #include "breakout.h"
 #include "controls.h"
+#include "conviction_breakout.h"
 #include "ensemble.h"
 #include "ensemble_rule.h"
 #include "ensemble_tuned.h"
@@ -183,6 +184,21 @@ inline const std::vector<FamilySpec>& families() {
                 p.entryWindow = ip(v, 0); p.exitWindow = ip(v, 1);
                 p.atrWindow = ip(v, 2); p.atrStopMult = dp(v, 3);
                 return std::make_unique<DonchianStrategy>(p);
+            }});
+
+        f.push_back({"conviction_breakout", "causal range escape + rising Faber regime + momentum confirmation",
+            {{"entryWindow", 20, 250, 55, true}, {"exitWindow", 5, 120, 20, true},
+             {"trendWindow", 50, 400, 200, true}, {"slopeWindow", 5, 60, 20, true},
+             {"momentumWindow", 20, 250, 90, true}, {"momentumThreshold", -0.05, 0.20, 0.0, false},
+             {"atrWindow", 5, 60, 20, true}, {"breakoutAtr", 0.0, 2.0, 0.25, false},
+             {"stopAtr", 1.0, 8.0, 3.0, false}},
+            [](const std::vector<double>& v) {
+                ConvictionBreakoutParams p;
+                p.entryWindow = ip(v, 0); p.exitWindow = ip(v, 1);
+                p.trendWindow = ip(v, 2); p.slopeWindow = ip(v, 3);
+                p.momentumWindow = ip(v, 4); p.momentumThreshold = dp(v, 5);
+                p.atrWindow = ip(v, 6); p.breakoutAtr = dp(v, 7); p.stopAtr = dp(v, 8);
+                return std::make_unique<ConvictionBreakoutStrategy>(p);
             }});
 
         f.push_back({"squeeze_breakout", "Bollinger bandwidth contraction; volatility clustering (Engle 1982)",

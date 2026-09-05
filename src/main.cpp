@@ -536,6 +536,49 @@ std::vector<double> zooParamsFor(const zoo::FamilySpec& fam, const std::string& 
     return values;
 }
 
+void rejectMixedStrategyConfiguration(const std::string& name,
+                                      const std::map<std::string, std::string>& flags) {
+    if (!flags.count("sparams")) return;
+
+    std::vector<std::string> conflicts;
+    auto addIfPresent = [&](const char* flag) {
+        if (flags.count(flag)) conflicts.emplace_back("--" + std::string(flag));
+    };
+
+    if (name == "odiseo") {
+        addIfPresent("profile");
+        addIfPresent("volume-mode");
+        addIfPresent("vol-window-bars");
+        addIfPresent("vol-confirm-mult");
+        addIfPresent("obv-window");
+    } else if (name == "tsmom") {
+        addIfPresent("entry-sigmas");
+    } else if (name == "fib_ichimoku") {
+        for (const char* flag : {"fib-pivot", "fib-min-swing-atr", "fib-max-age",
+                                 "fib-entry-near", "fib-entry-far", "fib-target",
+                                 "fib-stop", "fib-ichimoku", "fib-no-trend-exit"})
+            addIfPresent(flag);
+    } else if (name == "patterns") {
+        for (const char* flag : {"pat-pivot", "pat-min-atr", "pat-max-bars", "pat-level-tol",
+                                 "pat-target-mult", "pat-stop-frac", "pat-vol-mult",
+                                 "pat-harmonic-tol", "pat-candle", "pat-volume",
+                                 "pat-exit-bear", "pat-only"})
+            addIfPresent(flag);
+    } else if (name == "darvas") {
+        for (const char* flag : {"box-pivot", "box-min-bars", "box-max-bars", "box-max-width",
+                                 "box-min-swing-atr", "box-vol-mult", "box-vol-window",
+                                 "box-target", "box-stop-cushion", "box-no-volume", "box-no-trail"})
+            addIfPresent(flag);
+    }
+
+    if (conflicts.empty()) return;
+    std::string joined;
+    for (const auto& flag : conflicts)
+        joined += (joined.empty() ? "" : ", ") + flag;
+    throw std::runtime_error("--sparams cannot be combined with " + joined + " for strategy '" +
+                             name + "'; use registry parameters or the strategy-specific options, not both");
+}
+
 std::unique_ptr<Strategy> makeStrategy(const std::string& name, const std::string& symbol,
                                         const std::string& profileOverride,
                                         const std::string& genomeFile = "",
@@ -545,7 +588,9 @@ std::unique_ptr<Strategy> makeStrategy(const std::string& name, const std::strin
                                         DarvasParams darvasParams = {},
                                         TsmomParams tsmomParams = {},
                                         PatternParams patParams = {},
-                                        const std::string& zooOverrides = "") {
+                                        const std::string& zooOverrides = "",
+                                        const std::map<std::string, std::string>& flags = {}) {
+    rejectMixedStrategyConfiguration(name, flags);
     std::unique_ptr<Strategy> strategy;
     // Registry families first: they are the ones the tournament searches, so
     // "what the tournament found" and "what backtest runs" must be the same
@@ -1224,7 +1269,7 @@ int cmdBacktest(const std::map<std::string, std::string>& flags) {
                                   flags.count("genome-file") > 0, buildFibParams(flags),
                                   buildVolumeOverride(flags), buildDarvasParams(flags),
                                   buildTsmomParams(flags), buildPatternParams(flags),
-                                  flags.count("sparams") ? flags.at("sparams") : "");
+                                  flags.count("sparams") ? flags.at("sparams") : "", flags);
     if (!strategy) {
         std::cerr << "Unknown strategy '" << strategyName << "'. Use list-strategies.\n";
         return 1;
@@ -1344,7 +1389,7 @@ int cmdRun(const std::map<std::string, std::string>& flags) {
                                   flags.count("genome-file") > 0, buildFibParams(flags),
                                   buildVolumeOverride(flags), buildDarvasParams(flags),
                                   buildTsmomParams(flags), buildPatternParams(flags),
-                                  flags.count("sparams") ? flags.at("sparams") : "");
+                                  flags.count("sparams") ? flags.at("sparams") : "", flags);
     if (!strategy) {
         std::cerr << "Unknown strategy '" << strategyName << "'. Use list-strategies.\n";
         return 1;
@@ -1516,7 +1561,7 @@ int cmdParity(const std::map<std::string, std::string>& flags) {
                                   flags.count("genome-file") > 0, buildFibParams(flags),
                                   buildVolumeOverride(flags), buildDarvasParams(flags),
                                   buildTsmomParams(flags), buildPatternParams(flags),
-                                  flags.count("sparams") ? flags.at("sparams") : "");
+                                  flags.count("sparams") ? flags.at("sparams") : "", flags);
     if (!strategy) {
         std::cerr << "Unknown strategy '" << strategyName << "'.\n";
         return 1;
@@ -2034,7 +2079,7 @@ int cmdPortfolio(const std::map<std::string, std::string>& flags) {
                                       flags.count("genome-file") > 0, buildFibParams(flags),
                                   buildVolumeOverride(flags), buildDarvasParams(flags),
                                   buildTsmomParams(flags), buildPatternParams(flags),
-                                  flags.count("sparams") ? flags.at("sparams") : "");
+                                  flags.count("sparams") ? flags.at("sparams") : "", flags);
         if (!strategy) {
             std::cerr << "Unknown --strategy '" << strategyName << "'\n";
             return 1;
