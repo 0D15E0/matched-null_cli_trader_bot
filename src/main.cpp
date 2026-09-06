@@ -1325,10 +1325,23 @@ int cmdListStrategies() {
         std::cout << "  " << std::left << std::setw(20) << f.name << f.provenance << "\n";
         if (f.params.empty()) { std::cout << std::setw(22) << " " << "(no tunable parameters)\n"; continue; }
         std::cout << std::setw(22) << " ";
+        // Integer parameters print as integers, real ones always with a
+        // decimal point, so a reader of this text can tell which values the
+        // registry will round (zooParamsFor rounds isInt parameters). The
+        // local research supervisor relies on that to canonicalise proposals:
+        // enterVotes=2.5 and enterVotes=3 run the same rule and must hash the
+        // same. Previously both kinds printed alike ("2 [1..3]" vs "0 [0..5]").
+        auto num = [](double v, bool isInt) {
+            if (isInt) return std::to_string(std::lround(v));
+            std::ostringstream o; o << v;
+            std::string t = o.str();
+            if (t.find('.') == std::string::npos && t.find('e') == std::string::npos) t += ".0";
+            return t;
+        };
         for (size_t i = 0; i < f.params.size(); ++i) {
             const auto& p = f.params[i];
-            std::cout << p.name << "=" << p.def << " [" << p.lo << ".." << p.hi << "]"
-                      << (i + 1 < f.params.size() ? ", " : "");
+            std::cout << p.name << "=" << num(p.def, p.isInt) << " [" << num(p.lo, p.isInt) << ".."
+                      << num(p.hi, p.isInt) << "]" << (i + 1 < f.params.size() ? ", " : "");
         }
         std::cout << "\n";
     }
