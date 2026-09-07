@@ -52,6 +52,68 @@ the time. Two honest caveats: **+0.29 excess Sharpe is about one standard
 error**, so this is encouraging rather than established; and this combination
 was chosen by looking at the data, which is its own mild selection bias.
 
+### Volatility targeting is a leverage dial
+
+The claim that volatility targeting "is the one result that reproduces" needs
+to be stated precisely, because it is easy to read as "it improves Sharpe". It
+does not. What it does is let you choose your drawdown.
+
+Four protocol coins (BTC, ETH, XRP, LTC at 4h), equal weight, 2018-01-01 to
+2023-12-31, 600 warm-up bars, 30-bar volatility window, fees and slippage at
+the defaults. Only `--vol-target` changes between rows.
+
+| vol target | `tsmom` Sharpe | CAGR | max DD | | `ensemble_vote` Sharpe | CAGR | max DD |
+|---|---|---|---|---|---|---|---|
+| all-in | 1.07 | 36.6% | 47.4% | | 1.04 | 40.7% | 42.5% |
+| 0.10 | 1.13 | 10.9% | 12.0% | | 1.05 | 9.8% | 9.6% |
+| 0.15 | 1.15 | 16.0% | 17.4% | | 1.06 | 14.4% | 14.1% |
+| 0.20 | 1.16 | 20.7% | 22.4% | | 1.08 | 18.7% | 18.4% |
+| 0.30 | 1.12 | 27.3% | 31.3% | | 1.05 | 24.7% | 27.0% |
+| 0.40 | 1.08 | 31.1% | 38.7% | | 1.01 | 28.3% | 34.1% |
+
+Sharpe standard error on this window: ±0.41. Every Sharpe in the table is
+inside one standard error of every other in its column. Return and drawdown,
+meanwhile, move almost linearly with the target, until the 100% exposure cap
+bends the top of the ladder: CAGR per unit of target falls from about 1.1 at
+0.10 to about 0.8 at 0.40, and drawdown starts growing faster than return.
+
+Two consequences follow. The target is a risk setting, not a signal claim, so
+choosing it is a decision about how much drawdown you are willing to hold, and
+nothing else. And **two configurations at different vol targets cannot be
+compared on Sharpe, return, or drawdown alone**; the standing rule in this
+repository is to de-lever the stronger one to the other's drawdown first, then
+compare. Most "improvements" that skip that step are the dial being turned.
+
+### Diversification is arithmetic
+
+Same setup as the ladder, `tsmom` at vol target 0.20, each coin traded alone
+and then all four as an equal-weight portfolio. The portfolio report prints the
+number this subsection is about, so what follows is the tool's own output, not
+an interpretation of it.
+
+| | Sharpe | max DD | trades |
+|---|---|---|---|
+| BTC alone | 1.30 | 39.7% | 46 |
+| ETH alone | 0.74 | 34.8% | 46 |
+| XRP alone | 0.77 | 38.5% | 41 |
+| LTC alone | 0.65 | 27.6% | 37 |
+| mean of the four | 0.87 | | |
+| **equal-weight portfolio of the four** | **1.16** | 22.4% | 170 |
+| equal-weight buy-and-hold basket of the four | 0.51 | 88.9% | |
+
+Average pairwise sleeve correlation: 0.43. Four sleeves with a mean Sharpe of
+0.87 and that correlation should combine to about 1.15 (mean × √(N ⁄ (1 +
+(N−1)ρ))). Achieved: 1.16. Nothing about the future went into that prediction;
+only the sleeves' standalone quality and how much they move together.
+
+Two honest notes. The portfolio does **not** beat its best sleeve: BTC alone
+scored 1.30. But you would have had to know in advance which sleeve that would
+be, and [TOURNAMENT.md](TOURNAMENT.md) is the record of why you cannot. What
+diversification buys is the mean plus a third, with no forecast required. And
+the per-sleeve drawdowns are intrabar-aware while the portfolio's is
+close-to-close, so the 22.4% is not directly comparable with the rows above it;
+the report says so, and the fair comparison is the Sharpe column.
+
 ### What changed in the portfolio benchmark
 
 Portfolio results now combine sleeves on a common timestamp grid and compare

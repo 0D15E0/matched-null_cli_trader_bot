@@ -228,11 +228,11 @@ a control number moves, check the bar count before you check the code.
 Short version, with the evidence behind each link:
 
 - **Buy-and-hold usually wins.** Across four symbols and four strategies, 15 of
-  16 combinations lose to it on risk-adjusted return. [docs/RESULTS.md](docs/RESULTS.md)
+  16 combinations lose to it on risk-adjusted return. [docs/RESULTS.md](docs/RESULTS.md#what-the-numbers-actually-look-like)
 - **Volatility targeting is the one result that reproduces.** It is a leverage
-  dial: return and drawdown scale together while Sharpe stays flat. [docs/RESULTS.md](docs/RESULTS.md)
+  dial: return and drawdown scale together while Sharpe stays flat. [docs/RESULTS.md](docs/RESULTS.md#volatility-targeting-is-a-leverage-dial)
 - **Portfolio construction beats signal selection.** Combining imperfectly
-  correlated sleeves is arithmetic, not forecasting. [docs/RESULTS.md](docs/RESULTS.md)
+  correlated sleeves is arithmetic, not forecasting. [docs/RESULTS.md](docs/RESULTS.md#diversification-is-arithmetic), reasoning in [docs/STRATEGY.md](docs/STRATEGY.md)
 - **Large searches mostly find luck.** ~53,000 genomes across 24 families; among
   plausible candidates, in-sample rank carries no out-of-sample information, and
   coin flips ranked first in 4 of 12 runs. [docs/TOURNAMENT.md](docs/TOURNAMENT.md)
