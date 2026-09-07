@@ -131,6 +131,54 @@ void testCausalityAllLeaves() {
     check(mism == 0, "truncating the series changed " + std::to_string(mism) + " signals before the cut");
     check(nonHold > 50, "causality test exercised real signals (" + std::to_string(nonHold) + ")");
 }
+
+// The memory-order leaf runs an expensive estimator over a trailing window and
+// holds the value between refits. Both halves are causality risks: a window
+// that reached forward, or a refit schedule anchored to the END of the series,
+// would leak. This checks the leaf ALONE (the combined test above cannot say
+// which leaf broke) and checks that it actually varies - a constant-false leaf
+// would pass any invariance test trivially.
+void testMemoryOrderCausal() {
+    const int64_t period = 14400;
+    CandleSeries coin = synthetic("BTC_USDT", 1'500'000'000, period, 4000, 7, 0.0002, 0.02);
+    std::string path = writeSpec("memory_order", R"({
+      "entry":{"all":[{"type":"memory_order_above","window":400,"threshold":0.0}]},
+      "exit":{"any":[{"type":"memory_order_below","window":400,"threshold":0.0}]},
+      "max_hold_bars":0})");
+    SpecStrategy full(path), cut(path);
+    CandleSeries prefix = coin.slice(std::nullopt, coin.timestamp[2999]);
+    full.prepare(coin); cut.prepare(prefix);
+    size_t mism = 0, buys = 0, sells = 0;
+    for (size_t i = 0; i < prefix.size(); ++i) {
+        PositionContext flat, held;
+        size_t e = i > 40 ? i - 40 : 0;
+        held.open(coin.close[e], coin.timestamp[e], e);
+        for (size_t j = e; j <= i; ++j) held.observe(coin.close[j]);
+        if (full.onBar(coin, i, flat) != cut.onBar(prefix, i, flat)) ++mism;
+        if (full.onBar(coin, i, held) != cut.onBar(prefix, i, held)) ++mism;
+        buys += full.onBar(coin, i, flat) == Signal::Buy;
+        sells += full.onBar(coin, i, held) == Signal::Sell;
+    }
+    check(mism == 0, "memory_order: truncation changed " + std::to_string(mism) + " signals before the cut");
+    check(buys > 0 && sells > 0,
+          "memory_order fires both ways (buys " + std::to_string(buys) + ", sells " +
+          std::to_string(sells) + ") - a constant leaf would pass invariance trivially");
+    // The window floor exists because the estimator needs >= 200 samples and
+    // >= 32 usable ACF lags; a short window must be refused, not degraded.
+    for (auto [bad, why] : {std::pair<const char*, const char*>{
+             R"({"entry":{"all":[{"type":"memory_order_above","window":50,"threshold":-1.0}]},
+                 "exit":{"any":[{"type":"memory_order_below","window":400,"threshold":-1.0}]},"max_hold_bars":0})",
+             "window below 300 is rejected"},
+         {R"({"entry":{"all":[{"type":"memory_order_above","window":400,"threshold":3.0}]},
+              "exit":{"any":[{"type":"memory_order_below","window":400,"threshold":-1.0}]},"max_hold_bars":0})",
+          "threshold outside [-1.5,1.0] is rejected"}}) {
+        bool threw = false;
+        try { SpecStrategy reject(writeSpec("memory_order_bad", bad)); }
+        catch (const std::exception&) { threw = true; }
+        check(threw, std::string("memory_order ") + why);
+    }
+}
+
 } // namespace
 
 int main() {
@@ -138,6 +186,7 @@ int main() {
     testZscoreMatchesTsmom();
     testAtrTrailingStop();
     testCausalityAllLeaves();
+    testMemoryOrderCausal();
     if (failures) { std::cerr << failures << " spec_strategy check(s) failed\n"; return 1; }
     std::cout << "spec_strategy: all checks passed\n";
     return 0;

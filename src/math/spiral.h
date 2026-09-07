@@ -94,6 +94,12 @@ std::vector<std::complex<double>> truncatedLaplace(const std::vector<double>& y,
                                                     double dt,
                                                     const std::vector<std::complex<double>>& s);
 
+// Normalized autocorrelation of a series out to `maxLag` (clamped to n/4).
+// This is the input spiralOrder expects: applied to |log returns| it measures
+// volatility memory, applied to log returns themselves, return memory.
+// Returns {} if the series is too short or has zero variance.
+std::vector<double> autocorrelation(const std::vector<double>& series, size_t maxLag);
+
 // The spiral contour itself, plus the sample spacing du used to convert nodes
 // back into orders.
 std::vector<std::complex<double>> spiralContour(const SpiralConfig& cfg, double& duOut);

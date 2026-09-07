@@ -44,7 +44,8 @@ add_test(NAME factor_trend COMMAND factor_trend_test)
 # generated_spec is not a registry family, so causality_check never sees it;
 # this test is its truncation-invariance check and its leaf-semantics check.
 add_executable(spec_strategy_test tests/spec_strategy_test.cpp
-    src/core/candle_store.cpp src/indicators/indicators.cpp)
+    src/core/candle_store.cpp src/indicators/indicators.cpp
+    src/math/spiral.cpp src/math/pencil.cpp)
 target_include_directories(spec_strategy_test PRIVATE src)
 target_link_libraries(spec_strategy_test PRIVATE nlohmann_json::nlohmann_json)
 add_test(NAME spec_strategy COMMAND spec_strategy_test)

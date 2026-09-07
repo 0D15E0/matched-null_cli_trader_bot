@@ -6,6 +6,26 @@
 
 namespace trader::mathx {
 
+std::vector<double> autocorrelation(const std::vector<double>& series, size_t maxLag) {
+    size_t n = series.size();
+    if (n < 4) return {};
+    maxLag = std::min(maxLag, n / 4);
+    double mean = 0.0;
+    for (double v : series) mean += v;
+    mean /= static_cast<double>(n);
+    double var = 0.0;
+    for (double v : series) var += (v - mean) * (v - mean);
+    if (var <= 0.0) return {};
+    std::vector<double> acf(maxLag + 1, 0.0);
+    for (size_t k = 0; k <= maxLag; ++k) {
+        double acc = 0.0;
+        for (size_t i = 0; i + k < n; ++i) acc += (series[i] - mean) * (series[i + k] - mean);
+        acf[k] = acc / var;
+    }
+    return acf;
+}
+
+
 std::vector<std::complex<double>> spiralContour(const SpiralConfig& cfg, double& duOut) {
     std::vector<std::complex<double>> s;
     int n = std::max(4, cfg.points);

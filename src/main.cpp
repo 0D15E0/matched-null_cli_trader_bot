@@ -1679,27 +1679,9 @@ int cmdParity(const std::map<std::string, std::string>& flags) {
 //     the same settings, every run.
 // ---------------------------------------------------------------------------
 
-// Normalized autocorrelation of |log returns| (the volatility proxy) or of the
-// log returns themselves, out to `maxLag`.
-std::vector<double> autocorrelation(const std::vector<double>& series, size_t maxLag) {
-    size_t n = series.size();
-    if (n < 4) return {};
-    maxLag = std::min(maxLag, n / 4);
-    double mean = 0.0;
-    for (double v : series) mean += v;
-    mean /= static_cast<double>(n);
-
-    std::vector<double> acf(maxLag + 1, 0.0);
-    double var = 0.0;
-    for (double v : series) var += (v - mean) * (v - mean);
-    if (var <= 0.0) return {};
-    for (size_t k = 0; k <= maxLag; ++k) {
-        double s = 0.0;
-        for (size_t i = 0; i + k < n; ++i) s += (series[i] - mean) * (series[i + k] - mean);
-        acf[k] = s / var;
-    }
-    return acf;
-}
+// autocorrelation() now lives in math/spiral.h so the generated-spec leaf and
+// this command share one definition.
+using trader::mathx::autocorrelation;
 
 struct SpectrumRow {
     std::string label;

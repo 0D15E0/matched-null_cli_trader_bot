@@ -4,6 +4,7 @@
 #include "market_context.h"
 #include "zoo_common.h"
 #include "../../indicators/indicators.h"
+#include "../../math/spiral.h"
 #include <nlohmann/json.hpp>
 #include <algorithm>
 #include <cmath>
@@ -98,6 +99,7 @@ private:
         RsiAbove, RsiBelow, RelativeVolumeAbove, Weekday, GreenCandle, RedCandle,
         ZscoreReturnAbove, ZscoreReturnBelow, VolRankAbove, VolRankBelow,
         MarketZscoreAbove, MarketZscoreBelow, AtrTrailingStop,
+        MemoryOrderAbove, MemoryOrderBelow,
     };
 
     struct Node {
@@ -118,6 +120,79 @@ private:
                k == LeafKind::MarketZscoreAbove || k == LeafKind::MarketZscoreBelow;
     }
     static bool isVolRank(LeafKind k) { return k == LeafKind::VolRankAbove || k == LeafKind::VolRankBelow; }
+    static bool isMemoryOrder(LeafKind k) {
+        return k == LeafKind::MemoryOrderAbove || k == LeafKind::MemoryOrderBelow;
+    }
+
+    // ROLLING MEMORY ORDER. The logarithmic-spiral estimator (math/spiral.h)
+    // recovers the order alpha of a decaying autocorrelation: alpha ~ -1 is an
+    // integer order (exponential relaxation, ARMA-like), -1 < alpha < 0 is
+    // fractional (power-law memory, ACF ~ k^-(alpha+1)).
+    //
+    // Three things make this leaf honest rather than a repackaging of the
+    // manual (instrument, timeframe) gate in experiments/order_gate:
+    //
+    //   * CAUSAL. The estimate at bar i uses closes in [i-window+1, i] only.
+    //     The earlier gate ranked instruments on FULL-SAMPLE spectra, which is
+    //     why its own README says the shortlist is not an out-of-sample result.
+    //   * NOT ONE RADIUS. spiral.h is explicit that a single radius is not a
+    //     measurement, because every model looks wrong at large radius. The
+    //     estimate is the median alpha over the three small radii the gate
+    //     experiment's identification statistic uses.
+    //   * BOUNDED COST. The estimator is far too expensive per bar, so it is
+    //     refit every `window/40` bars (>= 10) and held between refits. The
+    //     cadence is DERIVED, not a searchable parameter: one more knob on a
+    //     statistic this noisy would be an invitation to overfit.
+    //
+    // NaN before the first full window, which prepareNode leaves as false.
+public:
+    // Test-only: the estimator is private, but its distribution has to be
+    // measurable to choose thresholds that actually split. Measured on BTC 4h,
+    // alpha runs about -0.8..+0.7 with a median near -0.2 (window 400-500),
+    // i.e. squarely in the fractional band -1 < alpha < 0.
+    static std::vector<double> memoryOrderForTest(const std::vector<double>& c, int w) { return memoryOrder(c, w); }
+private:
+    static std::vector<double> memoryOrder(const std::vector<double>& close, int window) {
+        const size_t n = close.size();
+        std::vector<double> out(n, std::numeric_limits<double>::quiet_NaN());
+        const size_t w = static_cast<size_t>(window);
+        if (n <= w || w < 200) return out;
+        // |log return| is the volatility proxy the order-spectrum command reads
+        // by default; it is the series whose memory the estimator characterises.
+        std::vector<double> absRet(n, 0.0);
+        for (size_t i = 1; i < n; ++i)
+            absRet[i] = (close[i] > 0.0 && close[i - 1] > 0.0)
+                            ? std::fabs(std::log(close[i] / close[i - 1])) : 0.0;
+        const size_t stride = std::max<size_t>(10, w / 40);
+        const std::vector<double> radii = {0.1, 0.03, 0.01};
+        double held = std::numeric_limits<double>::quiet_NaN();
+        size_t nextFit = w;
+        for (size_t i = w; i < n; ++i) {
+            if (i >= nextFit) {
+                nextFit = i + stride;
+                std::vector<double> win(absRet.begin() + static_cast<long>(i - w + 1),
+                                        absRet.begin() + static_cast<long>(i + 1));
+                auto acf = mathx::autocorrelation(win, w / 4);
+                if (acf.size() >= 32) {
+                    std::vector<double> alphas;
+                    for (double r : radii) {
+                        mathx::SpiralConfig cfg;
+                        cfg.radius = r;
+                        auto res = mathx::spiralOrder(acf, 1.0, cfg);
+                        if (res.ok && std::isfinite(res.alpha)) alphas.push_back(res.alpha);
+                    }
+                    if (alphas.size() == radii.size()) {
+                        std::sort(alphas.begin(), alphas.end());
+                        held = alphas[alphas.size() / 2];
+                    } else {
+                        held = std::numeric_limits<double>::quiet_NaN();
+                    }
+                }
+            }
+            out[i] = held;
+        }
+        return out;
+    }
 
     // tsmom's statistic: trailing return over `window` bars divided by its
     // expected dispersion, per-bar volatility * sqrt(window). NaN until warm
@@ -164,6 +239,14 @@ private:
         auto window = [&]() {
             if (!value.contains("window")) throw std::runtime_error("generated leaf requires window");
             int w = value.at("window").get<int>();
+            // The estimator needs a long window to see a power-law tail at all;
+            // math/spiral.h and the order-spectrum command both refuse fewer
+            // than 200 samples, and the ACF needs >= 32 usable lags on top.
+            if (isMemoryOrder(node->leaf)) {
+                if (w < 300 || w > 2000)
+                    throw std::runtime_error("memory_order window must be in [300,2000]");
+                return w;
+            }
             if (w < 2 || w > 600) throw std::runtime_error("generated leaf window must be in [2,600]");
             return w;
         };
@@ -188,6 +271,8 @@ private:
         else if (type == "market_zscore_above") node->leaf = LeafKind::MarketZscoreAbove;
         else if (type == "market_zscore_below") node->leaf = LeafKind::MarketZscoreBelow;
         else if (type == "atr_trailing_stop") node->leaf = LeafKind::AtrTrailingStop;
+        else if (type == "memory_order_above") node->leaf = LeafKind::MemoryOrderAbove;
+        else if (type == "memory_order_below") node->leaf = LeafKind::MemoryOrderBelow;
         else throw std::runtime_error("unknown generated leaf type: " + type);
 
         // Optional secondary windows belong to specific leaves only, so a
@@ -240,6 +325,11 @@ private:
                 throw std::runtime_error("vol_rank threshold is a percentile and must be in [0,1]");
             if (node->leaf == LeafKind::AtrTrailingStop && (node->threshold < 0.5 || node->threshold > 10.0))
                 throw std::runtime_error("atr_trailing_stop threshold is an ATR multiple and must be in [0.5,10]");
+            // Measured range on this repo's stores is about -0.8..+1.1; the
+            // model-meaningful band is alpha ~ -1 (integer order, exponential
+            // relaxation) up through 0 (fractional, power-law memory).
+            if (isMemoryOrder(node->leaf) && (node->threshold < -1.5 || node->threshold > 1.0))
+                throw std::runtime_error("memory_order threshold is an order and must be in [-1.5,1.0]");
         }
         return node;
     }
@@ -360,6 +450,14 @@ private:
                 if (zoo::ok(z)) node.truth[i] = node.leaf == LeafKind::MarketZscoreAbove
                     ? z > node.threshold : z < node.threshold;
             }
+            break;
+        }
+        case LeafKind::MemoryOrderAbove:
+        case LeafKind::MemoryOrderBelow: {
+            values = memoryOrder(s.close, node.window);
+            for (size_t i = 0; i < n; ++i)
+                if (zoo::ok(values[i])) node.truth[i] = node.leaf == LeafKind::MemoryOrderAbove
+                    ? values[i] > node.threshold : values[i] < node.threshold;
             break;
         }
         case LeafKind::AtrTrailingStop: {
