@@ -5,7 +5,7 @@ configuration of this engine in ordinary language, and — more importantly —
 why that configuration and not one of the thousands of others that were
 tried. It is an example built from the registered strategy families, not a
 recommendation and not a description of anyone's account. Operations live in
-[RUNBOOK.md](RUNBOOK.md); the strategy-search evidence lives in
+[RUNBOOK.md](../deploy/pi/RUNBOOK.md); the strategy-search evidence lives in
 [TOURNAMENT.md](TOURNAMENT.md).
 The research-only inverse-volatility portfolio variant is explained in
 [ENSEMBLE_INVOL.md](ENSEMBLE_INVOL.md).

@@ -3,7 +3,7 @@
 How the software is put together: the layers, what runs in which process and on
 which thread, the state machines, the file formats, and the invariants the code
 enforces. For *what the strategy does and why*, read [STRATEGY.md](STRATEGY.md);
-for *how to operate it*, [RUNBOOK.md](RUNBOOK.md).
+for *how to operate it*, [RUNBOOK.md](../deploy/pi/RUNBOOK.md).
 
 Every claim here was read out of the source. Line references are `file:line` at
 the time of writing; treat them as signposts, not guarantees.

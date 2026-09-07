@@ -31,8 +31,8 @@ a running example. It is not a description of any particular account, and the
 values here are illustrative.
 
 Deployment details, host requirements, and validation procedures:
-[deploy/pi/README.md](../deploy/pi/README.md). How the software itself is
-structured: [ARCHITECTURE.md](ARCHITECTURE.md).
+[deploy/pi/README.md](README.md). How the software itself is
+structured: [ARCHITECTURE.md](../../docs/ARCHITECTURE.md).
 
 ---
 

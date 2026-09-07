@@ -136,11 +136,11 @@ position the strategy wants. Paper mode needs no API keys and is charged the
 same fee and slippage the backtest charges.
 
 ```sh
-./build/cli_trader run --symbol BTC_USDT --period 14400 --strategy ensemble_vote \
-    --vol-target 0.30 --mode paper --poll-interval 60 --data-dir data --state-dir state
+./build/cli_trader run --symbol BTC_USDT --period 14400 --strategy tsmom \
+    --vol-target 0.20 --mode paper --poll-interval 60 --data-dir data --state-dir state
 
 ./build/cli_trader status --symbol BTC_USDT --state-dir state
-./build/cli_trader parity --symbol BTC_USDT --period 14400 --strategy ensemble_vote
+./build/cli_trader parity --symbol BTC_USDT --period 14400 --strategy tsmom
 ```
 
 What makes parity possible now:
@@ -190,7 +190,7 @@ is **not verified against a real account by this repository**; it carries a
 pre-flight checklist in its header. Keys are never hardcoded.
 
 Operating a deployment, including the failure modes worth monitoring, is in
-[docs/RUNBOOK.md](docs/RUNBOOK.md).
+[deploy/pi/RUNBOOK.md](deploy/pi/RUNBOOK.md).
 
 ## Data integrity
 
@@ -287,14 +287,13 @@ the shape of `PoloniexSource`.
 |---|---|
 | [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) | layers, processes, threads, state machines, with diagrams |
 | [docs/STRATEGY.md](docs/STRATEGY.md) | a worked configuration in plain English, and why it looks like that |
-| [docs/RUNBOOK.md](docs/RUNBOOK.md) | operating a deployment, and what normal looks like |
+| [deploy/pi/RUNBOOK.md](deploy/pi/RUNBOOK.md) | operating a deployment, and what normal looks like |
 | [docs/RESULTS.md](docs/RESULTS.md) | measured results and how the benchmarks are built |
 | [docs/NEGATIVE_RESULTS.md](docs/NEGATIVE_RESULTS.md) | what was tried and did not work |
 | [docs/RESEARCH_PROTOCOL.md](docs/RESEARCH_PROTOCOL.md) | hypothesis registration and kill rules |
 | [docs/TOURNAMENT.md](docs/TOURNAMENT.md) | the family-level strategy search |
 | [docs/EVOLUTION.md](docs/EVOLUTION.md) | parameter and rule evolution |
 | [docs/ORDER_SPECTRUM.md](docs/ORDER_SPECTRUM.md) | the memory-order estimator |
-| [docs/INDICATORS.md](docs/INDICATORS.md) | indicator semantics and past corrections |
 | [docs/ENSEMBLE_INVOL.md](docs/ENSEMBLE_INVOL.md) | inverse-volatility sleeve weighting (research variant) |
 
 ## License

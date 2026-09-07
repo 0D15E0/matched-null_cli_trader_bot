@@ -1,8 +1,8 @@
 # __TRADER_USER__ is a placeholder: substitute the account that owns the repo
 # before installing (see deploy/pi/README.md, "The host").
 [Unit]
-Description=cli_trader %i sleeve (ensemble_vote)
-Documentation=file:/home/__TRADER_USER__/trader/cli_trader/docs/RUNBOOK.md
+Description=cli_trader %i sleeve (strategy set in bot.env)
+Documentation=file:/home/__TRADER_USER__/trader/cli_trader/deploy/pi/RUNBOOK.md
 After=network-online.target time-sync.target
 Wants=network-online.target
 # HMAC request signing fails outright if the clock is wrong. Hosts without a
