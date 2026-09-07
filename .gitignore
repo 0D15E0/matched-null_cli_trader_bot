@@ -24,10 +24,21 @@ state_paper/
 .venv/
 .DS_Store
 .claude/
-# Research trail and roadmap: kept locally, not published. These carry the
-# real account's size and P&L, and a working-notes level of polish that the
-# published docs deliberately do not have.
+# Local working notes and roadmap: kept locally, not published.
 PROFITABILITY_PLAN.md
 VOLATILITY_TRADING_PLAN.md
 TODO.md
 cli_trader-old-history.bundle
+deploy/pi/bot-ehlers.env
+
+# Any runtime config or state, whatever it is named. The deployed values live
+# only on the host that runs them; the repository carries *.example templates.
+*.env
+!*.env.example
+deploy/pi/*.env
+!deploy/pi/*.env.example
+state_*/
+logs_*/
+*.sqlite3
+*.sqlite3-*
+*.lock

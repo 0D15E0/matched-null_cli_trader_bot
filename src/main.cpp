@@ -2838,8 +2838,8 @@ int cmdBalances(const std::map<std::string, std::string>& flags) {
     //
     // This used to price only currencies that happened to have a local candle
     // store, so anything else printed "(no mark)" and silently vanished from
-    // the total - the account showed 77 USDT less than it held (NEAR, FET,
-    // BTT, ETHW). A total that omits assets without saying so is worse than no
+    // the total, so it silently under-reported whenever the account held a
+    // currency with no local store. A total that omits assets without saying so is worse than no
     // total. One GET /markets/price covers every market; the local store is
     // kept only as an offline fallback.
     std::map<std::string, double> livePrice;

@@ -245,7 +245,7 @@ def book_line(sdir):
     if not total:
         return ""
     # Whole dollars, matching the /report footer: the cents on an aggregate
-    # are noise next to a $487 book.
+    # are noise at this book size.
     return (f"{longs}/{total} long · positions ${value:,.0f}"
             f" · realized {_signed_money(realized)}")
 

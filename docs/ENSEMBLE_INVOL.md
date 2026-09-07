@@ -1,7 +1,7 @@
 # The Ensemble with Causal Inverse-Volatility Weighting
 
 This document describes the research variant in plain English. It is not a
-live deployment instruction. The live book currently uses equal sleeve weights;
+deployment instruction. The reference configuration uses equal sleeve weights;
 the inverse-volatility version is an experiment.
 
 ## The short version

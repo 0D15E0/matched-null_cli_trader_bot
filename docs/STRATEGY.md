@@ -1,8 +1,10 @@
 # The strategy, in plain English
 
-This is the document to read before the code. It explains what the live book
-does, in ordinary language, and — more importantly — why it does *this* and
-not one of the thousands of other things we tried. Operations live in
+This is the document to read before the code. It explains one worked
+configuration of this engine in ordinary language, and — more importantly —
+why that configuration and not one of the thousands of others that were
+tried. It is an example built from the registered strategy families, not a
+recommendation and not a description of anyone's account. Operations live in
 [RUNBOOK.md](RUNBOOK.md); the strategy-search evidence lives in
 [TOURNAMENT.md](TOURNAMENT.md).
 The research-only inverse-volatility portfolio variant is explained in
@@ -104,7 +106,7 @@ Four hours is roughly where this idea stops paying rent to the exchange.
 hold a coin or hold cash; it cannot bet on falls. "Flat" is this book's maximum
 bearishness. (The *backtester* gained a long/short mode in Aug 2026 to measure
 whether shorting via Poloniex perpetuals would help; the adversarially-verified
-answer was "not on risk-adjusted evidence", so the live book stays
+answer was "not on risk-adjusted evidence", so the configuration stays
 long/flat.)
 
 ## What to expect
@@ -140,14 +142,33 @@ That is the system working.
 - **The performance table above is descriptive, not proof.** That period was
   read many times during research (the contamination is logged in
   the private holdout ledger). The honest test is pre-registered and forward:
-  the live book itself, judged only after its pre-registered read date, with
+  a registered forward test, judged only after its pre-registered read date, with
   primary criterion *worst loss ≤ half the basket's*. Until then, short-term
   P&L means nothing —
   the error bars are wider than a year of results.
 
-## Where it runs
+## A family that reads a second instrument
 
-Deployment and operations are documented in
-[deploy/pi/README.md](../deploy/pi/README.md) and [RUNBOOK.md](RUNBOOK.md).
-The deployment host, live status, and account details are intentionally kept
-out of the public strategy description.
+Every family above decides about a coin from that coin's own candles.
+`factor_trend` (2026-09-05) blends each coin's tsmom z-score with Bitcoin's,
+the crypto market factor, through new plumbing in `strategy/zoo/market_context.h`:
+a second store resolved from `--data-dir`, aligned by **timestamp** with a
+one-bar lag so a live alt sleeve never needs a BTC bar another process has not
+fetched yet, re-read when the store grows, and a hard error when missing. At
+`factorWeight=0` it reproduces tsmom with a sigma threshold to the cent;
+`causality_check` passes on stores where it reads the reference.
+
+The measurement behind it is real - given a positive own trend, an alt's next
+bar earns Sharpe 1.45 when Bitcoin's trend agrees and 0.69 when it does not
+(2017-2023, 7 alts) - and the pre-registered candidate cleared the research
+protocol's basket-relative kill rules. **It still loses to the reference ensemble on
+every fold**, because a signal shared across sleeves raises their correlation
+(0.51 → 0.65 from w=0 to w=1) and the blend's exit holds alts through their
+own trend breaks. Full study, including the thin-2015-16-data trap that made
+the effect look several times larger than it is:
+[experiments/factor_trend/README.md](../experiments/factor_trend/README.md) and
+PROFITABILITY_PLAN.md addendum 26.
+
+The full study, including the thin-2015-16-data trap that made the effect look
+several times larger than it is, is in
+[../experiments/factor_trend/README.md](../experiments/factor_trend/README.md).

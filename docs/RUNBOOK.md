@@ -20,11 +20,15 @@ youruser ALL=(root) NOPASSWD: /usr/bin/systemctl * cli-trader@*, \
 ```
 
     host      "$PI"                     (see Conventions above)
-   repo      ~/trader/cli_trader       on the target host
-    strategy  ensemble_vote enter>=2 / exit<=0 (--sparams enterVotes=2,exitVotes=0),
-              8 sleeves, --vol-target 0.30 --vol-window 90
-    config    deploy/pi/bot.env         (one file governs all eight sleeves)
+    repo      ~/trader/cli_trader       on the target host
+    strategy  whatever bot.env sets; this runbook uses a multi-sleeve
+              ensemble_vote deployment as its worked example
+    config    deploy/pi/bot.env         (one file governs every sleeve)
     state     state_live/               logs: logs_pi/
+
+This runbook describes how to operate A deployment, using one configuration as
+a running example. It is not a description of any particular account, and the
+values here are illustrative.
 
 Deployment details, host requirements, and validation procedures:
 [deploy/pi/README.md](../deploy/pi/README.md). How the software itself is
@@ -52,7 +56,7 @@ Exits are never blocked.
 |---|---|
 | Sizing | `VOL_TARGET / (annualized volatility at entry, VOL_WINDOW)`, capped at 100%, fixed for the life of the trade. Validate sizing changes on development data before deployment. |
 | Execution | decide at bar close, fill at the next bar's open |
-| Real costs | 0.125% taker fee (account's actual tier) + spread |
+| Real costs | taker fee at your account's tier (0.125% in the worked example) + spread |
 | Cadence | ~2 signals per sleeve per month |
 
 **Do not run this on a lower timeframe.** Measured on clean data: at 15m the
